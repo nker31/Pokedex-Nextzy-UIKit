@@ -82,6 +82,40 @@ class AuthViewModel{
         }
     }
     
+    
+    func editUserData(firstname: String, lastname: String, profileImageData: UIImage, completion: @escaping (Result<User, Error>) -> Void){
+        print("Debugger: editUserData is being called")
+        // get current user uid
+        guard let currentUserUID = self.userSession?.uid else { return }
+        
+        // create firebase reference
+        let userDocRef = Firestore.firestore().collection("users").document(currentUserUID)
+        let batch = Firestore.firestore().batch()
+        
+        // upload new profile image to firebase storage
+        self.uploadImage(image: profileImageData, imageName: currentUserUID) { result in
+            
+            
+            switch result {
+                // if success
+            case .success(var newImageURL):
+                // then update user document
+                batch.updateData(["firstname": firstname, "lastname": lastname, "profileImageURL": newImageURL.absoluteString], forDocument: userDocRef)
+                batch.commit()
+                print("Debugger: Updated user data complete")
+
+                
+                // if failed
+            case .failure(let failure):
+                print("Error uploading from edit profile: \(failure.localizedDescription)")
+                completion(.failure(failure))
+            }
+            
+        }
+        
+        
+    }
+    
     func uploadImage(image: UIImage, imageName: String, completion: @escaping (Result<URL, Error>) -> Void) {
         // compress image
         guard let imageData = image.jpegData(compressionQuality: 0.5) else {
