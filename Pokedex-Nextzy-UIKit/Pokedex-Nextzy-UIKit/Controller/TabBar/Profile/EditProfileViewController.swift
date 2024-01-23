@@ -170,15 +170,19 @@ class EditProfileViewController: UIViewController {
             print("Debugger: error from tap update button")
             return
         }
-        authViewModel.editUserData(firstname: firstName, lastname: lastName, profileImageData: newImage) { result in
-            switch result {
-            case .success(_):
-                self.showAlert(message: "update successfully")
-                
-            case .failure(_):
-                self.showAlert(message: "update failed")
+        Task{
+            await authViewModel.editUserData(firstname: firstName, lastname: lastName, profileImageData: newImage) { result in
+                switch result {
+                case .success(_):
+                    self.showAlert(message: "update successfully")
+                    self.dismiss(animated: true)
+                    
+                case .failure(_):
+                    self.showAlert(message: "update failed")
+                }
             }
         }
+        
     }
 }
 
