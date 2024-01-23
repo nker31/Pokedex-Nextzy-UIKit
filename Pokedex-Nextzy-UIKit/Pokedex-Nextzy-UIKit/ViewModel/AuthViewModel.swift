@@ -67,31 +67,35 @@ class AuthViewModel{
             }
             
             // upload image
-            self.uploadImage(image: profileImageData, imageName: authResult.user.uid) { result in
-                switch result {
-                
-                // if upload success then get put image url to user model
-                case .success(var imageURL):
-                    let user = User(id: authResult.user.uid, firstname: firstname, lastname: lastname, email: email, profileImageURL: imageURL.absoluteString)
+            Task{
+                await self.uploadImage(image: profileImageData, imageName: authResult.user.uid) { result in
+                    switch result {
                     
-                    // encode user model then upload to firebase
-                    if let encodedUser = try? Firestore.Encoder().encode(user){
-                        Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
-                        print("Debugger: \(user)")
-                        completion(.success(user))
+                    // if upload success then get put image url to user model
+                    case .success(var imageURL):
+                        let user = User(id: authResult.user.uid, firstname: firstname, lastname: lastname, email: email, profileImageURL: imageURL.absoluteString)
                         
-                    }
+                        // encode user model then upload to firebase
+                        if let encodedUser = try? Firestore.Encoder().encode(user){
+                            Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
+                            print("Debugger: \(user)")
+                            completion(.success(user))
+                            
+                        }
 
-                case .failure(let uploadError):
-                    print("Error uploading image: \(uploadError.localizedDescription)")
-                    completion(.failure(uploadError))
+                    case .failure(let uploadError):
+                        print("Error uploading image: \(uploadError.localizedDescription)")
+                        completion(.failure(uploadError))
+                    }
                 }
             }
+            
+            
         }
     }
     
     
-    func editUserData(firstname: String, lastname: String, profileImageData: UIImage, completion: @escaping (Result<User, Error>) -> Void){
+    func editUserData(firstname: String, lastname: String, profileImageData: UIImage, completion: @escaping (Result<Bool, Error>) -> Void) async{
         print("Debugger: editUserData is being called")
         // get current user uid
         guard let currentUserUID = self.userSession?.uid else { return }
@@ -101,22 +105,27 @@ class AuthViewModel{
         let batch = Firestore.firestore().batch()
         
         // upload new profile image to firebase storage
-        self.uploadImage(image: profileImageData, imageName: currentUserUID) { result in
+        await self.uploadImage(image: profileImageData, imageName: currentUserUID) { result in
             
             
             switch result {
                 // if success
             case .success(var newImageURL):
+                let stringURL = newImageURL.absoluteString
                 // then update user document
-                batch.updateData(["firstname": firstname, "lastname": lastname, "profileImageURL": newImageURL.absoluteString], forDocument: userDocRef)
+                batch.updateData(["firstname": firstname, "lastname": lastname, "profileImageURL": stringURL], forDocument: userDocRef)
                 batch.commit()
+                Task{
+                    await self.fetchUserData()
+                }
                 print("Debugger: Updated user data complete")
-
+                completion(.success(true))
+                
                 
                 // if failed
-            case .failure(let failure):
-                print("Error uploading from edit profile: \(failure.localizedDescription)")
-                completion(.failure(failure))
+            case .failure(let errorMessage):
+                print("Error uploading from edit profile: \(errorMessage.localizedDescription)")
+                completion(.failure(errorMessage))
             }
             
         }
@@ -124,7 +133,7 @@ class AuthViewModel{
         
     }
     
-    func uploadImage(image: UIImage, imageName: String, completion: @escaping (Result<URL, Error>) -> Void) {
+    func uploadImage(image: UIImage, imageName: String, completion: @escaping (Result<URL, Error>) -> Void) async{
         // compress image
         guard let imageData = image.jpegData(compressionQuality: 0.5) else {
             print("Debugger: Failed to compress image")
