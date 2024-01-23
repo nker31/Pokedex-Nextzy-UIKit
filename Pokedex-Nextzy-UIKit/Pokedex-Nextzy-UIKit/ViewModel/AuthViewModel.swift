@@ -20,16 +20,24 @@ class AuthViewModel{
     
     // MARK: - Authentication
     
-    func signIn(email: String, password: String, completion: @escaping (Result<String, Error>) -> Void) {
-            Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-                if let _ = authResult {
-                    // fetch user data
-                    completion(.success("Success"))
-                } else if let error = error {
-                    completion(.failure(error))
-                }
-            }
+    func fetchUserData() async{
+        guard let currentUserUID = Auth.auth().currentUser?.uid else{ return }
+        guard let snapshot = try? await Firestore.firestore().collection("users").document(currentUserUID).getDocument() else {return}
+        self.currentUser = try? snapshot.data(as: User.self)
+        print("Debugger: got current user: \(String(describing: self.currentUser))")
+    }
+    
+    func signIn(email: String, password: String) async throws {
+        do {
+            let authResult = try await Auth.auth().signIn(withEmail: email, password: password)
+            // fetch user data
+            await fetchUserData()
+        } catch {
+            throw error
         }
+    }
+
+
     
     func signOut(){
         do{
