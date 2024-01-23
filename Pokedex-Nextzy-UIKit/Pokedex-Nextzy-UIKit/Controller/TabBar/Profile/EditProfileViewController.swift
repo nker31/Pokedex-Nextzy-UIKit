@@ -60,7 +60,12 @@ class EditProfileViewController: UIViewController {
     }
     
     // MARK: - Life Cycle
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let imageURL = authViewModel.currentUser?.profileImageURL{
+            profileImageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: "pokeball-profile"))
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
