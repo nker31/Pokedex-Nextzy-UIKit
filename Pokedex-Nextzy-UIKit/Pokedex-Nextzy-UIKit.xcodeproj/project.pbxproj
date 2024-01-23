@@ -14,6 +14,7 @@
 		511EF5322B57830100554F78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 511EF5302B57830100554F78 /* LaunchScreen.storyboard */; };
 		512345EE2B5F6A1A00E84B66 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512345ED2B5F6A1A00E84B66 /* EditProfileViewController.swift */; };
 		512345F02B5F8E9000E84B66 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512345EF2B5F8E9000E84B66 /* WebViewController.swift */; };
+		512345F32B5FAD6A00E84B66 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 512345F22B5FAD6A00E84B66 /* Kingfisher */; };
 		519FCA102B5A35CE002BC2B5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA0F2B5A35CE002BC2B5 /* LoginViewController.swift */; };
 		519FCA122B5A35D7002BC2B5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA112B5A35D7002BC2B5 /* RegisterViewController.swift */; };
 		519FCA142B5A3606002BC2B5 /* ForgotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA132B5A3606002BC2B5 /* ForgotViewController.swift */; };
@@ -102,6 +103,7 @@
 				519FCA462B5A6F1F002BC2B5 /* FirebaseInAppMessaging-Beta in Frameworks */,
 				519FCA382B5A6F1F002BC2B5 /* FirebaseDatabaseSwift in Frameworks */,
 				519FCA422B5A6F1F002BC2B5 /* FirebaseFunctions in Frameworks */,
+				512345F32B5FAD6A00E84B66 /* Kingfisher in Frameworks */,
 				519FCA582B5A6F1F002BC2B5 /* FirebaseStorageCombine-Community in Frameworks */,
 				519FCA522B5A6F1F002BC2B5 /* FirebaseRemoteConfig in Frameworks */,
 				519FCA2E2B5A6F1F002BC2B5 /* FirebaseAppDistribution-Beta in Frameworks */,
@@ -271,6 +273,7 @@
 				519FCA532B5A6F1F002BC2B5 /* FirebaseRemoteConfigSwift */,
 				519FCA552B5A6F1F002BC2B5 /* FirebaseStorage */,
 				519FCA572B5A6F1F002BC2B5 /* FirebaseStorageCombine-Community */,
+				512345F22B5FAD6A00E84B66 /* Kingfisher */,
 			);
 			productName = "Pokedex-Nextzy-UIKit";
 			productReference = 511EF5222B57830000554F78 /* Pokedex-Nextzy-UIKit.app */;
@@ -302,6 +305,7 @@
 			mainGroup = 511EF5192B57830000554F78;
 			packageReferences = (
 				519FCA222B5A6F1F002BC2B5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				512345F12B5FAD6A00E84B66 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 511EF5232B57830000554F78 /* Products */;
 			projectDirPath = "";
@@ -561,6 +565,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		512345F12B5FAD6A00E84B66 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.10.2;
+			};
+		};
 		519FCA222B5A6F1F002BC2B5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -572,6 +584,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		512345F22B5FAD6A00E84B66 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 512345F12B5FAD6A00E84B66 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		519FCA232B5A6F1F002BC2B5 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 519FCA222B5A6F1F002BC2B5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
