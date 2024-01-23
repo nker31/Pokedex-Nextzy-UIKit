@@ -149,41 +149,36 @@ class LoginViewController: UIViewController {
     
     
     // MARK: - Selectors
-
     @objc private func didTapLoginButton(_ sender: UIButton) {
         
-        guard let email = emailField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else{
-            print("Debugger: Email should not be empty")
+        // Check empty email and password
+        guard let email = emailField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+              !email.isEmpty,
+              let password = passwordField.text,
+              !password.isEmpty else {
+            print("Debugger: Email or password is nil")
+            showAlert(message: "Please enter email and password")
             return
         }
-        guard let password = passwordField.text else{
-            print("Debugger: Email should not be empty")
-            return
-        }
-        
         if(authViewModel.isValidEmail(email)){
             if(authViewModel.isValidPassword(password)){
-                
-                authViewModel.signIn(email: email, password: password) { result in
-                    switch result {
-                    case .success(let user):
-                        print("Login successful.")
+                Task {
+                    do {
+                        try await authViewModel.signIn(email: email, password: password)
+                        print("Debugger: Login successful.")
                         self.showTabBarController()
-                    case .failure(let error):
+                    } catch {
                         self.showAlert(message: "Wrong email or password")
-                        print("Login failed with error: \(error.localizedDescription)")
+                        print("Debugger: Login failed with error: \(error.localizedDescription)")
                     }
                 }
                 
-
             }else{
-                showAlert(message: "Password must be at least 8 character") 
+                showAlert(message: "Password must be at least 8 character")
             }
         }else{
             showAlert(message: "Invalid email")
         }
-        
-        
     }
     
     @objc private func didTapForgotPasswordButton(_ sender: UIButton){

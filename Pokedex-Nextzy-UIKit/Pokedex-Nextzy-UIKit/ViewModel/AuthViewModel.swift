@@ -20,16 +20,24 @@ class AuthViewModel{
     
     // MARK: - Authentication
     
-    func signIn(email: String, password: String, completion: @escaping (Result<String, Error>) -> Void) {
-            Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-                if let _ = authResult {
-                    // fetch user data
-                    completion(.success("Success"))
-                } else if let error = error {
-                    completion(.failure(error))
-                }
-            }
+    func fetchUserData() async{
+        guard let currentUserUID = Auth.auth().currentUser?.uid else{ return }
+        guard let snapshot = try? await Firestore.firestore().collection("users").document(currentUserUID).getDocument() else {return}
+        self.currentUser = try? snapshot.data(as: User.self)
+        print("Debugger: got current user: \(String(describing: self.currentUser))")
+    }
+    
+    func signIn(email: String, password: String) async throws {
+        do {
+            let authResult = try await Auth.auth().signIn(withEmail: email, password: password)
+            // fetch user data
+            await fetchUserData()
+        } catch {
+            throw error
         }
+    }
+
+
     
     func signOut(){
         do{
@@ -59,30 +67,73 @@ class AuthViewModel{
             }
             
             // upload image
-            self.uploadImage(image: profileImageData, imageName: authResult.user.uid) { result in
-                switch result {
-                
-                // if upload success then get put image url to user model
-                case .success(var imageURL):
-                    let user = User(id: authResult.user.uid, firstname: firstname, lastname: lastname, email: email, profileImageURL: imageURL.absoluteString)
+            Task{
+                await self.uploadImage(image: profileImageData, imageName: authResult.user.uid) { result in
+                    switch result {
                     
-                    // encode user model then upload to firebase
-                    if let encodedUser = try? Firestore.Encoder().encode(user){
-                        Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
-                        print("Debugger: \(user)")
-                        completion(.success(user))
+                    // if upload success then get put image url to user model
+                    case .success(var imageURL):
+                        let user = User(id: authResult.user.uid, firstname: firstname, lastname: lastname, email: email, profileImageURL: imageURL.absoluteString)
                         
-                    }
+                        // encode user model then upload to firebase
+                        if let encodedUser = try? Firestore.Encoder().encode(user){
+                            Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
+                            print("Debugger: \(user)")
+                            completion(.success(user))
+                            
+                        }
 
-                case .failure(let uploadError):
-                    print("Error uploading image: \(uploadError.localizedDescription)")
-                    completion(.failure(uploadError))
+                    case .failure(let uploadError):
+                        print("Error uploading image: \(uploadError.localizedDescription)")
+                        completion(.failure(uploadError))
+                    }
                 }
             }
+            
+            
         }
     }
     
-    func uploadImage(image: UIImage, imageName: String, completion: @escaping (Result<URL, Error>) -> Void) {
+    
+    func editUserData(firstname: String, lastname: String, profileImageData: UIImage, completion: @escaping (Result<Bool, Error>) -> Void) async{
+        print("Debugger: editUserData is being called")
+        // get current user uid
+        guard let currentUserUID = self.userSession?.uid else { return }
+        
+        // create firebase reference
+        let userDocRef = Firestore.firestore().collection("users").document(currentUserUID)
+        let batch = Firestore.firestore().batch()
+        
+        // upload new profile image to firebase storage
+        await self.uploadImage(image: profileImageData, imageName: currentUserUID) { result in
+            
+            
+            switch result {
+                // if success
+            case .success(var newImageURL):
+                let stringURL = newImageURL.absoluteString
+                // then update user document
+                batch.updateData(["firstname": firstname, "lastname": lastname, "profileImageURL": stringURL], forDocument: userDocRef)
+                batch.commit()
+                Task{
+                    await self.fetchUserData()
+                }
+                print("Debugger: Updated user data complete")
+                completion(.success(true))
+                
+                
+                // if failed
+            case .failure(let errorMessage):
+                print("Error uploading from edit profile: \(errorMessage.localizedDescription)")
+                completion(.failure(errorMessage))
+            }
+            
+        }
+        
+        
+    }
+    
+    func uploadImage(image: UIImage, imageName: String, completion: @escaping (Result<URL, Error>) -> Void) async{
         // compress image
         guard let imageData = image.jpegData(compressionQuality: 0.5) else {
             print("Debugger: Failed to compress image")

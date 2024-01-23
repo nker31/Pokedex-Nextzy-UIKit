@@ -12,6 +12,9 @@
 		511EF52A2B57830000554F78 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EF5292B57830000554F78 /* RootViewController.swift */; };
 		511EF52F2B57830100554F78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 511EF52E2B57830100554F78 /* Assets.xcassets */; };
 		511EF5322B57830100554F78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 511EF5302B57830100554F78 /* LaunchScreen.storyboard */; };
+		512345EE2B5F6A1A00E84B66 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512345ED2B5F6A1A00E84B66 /* EditProfileViewController.swift */; };
+		512345F02B5F8E9000E84B66 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512345EF2B5F8E9000E84B66 /* WebViewController.swift */; };
+		512345F32B5FAD6A00E84B66 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 512345F22B5FAD6A00E84B66 /* Kingfisher */; };
 		519FCA102B5A35CE002BC2B5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA0F2B5A35CE002BC2B5 /* LoginViewController.swift */; };
 		519FCA122B5A35D7002BC2B5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA112B5A35D7002BC2B5 /* RegisterViewController.swift */; };
 		519FCA142B5A3606002BC2B5 /* ForgotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA132B5A3606002BC2B5 /* ForgotViewController.swift */; };
@@ -51,6 +54,7 @@
 		519FCA5E2B5A78FE002BC2B5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA5D2B5A78FE002BC2B5 /* TabBarController.swift */; };
 		519FCA602B5A8F28002BC2B5 /* PokedexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA5F2B5A8F28002BC2B5 /* PokedexViewController.swift */; };
 		51A34ADC2B5E1D9900D5CF19 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A34ADB2B5E1D9900D5CF19 /* User.swift */; };
+		51A34ADE2B5E816700D5CF19 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A34ADD2B5E816700D5CF19 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +65,8 @@
 		511EF52E2B57830100554F78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		511EF5312B57830100554F78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		511EF5332B57830100554F78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		512345ED2B5F6A1A00E84B66 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		512345EF2B5F8E9000E84B66 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		519FCA0F2B5A35CE002BC2B5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		519FCA112B5A35D7002BC2B5 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		519FCA132B5A3606002BC2B5 /* ForgotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +79,7 @@
 		519FCA5D2B5A78FE002BC2B5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		519FCA5F2B5A8F28002BC2B5 /* PokedexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexViewController.swift; sourceTree = "<group>"; };
 		51A34ADB2B5E1D9900D5CF19 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		51A34ADD2B5E816700D5CF19 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +103,7 @@
 				519FCA462B5A6F1F002BC2B5 /* FirebaseInAppMessaging-Beta in Frameworks */,
 				519FCA382B5A6F1F002BC2B5 /* FirebaseDatabaseSwift in Frameworks */,
 				519FCA422B5A6F1F002BC2B5 /* FirebaseFunctions in Frameworks */,
+				512345F32B5FAD6A00E84B66 /* Kingfisher in Frameworks */,
 				519FCA582B5A6F1F002BC2B5 /* FirebaseStorageCombine-Community in Frameworks */,
 				519FCA522B5A6F1F002BC2B5 /* FirebaseRemoteConfig in Frameworks */,
 				519FCA2E2B5A6F1F002BC2B5 /* FirebaseAppDistribution-Beta in Frameworks */,
@@ -143,6 +151,15 @@
 				519FCA592B5A6FD7002BC2B5 /* GoogleService-Info.plist */,
 			);
 			path = "Pokedex-Nextzy-UIKit";
+			sourceTree = "<group>";
+		};
+		512345EC2B5F6A0700E84B66 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				512345ED2B5F6A1A00E84B66 /* EditProfileViewController.swift */,
+				512345EF2B5F8E9000E84B66 /* WebViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		519FC9F22B5A20A6002BC2B5 /* Model */ = {
@@ -206,6 +223,8 @@
 			children = (
 				519FCA5D2B5A78FE002BC2B5 /* TabBarController.swift */,
 				519FCA5F2B5A8F28002BC2B5 /* PokedexViewController.swift */,
+				51A34ADD2B5E816700D5CF19 /* ProfileViewController.swift */,
+				512345EC2B5F6A0700E84B66 /* Profile */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -254,6 +273,7 @@
 				519FCA532B5A6F1F002BC2B5 /* FirebaseRemoteConfigSwift */,
 				519FCA552B5A6F1F002BC2B5 /* FirebaseStorage */,
 				519FCA572B5A6F1F002BC2B5 /* FirebaseStorageCombine-Community */,
+				512345F22B5FAD6A00E84B66 /* Kingfisher */,
 			);
 			productName = "Pokedex-Nextzy-UIKit";
 			productReference = 511EF5222B57830000554F78 /* Pokedex-Nextzy-UIKit.app */;
@@ -285,6 +305,7 @@
 			mainGroup = 511EF5192B57830000554F78;
 			packageReferences = (
 				519FCA222B5A6F1F002BC2B5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				512345F12B5FAD6A00E84B66 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 511EF5232B57830000554F78 /* Products */;
 			projectDirPath = "";
@@ -313,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				512345EE2B5F6A1A00E84B66 /* EditProfileViewController.swift in Sources */,
 				519FCA1A2B5A4733002BC2B5 /* Extension.swift in Sources */,
 				519FCA162B5A46A3002BC2B5 /* CustomTextField.swift in Sources */,
 				519FCA102B5A35CE002BC2B5 /* LoginViewController.swift in Sources */,
@@ -324,7 +346,9 @@
 				519FCA182B5A46FE002BC2B5 /* CustomButton.swift in Sources */,
 				519FCA5C2B5A70DD002BC2B5 /* AuthViewModel.swift in Sources */,
 				511EF5262B57830000554F78 /* AppDelegate.swift in Sources */,
+				512345F02B5F8E9000E84B66 /* WebViewController.swift in Sources */,
 				519FCA5E2B5A78FE002BC2B5 /* TabBarController.swift in Sources */,
+				51A34ADE2B5E816700D5CF19 /* ProfileViewController.swift in Sources */,
 				511EF5282B57830000554F78 /* SceneDelegate.swift in Sources */,
 				519FCA142B5A3606002BC2B5 /* ForgotViewController.swift in Sources */,
 			);
@@ -541,6 +565,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		512345F12B5FAD6A00E84B66 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.10.2;
+			};
+		};
 		519FCA222B5A6F1F002BC2B5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -552,6 +584,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		512345F22B5FAD6A00E84B66 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 512345F12B5FAD6A00E84B66 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		519FCA232B5A6F1F002BC2B5 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 519FCA222B5A6F1F002BC2B5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
