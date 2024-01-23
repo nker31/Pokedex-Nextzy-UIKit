@@ -40,7 +40,7 @@ class EditProfileViewController: UIViewController {
     let lastnameTextfield = CustomTextField(textfieldType: .lastname)
     
     // Button
-    let registerButton = CustomButton(title: "Update")
+    let updateButton = CustomButton(title: "Update")
     
     private func createLabelStackView(title: String, field: UITextField) -> UIStackView {
         let label = UILabel()
@@ -60,13 +60,18 @@ class EditProfileViewController: UIViewController {
     }
     
     // MARK: - Life Cycle
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setupNavbar()
         imagePicker.delegate = self
         imagePickerButton.addTarget(self, action: #selector(didTapPhotoButton), for: .touchUpInside)
-//        registerButton.addTarget(self, action: #selector(didClickRegister(_:)), for: .touchUpInside)
+        updateButton.addTarget(self, action: #selector(didTapUpdateButton), for: .touchUpInside)
+        // Make sure to set up the text fields after calling setupUI()
+        firstnameTextfield.text = authViewModel.currentUser?.firstname ?? "John"
+        lastnameTextfield.text = authViewModel.currentUser?.lastname ?? "Doe"
     }
     
     // MARK: - UI Setup
@@ -111,9 +116,9 @@ class EditProfileViewController: UIViewController {
         textfieldStack.translatesAutoresizingMaskIntoConstraints = false
         textfieldStack.backgroundColor = .white
         
-        self.view.addSubview(registerButton)
-        registerButton.translatesAutoresizingMaskIntoConstraints = false
-        registerButton.layer.cornerRadius = 20
+        self.view.addSubview(updateButton)
+        updateButton.translatesAutoresizingMaskIntoConstraints = false
+        updateButton.layer.cornerRadius = 20
         
         
         NSLayoutConstraint.activate([
@@ -136,10 +141,10 @@ class EditProfileViewController: UIViewController {
             textfieldStack.topAnchor.constraint(equalTo: coverScreenView.bottomAnchor, constant: 20),
             textfieldStack.widthAnchor.constraint(equalToConstant: 320),
             
-            registerButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor ),
-            registerButton.topAnchor.constraint(equalTo: textfieldStack.bottomAnchor, constant: 30),
-            registerButton.widthAnchor.constraint(equalToConstant: 320),
-            registerButton.heightAnchor.constraint(equalToConstant: 40)
+            updateButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor ),
+            updateButton.topAnchor.constraint(equalTo: textfieldStack.bottomAnchor, constant: 30),
+            updateButton.widthAnchor.constraint(equalToConstant: 320),
+            updateButton.heightAnchor.constraint(equalToConstant: 40)
             
             
 
@@ -151,6 +156,24 @@ class EditProfileViewController: UIViewController {
     @objc private func didTapPhotoButton(){
         present(imagePicker, animated: true, completion: nil)
 
+    }
+    
+    @objc private func didTapUpdateButton(){
+        guard let firstName = firstnameTextfield.text,
+              let lastName = lastnameTextfield.text,
+              let newImage = profileImageView.image else{
+            print("Debugger: error from tap update button")
+            return
+        }
+        authViewModel.editUserData(firstname: firstName, lastname: lastName, profileImageData: newImage) { result in
+            switch result {
+            case .success(_):
+                self.showAlert(message: "update successfully")
+                
+            case .failure(_):
+                self.showAlert(message: "update failed")
+            }
+        }
     }
 }
 
