@@ -51,6 +51,7 @@
 		519FCA5E2B5A78FE002BC2B5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA5D2B5A78FE002BC2B5 /* TabBarController.swift */; };
 		519FCA602B5A8F28002BC2B5 /* PokedexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA5F2B5A8F28002BC2B5 /* PokedexViewController.swift */; };
 		51A34ADC2B5E1D9900D5CF19 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A34ADB2B5E1D9900D5CF19 /* User.swift */; };
+		51A34ADE2B5E816700D5CF19 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A34ADD2B5E816700D5CF19 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		519FCA5D2B5A78FE002BC2B5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		519FCA5F2B5A8F28002BC2B5 /* PokedexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexViewController.swift; sourceTree = "<group>"; };
 		51A34ADB2B5E1D9900D5CF19 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		51A34ADD2B5E816700D5CF19 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 			children = (
 				519FCA5D2B5A78FE002BC2B5 /* TabBarController.swift */,
 				519FCA5F2B5A8F28002BC2B5 /* PokedexViewController.swift */,
+				51A34ADD2B5E816700D5CF19 /* ProfileViewController.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				519FCA5C2B5A70DD002BC2B5 /* AuthViewModel.swift in Sources */,
 				511EF5262B57830000554F78 /* AppDelegate.swift in Sources */,
 				519FCA5E2B5A78FE002BC2B5 /* TabBarController.swift in Sources */,
+				51A34ADE2B5E816700D5CF19 /* ProfileViewController.swift in Sources */,
 				511EF5282B57830000554F78 /* SceneDelegate.swift in Sources */,
 				519FCA142B5A3606002BC2B5 /* ForgotViewController.swift in Sources */,
 			);

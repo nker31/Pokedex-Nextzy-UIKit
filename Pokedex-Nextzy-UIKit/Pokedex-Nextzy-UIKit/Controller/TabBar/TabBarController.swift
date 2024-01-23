@@ -40,7 +40,8 @@ class TabBarController: UITabBarController {
     
     private func setupTab(){
         let pokedex = self.createNav(with: "Pokedex", and: UIImage(systemName: "pawprint.fill"), vc: PokedexViewController(authViewModel: authViewModel))
-        self.setViewControllers([pokedex], animated: true)
+        let profile = self.createNav(with: "Profile", and: UIImage(systemName: "person.fill"), vc: ProfileViewController(authViewModel: authViewModel))
+        self.setViewControllers([pokedex, profile], animated: true)
     }
 
     
