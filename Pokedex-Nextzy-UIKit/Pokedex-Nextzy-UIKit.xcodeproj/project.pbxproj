@@ -12,6 +12,7 @@
 		511EF52A2B57830000554F78 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EF5292B57830000554F78 /* RootViewController.swift */; };
 		511EF52F2B57830100554F78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 511EF52E2B57830100554F78 /* Assets.xcassets */; };
 		511EF5322B57830100554F78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 511EF5302B57830100554F78 /* LaunchScreen.storyboard */; };
+		512345EE2B5F6A1A00E84B66 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512345ED2B5F6A1A00E84B66 /* EditProfileViewController.swift */; };
 		519FCA102B5A35CE002BC2B5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA0F2B5A35CE002BC2B5 /* LoginViewController.swift */; };
 		519FCA122B5A35D7002BC2B5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA112B5A35D7002BC2B5 /* RegisterViewController.swift */; };
 		519FCA142B5A3606002BC2B5 /* ForgotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA132B5A3606002BC2B5 /* ForgotViewController.swift */; };
@@ -62,6 +63,7 @@
 		511EF52E2B57830100554F78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		511EF5312B57830100554F78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		511EF5332B57830100554F78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		512345ED2B5F6A1A00E84B66 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		519FCA0F2B5A35CE002BC2B5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		519FCA112B5A35D7002BC2B5 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		519FCA132B5A3606002BC2B5 /* ForgotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,14 @@
 			path = "Pokedex-Nextzy-UIKit";
 			sourceTree = "<group>";
 		};
+		512345EC2B5F6A0700E84B66 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				512345ED2B5F6A1A00E84B66 /* EditProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		519FC9F22B5A20A6002BC2B5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +219,7 @@
 				519FCA5D2B5A78FE002BC2B5 /* TabBarController.swift */,
 				519FCA5F2B5A8F28002BC2B5 /* PokedexViewController.swift */,
 				51A34ADD2B5E816700D5CF19 /* ProfileViewController.swift */,
+				512345EC2B5F6A0700E84B66 /* Profile */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -316,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				512345EE2B5F6A1A00E84B66 /* EditProfileViewController.swift in Sources */,
 				519FCA1A2B5A4733002BC2B5 /* Extension.swift in Sources */,
 				519FCA162B5A46A3002BC2B5 /* CustomTextField.swift in Sources */,
 				519FCA102B5A35CE002BC2B5 /* LoginViewController.swift in Sources */,

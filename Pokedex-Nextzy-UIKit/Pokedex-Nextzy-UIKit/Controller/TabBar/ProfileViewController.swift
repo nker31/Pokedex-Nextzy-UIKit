@@ -67,6 +67,10 @@ class ProfileViewController: UIViewController {
         
         
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.isNavigationBarHidden = false
+    }
     
     // MARK: - UI Setup
     
@@ -177,16 +181,18 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    // routing
+    // navigate to selected viewcontroller
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0{
-            showAlert(message: "tab edit profile")
+            let editProfileController = EditProfileViewController(authViewModel: authViewModel)
+            self.navigationController?.pushViewController(editProfileController, animated: true)
+            
         }else if indexPath.row == 1{
             showAlert(message: "tab term and condition")
         }
     }
 
-    // Target action for the sign-out button
+    // Sign out function
     @objc func signOutButtonTapped() {
         authViewModel.signOut()
         showAlert(message: "Sign out completed")
