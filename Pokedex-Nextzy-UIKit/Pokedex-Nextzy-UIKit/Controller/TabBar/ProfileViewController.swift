@@ -53,9 +53,10 @@ class ProfileViewController: UIViewController {
     
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
-        if let imageURL = authViewModel.currentUser?.profileImageURL{
-            
+        if let currentUser = authViewModel.currentUser{
+            let imageURL = currentUser.profileImageURL
             profileImageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: "pokeball-profile"))
+            userFullnameLabel.text = "\(currentUser.firstname ) \(currentUser.lastname )"
         }
         
         super.viewWillAppear(animated)
@@ -69,7 +70,6 @@ class ProfileViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        userFullnameLabel.text = "\(authViewModel.currentUser?.firstname ?? "John") \(authViewModel.currentUser?.lastname ?? "Doe")"
         
     }
     override func viewWillDisappear(_ animated: Bool) {
