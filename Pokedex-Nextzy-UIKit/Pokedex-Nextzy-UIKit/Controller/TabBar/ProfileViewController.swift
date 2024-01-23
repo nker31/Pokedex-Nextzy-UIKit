@@ -34,7 +34,6 @@ class ProfileViewController: UIViewController {
     
     lazy var userFullnameLabel: UILabel = {
         let label = UILabel()
-        label.text = "John Doe"
         label.textColor = .white
         label.font = .systemFont(ofSize: 20, weight: .semibold)
         
@@ -64,7 +63,7 @@ class ProfileViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
+        userFullnameLabel.text = "\(authViewModel.currentUser?.firstname ?? "John") \(authViewModel.currentUser?.lastname ?? "Doe")"
         
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -188,7 +187,8 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(editProfileController, animated: true)
             
         }else if indexPath.row == 1{
-            showAlert(message: "tab term and condition")
+            let webViewController = WebViewController()
+            self.present(webViewController, animated: true)
         }
     }
 

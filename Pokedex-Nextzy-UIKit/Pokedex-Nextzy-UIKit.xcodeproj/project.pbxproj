@@ -13,6 +13,7 @@
 		511EF52F2B57830100554F78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 511EF52E2B57830100554F78 /* Assets.xcassets */; };
 		511EF5322B57830100554F78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 511EF5302B57830100554F78 /* LaunchScreen.storyboard */; };
 		512345EE2B5F6A1A00E84B66 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512345ED2B5F6A1A00E84B66 /* EditProfileViewController.swift */; };
+		512345F02B5F8E9000E84B66 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512345EF2B5F8E9000E84B66 /* WebViewController.swift */; };
 		519FCA102B5A35CE002BC2B5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA0F2B5A35CE002BC2B5 /* LoginViewController.swift */; };
 		519FCA122B5A35D7002BC2B5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA112B5A35D7002BC2B5 /* RegisterViewController.swift */; };
 		519FCA142B5A3606002BC2B5 /* ForgotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA132B5A3606002BC2B5 /* ForgotViewController.swift */; };
@@ -64,6 +65,7 @@
 		511EF5312B57830100554F78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		511EF5332B57830100554F78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		512345ED2B5F6A1A00E84B66 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		512345EF2B5F8E9000E84B66 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		519FCA0F2B5A35CE002BC2B5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		519FCA112B5A35D7002BC2B5 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		519FCA132B5A3606002BC2B5 /* ForgotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				512345ED2B5F6A1A00E84B66 /* EditProfileViewController.swift */,
+				512345EF2B5F8E9000E84B66 /* WebViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				519FCA182B5A46FE002BC2B5 /* CustomButton.swift in Sources */,
 				519FCA5C2B5A70DD002BC2B5 /* AuthViewModel.swift in Sources */,
 				511EF5262B57830000554F78 /* AppDelegate.swift in Sources */,
+				512345F02B5F8E9000E84B66 /* WebViewController.swift in Sources */,
 				519FCA5E2B5A78FE002BC2B5 /* TabBarController.swift in Sources */,
 				51A34ADE2B5E816700D5CF19 /* ProfileViewController.swift in Sources */,
 				511EF5282B57830000554F78 /* SceneDelegate.swift in Sources */,
