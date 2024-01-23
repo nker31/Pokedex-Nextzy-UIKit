@@ -7,6 +7,7 @@
 
 import UIKit
 import WebKit
+import Kingfisher
 
 class ProfileViewController: UIViewController {
     
@@ -52,6 +53,11 @@ class ProfileViewController: UIViewController {
     
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
+        if let imageURL = authViewModel.currentUser?.profileImageURL{
+            
+            profileImageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: "pokeball-profile"))
+        }
+        
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
     }
