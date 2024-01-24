@@ -13,9 +13,12 @@ class PokedexViewController: UIViewController{
     
     // MARK: - Varibles
     private let authViewModel: AuthViewModel
+    private let pokedexViewModel: PokedexViewModel
+    private var pokemonArray:[Pokemon] = []
     
-    init(authViewModel: AuthViewModel) {
+    init(authViewModel: AuthViewModel, pokedexViewModel: PokedexViewModel) {
         self.authViewModel = authViewModel
+        self.pokedexViewModel = pokedexViewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -27,27 +30,25 @@ class PokedexViewController: UIViewController{
     
     
     // MARK: - UI Components
-    lazy var userLabel:UILabel = {
-        let label = UILabel()
-        label.textColor = .black
+    private let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
         
-        return label
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .white
+        collectionView.register(PokemonCell.self, forCellWithReuseIdentifier: PokemonCell.identifier)
+        return collectionView
     }()
     
-    lazy var signOutButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("sign out", for: .normal)
-        button.backgroundColor = UIColor.pinkPokemon
-        button.addTarget(self, action: #selector(signOutButtonTapped), for: .touchUpInside)
-        return button
-    }()
+
     
 
     
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.fetchData()
+        loadData()
+
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,23 +74,34 @@ class PokedexViewController: UIViewController{
     }
     
     private func setupUI(){
-        self.view.addSubview(userLabel)
-        self.view.addSubview(signOutButton)
-        userLabel.translatesAutoresizingMaskIntoConstraints = false
-        signOutButton.translatesAutoresizingMaskIntoConstraints = false
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
+        
+        self.view.addSubview(collectionView)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+
+        
+        self.view.backgroundColor = UIColor.pinkPokemon
+        
         
         NSLayoutConstraint.activate([
-            userLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            userLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
-            signOutButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            signOutButton.topAnchor.constraint(equalTo: userLabel.bottomAnchor, constant: 50)
+            collectionView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         
         ])
 
     }
-    
-    private func fetchData(){
-        userLabel.text = authViewModel.currentUser?.firstname
+    private func loadData() {
+        Task {
+            do {
+                await pokedexViewModel.fecthPokemonAPI()
+                pokemonArray = pokedexViewModel.pokemons ?? [MOCK_POKEMON[0]]
+                print("Debugger: Finished to fetching pokemon \(pokemonArray[0])")
+                collectionView.reloadData()
+            }
+        }
     }
     
     // MARK: - Selectors
@@ -98,25 +110,54 @@ class PokedexViewController: UIViewController{
 
     }
     
-    @objc private func signOutButtonTapped() {
-        authViewModel.signOut()
-        showAlert(message: "Sign out completed")
-        displayLogin()
-        
-    }
-
     
     @objc private func toggleColumnDisplayed(){
         isDisplayThreeColumns.toggle()
         setupNavbar()
         
     }
-    func displayLogin() {
-        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
-        sceneDelegate?.presentLoginViewController()
-    }
 
 }
 
+extension PokedexViewController: UICollectionViewDataSource, UICollectionViewDelegate{
+    
+    // number of cell
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.pokemonArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PokemonCell.identifier, for: indexPath) as? PokemonCell else{
+            fatalError("failed to dequeue view cell")
+        }
+        let pokemon = self.pokemonArray[indexPath.row]
+        cell.configPokemonCell(pokemon: pokemon)
+        
+        return cell
+    }
+    
+    
+}
+
+extension PokedexViewController: UICollectionViewDelegateFlowLayout{
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let size = ((self.view.frame.width - 40)/2) - 13.34
+        return CGSize(width: size, height: size)
+    }
+    
+    // vertical spacing
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
+    }
+    
+    // horizomtal spacing
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20)
+    }
+}
 
 

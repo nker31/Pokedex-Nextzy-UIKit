@@ -15,6 +15,10 @@
 		512345EE2B5F6A1A00E84B66 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512345ED2B5F6A1A00E84B66 /* EditProfileViewController.swift */; };
 		512345F02B5F8E9000E84B66 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512345EF2B5F8E9000E84B66 /* WebViewController.swift */; };
 		512345F32B5FAD6A00E84B66 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 512345F22B5FAD6A00E84B66 /* Kingfisher */; };
+		512345F72B5FC99900E84B66 /* PokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512345F62B5FC99900E84B66 /* PokemonCell.swift */; };
+		51339CDD2B602D1300DA49EC /* PokedexViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51339CDC2B602D1300DA49EC /* PokedexViewModel.swift */; };
+		51339CDF2B602D5E00DA49EC /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51339CDE2B602D5E00DA49EC /* Pokemon.swift */; };
+		51339CE22B602F2800DA49EC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 51339CE12B602F2800DA49EC /* Alamofire */; };
 		519FCA102B5A35CE002BC2B5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA0F2B5A35CE002BC2B5 /* LoginViewController.swift */; };
 		519FCA122B5A35D7002BC2B5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA112B5A35D7002BC2B5 /* RegisterViewController.swift */; };
 		519FCA142B5A3606002BC2B5 /* ForgotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA132B5A3606002BC2B5 /* ForgotViewController.swift */; };
@@ -67,6 +71,9 @@
 		511EF5332B57830100554F78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		512345ED2B5F6A1A00E84B66 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		512345EF2B5F8E9000E84B66 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		512345F62B5FC99900E84B66 /* PokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCell.swift; sourceTree = "<group>"; };
+		51339CDC2B602D1300DA49EC /* PokedexViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexViewModel.swift; sourceTree = "<group>"; };
+		51339CDE2B602D5E00DA49EC /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		519FCA0F2B5A35CE002BC2B5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		519FCA112B5A35D7002BC2B5 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		519FCA132B5A3606002BC2B5 /* ForgotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +115,7 @@
 				519FCA522B5A6F1F002BC2B5 /* FirebaseRemoteConfig in Frameworks */,
 				519FCA2E2B5A6F1F002BC2B5 /* FirebaseAppDistribution-Beta in Frameworks */,
 				519FCA322B5A6F1F002BC2B5 /* FirebaseAuthCombine-Community in Frameworks */,
+				51339CE22B602F2800DA49EC /* Alamofire in Frameworks */,
 				519FCA502B5A6F1F002BC2B5 /* FirebasePerformance in Frameworks */,
 				519FCA482B5A6F1F002BC2B5 /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
 				519FCA562B5A6F1F002BC2B5 /* FirebaseStorage in Frameworks */,
@@ -162,10 +170,19 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		512345F52B5FC97E00E84B66 /* Pokedex */ = {
+			isa = PBXGroup;
+			children = (
+				512345F62B5FC99900E84B66 /* PokemonCell.swift */,
+			);
+			path = Pokedex;
+			sourceTree = "<group>";
+		};
 		519FC9F22B5A20A6002BC2B5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				51A34ADB2B5E1D9900D5CF19 /* User.swift */,
+				51339CDE2B602D5E00DA49EC /* Pokemon.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -173,6 +190,7 @@
 		519FC9F32B5A20AF002BC2B5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				512345F52B5FC97E00E84B66 /* Pokedex */,
 				519FCA152B5A46A3002BC2B5 /* CustomTextField.swift */,
 				519FCA172B5A46FE002BC2B5 /* CustomButton.swift */,
 				519FCA1B2B5A4769002BC2B5 /* ImagePickerButton.swift */,
@@ -184,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				519FCA5B2B5A70DD002BC2B5 /* AuthViewModel.swift */,
+				51339CDC2B602D1300DA49EC /* PokedexViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -274,6 +293,7 @@
 				519FCA552B5A6F1F002BC2B5 /* FirebaseStorage */,
 				519FCA572B5A6F1F002BC2B5 /* FirebaseStorageCombine-Community */,
 				512345F22B5FAD6A00E84B66 /* Kingfisher */,
+				51339CE12B602F2800DA49EC /* Alamofire */,
 			);
 			productName = "Pokedex-Nextzy-UIKit";
 			productReference = 511EF5222B57830000554F78 /* Pokedex-Nextzy-UIKit.app */;
@@ -306,6 +326,7 @@
 			packageReferences = (
 				519FCA222B5A6F1F002BC2B5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				512345F12B5FAD6A00E84B66 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				51339CE02B602F2800DA49EC /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 511EF5232B57830000554F78 /* Products */;
 			projectDirPath = "";
@@ -339,6 +360,7 @@
 				519FCA162B5A46A3002BC2B5 /* CustomTextField.swift in Sources */,
 				519FCA102B5A35CE002BC2B5 /* LoginViewController.swift in Sources */,
 				519FCA122B5A35D7002BC2B5 /* RegisterViewController.swift in Sources */,
+				51339CDF2B602D5E00DA49EC /* Pokemon.swift in Sources */,
 				511EF52A2B57830000554F78 /* RootViewController.swift in Sources */,
 				519FCA1C2B5A4769002BC2B5 /* ImagePickerButton.swift in Sources */,
 				51A34ADC2B5E1D9900D5CF19 /* User.swift in Sources */,
@@ -351,6 +373,8 @@
 				51A34ADE2B5E816700D5CF19 /* ProfileViewController.swift in Sources */,
 				511EF5282B57830000554F78 /* SceneDelegate.swift in Sources */,
 				519FCA142B5A3606002BC2B5 /* ForgotViewController.swift in Sources */,
+				51339CDD2B602D1300DA49EC /* PokedexViewModel.swift in Sources */,
+				512345F72B5FC99900E84B66 /* PokemonCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +597,14 @@
 				minimumVersion = 7.10.2;
 			};
 		};
+		51339CE02B602F2800DA49EC /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
 		519FCA222B5A6F1F002BC2B5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -588,6 +620,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 512345F12B5FAD6A00E84B66 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		51339CE12B602F2800DA49EC /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 51339CE02B602F2800DA49EC /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 		519FCA232B5A6F1F002BC2B5 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
