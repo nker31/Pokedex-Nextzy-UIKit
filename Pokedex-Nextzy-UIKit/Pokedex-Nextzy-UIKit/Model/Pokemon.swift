@@ -46,3 +46,7 @@ struct Pokemon: Identifiable, Codable {
     }
 }
 
+let MOCK_POKEMON:[Pokemon] = [
+    .init(id: "#001", name: "Bulbasaur", imageUrl: URL(string: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"), xDescription: "Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.", yDescription: "Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.", height: "2' 04\"", category: "Seed", weight: "15.2 lbs", types: ["Grass", "Poison"], weaknesses: ["Fire", "Flying", "Ice", "Psychic"], evolutions: ["#001", "#002", "#003"], abilities: ["Overgrow"], hp: 20, attack: 30, defense: 20, specialAttack: 30, specialDefense: 30, speed: 30, total: 160, malePercentage: "87.5%", femalePercentage: "12.5%", genderless: 0, cycles: "20", eggGroups: "Grass, Monster ", evolvedFrom: "", reason: "", baseExp: "64")
+
+]
