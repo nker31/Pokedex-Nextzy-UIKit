@@ -19,6 +19,7 @@
 		51339CDD2B602D1300DA49EC /* PokedexViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51339CDC2B602D1300DA49EC /* PokedexViewModel.swift */; };
 		51339CDF2B602D5E00DA49EC /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51339CDE2B602D5E00DA49EC /* Pokemon.swift */; };
 		51339CE22B602F2800DA49EC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 51339CE12B602F2800DA49EC /* Alamofire */; };
+		51339CE42B60C7DE00DA49EC /* SmallPokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51339CE32B60C7DE00DA49EC /* SmallPokemonCell.swift */; };
 		519FCA102B5A35CE002BC2B5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA0F2B5A35CE002BC2B5 /* LoginViewController.swift */; };
 		519FCA122B5A35D7002BC2B5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA112B5A35D7002BC2B5 /* RegisterViewController.swift */; };
 		519FCA142B5A3606002BC2B5 /* ForgotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA132B5A3606002BC2B5 /* ForgotViewController.swift */; };
@@ -74,6 +75,7 @@
 		512345F62B5FC99900E84B66 /* PokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCell.swift; sourceTree = "<group>"; };
 		51339CDC2B602D1300DA49EC /* PokedexViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexViewModel.swift; sourceTree = "<group>"; };
 		51339CDE2B602D5E00DA49EC /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		51339CE32B60C7DE00DA49EC /* SmallPokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallPokemonCell.swift; sourceTree = "<group>"; };
 		519FCA0F2B5A35CE002BC2B5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		519FCA112B5A35D7002BC2B5 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		519FCA132B5A3606002BC2B5 /* ForgotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				512345F62B5FC99900E84B66 /* PokemonCell.swift */,
+				51339CE32B60C7DE00DA49EC /* SmallPokemonCell.swift */,
 			);
 			path = Pokedex;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				512345EE2B5F6A1A00E84B66 /* EditProfileViewController.swift in Sources */,
 				519FCA1A2B5A4733002BC2B5 /* Extension.swift in Sources */,
 				519FCA162B5A46A3002BC2B5 /* CustomTextField.swift in Sources */,
+				51339CE42B60C7DE00DA49EC /* SmallPokemonCell.swift in Sources */,
 				519FCA102B5A35CE002BC2B5 /* LoginViewController.swift in Sources */,
 				519FCA122B5A35D7002BC2B5 /* RegisterViewController.swift in Sources */,
 				51339CDF2B602D5E00DA49EC /* Pokemon.swift in Sources */,

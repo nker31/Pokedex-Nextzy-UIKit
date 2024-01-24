@@ -14,6 +14,7 @@ class PokedexViewController: UIViewController{
     // MARK: - Varibles
     private let authViewModel: AuthViewModel
     private let pokedexViewModel: PokedexViewModel
+    private var isDisplayThreeColumns = false
     private var pokemonArray:[Pokemon] = []
     
     init(authViewModel: AuthViewModel, pokedexViewModel: PokedexViewModel) {
@@ -26,8 +27,6 @@ class PokedexViewController: UIViewController{
         fatalError("init(coder:) has not been implemented")
     }
     
-    private var isDisplayThreeColumns = false
-    
     
     // MARK: - UI Components
     private let collectionView: UICollectionView = {
@@ -37,6 +36,7 @@ class PokedexViewController: UIViewController{
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .white
         collectionView.register(PokemonCell.self, forCellWithReuseIdentifier: PokemonCell.identifier)
+        collectionView.register(SmallPokemonCell.self, forCellWithReuseIdentifier: SmallPokemonCell.identifier)
         return collectionView
     }()
     
@@ -114,8 +114,10 @@ class PokedexViewController: UIViewController{
     @objc private func toggleColumnDisplayed(){
         isDisplayThreeColumns.toggle()
         setupNavbar()
-        
+        setupUI()
+        collectionView.reloadData() 
     }
+
 
 }
 
@@ -127,13 +129,25 @@ extension PokedexViewController: UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PokemonCell.identifier, for: indexPath) as? PokemonCell else{
-            fatalError("failed to dequeue view cell")
+        if isDisplayThreeColumns {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SmallPokemonCell.identifier, for: indexPath) as? SmallPokemonCell else{
+                fatalError("failed to dequeue view cell")
+            }
+            let pokemon = self.pokemonArray[indexPath.row]
+            cell.configPokemonCell(pokemon: pokemon)
+            
+            return cell
+        }else{
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PokemonCell.identifier, for: indexPath) as? PokemonCell else{
+                fatalError("failed to dequeue view cell")
+            }
+            let pokemon = self.pokemonArray[indexPath.row]
+            cell.configPokemonCell(pokemon: pokemon)
+            
+            return cell
+            
         }
-        let pokemon = self.pokemonArray[indexPath.row]
-        cell.configPokemonCell(pokemon: pokemon)
         
-        return cell
     }
     
     
@@ -142,18 +156,19 @@ extension PokedexViewController: UICollectionViewDataSource, UICollectionViewDel
 extension PokedexViewController: UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = ((self.view.frame.width - 40)/2) - 13.34
-        return CGSize(width: size, height: size)
+        let sizeTwoColums = ((self.view.frame.width - 40)/2) - 13.34
+        let sizeThreeColums = ((self.view.frame.width - 40)/3) - 6.25
+        return isDisplayThreeColumns ? CGSize(width: sizeThreeColums, height: sizeThreeColums) : CGSize(width: sizeTwoColums, height: sizeTwoColums)
     }
     
     // vertical spacing
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
+        return isDisplayThreeColumns ? 5 : 20
     }
     
     // horizomtal spacing
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
+        return isDisplayThreeColumns ? 5 : 20
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20)
