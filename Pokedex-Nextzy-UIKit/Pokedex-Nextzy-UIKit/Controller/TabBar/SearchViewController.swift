@@ -144,6 +144,8 @@ extension SearchViewController: UISearchBarDelegate {
         
         var searchedPokemon: [Pokemon] {
             if searchText.isEmpty {
+                notFoundImageView.isHidden = true
+                notFoundLabel.isHidden = true
                 return []
             } else {
                 // filter pokemon from search text
@@ -153,6 +155,9 @@ extension SearchViewController: UISearchBarDelegate {
                     notFoundImageView.isHidden = false
                     notFoundLabel.isHidden = false
                     notFoundLabel.text = "No results for \(searchText)"
+                }else{
+                    notFoundImageView.isHidden = true
+                    notFoundLabel.isHidden = true
                 }
                 return result
             }
