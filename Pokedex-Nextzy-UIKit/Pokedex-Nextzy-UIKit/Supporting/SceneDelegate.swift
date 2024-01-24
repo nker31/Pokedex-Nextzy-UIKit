@@ -11,6 +11,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     var authViewModel = AuthViewModel()
+    var pokedexViewModel = PokedexViewModel()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
@@ -35,7 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func presentTabBarController() {
-        let tabMenu = TabBarController(authViewModel: authViewModel)
+        let tabMenu = TabBarController(authViewModel: authViewModel,pokedexViewModel: pokedexViewModel)
         tabMenu.modalPresentationStyle = .fullScreen
         window?.rootViewController = tabMenu
     }

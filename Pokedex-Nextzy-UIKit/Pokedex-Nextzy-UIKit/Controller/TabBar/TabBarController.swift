@@ -10,9 +10,11 @@ import UIKit
 class TabBarController: UITabBarController {
     
     private let authViewModel: AuthViewModel
-
-    init(authViewModel: AuthViewModel) {
+    private let pokedexViewModel: PokedexViewModel
+    
+    init(authViewModel: AuthViewModel, pokedexViewModel: PokedexViewModel) {
         self.authViewModel = authViewModel
+        self.pokedexViewModel = pokedexViewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -51,7 +53,7 @@ class TabBarController: UITabBarController {
     // MARK: - set up
     
     private func setupTab(){
-        let pokedex = self.createNav(with: "Pokedex", and: UIImage(systemName: "pawprint.fill"), vc: PokedexViewController(authViewModel: authViewModel))
+        let pokedex = self.createNav(with: "Pokedex", and: UIImage(systemName: "pawprint.fill"), vc: PokedexViewController(authViewModel: authViewModel,pokedexViewModel: pokedexViewModel))
         let profile = self.createNav(with: "Profile", and: UIImage(systemName: "person.fill"), vc: ProfileViewController(authViewModel: authViewModel))
         self.setViewControllers([pokedex, profile], animated: true)
     }
