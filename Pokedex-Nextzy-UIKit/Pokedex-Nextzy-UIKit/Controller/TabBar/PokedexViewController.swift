@@ -29,6 +29,22 @@ class PokedexViewController: UIViewController{
     
     
     // MARK: - UI Components
+    let refreshControl = UIRefreshControl()
+    
+    lazy var progressView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+        view.isHidden = true
+        return view
+    }()
+    lazy var progresslabel: UILabel = {
+        let label = UILabel()
+        label.text = "Loading"
+        label.textColor = .white
+        label.font = .systemFont(ofSize: 16, weight: .bold)
+        return label
+    }()
+    
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -39,6 +55,7 @@ class PokedexViewController: UIViewController{
         collectionView.register(SmallPokemonCell.self, forCellWithReuseIdentifier: SmallPokemonCell.identifier)
         return collectionView
     }()
+    
     
 
     
@@ -54,7 +71,8 @@ class PokedexViewController: UIViewController{
         super.viewDidLoad()
         setupNavbar()
         setupUI()
-        
+        refreshControl.addTarget(self, action: #selector(pullRefresh), for: .valueChanged)
+        collectionView.refreshControl = refreshControl
         
     }
     
@@ -74,32 +92,47 @@ class PokedexViewController: UIViewController{
     }
     
     private func setupUI(){
+        self.view.backgroundColor = UIColor.pinkPokemon
+        
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         
+        
         self.view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-
+        self.progressView.addSubview(progresslabel)
+        progresslabel.translatesAutoresizingMaskIntoConstraints = false
         
-        self.view.backgroundColor = UIColor.pinkPokemon
         
+        self.view.addSubview(progressView)
+        progressView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
+            progresslabel.centerXAnchor.constraint(equalTo: progressView.centerXAnchor),
+            progresslabel.centerYAnchor.constraint(equalTo: progressView.centerYAnchor),
+            
+            progressView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            progressView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            progressView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            progressView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+
             collectionView.topAnchor.constraint(equalTo: self.view.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
-        
+            collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
         ])
+        
 
     }
     private func loadData() {
+        // should start progress view here
+        progressView.isHidden = false
         Task {
             do {
-                await pokedexViewModel.fecthPokemonAPI()
-                pokemonArray = pokedexViewModel.pokemons ?? [MOCK_POKEMON[0]]
-                print("Debugger: Finished to fetching pokemon \(pokemonArray[0])")
+                pokemonArray = await pokedexViewModel.fecthPokemonAPI()
+                sleep(UInt32(1.0))
                 collectionView.reloadData()
+                progressView.isHidden = true
             }
         }
     }
@@ -119,6 +152,11 @@ class PokedexViewController: UIViewController{
         setupNavbar()
         setupUI()
         collectionView.reloadData() 
+    }
+    
+    @objc func pullRefresh(_ sender: Any) {
+        loadData()
+        refreshControl.endRefreshing()
     }
 
 
