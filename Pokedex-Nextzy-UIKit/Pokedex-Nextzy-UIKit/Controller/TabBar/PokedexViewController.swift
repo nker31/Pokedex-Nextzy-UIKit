@@ -107,8 +107,11 @@ class PokedexViewController: UIViewController{
     // MARK: - Selectors
     
     @objc private func searchButtonTapped() {
-
-    }
+            let searchViewController = SearchViewController( pokedexViewModel: pokedexViewModel)
+            let navigationController = UINavigationController(rootViewController: searchViewController)
+        navigationController.modalPresentationStyle = .overFullScreen
+            present(navigationController, animated: true, completion: nil)
+        }
     
     
     @objc private func toggleColumnDisplayed(){
