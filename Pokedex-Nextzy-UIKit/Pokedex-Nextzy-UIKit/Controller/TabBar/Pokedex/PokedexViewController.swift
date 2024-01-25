@@ -64,12 +64,15 @@ class PokedexViewController: UIViewController{
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         loadData()
+        setupNavbar()
+        
 
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavbar()
+        
         setupUI()
         refreshControl.addTarget(self, action: #selector(pullRefresh), for: .valueChanged)
         collectionView.refreshControl = refreshControl
@@ -79,8 +82,10 @@ class PokedexViewController: UIViewController{
     // MARK: - UI Setup
     private func setupNavbar() {
         self.view.backgroundColor = .red
-        self.navigationController?.navigationBar.backgroundColor = .white
+        self.navigationController?.navigationBar.backgroundColor = .clear
+        self.navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationController?.navigationBar.tintColor = UIColor.pinkPokemon
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         
         let searchButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchButtonTapped))
         
@@ -195,6 +200,7 @@ extension PokedexViewController: UICollectionViewDataSource, UICollectionViewDel
 }
 
 extension PokedexViewController: UICollectionViewDelegateFlowLayout{
+     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let sizeTwoColums = ((self.view.frame.width - 40)/2) - 13.34
@@ -214,6 +220,20 @@ extension PokedexViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedItem = indexPath.item
+        print("Selected item: \(selectedItem)")
+        print("Selected pokemon: \(self.pokemonArray[indexPath.item].name)")
+
+        let pokemonDetailVC = DetailViewController(pokemon: self.pokemonArray[indexPath.item])
+        
+
+        hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(pokemonDetailVC, animated: true)
+        hidesBottomBarWhenPushed = false
+    }
+
 }
 
 

@@ -22,6 +22,8 @@
 		51339CE42B60C7DE00DA49EC /* SmallPokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51339CE32B60C7DE00DA49EC /* SmallPokemonCell.swift */; };
 		51339CE62B60CEB000DA49EC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51339CE52B60CEB000DA49EC /* SearchViewController.swift */; };
 		51339CE82B6104B200DA49EC /* PokeballProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51339CE72B6104B200DA49EC /* PokeballProgressView.swift */; };
+		51339CF12B625F4F00DA49EC /* AboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51339CF02B625F4F00DA49EC /* AboutCell.swift */; };
+		51339CF52B626D2800DA49EC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51339CF42B626D2800DA49EC /* DetailViewController.swift */; };
 		519FCA102B5A35CE002BC2B5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA0F2B5A35CE002BC2B5 /* LoginViewController.swift */; };
 		519FCA122B5A35D7002BC2B5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA112B5A35D7002BC2B5 /* RegisterViewController.swift */; };
 		519FCA142B5A3606002BC2B5 /* ForgotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA132B5A3606002BC2B5 /* ForgotViewController.swift */; };
@@ -80,6 +82,8 @@
 		51339CE32B60C7DE00DA49EC /* SmallPokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallPokemonCell.swift; sourceTree = "<group>"; };
 		51339CE52B60CEB000DA49EC /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		51339CE72B6104B200DA49EC /* PokeballProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeballProgressView.swift; sourceTree = "<group>"; };
+		51339CF02B625F4F00DA49EC /* AboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCell.swift; sourceTree = "<group>"; };
+		51339CF42B626D2800DA49EC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		519FCA0F2B5A35CE002BC2B5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		519FCA112B5A35D7002BC2B5 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		519FCA132B5A3606002BC2B5 /* ForgotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +185,17 @@
 			children = (
 				512345F62B5FC99900E84B66 /* PokemonCell.swift */,
 				51339CE32B60C7DE00DA49EC /* SmallPokemonCell.swift */,
+				51339CF02B625F4F00DA49EC /* AboutCell.swift */,
+			);
+			path = Pokedex;
+			sourceTree = "<group>";
+		};
+		51339CE92B611D6E00DA49EC /* Pokedex */ = {
+			isa = PBXGroup;
+			children = (
+				519FCA5F2B5A8F28002BC2B5 /* PokedexViewController.swift */,
+				51339CE52B60CEB000DA49EC /* SearchViewController.swift */,
+				51339CF42B626D2800DA49EC /* DetailViewController.swift */,
 			);
 			path = Pokedex;
 			sourceTree = "<group>";
@@ -249,10 +264,9 @@
 			isa = PBXGroup;
 			children = (
 				519FCA5D2B5A78FE002BC2B5 /* TabBarController.swift */,
-				519FCA5F2B5A8F28002BC2B5 /* PokedexViewController.swift */,
-				51A34ADD2B5E816700D5CF19 /* ProfileViewController.swift */,
+				51339CE92B611D6E00DA49EC /* Pokedex */,
 				512345EC2B5F6A0700E84B66 /* Profile */,
-				51339CE52B60CEB000DA49EC /* SearchViewController.swift */,
+				51A34ADD2B5E816700D5CF19 /* ProfileViewController.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -372,6 +386,7 @@
 				519FCA122B5A35D7002BC2B5 /* RegisterViewController.swift in Sources */,
 				51339CE82B6104B200DA49EC /* PokeballProgressView.swift in Sources */,
 				51339CDF2B602D5E00DA49EC /* Pokemon.swift in Sources */,
+				51339CF12B625F4F00DA49EC /* AboutCell.swift in Sources */,
 				511EF52A2B57830000554F78 /* RootViewController.swift in Sources */,
 				519FCA1C2B5A4769002BC2B5 /* ImagePickerButton.swift in Sources */,
 				51A34ADC2B5E1D9900D5CF19 /* User.swift in Sources */,
@@ -387,6 +402,7 @@
 				519FCA142B5A3606002BC2B5 /* ForgotViewController.swift in Sources */,
 				51339CDD2B602D1300DA49EC /* PokedexViewModel.swift in Sources */,
 				512345F72B5FC99900E84B66 /* PokemonCell.swift in Sources */,
+				51339CF52B626D2800DA49EC /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
