@@ -11,11 +11,22 @@ import Kingfisher
 class DetailViewController: UIViewController {
     
     
+    
     // MARK: - Varibles
+    enum selectedMenu {
+        case about, stat, evolution
+    }
+    var isPresentMenu = selectedMenu.about
+    
     private var isLiked = false
     private let pokemon: Pokemon
-    init(pokemon: Pokemon) {
+    var pokedexViewModel: PokedexViewModel
+    var filteredPokemon: [Pokemon]
+    
+    init(pokemon: Pokemon, pokedexViewModel: PokedexViewModel) {
         self.pokemon = pokemon
+        self.pokedexViewModel = pokedexViewModel
+        self.filteredPokemon = pokedexViewModel.pokemons?.filter { pokemon.evolutions.contains($0.id) } ?? []
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -28,6 +39,10 @@ class DetailViewController: UIViewController {
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .red
+        
+        tableView.register(AboutCell.self, forCellReuseIdentifier: AboutCell.identifier)
+        tableView.register(StatCell.self, forCellReuseIdentifier: StatCell.identifier)
+        tableView.register(EvolutionCell.self, forCellReuseIdentifier: EvolutionCell.identifier)
         return tableView
     }()
     
@@ -45,7 +60,7 @@ class DetailViewController: UIViewController {
     lazy var tabMenu: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: ["About", "Stats", "Evolutions"])
         segmentedControl.selectedSegmentIndex = 0
-//        segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
+        segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
         return segmentedControl
     }()
     
@@ -70,7 +85,6 @@ class DetailViewController: UIViewController {
         self.setupUI()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(AboutCell.self, forCellReuseIdentifier: AboutCell.identifier)
   
     }
     
@@ -78,11 +92,7 @@ class DetailViewController: UIViewController {
     // MARK: - UI Setup
     private func setupNavbar(){
         self.title = pokemon.name
-        self.navigationController?.navigationBar.backgroundColor = .clear
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         let favButton = UIBarButtonItem(
             image: UIImage(systemName: isLiked ? "heart.fill" : "heart"),
             style: .plain,
@@ -150,11 +160,26 @@ class DetailViewController: UIViewController {
         self.setupNavbar()
         print("Debugger: like it, isLike \(self.isLiked)")
     }
+    
+    @objc func segmentedControlValueChanged(_ sender: UISegmentedControl) {
+        print("Selected menu: \(sender.titleForSegment(at: sender.selectedSegmentIndex) ?? "")")
+        switch sender.selectedSegmentIndex {
+        case 0:
+            isPresentMenu = selectedMenu.about
+        case 1:
+            isPresentMenu = selectedMenu.stat
+        case 2:
+            isPresentMenu = selectedMenu.evolution
+        default:
+            print("Debugger: error")
+        }
+        self.tableView.reloadData()
+    }
 
 
 }
 
-extension DetailViewController: UITableViewDelegate, UITableViewDataSource{
+extension DetailViewController: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate{
     // MARK: - UITableViewDataSource
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -162,13 +187,31 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource{
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: AboutCell.identifier, for: indexPath) as! AboutCell
-
-            // Parse data to the cell
-        cell.configCell(pokemon: self.pokemon)
-
+        switch isPresentMenu{
+            
+        case .about:
+            let cell = tableView.dequeueReusableCell(withIdentifier: AboutCell.identifier, for: indexPath) as! AboutCell
+            cell.configCell(pokemon: self.pokemon)
+            return cell
+            
+        case .stat:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: StatCell.identifier, for: indexPath) as? StatCell {
+                cell.configCell(pokemon: self.pokemon)
+                return cell
+            } else {
+                fatalError("Unable to dequeue StatCell")
+            }
+ 
+            
+        case .evolution:
+            let cell = tableView.dequeueReusableCell(withIdentifier: EvolutionCell.identifier, for: indexPath) as! EvolutionCell
+            cell.configCell(pokemon: self.pokemon, filteredPokemon: filteredPokemon)
             return cell
         }
+        
+        
+       
+    }
 
     // MARK: - UITableViewDelegate
 
@@ -179,8 +222,23 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 45
     }
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//            // Return the desired height for your cells
-//            return 1200
-//        }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        print("offsetY:", offsetY)
+
+        if offsetY >= -100 {
+            navigationController?.navigationBar.backgroundColor = .clear
+            navigationController?.navigationBar.tintColor = .red
+            navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+            navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
+        } else {
+            navigationController?.navigationBar.backgroundColor = .clear
+            navigationController?.navigationBar.tintColor = .white
+            navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        }
+    }
+    
 }
+

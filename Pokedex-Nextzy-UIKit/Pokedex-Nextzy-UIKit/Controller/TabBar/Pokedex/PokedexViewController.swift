@@ -226,7 +226,7 @@ extension PokedexViewController: UICollectionViewDelegateFlowLayout{
         print("Selected item: \(selectedItem)")
         print("Selected pokemon: \(self.pokemonArray[indexPath.item].name)")
 
-        let pokemonDetailVC = DetailViewController(pokemon: self.pokemonArray[indexPath.item])
+        let pokemonDetailVC = DetailViewController(pokemon: self.pokemonArray[indexPath.item], pokedexViewModel: pokedexViewModel)
         
 
         hidesBottomBarWhenPushed = true
