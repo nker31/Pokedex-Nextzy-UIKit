@@ -10,9 +10,13 @@ import UIKit
 class TabBarController: UITabBarController {
     
     private let authViewModel: AuthViewModel
-
-    init(authViewModel: AuthViewModel) {
+    private let pokedexViewModel: PokedexViewModel
+    private let myPokemonViewModel: MyPokemonViewModel
+    
+    init(authViewModel: AuthViewModel, pokedexViewModel: PokedexViewModel, myPokemonViewModel: MyPokemonViewModel) {
         self.authViewModel = authViewModel
+        self.pokedexViewModel = pokedexViewModel
+        self.myPokemonViewModel = myPokemonViewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -25,6 +29,12 @@ class TabBarController: UITabBarController {
         Task{
             do{
                 await authViewModel.fetchUserData()
+                print("Debugger: currunt user \(String(describing: authViewModel.currentUser))")
+                if let currentUser = authViewModel.currentUser {
+                    await myPokemonViewModel.fetchMyPokemon(userID: currentUser.id)
+                    print("Debugger: My Pokemon array \(myPokemonViewModel.myPokemonIDs)")
+                    print("Debugger: fetched my pokemon in tabmenu complete")
+                }
                 self.setupTab()
             }
             
@@ -51,9 +61,10 @@ class TabBarController: UITabBarController {
     // MARK: - set up
     
     private func setupTab(){
-        let pokedex = self.createNav(with: "Pokedex", and: UIImage(systemName: "pawprint.fill"), vc: PokedexViewController(authViewModel: authViewModel))
+        let pokedex = self.createNav(with: "Pokedex", and: UIImage(systemName: "pawprint.fill"), vc: PokedexViewController(authViewModel: authViewModel,pokedexViewModel: pokedexViewModel, myPokedexViewModel: myPokemonViewModel))
+        let myPokemon = self.createNav(with: "My Pokemon", and: UIImage(systemName: "heart.text.square"), vc: MyPokemonViewController(authViewModel: authViewModel, pokedexViewModel: pokedexViewModel, myPokemonViewModel: myPokemonViewModel))
         let profile = self.createNav(with: "Profile", and: UIImage(systemName: "person.fill"), vc: ProfileViewController(authViewModel: authViewModel))
-        self.setViewControllers([pokedex, profile], animated: true)
+        self.setViewControllers([pokedex, myPokemon, profile], animated: true)
     }
 
     
