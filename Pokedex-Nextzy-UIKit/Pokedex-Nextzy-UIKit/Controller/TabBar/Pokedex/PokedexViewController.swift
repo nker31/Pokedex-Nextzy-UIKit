@@ -14,14 +14,14 @@ class PokedexViewController: UIViewController{
     // MARK: - Varibles
     private let authViewModel: AuthViewModel
     private let pokedexViewModel: PokedexViewModel
-    private let myPokedexViewModel: MyPokemonViewModel
+    private let myPokemonViewModel: MyPokemonViewModel
     private var isDisplayThreeColumns = false
     private var pokemonArray:[Pokemon] = []
     
-    init(authViewModel: AuthViewModel, pokedexViewModel: PokedexViewModel, myPokedexViewModel: MyPokemonViewModel) {
+    init(authViewModel: AuthViewModel, pokedexViewModel: PokedexViewModel, myPokemonViewModel: MyPokemonViewModel) {
         self.authViewModel = authViewModel
         self.pokedexViewModel = pokedexViewModel
-        self.myPokedexViewModel =  myPokedexViewModel
+        self.myPokemonViewModel = myPokemonViewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -150,7 +150,7 @@ class PokedexViewController: UIViewController{
     // MARK: - Selectors
     
     @objc private func searchButtonTapped() {
-            let searchViewController = SearchViewController( pokedexViewModel: pokedexViewModel)
+        let searchViewController = SearchViewController( pokedexViewModel: pokedexViewModel, myPokemonViewModel: myPokemonViewModel)
             let navigationController = UINavigationController(rootViewController: searchViewController)
         navigationController.modalPresentationStyle = .overFullScreen
             present(navigationController, animated: true, completion: nil)
@@ -231,7 +231,7 @@ extension PokedexViewController: UICollectionViewDelegateFlowLayout{
         print("Selected item: \(selectedItem)")
         print("Selected pokemon: \(self.pokemonArray[indexPath.item].name)")
 
-        let pokemonDetailVC = DetailViewController(pokemon: self.pokemonArray[indexPath.item], pokedexViewModel: pokedexViewModel, myPokemonViewModel: myPokedexViewModel
+        let pokemonDetailVC = DetailViewController(pokemon: self.pokemonArray[indexPath.item], pokedexViewModel: pokedexViewModel, myPokemonViewModel: myPokemonViewModel
         )
         
 

@@ -81,7 +81,7 @@ class TabBarController: UITabBarController {
         self.tabBar.tintColor = UIColor.pinkPokemon
         
         // assign viewController to tab menu
-        let pokedex = self.createNav(with: "Pokedex", and: UIImage(systemName: "pawprint.fill"), vc: PokedexViewController(authViewModel: authViewModel,pokedexViewModel: pokedexViewModel, myPokedexViewModel: myPokemonViewModel))
+        let pokedex = self.createNav(with: "Pokedex", and: UIImage(systemName: "pawprint.fill"), vc: PokedexViewController(authViewModel: authViewModel,pokedexViewModel: pokedexViewModel, myPokemonViewModel: myPokemonViewModel))
         let myPokemon = self.createNav(with: "My Pokemon", and: UIImage(systemName: "heart.text.square"), vc: MyPokemonViewController(authViewModel: authViewModel, pokedexViewModel: pokedexViewModel, myPokemonViewModel: myPokemonViewModel))
         let profile = self.createNav(with: "Profile", and: UIImage(systemName: "person.fill"), vc: ProfileViewController(authViewModel: authViewModel))
         self.setViewControllers([pokedex, myPokemon, profile], animated: true)

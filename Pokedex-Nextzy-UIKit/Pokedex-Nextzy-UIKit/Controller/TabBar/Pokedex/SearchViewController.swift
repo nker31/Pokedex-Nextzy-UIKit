@@ -11,12 +11,14 @@ class SearchViewController: UIViewController {
     
     // MARK: - Variables
     private let pokedexViewModel: PokedexViewModel
+    private let myPokemonViewModel: MyPokemonViewModel
     private var pokemonArray:[Pokemon] = []
     var filteredPokemon: [Pokemon] = []
     
-    init(pokedexViewModel: PokedexViewModel) {
+    init(pokedexViewModel: PokedexViewModel,myPokemonViewModel: MyPokemonViewModel) {
         self.pokedexViewModel = pokedexViewModel
         self.pokemonArray = pokedexViewModel.pokemons ?? [MOCK_POKEMON[0]]
+        self.myPokemonViewModel = myPokemonViewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -72,6 +74,10 @@ class SearchViewController: UIViewController {
     }()
     
     // MARK: - Life Cycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavbar()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,6 +91,8 @@ class SearchViewController: UIViewController {
     private func setupNavbar() {
         navigationItem.titleView = searchBar
         navigationItem.rightBarButtonItem = cancelButton
+        self.navigationController?.navigationBar.tintColor = UIColor.pinkPokemon
+        
         
     }
 
@@ -212,5 +220,17 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout{
     // collection view padding
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedItem = indexPath.item
+
+        let pokemonDetailVC = DetailViewController(pokemon: self.filteredPokemon[indexPath.item], pokedexViewModel: pokedexViewModel, myPokemonViewModel: myPokemonViewModel
+        )
+        
+
+        hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(pokemonDetailVC, animated: true)
+        hidesBottomBarWhenPushed = false
     }
 }
