@@ -66,15 +66,18 @@ class PokedexViewController: UIViewController{
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        loadData()
         setupNavbar()
         
 
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        Task {
+            do {
+                pokemonArray = await pokedexViewModel.fecthPokemonAPI()
+                collectionView.reloadData()
+            }
+        }
         setupUI()
         refreshControl.addTarget(self, action: #selector(pullRefresh), for: .valueChanged)
         collectionView.refreshControl = refreshControl
