@@ -63,22 +63,20 @@ class PokemonCell: UICollectionViewCell {
     func createPokemonTypeStackView(types:[String]){
         var items: [UIView] = []
         for type in types {
-            let label = UILabel()
-            label.text = type
-            label.font = .systemFont(ofSize: 13,weight: .semibold)
-            label.textColor = .white
-            items.append(label)
+            let typeComponents = PokemonTypeOverlay(type: type)
+            items.append(typeComponents)
             
         }
         let labelStackView = UIStackView(arrangedSubviews: items)
         labelStackView.axis = .vertical
-        labelStackView.spacing = 5
+        labelStackView.spacing = 30
         
         self.addSubview(labelStackView)
         labelStackView.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             labelStackView.topAnchor.constraint(equalTo: self.pokemonName.bottomAnchor, constant: 10),
-            labelStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15)
+            labelStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
         ])
     }
     

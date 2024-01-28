@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		51040E1A2B6653D0009BD5AA /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51040E192B6653D0009BD5AA /* SplashViewController.swift */; };
 		51040E1D2B66B9F2009BD5AA /* MyPokemonEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51040E1C2B66B9F2009BD5AA /* MyPokemonEmptyView.swift */; };
+		51040E1F2B66C356009BD5AA /* PokemonTypeOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51040E1E2B66C356009BD5AA /* PokemonTypeOverlay.swift */; };
 		511EF5262B57830000554F78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EF5252B57830000554F78 /* AppDelegate.swift */; };
 		511EF5282B57830000554F78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EF5272B57830000554F78 /* SceneDelegate.swift */; };
 		511EF52A2B57830000554F78 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EF5292B57830000554F78 /* RootViewController.swift */; };
@@ -80,6 +81,7 @@
 /* Begin PBXFileReference section */
 		51040E192B6653D0009BD5AA /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		51040E1C2B66B9F2009BD5AA /* MyPokemonEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPokemonEmptyView.swift; sourceTree = "<group>"; };
+		51040E1E2B66C356009BD5AA /* PokemonTypeOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTypeOverlay.swift; sourceTree = "<group>"; };
 		511EF5222B57830000554F78 /* Pokedex-Nextzy-UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pokedex-Nextzy-UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		511EF5252B57830000554F78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		511EF5272B57830000554F78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				518043B42B63990800552B6A /* EvolutionCompenent.swift */,
 				518043B82B639BBA00552B6A /* DetailTextCompents.swift */,
 				518043BA2B63B45900552B6A /* MapComponent.swift */,
+				51040E1E2B66C356009BD5AA /* PokemonTypeOverlay.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				518043B12B63985600552B6A /* StatBar.swift in Sources */,
 				518043B92B639BBA00552B6A /* DetailTextCompents.swift in Sources */,
 				511EF5262B57830000554F78 /* AppDelegate.swift in Sources */,
+				51040E1F2B66C356009BD5AA /* PokemonTypeOverlay.swift in Sources */,
 				512345F02B5F8E9000E84B66 /* WebViewController.swift in Sources */,
 				519FCA5E2B5A78FE002BC2B5 /* TabBarController.swift in Sources */,
 				51A673FF2B62B56000745C01 /* StatCell.swift in Sources */,
