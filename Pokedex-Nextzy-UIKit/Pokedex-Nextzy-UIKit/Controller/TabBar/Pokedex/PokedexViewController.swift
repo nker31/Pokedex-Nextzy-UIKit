@@ -14,12 +14,14 @@ class PokedexViewController: UIViewController{
     // MARK: - Varibles
     private let authViewModel: AuthViewModel
     private let pokedexViewModel: PokedexViewModel
+    private let myPokedexViewModel: MyPokemonViewModel
     private var isDisplayThreeColumns = false
     private var pokemonArray:[Pokemon] = []
     
-    init(authViewModel: AuthViewModel, pokedexViewModel: PokedexViewModel) {
+    init(authViewModel: AuthViewModel, pokedexViewModel: PokedexViewModel, myPokedexViewModel: MyPokemonViewModel) {
         self.authViewModel = authViewModel
         self.pokedexViewModel = pokedexViewModel
+        self.myPokedexViewModel =  myPokedexViewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -226,7 +228,8 @@ extension PokedexViewController: UICollectionViewDelegateFlowLayout{
         print("Selected item: \(selectedItem)")
         print("Selected pokemon: \(self.pokemonArray[indexPath.item].name)")
 
-        let pokemonDetailVC = DetailViewController(pokemon: self.pokemonArray[indexPath.item], pokedexViewModel: pokedexViewModel)
+        let pokemonDetailVC = DetailViewController(pokemon: self.pokemonArray[indexPath.item], pokedexViewModel: pokedexViewModel, myPokemonViewModel: myPokedexViewModel
+        )
         
 
         hidesBottomBarWhenPushed = true

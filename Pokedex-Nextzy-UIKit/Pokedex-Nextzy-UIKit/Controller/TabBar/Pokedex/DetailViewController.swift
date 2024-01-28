@@ -21,11 +21,13 @@ class DetailViewController: UIViewController {
     private var isLiked = false
     private let pokemon: Pokemon
     var pokedexViewModel: PokedexViewModel
+    var myPokemonViewModel: MyPokemonViewModel
     var filteredPokemon: [Pokemon]
     
-    init(pokemon: Pokemon, pokedexViewModel: PokedexViewModel) {
+    init(pokemon: Pokemon, pokedexViewModel: PokedexViewModel, myPokemonViewModel: MyPokemonViewModel) {
         self.pokemon = pokemon
         self.pokedexViewModel = pokedexViewModel
+        self.myPokemonViewModel = myPokemonViewModel
         self.filteredPokemon = pokedexViewModel.pokemons?.filter { pokemon.evolutions.contains($0.id) } ?? []
         super.init(nibName: nil, bundle: nil)
     }
@@ -78,6 +80,9 @@ class DetailViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if myPokemonViewModel.myPokemonIDs.contains(self.pokemon.id){
+            self.isLiked = true
+        }
         self.setupNavbar()
     }
     override func viewDidLoad() {
@@ -156,9 +161,11 @@ class DetailViewController: UIViewController {
     
     // MARK: - Selectors
     @objc func didTapFavButton(_ sender: UIBarButtonItem){
+        Task{
+            await self.myPokemonViewModel.addPokemonToFavList(pokemonID: pokemon.id)
+        }
         isLiked.toggle()
         self.setupNavbar()
-        print("Debugger: like it, isLike \(self.isLiked)")
     }
     
     @objc func segmentedControlValueChanged(_ sender: UISegmentedControl) {

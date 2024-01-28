@@ -45,13 +45,13 @@ class MyPokemonViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setupNavbar()
+        self.filteredPokemon = pokedexViewModel.pokemons?.filter { myPokemonViewModel.myPokemonIDs.contains($0.id) } ?? []
+        print("Debugger: filtered pokemon in mypokemon vc \(self.filteredPokemon.count)")
         self.collectionView.reloadData()
          
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.filteredPokemon = pokedexViewModel.pokemons?.filter { myPokemonViewModel.myPokemonIDs.contains($0.id) } ?? []
-        print("Debugger: filtered pokemon in mypokemon vc \(self.filteredPokemon.count)")
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -161,7 +161,7 @@ extension MyPokemonViewController: UICollectionViewDelegateFlowLayout{
         print("Selected item: \(selectedItem)")
         print("Selected pokemon: \(self.filteredPokemon[indexPath.item].name)")
 
-        let pokemonDetailVC = DetailViewController(pokemon: self.filteredPokemon[indexPath.item], pokedexViewModel: pokedexViewModel)
+        let pokemonDetailVC = DetailViewController(pokemon: self.filteredPokemon[indexPath.item], pokedexViewModel: pokedexViewModel,myPokemonViewModel: myPokemonViewModel)
         
 
         hidesBottomBarWhenPushed = true
