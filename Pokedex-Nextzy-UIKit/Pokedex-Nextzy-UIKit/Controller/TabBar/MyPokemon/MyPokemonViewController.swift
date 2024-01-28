@@ -40,13 +40,29 @@ class MyPokemonViewController: UIViewController {
         return collectionView
     }()
     
+    lazy var emptyView: UIView = {
+        let view = MyPokemonEmptyView()
+        view.isHidden = true
+        return view
+    }()
+    
     
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         self.setupNavbar()
+        
+        // filter pokemon from view model to display fav pokemon
         self.filteredPokemon = pokedexViewModel.pokemons?.filter { myPokemonViewModel.myPokemonIDs.contains($0.id) } ?? []
-        print("Debugger: filtered pokemon in mypokemon vc \(self.filteredPokemon.count)")
+        
+        // Check for display My pokemon empty view
+        if(self.filteredPokemon.isEmpty){
+            self.emptyView.isHidden = false
+        }else{
+            self.emptyView.isHidden  = true
+        }
+        
         self.collectionView.reloadData()
          
     }
@@ -56,7 +72,6 @@ class MyPokemonViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         self.setupUI()
-  
         
 
     }
@@ -81,11 +96,19 @@ class MyPokemonViewController: UIViewController {
         self.view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
+        self.view.addSubview(emptyView)
+        emptyView.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: self.view.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            
+            emptyView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            emptyView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            emptyView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            emptyView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
         ])
     }
     

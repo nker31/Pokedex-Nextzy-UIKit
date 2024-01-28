@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		51040E1A2B6653D0009BD5AA /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51040E192B6653D0009BD5AA /* SplashViewController.swift */; };
+		51040E1D2B66B9F2009BD5AA /* MyPokemonEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51040E1C2B66B9F2009BD5AA /* MyPokemonEmptyView.swift */; };
 		511EF5262B57830000554F78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EF5252B57830000554F78 /* AppDelegate.swift */; };
 		511EF5282B57830000554F78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EF5272B57830000554F78 /* SceneDelegate.swift */; };
 		511EF52A2B57830000554F78 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EF5292B57830000554F78 /* RootViewController.swift */; };
@@ -78,6 +79,7 @@
 
 /* Begin PBXFileReference section */
 		51040E192B6653D0009BD5AA /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		51040E1C2B66B9F2009BD5AA /* MyPokemonEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPokemonEmptyView.swift; sourceTree = "<group>"; };
 		511EF5222B57830000554F78 /* Pokedex-Nextzy-UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pokedex-Nextzy-UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		511EF5252B57830000554F78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		511EF5272B57830000554F78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -167,6 +169,13 @@
 				519FCA1B2B5A4769002BC2B5 /* ImagePickerButton.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		51040E1B2B669C0C009BD5AA /* MyPokemon */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MyPokemon;
 			sourceTree = "<group>";
 		};
 		511EF5192B57830000554F78 = {
@@ -268,6 +277,7 @@
 			children = (
 				51040E182B665353009BD5AA /* Auth */,
 				512345F52B5FC97E00E84B66 /* Pokedex */,
+				51040E1B2B669C0C009BD5AA /* MyPokemon */,
 				51339CE72B6104B200DA49EC /* PokeballProgressView.swift */,
 			);
 			path = View;
@@ -329,6 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				51CB3E402B64E155001877C4 /* MyPokemonViewController.swift */,
+				51040E1C2B66B9F2009BD5AA /* MyPokemonEmptyView.swift */,
 			);
 			path = MyPokemon;
 			sourceTree = "<group>";
@@ -444,6 +455,7 @@
 				519FCA1A2B5A4733002BC2B5 /* Extension.swift in Sources */,
 				519FCA162B5A46A3002BC2B5 /* CustomTextField.swift in Sources */,
 				51339CE42B60C7DE00DA49EC /* SmallPokemonCell.swift in Sources */,
+				51040E1D2B66B9F2009BD5AA /* MyPokemonEmptyView.swift in Sources */,
 				519FCA102B5A35CE002BC2B5 /* LoginViewController.swift in Sources */,
 				519FCA122B5A35D7002BC2B5 /* RegisterViewController.swift in Sources */,
 				518043AA2B6348D200552B6A /* EvolutionCell.swift in Sources */,
