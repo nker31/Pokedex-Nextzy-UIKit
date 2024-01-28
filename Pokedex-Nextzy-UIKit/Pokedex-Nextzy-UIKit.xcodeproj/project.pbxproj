@@ -157,6 +157,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		51040E182B665353009BD5AA /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				519FCA152B5A46A3002BC2B5 /* CustomTextField.swift */,
+				519FCA172B5A46FE002BC2B5 /* CustomButton.swift */,
+				519FCA1B2B5A4769002BC2B5 /* ImagePickerButton.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		511EF5192B57830000554F78 = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +202,7 @@
 		512345EC2B5F6A0700E84B66 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				51A34ADD2B5E816700D5CF19 /* ProfileViewController.swift */,
 				512345ED2B5F6A1A00E84B66 /* EditProfileViewController.swift */,
 				512345EF2B5F8E9000E84B66 /* WebViewController.swift */,
 			);
@@ -253,10 +264,8 @@
 		519FC9F32B5A20AF002BC2B5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				51040E182B665353009BD5AA /* Auth */,
 				512345F52B5FC97E00E84B66 /* Pokedex */,
-				519FCA152B5A46A3002BC2B5 /* CustomTextField.swift */,
-				519FCA172B5A46FE002BC2B5 /* CustomButton.swift */,
-				519FCA1B2B5A4769002BC2B5 /* ImagePickerButton.swift */,
 				51339CE72B6104B200DA49EC /* PokeballProgressView.swift */,
 			);
 			path = View;
@@ -309,7 +318,6 @@
 				51339CE92B611D6E00DA49EC /* Pokedex */,
 				51CB3E3F2B64E100001877C4 /* MyPokemon */,
 				512345EC2B5F6A0700E84B66 /* Profile */,
-				51A34ADD2B5E816700D5CF19 /* ProfileViewController.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
