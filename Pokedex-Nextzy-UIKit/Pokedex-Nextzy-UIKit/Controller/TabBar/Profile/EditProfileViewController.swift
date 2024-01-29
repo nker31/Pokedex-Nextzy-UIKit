@@ -133,7 +133,7 @@ class EditProfileViewController: UIViewController {
             coverScreenView.heightAnchor.constraint(equalToConstant: 280),
             
             profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            profileImageView.bottomAnchor.constraint(equalTo: coverScreenView.bottomAnchor, constant: -20),
+            profileImageView.bottomAnchor.constraint(equalTo: coverScreenView.bottomAnchor, constant: -15),
             profileImageView.widthAnchor.constraint(equalToConstant: 120),
             profileImageView.heightAnchor.constraint(equalToConstant: 120),
             
