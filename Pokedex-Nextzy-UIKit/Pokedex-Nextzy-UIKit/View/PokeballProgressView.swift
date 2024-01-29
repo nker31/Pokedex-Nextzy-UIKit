@@ -8,26 +8,13 @@
 import UIKit
 
 class PokeballProgressView: UIView {
+    
+    // MARK: - Initializer
 
-    // MARK: - Varibles
-    
-    
-    // MARK: - UI Components
-    lazy var imageView : UIImageView = {
-        let image = UIImage(named: "pokeball")
-        let imageView = UIImageView(image: image)
-        return imageView
-    }()
-    lazy var labelLoading: UILabel = {
-        let label = UILabel()
-        label.text = "Loading"
-        return label
-    }()
-    
-    // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
+        animatePokeball()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -35,34 +22,51 @@ class PokeballProgressView: UIView {
         setupUI()
     }
     
+    // MARK: - UI Components
+    lazy var imageView : UIImageView = {
+        let image = UIImage(named: "pokeball")
+        let imageView = UIImageView(image: image)
+        return imageView
+    }()
+    
+    lazy var progresslabel: UILabel = {
+        let label = UILabel()
+        label.text = "Loading"
+        label.textColor = .white
+        label.font = .systemFont(ofSize: 16, weight: .bold)
+        return label
+    }()
+    
     // MARK: - UI Setup
     func setupUI(){
-        self.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        self.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        
+        self.addSubview(progresslabel)
+        progresslabel.translatesAutoresizingMaskIntoConstraints = false
+        
         self.addSubview(imageView)
-        self.addSubview(labelLoading)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
+            progresslabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            progresslabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            
             imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            imageView.bottomAnchor.constraint(equalTo: progresslabel.topAnchor, constant: -10),
             imageView.widthAnchor.constraint(equalToConstant: 80),
             imageView.heightAnchor.constraint(equalToConstant: 80),
             
-            labelLoading.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10),
-            labelLoading.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+            
         ])
         
     }
     
-    func startAnimating() {
-        UIView.animate(withDuration: 2.0, delay: 0, options: [.repeat, .curveLinear], animations: {
+    func animatePokeball(){
+        UIView.animate(withDuration: 1, delay: 0, options: [.repeat, .autoreverse]) {
             self.imageView.transform = self.imageView.transform.rotated(by: .pi)
-        }, completion: nil)
-    }
-
-    func stopAnimating() {
-        imageView.layer.removeAllAnimations()
+        }
     }
     
-    // MARK: - Selectors
-
+    
+    
 }
