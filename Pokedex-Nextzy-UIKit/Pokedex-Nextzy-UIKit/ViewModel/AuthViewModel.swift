@@ -29,7 +29,7 @@ class AuthViewModel{
     
     func signIn(email: String, password: String) async throws {
         do {
-            let authResult = try await Auth.auth().signIn(withEmail: email, password: password)
+            let _ = try await Auth.auth().signIn(withEmail: email, password: password)
             // fetch user data
             await fetchUserData()
         } catch {
@@ -72,7 +72,7 @@ class AuthViewModel{
                     switch result {
                     
                     // if upload success then get put image url to user model
-                    case .success(var imageURL):
+                    case .success(let imageURL):
                         let user = User(id: authResult.user.uid, firstname: firstname, lastname: lastname, email: email, profileImageURL: imageURL.absoluteString)
                         
                         // encode user model then upload to firebase
@@ -110,7 +110,7 @@ class AuthViewModel{
             
             switch result {
                 // if success
-            case .success(var newImageURL):
+            case .success(let newImageURL):
                 let stringURL = newImageURL.absoluteString
                 // then update user document
                 batch.updateData(["firstname": firstname, "lastname": lastname, "profileImageURL": stringURL], forDocument: userDocRef)
