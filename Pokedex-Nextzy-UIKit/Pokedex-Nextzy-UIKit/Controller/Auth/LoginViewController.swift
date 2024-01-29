@@ -30,39 +30,13 @@ class LoginViewController: UIViewController {
         return imageView
     }()
     
-    lazy var emailField: UITextField = {
-        let field = UITextField()
-        field.autocapitalizationType = .none
-        field.borderStyle = .none
-        field.placeholder = "Enter your email"
-        field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: field.frame.size.height))
-        field.leftViewMode = .always
-        return field
-    }()
+    lazy var emailField = LoginTextField(textfieldType: .email)
     
-    lazy var passwordField: UITextField = {
-        let field = UITextField()
-        field.borderStyle = .none
-        field.placeholder = "Enter your password"
-        field.isSecureTextEntry = true
-        field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: field.frame.size.height))
-        field.leftViewMode = .always
-        return field
-    }()
+    lazy var passwordField = LoginTextField(textfieldType: .password)
 
     lazy var forgotPasswordButton = TextButton(title: "Forgot password ?")
     
-    lazy var loginButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Login", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .medium)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = UIColor(red: 0.941, green: 0.388, blue: 0.396, alpha: 1) // #f06365
-        button.alpha = 1
-        button.layer.cornerRadius = 6
-        button.addTarget(self, action: #selector(didTapLoginButton(_:)), for: .touchUpInside)
-        return button
-    }()
+    lazy var loginButton = CustomButton(title: "Login", cornerRadius: 6)
     
     lazy var noAccountButton = TextButton(title: "No account? Register")
     
@@ -70,7 +44,9 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupView()
+        // assign button function
         forgotPasswordButton.addTarget(self, action: #selector(didTapForgotPasswordButton(_:)), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(didTapLoginButton(_:)), for: .touchUpInside)
         noAccountButton.addTarget(self, action: #selector(didTapRegisterButton(_:)), for: .touchUpInside)
     }
     
