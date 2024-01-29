@@ -202,12 +202,9 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource, UISc
             return cell
             
         case .stat:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: StatCell.identifier, for: indexPath) as? StatCell {
-                cell.configCell(pokemon: self.pokemon)
-                return cell
-            } else {
-                fatalError("Unable to dequeue StatCell")
-            }
+            let cell = tableView.dequeueReusableCell(withIdentifier: StatCell.identifier, for: indexPath) as! StatCell
+            cell.configCell(pokemon: self.pokemon)
+            return cell
  
             
         case .evolution:
@@ -234,7 +231,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource, UISc
         let offsetY = scrollView.contentOffset.y
         print("offsetY:", offsetY)
 
-        if offsetY >= -100 {
+        if offsetY >= -95 {
             navigationController?.navigationBar.backgroundColor = .clear
             navigationController?.navigationBar.tintColor = .red
             navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
