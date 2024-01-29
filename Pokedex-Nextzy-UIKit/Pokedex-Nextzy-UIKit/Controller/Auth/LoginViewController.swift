@@ -50,17 +50,7 @@ class LoginViewController: UIViewController {
         return field
     }()
 
-    lazy var forgotPasswordButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Forgot password ?", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 14, weight: .bold)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .systemBackground
-        button.alpha = 0.6
-        button.layer.cornerRadius = 6
-        button.addTarget(self, action: #selector(didTapForgotPasswordButton(_:)), for: .touchUpInside)
-        return button
-    }()
+    lazy var forgotPasswordButton = TextButton(title: "Forgot password ?")
     
     lazy var loginButton: UIButton = {
         let button = UIButton()
@@ -74,22 +64,14 @@ class LoginViewController: UIViewController {
         return button
     }()
     
-    
-    lazy var noAccountButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("No account? Register", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 14, weight: .bold)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .systemBackground
-        button.alpha = 0.6
-        button.addTarget(self, action: #selector(didTapRegisterButton(_:)), for: .touchUpInside)
-        return button
-    }()
+    lazy var noAccountButton = TextButton(title: "No account? Register")
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupView()
+        forgotPasswordButton.addTarget(self, action: #selector(didTapForgotPasswordButton(_:)), for: .touchUpInside)
+        noAccountButton.addTarget(self, action: #selector(didTapRegisterButton(_:)), for: .touchUpInside)
     }
     
     // MARK: - UI Setup
