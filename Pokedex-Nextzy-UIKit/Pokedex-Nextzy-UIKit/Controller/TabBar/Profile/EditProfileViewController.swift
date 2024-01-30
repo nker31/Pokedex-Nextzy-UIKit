@@ -31,6 +31,7 @@ class EditProfileViewController: UIViewController {
         imageView.layer.masksToBounds = true
         return imageView
     }()
+    
     // Image picker
     lazy var imagePickerButton = ImagePickerButton()
     let imagePicker = UIImagePickerController()
@@ -42,6 +43,7 @@ class EditProfileViewController: UIViewController {
     // Button
     let updateButton = CustomButton(title: "Update")
     
+    // text field row
     private func createLabelStackView(title: String, field: UITextField) -> UIStackView {
         let label = UILabel()
         label.text = title
@@ -60,23 +62,25 @@ class EditProfileViewController: UIViewController {
     }
     
     // MARK: - Life Cycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if let imageURL = authViewModel.currentUser?.profileImageURL{
-            profileImageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: "pokeball-profile"))
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // ui set up
         setupUI()
         setupNavbar()
+        
+        // user data set up
+        if let currentUser = authViewModel.currentUser{
+            profileImageView.kf.setImage(with: URL(string: currentUser.profileImageURL), placeholder: UIImage(named: "pokeball-profile"))
+            firstnameTextfield.text = currentUser.firstname
+            lastnameTextfield.text = currentUser.lastname
+        }
+        
+        // image picker set up
         imagePicker.delegate = self
         imagePickerButton.addTarget(self, action: #selector(didTapPhotoButton), for: .touchUpInside)
         updateButton.addTarget(self, action: #selector(didTapUpdateButton), for: .touchUpInside)
-        // Make sure to set up the text fields after calling setupUI()
-        firstnameTextfield.text = authViewModel.currentUser?.firstname ?? "John"
-        lastnameTextfield.text = authViewModel.currentUser?.lastname ?? "Doe"
+        
     }
     
     // MARK: - UI Setup
@@ -91,15 +95,13 @@ class EditProfileViewController: UIViewController {
     
     private func setupUI(){
         self.view.backgroundColor = .white
+        
         let textfieldStack = UIStackView(arrangedSubviews: [
             createLabelStackView(title: "Firstname", field: firstnameTextfield),
             createLabelStackView(title: "Lastname", field: lastnameTextfield),
             
         ])
-        
-        
-        
-        
+         
         self.view.addSubview(coverScreenView)
         coverScreenView.backgroundColor = UIColor.pinkPokemon // #f06365
         coverScreenView.translatesAutoresizingMaskIntoConstraints = false
