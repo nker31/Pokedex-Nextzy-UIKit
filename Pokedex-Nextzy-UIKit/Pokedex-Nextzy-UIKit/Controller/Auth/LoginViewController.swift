@@ -6,11 +6,16 @@
 //
 
 import UIKit
+import AVFoundation
+import AVKit
 
 class LoginViewController: UIViewController {
 
     
     // MARK: - Varibles
+    var player: AVPlayer?
+    var playerViewController: AVPlayerViewController?
+    
     private let authViewModel: AuthViewModel
 
     init(authViewModel: AuthViewModel) {
@@ -48,6 +53,7 @@ class LoginViewController: UIViewController {
         forgotPasswordButton.addTarget(self, action: #selector(didTapForgotPasswordButton(_:)), for: .touchUpInside)
         loginButton.addTarget(self, action: #selector(didTapLoginButton(_:)), for: .touchUpInside)
         noAccountButton.addTarget(self, action: #selector(didTapRegisterButton(_:)), for: .touchUpInside)
+        
     }
     
     // MARK: - UI Setup
@@ -56,7 +62,7 @@ class LoginViewController: UIViewController {
         let label = UILabel()
         label.text = title
         label.font = UIFont.boldSystemFont(ofSize: 14)
-        label.textColor = UIColor.gray
+        label.textColor = .white
         
         let dividerLine = UIView()
         dividerLine.backgroundColor = UIColor(red: 0.941, green: 0.388, blue: 0.396, alpha: 1) // #f06365
@@ -81,6 +87,17 @@ class LoginViewController: UIViewController {
     private func setupView() {
         self.view.backgroundColor = .systemBackground
         
+        let player = AVPlayer(url: URL(fileURLWithPath: Bundle.main.path(forResource: "auth-video-bg", ofType: "mp4")!))
+        let layer = AVPlayerLayer(player: player)
+        layer.frame = view.bounds
+        layer.videoGravity = .resizeAspectFill
+        
+        player.play()
+        
+
+        view.layer.addSublayer(layer)
+
+        
         let verticalStackView = UIStackView(arrangedSubviews: [
             logoImage,
             createLabelStackView(title: "Email", field: emailField),
@@ -100,7 +117,7 @@ class LoginViewController: UIViewController {
             verticalStackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             verticalStackView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
             verticalStackView.widthAnchor.constraint(equalToConstant: 300),
-            logoImage.heightAnchor.constraint(equalToConstant: 95)
+            logoImage.heightAnchor.constraint(equalToConstant: 95),
         ])
         
     }
