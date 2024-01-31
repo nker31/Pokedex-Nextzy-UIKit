@@ -151,7 +151,7 @@ class AboutCell: UITableViewCell{
                 detailStack.topAnchor.constraint(equalTo: self.topAnchor, constant: 25),
                 detailStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
                 detailStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-                detailStack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -25)
+                detailStack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -75)
             ])
             
             mapView.translatesAutoresizingMaskIntoConstraints = false

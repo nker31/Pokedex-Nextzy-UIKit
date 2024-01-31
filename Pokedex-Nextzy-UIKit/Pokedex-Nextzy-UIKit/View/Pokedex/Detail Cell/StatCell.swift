@@ -68,7 +68,7 @@ class StatCell: UITableViewCell {
                 weaknessTitle.topAnchor.constraint(equalTo: stack.bottomAnchor, constant: 60),
                 weaknessStack.centerXAnchor.constraint(equalTo: self.centerXAnchor),
                 weaknessStack.topAnchor.constraint(equalTo: weaknessTitle.bottomAnchor, constant: 20),
-                weaknessStack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100)
+                weaknessStack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -150)
             ])
         }
     }
