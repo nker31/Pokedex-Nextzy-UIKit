@@ -13,9 +13,9 @@ class TextButton: UIButton {
         super.init(frame: .zero)
         self.setTitle(title, for: .normal)
         self.titleLabel?.font = .systemFont(ofSize: 14, weight: .bold)
-        self.setTitleColor(.black, for: .normal)
-        self.backgroundColor = .systemBackground
-        self.alpha = 0.6
+        self.setTitleColor(.white , for: .normal)
+        self.backgroundColor = .clear
+        self.alpha = 1
     }
     
     required init?(coder: NSCoder) {

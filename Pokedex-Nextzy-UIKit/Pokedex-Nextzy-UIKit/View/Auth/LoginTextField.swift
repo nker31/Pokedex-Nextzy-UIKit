@@ -24,6 +24,7 @@ class LoginTextField: UITextField {
         self.placeholder = "Enter your email"
         self.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.frame.size.height))
         self.leftViewMode = .always
+        self.textColor = .white
         
         switch type{
             
