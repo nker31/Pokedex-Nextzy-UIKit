@@ -59,6 +59,13 @@ class DetailViewController: UIViewController {
         return imageView
     }()
     
+    lazy var pokeballBackground: UIImageView = {
+        let image = UIImage(named: "pokeball-logo")
+        let imageView = UIImageView(image: image)
+        imageView.layer.opacity = 0.3
+        return imageView
+    }()
+    
     lazy var tabMenu: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: ["About", "Stats", "Evolutions"])
         segmentedControl.selectedSegmentIndex = 0
@@ -88,6 +95,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
+        self.animatePokeball()
         tableView.delegate = self
         tableView.dataSource = self
   
@@ -118,6 +126,10 @@ class DetailViewController: UIViewController {
         self.tableView.setColorBackgroundFromType(type: pokemon.types[0])
         self.tableView.tableHeaderView = headerView
         
+        // pokeball background
+        self.headerView.addSubview(pokeballBackground)
+        self.pokeballBackground.translatesAutoresizingMaskIntoConstraints = false
+        
         // image view
         self.headerView.addSubview(pokemonImageView)
         self.pokemonImageView.kf.setImage(with: pokemon.imageUrl)
@@ -142,6 +154,11 @@ class DetailViewController: UIViewController {
             self.pokemonImageView.bottomAnchor.constraint(equalTo: self.headerView.bottomAnchor, constant: -20),
             self.pokemonImageView.widthAnchor.constraint(equalToConstant: self.view.frame.width / 2),
             self.pokemonImageView.heightAnchor.constraint(equalToConstant: self.view.frame.width / 2),
+            
+            self.pokeballBackground.centerXAnchor.constraint(equalTo: self.headerView.centerXAnchor),
+            self.pokeballBackground.centerYAnchor.constraint(equalTo: self.headerView.centerYAnchor),
+            self.pokeballBackground.widthAnchor.constraint(equalToConstant: self.view.frame.width / 1.5),
+            self.pokeballBackground.heightAnchor.constraint(equalToConstant: self.view.frame.width / 1.5),
             
             // tab menu
             self.tabMenu.topAnchor.constraint(equalTo: self.tabMenuView.topAnchor),
@@ -181,6 +198,12 @@ class DetailViewController: UIViewController {
             print("Debugger: error")
         }
         self.tableView.reloadData()
+    }
+    
+    func animatePokeball(){
+        UIView.animate(withDuration: 2, delay: 0, options: [.repeat, .autoreverse]) {
+            self.pokeballBackground.transform = self.pokeballBackground.transform.rotated(by: .pi)
+        }
     }
 
 
