@@ -286,4 +286,20 @@ extension AuthViewModel {
         }
     }
     
+    func tapForgotPassword(email: String) {
+        guard self.isValidEmail(email) else {
+            delegate?.toggleAlert(messege: "Invalid email")
+            return
+        }
+        
+        self.resetPassword(withEmail: email) { result in
+            switch result {
+            case .success(let success):
+                self.delegate?.toggleAlert(messege: "Reset password email has been sent")
+            case .failure(let failure):
+                self.delegate?.toggleAlert(messege: "Failed to reset password \n Please try again")
+            }
+        }
+    }
+    
 }
