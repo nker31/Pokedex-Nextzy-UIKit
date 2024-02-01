@@ -119,13 +119,13 @@ class AuthViewModel {
                     await self.fetchUserData()
                 }
                 print("Debugger: Updated user data complete")
-                self.delegate?.toggleAlert(messege: "Update data successfully")
+                self.delegate?.toggleAlert(messege: String(localized: "alert_update_success"))
                 completion(.success(true))
                 
                 // if failed
             case .failure(let errorMessage):
                 print("Error uploading from edit profile: \(errorMessage.localizedDescription)")
-                self.delegate?.toggleAlert(messege: "Update data failed")
+                self.delegate?.toggleAlert(messege: String(localized: "alert_update_failed"))
                 completion(.failure(errorMessage))
             }
         }
@@ -194,11 +194,11 @@ extension AuthViewModel {
             if (isValidPassword(password)) {
                 return true
             }
-            delegate?.toggleAlert(messege: "Password must be at least 8 character")
+            delegate?.toggleAlert(messege: String(localized: "alert_invalid_password"))
             return false
         }
         else {
-            delegate?.toggleAlert(messege: "Invalid email")
+            delegate?.toggleAlert(messege: String(localized: "alert_invalid_email"))
             return false
         }
     }
@@ -210,22 +210,22 @@ extension AuthViewModel {
                             lastName: String) -> Bool {
         
         guard self.isValidEmail(email) else {
-            delegate?.toggleAlert(messege: "Invalid email")
+            delegate?.toggleAlert(messege: String(localized: "alert_invalid_email"))
             return false
         }
 
         guard self.isValidPassword(password) else {
-            delegate?.toggleAlert(messege: "Password must be at least 8 character")
+            delegate?.toggleAlert(messege: String(localized: "alert_invalid_password"))
             return false
         }
 
         guard password == confirmPassword else {
-            self.delegate?.toggleAlert(messege: "Password does not match with Confirm password")
+            self.delegate?.toggleAlert(messege: String(localized: "alert_invalid_confirm_password"))
             return false
         }
 
         guard firstName.count >= 3 && lastName.count >= 3 else {
-            self.delegate?.toggleAlert(messege: "Firstname and Lastname must be at least 3 characters")
+            self.delegate?.toggleAlert(messege: String(localized: "alert_invalid_name"))
             return false
         }
         
@@ -247,7 +247,7 @@ extension AuthViewModel {
                 } catch {
                     print("Debugger: got error \(error.localizedDescription)")
                     DispatchQueue.main.async {
-                        self.delegate?.toggleAlert(messege: "Wrong email or password")
+                        self.delegate?.toggleAlert(messege: String(localized: "alert_login_failed"))
                     }
                 }
             }
@@ -279,7 +279,7 @@ extension AuthViewModel {
                 case .success(_):
                     self.delegate?.navigateToNextView()
                 case .failure(_):
-                    self.delegate?.toggleAlert(messege: "Register failed")
+                    self.delegate?.toggleAlert(messege: String(localized: "alert_register_failed"))
                 }
                 
             }
@@ -288,23 +288,23 @@ extension AuthViewModel {
     
     func tapForgotPassword(email: String) {
         guard self.isValidEmail(email) else {
-            delegate?.toggleAlert(messege: "Invalid email")
+            delegate?.toggleAlert(messege: String(localized: "alert_invalid_email"))
             return
         }
         
         self.resetPassword(withEmail: email) { result in
             switch result {
             case .success(_):
-                self.delegate?.toggleAlert(messege: "Reset password email has been sent")
+                self.delegate?.toggleAlert(messege: String(localized: "alert_reset_success"))
             case .failure(_):
-                self.delegate?.toggleAlert(messege: "Failed to reset password \n Please try again")
+                self.delegate?.toggleAlert(messege: String(localized: "alert_reset_failed"))
             }
         }
     }
     
     func tapUpdate(firstName: String, lastName: String, newImage: UIImage) {
         guard firstName.count >= 3 && lastName.count >= 3 else {
-            self.delegate?.toggleAlert(messege: "Firstname and Lastname must be at least 3 characters")
+            self.delegate?.toggleAlert(messege: String(localized: "alert_invalid_name"))
             return
         }
         
@@ -315,9 +315,9 @@ extension AuthViewModel {
             { result in
                 switch result {
                 case .success(_):
-                    self.delegate?.toggleAlert(messege: "Update data successfully")
+                    self.delegate?.toggleAlert(messege: String(localized: "alert_update_success"))
                 case .failure(_):
-                    self.delegate?.toggleAlert(messege: "Update failed")
+                    self.delegate?.toggleAlert(messege: String(localized: "alert_update_failed"))
                 }
             }
         }
