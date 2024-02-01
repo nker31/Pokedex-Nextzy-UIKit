@@ -12,7 +12,8 @@ import FirebaseStorage
 
 protocol AuthViewModelDelegate {
     func toggleAlert(messege: String)
-    func navigateToTabBar()
+    func navigateToNextView()
+    func setUserData(firstName: String, lastName: String, imageURL: String)
 }
 
 class AuthViewModel {
@@ -178,7 +179,7 @@ class AuthViewModel {
 }
 
 extension AuthViewModel {
-    // MARK: - Email and Password Validation Functions
+    // MARK: - Validation Functions
     func isValidEmail(_ email: String) -> Bool {
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
@@ -242,7 +243,7 @@ extension AuthViewModel {
                 do {
                     try await self.signIn(email: email, password: password)
                     DispatchQueue.main.async {
-                        self.delegate?.navigateToTabBar()
+                        self.delegate?.navigateToNextView()
                     }
                 } catch {
                     print("Debugger: got error \(error.localizedDescription)")
@@ -276,8 +277,8 @@ extension AuthViewModel {
             { result in
                 
                 switch result {
-                case .success(let user):
-                    self.delegate?.navigateToTabBar()
+                case .success(_):
+                    self.delegate?.navigateToNextView()
                 case .failure(_):
                     self.delegate?.toggleAlert(messege: "Register failed")
                 }
@@ -294,12 +295,27 @@ extension AuthViewModel {
         
         self.resetPassword(withEmail: email) { result in
             switch result {
-            case .success(let success):
+            case .success(_):
                 self.delegate?.toggleAlert(messege: "Reset password email has been sent")
-            case .failure(let failure):
+            case .failure(_):
                 self.delegate?.toggleAlert(messege: "Failed to reset password \n Please try again")
             }
         }
+    }
+    
+    func tapSignOut() {
+        self.signOut()
+        self.delegate?.navigateToNextView()
+    }
+    
+    func getProfileData() {
+        guard let user = currentUser else {
+            return
+        }
+        
+        self.delegate?.setUserData(firstName: user.firstname,
+                                   lastName: user.lastname,
+                                   imageURL: user.profileImageURL)
     }
     
 }
