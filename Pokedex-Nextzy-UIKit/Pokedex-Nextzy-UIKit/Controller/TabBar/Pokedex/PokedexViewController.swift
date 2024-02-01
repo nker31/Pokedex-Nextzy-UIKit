@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PokedexViewController: UIViewController{
+class PokedexViewController: UIViewController {
 
     // MARK: - Varibles
     private let authViewModel: AuthViewModel
@@ -83,7 +83,6 @@ class PokedexViewController: UIViewController{
     
     // MARK: - UI Setup
     private func setupNavbar() {
-        self.view.backgroundColor = .red
         if let navigationBar = self.navigationController?.navigationBar {
             navigationBar.backgroundColor = .clear
             navigationBar.prefersLargeTitles = false
@@ -98,11 +97,11 @@ class PokedexViewController: UIViewController{
         var columnsImageName: String
         switch displayType {
         case .oneColumn:
-            columnsImageName = "rectangle.grid.1x2"
-        case .twoColumns:
             columnsImageName = "square.grid.2x2"
-        case .threeColumns:
+        case .twoColumns:
             columnsImageName = "square.grid.3x3"
+        case .threeColumns:
+            columnsImageName = "rectangle.grid.1x2"
         }
         
         let columnsButton = UIBarButtonItem(image: UIImage(systemName: columnsImageName), 
@@ -114,7 +113,7 @@ class PokedexViewController: UIViewController{
         self.navigationItem.rightBarButtonItem = searchButton
     }
     
-    private func setupUI(){
+    private func setupUI() {
         self.view.backgroundColor = .pinkPokemon
         
         self.view.addSubview(collectionView)
@@ -165,7 +164,7 @@ class PokedexViewController: UIViewController{
         }
     
     
-    @objc private func toggleColumnDisplayed(){
+    @objc private func toggleColumnDisplayed() {
         switch displayType {
         case .oneColumn:
             displayType = .twoColumns
@@ -187,7 +186,7 @@ class PokedexViewController: UIViewController{
 
 }
 
-extension PokedexViewController: UICollectionViewDataSource, UICollectionViewDelegate{
+extension PokedexViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     // number of cell
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -230,7 +229,7 @@ extension PokedexViewController: UICollectionViewDataSource, UICollectionViewDel
     
 }
 
-extension PokedexViewController: UICollectionViewDelegateFlowLayout{
+extension PokedexViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
