@@ -12,7 +12,9 @@ class DetailViewController: UIViewController {
     
     // MARK: - Varibles
     enum selectedMenu {
-        case about, stat, evolution
+        case about
+        case stat
+        case evolution
     }
     var isPresentMenu = selectedMenu.about
     
@@ -94,7 +96,7 @@ class DetailViewController: UIViewController {
     
     
     // MARK: - UI Setup
-    private func setupNavbar(){
+    private func setupNavbar() {
         self.title = pokemon.name
         self.navigationController?.navigationBar.prefersLargeTitles = true
         let favButton = UIBarButtonItem(
@@ -106,7 +108,7 @@ class DetailViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = favButton
     }
 
-    private func setupUI(){
+    private func setupUI() {
         // table view
         self.view.addSubview(tableView)
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -154,7 +156,7 @@ class DetailViewController: UIViewController {
     }
    
     // MARK: - Selectors
-    @objc func didTapFavButton(_ sender: UIBarButtonItem){
+    @objc func didTapFavButton(_ sender: UIBarButtonItem) {
         Task{
             await self.myPokemonViewModel.addPokemonToFavList(pokemonID: pokemon.id)
         }
@@ -177,7 +179,7 @@ class DetailViewController: UIViewController {
         self.tableView.reloadData()
     }
     
-    func animatePokeball(){
+    func animatePokeball() {
         UIView.animate(withDuration: 2, delay: 0, options: [.repeat, .autoreverse]) {
             self.pokeballBackground.transform = self.pokeballBackground.transform.rotated(by: .pi)
         }
@@ -185,7 +187,7 @@ class DetailViewController: UIViewController {
 
 }
 
-extension DetailViewController: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate{
+extension DetailViewController: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     // MARK: - UITableViewDataSource
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -211,9 +213,6 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource, UISc
             cell.configCell(pokemon: self.pokemon, filteredPokemon: filteredPokemon)
             return cell
         }
-        
-        
-       
     }
 
     // MARK: - UITableViewDelegate
