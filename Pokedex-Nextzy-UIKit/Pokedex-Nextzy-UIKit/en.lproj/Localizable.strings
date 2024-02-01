@@ -58,3 +58,17 @@
 // Progress View
 "loading_label_text" = "Loading";
 
+// Alert Messege
+"alert_invalid_email" = "Invalid email";
+"alert_invalid_password" = "Password must be at least 8 character";
+"alert_invalid_confirm_password" = "Password does not match with Confirm password";
+"alert_invalid_name" = "Firstname and Lastname must be at least 3 characters";
+
+"alert_login_failed" = "Wrong email or password";
+"alert_register_failed" = "Register failed";
+
+"alert_update_success" = "Update data successfully";
+"alert_update_failed" = "Update data failed";
+
+"alert_reset_success" = "Reset password email has been sent";
+"alert_reset_failed" = "Failed to reset password \n Please try again";

@@ -57,3 +57,18 @@
 
 // Progress View
 "loading_label_text" = "กำลังโหลด";
+
+// Alert Messege
+"alert_invalid_email" = "อีเมลไม่ถูกต้อง";
+"alert_invalid_password" = "รหัสผ่านต้องมีความยาว 8 ตัวอักษรขึ้นไป";
+"alert_invalid_confirm_password" = "รหัสผ่านและยืนยันรหัสผ่านไม่สัมพันธ์กัน";
+"alert_invalid_name" = "ชื่อจริงและนามสกุลต้องมีความยาวอย่างน้อย 3 ตัวอักษรขึ้นไป";
+
+"alert_login_failed" = "อีเมลหรือรหัสผ่านไม่ถูกต้อง";
+"alert_register_failed" = "ลงทะเบียนล้มเหลว";
+
+"alert_update_success" = "แก้ไขข้อมูลเสร็จสิ้น";
+"alert_update_failed" = "เกิดข้อผิดพลาดในการแก้ไขข้อมูล";
+
+"alert_reset_success" = "อีเมลสำหรับรีเซ็ตรหัสผ่านได้ถูกส่งไปยังอีเมลของคุณแล้ว";
+"alert_reset_failed" = "รีเซ็ตรหัสผ่านล้มเหลว \n โปรดลองใหม่อีกครั้ง";
