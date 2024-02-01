@@ -32,7 +32,11 @@ class RegisterViewController: UIViewController{
     }()
     
     // Image picker
-    lazy var imagePickerButton = ImagePickerButton()
+    lazy var imagePickerButton:ImagePickerButton = {
+        let button = ImagePickerButton()
+        button.addTarget(self, action: #selector(didTapPhotoButton), for: .touchUpInside)
+        return button
+    }()
     let imagePicker = UIImagePickerController()
     
     // Textfield
@@ -41,7 +45,12 @@ class RegisterViewController: UIViewController{
     let confirmTextfield = CustomTextField(textfieldType: .confirmpassword)
     let firstnameTextfield = CustomTextField(textfieldType: .firstname)
     let lastnameTextfield = CustomTextField(textfieldType: .lastname)
-    let registerButton = CustomButton(title: String(localized: "register_title"))
+    
+    let registerButton: UIButton = {
+        let button = CustomButton(title: String(localized: "register_title"))
+        button.addTarget(self, action: #selector(didClickRegister(_:)), for: .touchUpInside)
+        return button
+    }()
     
     // row stack view
     private func createLabelStackView(title: String, field: UITextField) -> UIStackView {
@@ -51,7 +60,7 @@ class RegisterViewController: UIViewController{
         label.textColor = UIColor.gray
         
         let dividerLine = UIView()
-        dividerLine.backgroundColor = UIColor.pinkPokemon // #f06365
+        dividerLine.backgroundColor = .pinkPokemon
         dividerLine.heightAnchor.constraint(equalToConstant: 1).isActive = true
            
         let labelStackView = UIStackView(arrangedSubviews: [label, field, dividerLine])
@@ -68,15 +77,12 @@ class RegisterViewController: UIViewController{
         setupNavbar()
         setupUI()
         imagePicker.delegate = self
-        imagePickerButton.addTarget(self, action: #selector(didTapPhotoButton), for: .touchUpInside)
-        registerButton.addTarget(self, action: #selector(didClickRegister(_:)), for: .touchUpInside)
-        
-
+        authViewModel.delegate = self
     }
     
     // MARK: - UI Setup
     
-    private func setupNavbar(){
+    private func setupNavbar() {
         self.title = String(localized: "register_title")
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.tintColor = .white
@@ -84,7 +90,7 @@ class RegisterViewController: UIViewController{
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
-    private func setupUI(){
+    private func setupUI() {
         self.view.backgroundColor = .white
         let textfieldStack = UIStackView(arrangedSubviews: [
             createLabelStackView(title: String(localized: "email_label_text"), field: emailTextfield),
@@ -147,73 +153,34 @@ class RegisterViewController: UIViewController{
     
     // MARK: - Selectors
     @objc func didClickRegister(_ sender: UIButton!) {
+        print("Debugger: register tapped")
         guard let email = emailTextfield.text,
               let password = passwordTextfield.text,
               let confirmPassword = confirmTextfield.text,
               let firstName = firstnameTextfield.text,
-              let lastName = lastnameTextfield.text else {
+              let lastName = lastnameTextfield.text,
+              let profileImage = profileImageView.image else {
                   return
               }
-
-        guard authViewModel.isValidEmail(email) else {
-            showAlert(message: "Invalid email")
-            return
-        }
-
-        guard authViewModel.isValidPassword(password) else {
-            showAlert(message: "Password must be at least 8 characters")
-            return
-        }
-
-        guard password == confirmPassword else {
-            showAlert(message: "Password does not match with Confirm password")
-            return
-        }
-
-        guard firstName.count >= 3 && lastName.count >= 3 else {
-            showAlert(message: "Firstname and Lastname must be at least 3 characters")
-            return
-        }
         
-        guard let profileImage = profileImageView.image else{
-            return
-        }
-
-        authViewModel.register(withEmail: email, password: password, firstname: firstName, lastname: lastName, profileImageData: profileImage) { result in
-            switch result {
-            case .success(let user):
-                // Registration successful
-                print("Registration successful. User: \(user)")
-                self.showTabBarController()
-                
-                
-            case .failure(let error):
-                // Registration failed
-                print("Registration failed with error: \(error.localizedDescription)")
-            }
-        }
-        
+        authViewModel.tapRegister(email: email,
+                                  password: password, 
+                                  confirmPassword: confirmPassword,
+                                  firstName: firstName,
+                                  lastName: lastName,
+                                  profileImageData: profileImage)
     }
 
-    @objc private func didTapPhotoButton(){
+    @objc private func didTapPhotoButton() {
         present(imagePicker, animated: true, completion: nil)
-
     }
     
-    // MARK: - Function
-
-    private func showTabBarController() {
-        print("DEBUG: showTabBarController()")
-        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
-        sceneDelegate?.presentTabBarController()
-    }
 }
 
 extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let selectedImage = info[.originalImage] as? UIImage {
-
             profileImageView.image = selectedImage
         }
         picker.dismiss(animated: true, completion: nil)
@@ -224,3 +191,14 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
     }
 }
 
+extension RegisterViewController: AuthViewModelDelegate {
+
+    func toggleAlert(messege: String) {
+        self.showAlert(message: messege)
+    }
+    
+    func navigateToTabBar() {
+        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+        sceneDelegate?.presentTabBarController()
+    }
+}
