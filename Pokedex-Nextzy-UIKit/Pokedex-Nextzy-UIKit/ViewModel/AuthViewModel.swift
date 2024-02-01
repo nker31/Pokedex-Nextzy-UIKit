@@ -71,8 +71,8 @@ class AuthViewModel {
             // upload image
             Task{
                 await self.uploadImage(image: profileImageData, imageName: authResult.user.uid) { result in
-                    switch result {
                     
+                    switch result {
                     // if upload success then get put image url to user model
                     case .success(let imageURL):
                         let user = User(id: authResult.user.uid, firstname: firstname, lastname: lastname, email: email, profileImageURL: imageURL.absoluteString)
@@ -82,7 +82,6 @@ class AuthViewModel {
                             Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
                             print("Debugger: \(user)")
                             completion(.success(user))
-                            
                         }
 
                     case .failure(let uploadError):
@@ -91,8 +90,6 @@ class AuthViewModel {
                     }
                 }
             }
-            
-            
         }
     }
     
@@ -111,7 +108,6 @@ class AuthViewModel {
         
         // upload new profile image to firebase storage
         await self.uploadImage(image: profileImageData, imageName: currentUserUID) { result in
-            
             
             switch result {
                 // if success
@@ -133,10 +129,7 @@ class AuthViewModel {
                 print("Error uploading from edit profile: \(errorMessage.localizedDescription)")
                 completion(.failure(errorMessage))
             }
-            
         }
-        
-        
     }
     
     func uploadImage(image: UIImage, imageName: String, completion: @escaping (Result<URL, Error>) -> Void) async {
@@ -209,6 +202,36 @@ extension AuthViewModel {
             return false
         }
     }
+    
+    func registerValidation(email: String,
+                            password: String,
+                            confirmPassword: String,
+                            firstName: String,
+                            lastName: String) -> Bool {
+        
+        guard self.isValidEmail(email) else {
+            delegate?.toggleAlert(messege: "Invalid email")
+            return false
+        }
+
+        guard self.isValidPassword(password) else {
+            delegate?.toggleAlert(messege: "Password must be at least 8 character")
+            return false
+        }
+
+        guard password == confirmPassword else {
+            self.delegate?.toggleAlert(messege: "Password does not match with Confirm password")
+            return false
+        }
+
+        guard firstName.count >= 3 && lastName.count >= 3 else {
+            self.delegate?.toggleAlert(messege: "Firstname and Lastname must be at least 3 characters")
+            return false
+        }
+        
+        return true
+
+    }
 }
 
 extension AuthViewModel {
@@ -227,6 +250,38 @@ extension AuthViewModel {
                         self.delegate?.toggleAlert(messege: "Wrong email or password")
                     }
                 }
+            }
+        }
+    }
+    
+    func tapRegister(email: String,
+                     password: String,
+                     confirmPassword: String, 
+                     firstName: String,
+                     lastName: String,
+                     profileImageData: UIImage) {
+        
+        let isValid = registerValidation(email: email, 
+                                         password: password,
+                                         confirmPassword: confirmPassword,
+                                         firstName: firstName,
+                                         lastName: lastName)
+        
+        if (isValid) {
+            self.register(withEmail: email, 
+                          password: password,
+                          firstname: firstName,
+                          lastname: lastName,
+                          profileImageData: profileImageData)
+            { result in
+                
+                switch result {
+                case .success(let user):
+                    self.delegate?.navigateToTabBar()
+                case .failure(_):
+                    self.delegate?.toggleAlert(messege: "Register failed")
+                }
+                
             }
         }
     }
