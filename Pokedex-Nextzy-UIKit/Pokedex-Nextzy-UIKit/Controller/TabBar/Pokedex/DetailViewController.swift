@@ -10,8 +10,6 @@ import Kingfisher
 
 class DetailViewController: UIViewController {
     
-    
-    
     // MARK: - Varibles
     enum selectedMenu {
         case about, stat, evolution
@@ -37,11 +35,9 @@ class DetailViewController: UIViewController {
     }
     
     // MARK: - UI Components
-    
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .red
-        
         tableView.register(AboutCell.self, forCellReuseIdentifier: AboutCell.identifier)
         tableView.register(StatCell.self, forCellReuseIdentifier: StatCell.identifier)
         tableView.register(EvolutionCell.self, forCellReuseIdentifier: EvolutionCell.identifier)
@@ -67,7 +63,7 @@ class DetailViewController: UIViewController {
     }()
     
     lazy var tabMenu: UISegmentedControl = {
-        let segmentedControl = UISegmentedControl(items: ["About", "Stats", "Evolutions"])
+        let segmentedControl = UISegmentedControl(items: [String(localized: "about_segment_title"), String(localized: "stat_segment_title"), String(localized: "evolution_segment_title")])
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
         return segmentedControl
@@ -79,11 +75,6 @@ class DetailViewController: UIViewController {
         return view
     }()
     
-
-    
-    
-    
-    
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -92,13 +83,13 @@ class DetailViewController: UIViewController {
         }
         self.setupNavbar()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
         self.animatePokeball()
         tableView.delegate = self
         tableView.dataSource = self
-  
     }
     
     
@@ -113,13 +104,9 @@ class DetailViewController: UIViewController {
             action: #selector(didTapFavButton)
             )
         self.navigationItem.rightBarButtonItem = favButton
-        
     }
 
-    
-    
     private func setupUI(){
-
         // table view
         self.view.addSubview(tableView)
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -136,18 +123,15 @@ class DetailViewController: UIViewController {
         self.pokemonImageView.translatesAutoresizingMaskIntoConstraints = false
         
         // tab menu
-        
         self.tabMenuView.addSubview(tabMenu)
         self.tabMenu.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            
             // table view
             self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor),
             self.tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             self.tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 50),
-            
             
             // header view
             self.pokemonImageView.centerXAnchor.constraint(equalTo: self.headerView.centerXAnchor),
@@ -155,6 +139,7 @@ class DetailViewController: UIViewController {
             self.pokemonImageView.widthAnchor.constraint(equalToConstant: self.view.frame.width / 2),
             self.pokemonImageView.heightAnchor.constraint(equalToConstant: self.view.frame.width / 2),
             
+            // pokeball background
             self.pokeballBackground.centerXAnchor.constraint(equalTo: self.headerView.centerXAnchor),
             self.pokeballBackground.centerYAnchor.constraint(equalTo: self.headerView.centerYAnchor),
             self.pokeballBackground.widthAnchor.constraint(equalToConstant: self.view.frame.width / 1.5),
@@ -165,17 +150,9 @@ class DetailViewController: UIViewController {
             self.tabMenu.leadingAnchor.constraint(equalTo: self.tabMenuView.leadingAnchor),
             self.tabMenu.trailingAnchor.constraint(equalTo: self.tabMenuView.trailingAnchor),
             self.tabMenu.bottomAnchor.constraint(equalTo: self.tabMenuView.bottomAnchor),
-
-            
-            
         ])
-
     }
-    
    
-    
-    
-    
     // MARK: - Selectors
     @objc func didTapFavButton(_ sender: UIBarButtonItem){
         Task{
@@ -205,7 +182,6 @@ class DetailViewController: UIViewController {
             self.pokeballBackground.transform = self.pokeballBackground.transform.rotated(by: .pi)
         }
     }
-
 
 }
 

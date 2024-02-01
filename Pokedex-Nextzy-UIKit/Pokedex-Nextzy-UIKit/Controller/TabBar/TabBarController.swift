@@ -51,33 +51,28 @@ class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.setupTab()
         self.setupUI()
-        
 
-        // Set navigation bar appearance
         UINavigationBar.appearance().barTintColor = UIColor.systemBackground
         UINavigationBar.appearance().tintColor = UIColor.pinkPokemon
-
     }
     
     // MARK: - UI Setup
     private func setupTab(){
-        // Set tab bar
         self.tabBar.barTintColor = UIColor.systemBackground
         self.tabBar.tintColor = UIColor.pinkPokemon
         
-        // assign viewController to tab menu
-        let pokedex = self.createNav(with: "Pokedex", and: UIImage(systemName: "pawprint.fill"), vc: PokedexViewController(authViewModel: authViewModel,pokedexViewModel: pokedexViewModel, myPokemonViewModel: myPokemonViewModel))
-        let myPokemon = self.createNav(with: "My Pokemon", and: UIImage(systemName: "heart.text.square"), vc: MyPokemonViewController(authViewModel: authViewModel, pokedexViewModel: pokedexViewModel, myPokemonViewModel: myPokemonViewModel))
-        let profile = self.createNav(with: "Profile", and: UIImage(systemName: "person.fill"), vc: ProfileViewController(authViewModel: authViewModel))
+        let pokedex = self.createNav(with: String(localized: "pokedex_tabbar_title"), and: UIImage(systemName: "pawprint.fill"), vc: PokedexViewController(authViewModel: authViewModel,pokedexViewModel: pokedexViewModel, myPokemonViewModel: myPokemonViewModel))
+        
+        let myPokemon = self.createNav(with: String(localized: "my_pokemon_tabbar_title"), and: UIImage(systemName: "heart.text.square"), vc: MyPokemonViewController(authViewModel: authViewModel, pokedexViewModel: pokedexViewModel, myPokemonViewModel: myPokemonViewModel))
+        
+        let profile = self.createNav(with: String(localized: "profile_tabbar_title"), and: UIImage(systemName: "person.fill"), vc: ProfileViewController(authViewModel: authViewModel))
+        
         self.setViewControllers([pokedex, myPokemon, profile], animated: true)
     }
-
     
     private func createNav(with title:String, and image: UIImage?, vc: UIViewController) -> UINavigationController{
-        
         let nav = UINavigationController(rootViewController: vc)
         nav.tabBarItem.title = title
         nav.tabBarItem.image = image
@@ -86,22 +81,15 @@ class TabBarController: UITabBarController {
     }
     
     private func setupUI(){
-        
         self.view.addSubview(progressView)
         progressView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            
             progressView.topAnchor.constraint(equalTo: self.view.topAnchor),
             progressView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             progressView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             progressView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            
         ])
-        
-
     }
-    
-        
 
 }

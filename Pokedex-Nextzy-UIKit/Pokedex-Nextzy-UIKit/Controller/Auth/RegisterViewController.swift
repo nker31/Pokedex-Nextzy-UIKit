@@ -9,9 +9,6 @@ import UIKit
 
 class RegisterViewController: UIViewController{
     // MARK: - Varibles
-    
-    
-    // MARK: - UI Components
     private let authViewModel: AuthViewModel
 
     init(authViewModel: AuthViewModel) {
@@ -23,6 +20,7 @@ class RegisterViewController: UIViewController{
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - UI Components
     // Profile image and cover
     lazy var coverScreenView = UIView()
     lazy var profileImageView: UIImageView = {
@@ -32,6 +30,7 @@ class RegisterViewController: UIViewController{
         imageView.layer.masksToBounds = true
         return imageView
     }()
+    
     // Image picker
     lazy var imagePickerButton = ImagePickerButton()
     let imagePicker = UIImagePickerController()
@@ -42,7 +41,7 @@ class RegisterViewController: UIViewController{
     let confirmTextfield = CustomTextField(textfieldType: .confirmpassword)
     let firstnameTextfield = CustomTextField(textfieldType: .firstname)
     let lastnameTextfield = CustomTextField(textfieldType: .lastname)
-    let registerButton = CustomButton(title: "Register")
+    let registerButton = CustomButton(title: String(localized: "register_title"))
     
     // row stack view
     private func createLabelStackView(title: String, field: UITextField) -> UIStackView {
@@ -76,8 +75,9 @@ class RegisterViewController: UIViewController{
     }
     
     // MARK: - UI Setup
+    
     private func setupNavbar(){
-        self.title = "Register"
+        self.title = String(localized: "register_title")
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
@@ -87,14 +87,13 @@ class RegisterViewController: UIViewController{
     private func setupUI(){
         self.view.backgroundColor = .white
         let textfieldStack = UIStackView(arrangedSubviews: [
-            createLabelStackView(title: "Email", field: emailTextfield),
-            createLabelStackView(title: "Password", field: passwordTextfield),
-            createLabelStackView(title: "Confirm Password", field: confirmTextfield),
-            createLabelStackView(title: "Firstname", field: firstnameTextfield),
-            createLabelStackView(title: "Lastname", field: lastnameTextfield),
+            createLabelStackView(title: String(localized: "email_label_text"), field: emailTextfield),
+            createLabelStackView(title: String(localized: "password_label_text"), field: passwordTextfield),
+            createLabelStackView(title: String(localized: "confirm_password_label_text"), field: confirmTextfield),
+            createLabelStackView(title: String(localized: "first_name_label_text"), field: firstnameTextfield),
+            createLabelStackView(title: String(localized: "last_name_label_text"), field: lastnameTextfield),
             
         ])
-        
         
         self.view.addSubview(coverScreenView)
         coverScreenView.backgroundColor = UIColor.pinkPokemon // #f06365
@@ -108,9 +107,6 @@ class RegisterViewController: UIViewController{
         imagePickerButton.translatesAutoresizingMaskIntoConstraints = false
         imagePickerButton.layer.cornerRadius = 15
         
-
-        
-        
         textfieldStack.axis = .vertical
         textfieldStack.spacing = 15
         self.view.addSubview(textfieldStack)
@@ -120,7 +116,6 @@ class RegisterViewController: UIViewController{
         self.view.addSubview(registerButton)
         registerButton.translatesAutoresizingMaskIntoConstraints = false
         registerButton.layer.cornerRadius = 20
-        
         
         NSLayoutConstraint.activate([
             coverScreenView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -146,13 +141,9 @@ class RegisterViewController: UIViewController{
             registerButton.topAnchor.constraint(equalTo: textfieldStack.bottomAnchor, constant: 30),
             registerButton.widthAnchor.constraint(equalToConstant: 320),
             registerButton.heightAnchor.constraint(equalToConstant: 40)
-            
-            
-
         ])
         
     }
-    
     
     // MARK: - Selectors
     @objc func didClickRegister(_ sender: UIButton!) {
@@ -204,8 +195,6 @@ class RegisterViewController: UIViewController{
         
     }
 
-
-    
     @objc private func didTapPhotoButton(){
         present(imagePicker, animated: true, completion: nil)
 
@@ -218,13 +207,10 @@ class RegisterViewController: UIViewController{
         let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
         sceneDelegate?.presentTabBarController()
     }
-    
-
-
-
 }
 
 extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let selectedImage = info[.originalImage] as? UIImage {
 

@@ -11,8 +11,6 @@ import Kingfisher
 
 class ProfileViewController: UIViewController {
     
-    
-    
     // MARK: - Varibles
     private let authViewModel: AuthViewModel
 
@@ -39,7 +37,6 @@ class ProfileViewController: UIViewController {
         label.font = .systemFont(ofSize: 20, weight: .semibold)
         
         return label
-        
     }()
     
     lazy var profileImageView: UIImageView = {
@@ -48,9 +45,7 @@ class ProfileViewController: UIViewController {
         
         return imageView
     }()
-    
-    
-    
+
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         if let currentUser = authViewModel.currentUser{
@@ -72,6 +67,7 @@ class ProfileViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.isNavigationBarHidden = false
@@ -89,7 +85,6 @@ class ProfileViewController: UIViewController {
         coverScreenView.translatesAutoresizingMaskIntoConstraints = false
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
         userFullnameLabel.translatesAutoresizingMaskIntoConstraints = false
-
         
         coverScreenView.backgroundColor = UIColor.pinkPokemon
         tableView.backgroundColor = UIColor.pinkPokemon.withAlphaComponent(0.2)
@@ -119,12 +114,8 @@ class ProfileViewController: UIViewController {
             
         ])
     }
-
-    // MARK: - Selectors
     
 }
-
-    // MARK: -
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -143,14 +134,14 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         if indexPath.row == 0 {
-            cell.textLabel?.text = "Edit profile"
+            cell.textLabel?.text = String(localized: "edit_profile_title")
             cell.imageView?.image = UIImage(systemName: "pencil")
             cell.imageView?.tintColor = UIColor.pinkPokemon
             cell.textLabel?.textColor = UIColor.pinkPokemon
             cell.accessoryType = .disclosureIndicator
             cell.selectionStyle = .none
         } else if indexPath.row == 1 {
-            cell.textLabel?.text = "Terms and Conditions"
+            cell.textLabel?.text = String(localized: "terms_and_conditions_title")
             cell.imageView?.image = UIImage(systemName: "chart.bar.doc.horizontal.fill")
             cell.imageView?.tintColor = UIColor.pinkPokemon
             cell.textLabel?.textColor = UIColor.pinkPokemon
@@ -162,7 +153,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             buttonCell.backgroundColor = UIColor.pinkPokemon.withAlphaComponent(0)
             
             let button = UIButton(type: .system)
-            button.setTitle("Sign Out", for: .normal)
+            button.setTitle(String(localized: "sign_out_button_text"), for: .normal)
             button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
             button.setTitleColor(.white, for: .normal)
             button.backgroundColor = UIColor.pinkPokemon
@@ -208,5 +199,6 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
         sceneDelegate?.presentLoginViewController()
     }
+    
 }
 

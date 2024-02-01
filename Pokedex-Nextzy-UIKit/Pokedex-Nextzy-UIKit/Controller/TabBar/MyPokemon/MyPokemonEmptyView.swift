@@ -28,7 +28,7 @@ class MyPokemonEmptyView: UIView {
     
     let emptyTextLabel: UILabel = {
         let label = UILabel()
-        label.text = "You haven't added any Pokémon to your favorite list yet."
+        label.text = String(localized: "empty_pokemon_label_text")
         label.textAlignment = .center
         label.textColor = .gray
         label.numberOfLines = 0
@@ -56,9 +56,6 @@ class MyPokemonEmptyView: UIView {
             self.emptyTextLabel.widthAnchor.constraint(equalToConstant: 250)
             
         ])
-        
-        
     }
-
 
 }

@@ -41,7 +41,7 @@ class EditProfileViewController: UIViewController {
     let lastnameTextfield = CustomTextField(textfieldType: .lastname)
     
     // Button
-    let updateButton = CustomButton(title: "Update")
+    let updateButton = CustomButton(title: String(localized: "update_button_text"))
     
     // text field row
     private func createLabelStackView(title: String, field: UITextField) -> UIStackView {
@@ -62,7 +62,6 @@ class EditProfileViewController: UIViewController {
     }
     
     // MARK: - Life Cycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // ui set up
@@ -80,26 +79,23 @@ class EditProfileViewController: UIViewController {
         imagePicker.delegate = self
         imagePickerButton.addTarget(self, action: #selector(didTapPhotoButton), for: .touchUpInside)
         updateButton.addTarget(self, action: #selector(didTapUpdateButton), for: .touchUpInside)
-        
     }
     
     // MARK: - UI Setup
     private func setupNavbar(){
-        self.title = "Edit my profile"
+        self.title = String(localized: "edit_profile_title")
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        
     }
     
     private func setupUI(){
         self.view.backgroundColor = .white
         
         let textfieldStack = UIStackView(arrangedSubviews: [
-            createLabelStackView(title: "Firstname", field: firstnameTextfield),
-            createLabelStackView(title: "Lastname", field: lastnameTextfield),
-            
+            createLabelStackView(title: String(localized: "first_name_label_text"), field: firstnameTextfield),
+            createLabelStackView(title: String(localized: "last_name_label_text"), field: lastnameTextfield),
         ])
          
         self.view.addSubview(coverScreenView)
@@ -114,9 +110,6 @@ class EditProfileViewController: UIViewController {
         imagePickerButton.translatesAutoresizingMaskIntoConstraints = false
         imagePickerButton.layer.cornerRadius = 15
         
-
-        
-        
         textfieldStack.axis = .vertical
         textfieldStack.spacing = 15
         self.view.addSubview(textfieldStack)
@@ -126,7 +119,6 @@ class EditProfileViewController: UIViewController {
         self.view.addSubview(updateButton)
         updateButton.translatesAutoresizingMaskIntoConstraints = false
         updateButton.layer.cornerRadius = 20
-        
         
         NSLayoutConstraint.activate([
             coverScreenView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -162,7 +154,6 @@ class EditProfileViewController: UIViewController {
     // MARK: - Selectors
     @objc private func didTapPhotoButton(){
         present(imagePicker, animated: true, completion: nil)
-
     }
     
     @objc private func didTapUpdateButton(){

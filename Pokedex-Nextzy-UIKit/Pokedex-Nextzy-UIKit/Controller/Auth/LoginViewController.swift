@@ -39,11 +39,11 @@ class LoginViewController: UIViewController {
     
     lazy var passwordField = LoginTextField(textfieldType: .password)
 
-    lazy var forgotPasswordButton = TextButton(title: "Forgot password ?")
+    lazy var forgotPasswordButton = TextButton(title: String(localized: "forgot_password_button_text"))
     
-    lazy var loginButton = CustomButton(title: "Login", cornerRadius: 6)
+    lazy var loginButton = CustomButton(title: String(localized: "login_button_text"), cornerRadius: 6)
     
-    lazy var noAccountButton = TextButton(title: "No account? Register")
+    lazy var noAccountButton = TextButton(title: String(localized: "register_button_text"))
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -85,23 +85,18 @@ class LoginViewController: UIViewController {
     
     
     private func setupView() {
-        self.view.backgroundColor = .systemBackground
-        
         let player = AVPlayer(url: URL(fileURLWithPath: Bundle.main.path(forResource: "auth-video-bg", ofType: "mp4")!))
         let layer = AVPlayerLayer(player: player)
         layer.frame = view.bounds
         layer.videoGravity = .resizeAspectFill
         
         player.play()
-        
-
         view.layer.addSublayer(layer)
 
-        
         let verticalStackView = UIStackView(arrangedSubviews: [
             logoImage,
-            createLabelStackView(title: "Email", field: emailField),
-            createLabelStackView(title: "Password", field: passwordField),
+            createLabelStackView(title: String(localized: "email_label_text"), field: emailField),
+            createLabelStackView(title: String(localized: "password_label_text"), field: passwordField),
             createForgotPasswordButtonStackView(),
             loginButton,
             noAccountButton
@@ -168,7 +163,6 @@ class LoginViewController: UIViewController {
     
     // MARK: - Function
     
-    
     private func showTabBarController() {
         print("DEBUG: showTabBarController()")
         let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
@@ -177,8 +171,3 @@ class LoginViewController: UIViewController {
 
     
 }
-
-
-    
-
-

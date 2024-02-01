@@ -9,7 +9,7 @@ import UIKit
 
 class CustomTextField: UITextField {
 
-    enum TextFieldType{
+    enum TextFieldType {
         case email
         case password
         case confirmpassword
@@ -33,18 +33,18 @@ class CustomTextField: UITextField {
         switch type{
             
         case .email:
-            self.placeholder = "email"
+            self.placeholder = String(localized: "email_placeholder")
         case .password:
-            self.placeholder = "password"
+            self.placeholder = String(localized: "password_placeholder")
             self.isSecureTextEntry = true
         case .confirmpassword:
-            self.placeholder = "confirm password"
+            self.placeholder = String(localized: "confirm_password_placeholder")
             self.isSecureTextEntry = true
             
         case .firstname:
-            self.placeholder = "firstname"
+            self.placeholder = String(localized: "first_name_placeholder")
         case .lastname:
-            self.placeholder = "lastname"
+            self.placeholder = String(localized: "last_name_placeholder")
         }
     }
     

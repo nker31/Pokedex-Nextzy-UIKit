@@ -25,6 +25,8 @@ class LoginTextField: UITextField {
         self.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.frame.size.height))
         self.leftViewMode = .always
         self.textColor = .white
+        self.attributedPlaceholder = NSAttributedString(string: self.placeholder ?? "",
+                                                        attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.5)])
         
         switch type{
             
