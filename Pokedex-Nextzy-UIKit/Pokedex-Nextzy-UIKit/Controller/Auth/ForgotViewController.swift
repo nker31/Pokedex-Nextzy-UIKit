@@ -21,17 +21,20 @@ class ForgotViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     // MARK: - UI Components
     lazy var emailTextfield = CustomTextField(textfieldType: .email)
-    lazy var forgotButton = CustomButton(title: String(localized: "forgot_password_title"))
+    lazy var forgotButton: UIButton = {
+        let button = CustomButton(title: String(localized: "forgot_password_title"))
+        button.layer.cornerRadius = 6
+        button.addTarget(self, action: #selector(didTapForgotButton(_:)), for: .touchUpInside)
+        return button
+    }()
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
-        forgotButton.addTarget(self, action: #selector(didTapForgotButton(_:)), for: .touchUpInside)
+        authViewModel.delegate = self
     }
     
     // MARK: - UI Setup
@@ -63,8 +66,6 @@ class ForgotViewController: UIViewController {
         setupNavbar()
         self.view.backgroundColor = .systemBackground
         
-        forgotButton.layer.cornerRadius = 6
-        
         let verticalStackView = UIStackView(arrangedSubviews: [
             createLabelStackView(title: String(localized: "email_label_text"), field: emailTextfield),
             forgotButton
@@ -87,21 +88,18 @@ class ForgotViewController: UIViewController {
     // MARK: - Selectors
     @objc func didTapForgotButton(_ sender: UIButton) {
         if let email = emailTextfield.text {
-            print("Debugger: forgot password of \(email)")
-            authViewModel.resetPassword(withEmail: email) { result in
-                switch result {
-                case .success(let successMessage):
-                    self.dismiss(animated: true) {
-                        self.navigationController?.popViewController(animated: true)
-                        self.showAlert(message: successMessage)
-                    }
-                    
-                case .failure(let errorMessage):
-                    self.showAlert(message: "Failed to reset password")
-                    print("Debugger: Error from reset password \(errorMessage)")
-                }
-            }
+            authViewModel.tapForgotPassword(email: email)
         }
     }
     
+}
+
+extension ForgotViewController: AuthViewModelDelegate {
+    func toggleAlert(messege: String) {
+        self.showAlert(message: messege)
+    }
+    
+    func navigateToTabBar() {
+        
+    }
 }
