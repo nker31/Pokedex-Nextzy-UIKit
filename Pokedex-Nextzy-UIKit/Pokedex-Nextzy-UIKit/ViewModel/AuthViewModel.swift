@@ -41,9 +41,10 @@ class AuthViewModel{
     
     func signOut(){
         do{
+            print("Debugger: sign out tapped")
             try Auth.auth().signOut()
-            self.userSession = nil // wipes out user session and takes me to login screen
-            self.currentUser = nil // wipes out current user
+            self.userSession = nil
+            self.currentUser = nil
         }catch {
             print("Failed to sign out with error: \(error.localizedDescription)")
         }
@@ -98,7 +99,10 @@ class AuthViewModel{
     func editUserData(firstname: String, lastname: String, profileImageData: UIImage, completion: @escaping (Result<Bool, Error>) -> Void) async{
         print("Debugger: editUserData is being called")
         // get current user uid
-        guard let currentUserUID = self.userSession?.uid else { return }
+        guard let currentUserUID = self.currentUser?.id else {
+            print("Debugger: error user session")
+            return
+        }
         
         // create firebase reference
         let userDocRef = Firestore.firestore().collection("users").document(currentUserUID)
