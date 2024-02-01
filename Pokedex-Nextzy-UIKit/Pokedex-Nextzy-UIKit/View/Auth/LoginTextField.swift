@@ -31,9 +31,9 @@ class LoginTextField: UITextField {
         switch type{
             
         case .email:
-            self.placeholder = "Enter your email"
+            self.placeholder = String(localized: "email_placeholder")
         case .password:
-            self.placeholder = "Enter your password"
+            self.placeholder = String(localized: "password_placeholder")
             self.isSecureTextEntry = true
         }
     }
