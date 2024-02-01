@@ -95,11 +95,16 @@ class ForgotViewController: UIViewController {
 }
 
 extension ForgotViewController: AuthViewModelDelegate {
+    func navigateToNextView() {
+        
+    }
+    
+    func setUserData(firstName: String, lastName: String, imageURL: String) {
+        
+    }
+    
     func toggleAlert(messege: String) {
         self.showAlert(message: messege)
     }
     
-    func navigateToTabBar() {
-        
-    }
 }

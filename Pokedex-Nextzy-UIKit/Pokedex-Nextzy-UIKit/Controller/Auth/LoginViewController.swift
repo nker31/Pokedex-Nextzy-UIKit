@@ -153,10 +153,13 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: AuthViewModelDelegate {
-    
-    func navigateToTabBar() {
+    func navigateToNextView() {
         let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
         sceneDelegate?.presentTabBarController()
+    }
+    
+    func setUserData(firstName: String, lastName: String, imageURL: String) {
+        
     }
     
     func toggleAlert(messege: String) {

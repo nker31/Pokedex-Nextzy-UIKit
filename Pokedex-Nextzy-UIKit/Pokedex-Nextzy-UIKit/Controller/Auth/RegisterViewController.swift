@@ -192,13 +192,17 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
 }
 
 extension RegisterViewController: AuthViewModelDelegate {
+    func navigateToNextView() {
+        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+        sceneDelegate?.presentTabBarController()
+    }
+    
+    func setUserData(firstName: String, lastName: String, imageURL: String) {
+        
+    }
+    
 
     func toggleAlert(messege: String) {
         self.showAlert(message: messege)
-    }
-    
-    func navigateToTabBar() {
-        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
-        sceneDelegate?.presentTabBarController()
     }
 }
