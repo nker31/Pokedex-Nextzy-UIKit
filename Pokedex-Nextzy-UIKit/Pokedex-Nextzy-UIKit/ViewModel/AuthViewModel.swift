@@ -10,9 +10,15 @@ import Firebase
 import FirebaseFirestore
 import FirebaseStorage
 
-class AuthViewModel{
+protocol AuthViewModelDelegate {
+    func toggleAlert(messege: String)
+    func navigateToTabBar()
+}
+
+class AuthViewModel {
     var userSession: FirebaseAuth.User?
     var currentUser: User?
+    var delegate: AuthViewModelDelegate?
     
     init() {
         self.userSession = Auth.auth().currentUser
@@ -20,7 +26,7 @@ class AuthViewModel{
     
     // MARK: - Authentication
     
-    func fetchUserData() async{
+    func fetchUserData() async {
         guard let currentUserUID = Auth.auth().currentUser?.uid else{ return }
         guard let snapshot = try? await Firestore.firestore().collection("users").document(currentUserUID).getDocument() else {return}
         self.currentUser = try? snapshot.data(as: User.self)
@@ -28,18 +34,13 @@ class AuthViewModel{
     }
     
     func signIn(email: String, password: String) async throws {
-        do {
-            let _ = try await Auth.auth().signIn(withEmail: email, password: password)
-            // fetch user data
-            await fetchUserData()
-        } catch {
-            throw error
-        }
+        try await Auth.auth().signIn(withEmail: email, password: password)
+        await fetchUserData()
     }
 
 
     
-    func signOut(){
+    func signOut() {
         do{
             print("Debugger: sign out tapped")
             try Auth.auth().signOut()
@@ -96,7 +97,7 @@ class AuthViewModel{
     }
     
     
-    func editUserData(firstname: String, lastname: String, profileImageData: UIImage, completion: @escaping (Result<Bool, Error>) -> Void) async{
+    func editUserData(firstname: String, lastname: String, profileImageData: UIImage, completion: @escaping (Result<Bool, Error>) -> Void) async {
         print("Debugger: editUserData is being called")
         // get current user uid
         guard let currentUserUID = self.currentUser?.id else {
@@ -123,6 +124,7 @@ class AuthViewModel{
                     await self.fetchUserData()
                 }
                 print("Debugger: Updated user data complete")
+                self.delegate?.toggleAlert(messege: "Update wowwwwwww")
                 completion(.success(true))
                 
                 
@@ -137,7 +139,7 @@ class AuthViewModel{
         
     }
     
-    func uploadImage(image: UIImage, imageName: String, completion: @escaping (Result<URL, Error>) -> Void) async{
+    func uploadImage(image: UIImage, imageName: String, completion: @escaping (Result<URL, Error>) -> Void) async {
         // compress image
         guard let imageData = image.jpegData(compressionQuality: 0.5) else {
             print("Debugger: Failed to compress image")
@@ -178,6 +180,11 @@ class AuthViewModel{
     }
 
     
+    
+    
+}
+
+extension AuthViewModel {
     // MARK: - Email and Password Validation Functions
     func isValidEmail(_ email: String) -> Bool {
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
@@ -189,11 +196,39 @@ class AuthViewModel{
         return password.count >= 8
     }
     
+    func signInValidation(email: String, password: String) -> Bool {
+        if (isValidEmail(email)) {
+            if (isValidPassword(password)) {
+                return true
+            }
+            delegate?.toggleAlert(messege: "Password must be at least 8 character")
+            return false
+        }
+        else {
+            delegate?.toggleAlert(messege: "Invalid email")
+            return false
+        }
+    }
+}
+
+extension AuthViewModel {
     
-    
-    
-    
- 
-    
+    func tapLogin(email: String, password: String) {
+        if (signInValidation(email: email, password: password)) {
+            Task{
+                do {
+                    try await self.signIn(email: email, password: password)
+                    DispatchQueue.main.async {
+                        self.delegate?.navigateToTabBar()
+                    }
+                } catch {
+                    print("Debugger: got error \(error.localizedDescription)")
+                    DispatchQueue.main.async {
+                        self.delegate?.toggleAlert(messege: "Wrong email or password")
+                    }
+                }
+            }
+        }
+    }
     
 }
