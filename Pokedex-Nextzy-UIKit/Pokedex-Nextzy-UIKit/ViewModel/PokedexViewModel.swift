@@ -17,7 +17,7 @@ class PokedexViewModel{
         let apiUrl = "https://raw.githubusercontent.com/wirunpong-j/PokedexAPIMock/master/pokemons.json"
         
         // make API call
-        await AF.request(apiUrl).responseDecodable(of: [Pokemon].self){ response in
+        AF.request(apiUrl).responseDecodable(of: [Pokemon].self){ response in
             switch response.result {
                 // if success
             case .success(let pokemonArray):

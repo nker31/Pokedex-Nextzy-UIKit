@@ -10,9 +10,6 @@ import WebKit
 
 class WebViewController: UIViewController {
     
-    // MARK: - Varibles
-   
-    
     // MARK: - UI Components
     let webView = WKWebView()
     
@@ -60,7 +57,6 @@ class WebViewController: UIViewController {
     }
     
     // MARK: - Selectors
-    
     @objc func didTapBackButton() {
         self.dismiss(animated: true, completion: nil)
     }
