@@ -21,15 +21,15 @@ class StatCell: UITableViewCell {
     func setupUI(){
         if let pokemon = self.pokemon{
             self.backgroundColor = .white
-            var hpStatBar = StatBar(label: "HP", stat: pokemon.hp )
-            var attackStatBar = StatBar(label: "Attack", stat: pokemon.hp )
-            var defenseStatBar = StatBar(label: "Defense", stat: pokemon.hp)
-            var specialAttackStatBar = StatBar(label: "Sp.ATK", stat: pokemon.hp)
-            var specialDefenseStatBar = StatBar(label: "Sp.DEF", stat: pokemon.hp)
-            var speedStatBar = StatBar(label: "Speed", stat: pokemon.hp)
-            var totalStatBar = StatBar(label: "Total", stat: pokemon.total, maxStat: 600)
+            let hpStatBar = StatBar(label: "HP", stat: pokemon.hp )
+            let attackStatBar = StatBar(label: "Attack", stat: pokemon.hp )
+            let defenseStatBar = StatBar(label: "Defense", stat: pokemon.hp)
+            let specialAttackStatBar = StatBar(label: "Sp.ATK", stat: pokemon.hp)
+            let specialDefenseStatBar = StatBar(label: "Sp.DEF", stat: pokemon.hp)
+            let speedStatBar = StatBar(label: "Speed", stat: pokemon.hp)
+            let totalStatBar = StatBar(label: "Total", stat: pokemon.total, maxStat: 600)
             
-            var weaknessTitle = DetailTitleLabel(title: "Weakness")
+            let weaknessTitle = DetailTitleLabel(title: "Weakness")
             var weaknessArray: [UIView] = []
             for type in pokemon.weaknesses{
                 weaknessArray.append(PokemonTypeComponent(type: type))
