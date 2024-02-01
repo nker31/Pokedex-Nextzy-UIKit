@@ -13,6 +13,7 @@ class MyPokemonViewController: UIViewController {
     private let authViewModel: AuthViewModel
     private let pokedexViewModel: PokedexViewModel
     private let myPokemonViewModel: MyPokemonViewModel
+    private var displayType: DisplayType = .twoColumns
     private var isDisplayThreeColumns = false
     private var filteredPokemon:[Pokemon] = []
     
@@ -35,6 +36,7 @@ class MyPokemonViewController: UIViewController {
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .white
+        collectionView.register(PokemonCardCell.self, forCellWithReuseIdentifier: PokemonCardCell.identifier)
         collectionView.register(PokemonCell.self, forCellWithReuseIdentifier: PokemonCell.identifier)
         collectionView.register(SmallPokemonCell.self, forCellWithReuseIdentifier: SmallPokemonCell.identifier)
         return collectionView
@@ -72,14 +74,22 @@ class MyPokemonViewController: UIViewController {
         guard let navigationBar = self.navigationController?.navigationBar else {
             return
         }
-        self.view.backgroundColor = .red
         navigationBar.backgroundColor = .clear
         navigationBar.prefersLargeTitles = false
-        navigationBar.tintColor = UIColor.pinkPokemon
+        navigationBar.tintColor = .pinkPokemon
         navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         
-        let columnsImageName = isDisplayThreeColumns ? "square.grid.2x2" : "square.grid.3x3"
-        let columnsButton = UIBarButtonItem(image: UIImage(systemName: columnsImageName), 
+        var columnsImageName: String
+        switch displayType {
+        case .oneColumn:
+            columnsImageName = "square.grid.2x2"
+        case .twoColumns:
+            columnsImageName = "square.grid.3x3"
+        case .threeColumns:
+            columnsImageName = "rectangle.grid.1x2"
+        }
+        
+        let columnsButton = UIBarButtonItem(image: UIImage(systemName: columnsImageName),
                                             style: .plain,
                                             target: self,
                                             action: #selector(toggleColumnDisplayed))
@@ -108,16 +118,23 @@ class MyPokemonViewController: UIViewController {
     }
     
     // MARK: - Selectors
-    @objc private func toggleColumnDisplayed(){
-        self.isDisplayThreeColumns.toggle()
-        self.setupNavbar()
-        self.setupUI()
-        self.collectionView.reloadData()
+    @objc private func toggleColumnDisplayed() {
+        switch displayType {
+        case .oneColumn:
+            displayType = .twoColumns
+        case .twoColumns:
+            displayType = .threeColumns
+        case .threeColumns:
+            displayType = .oneColumn
+        }
+        setupNavbar()
+        setupUI()
+        collectionView.reloadData()
     }
 
 }
 
-extension MyPokemonViewController: UICollectionViewDataSource, UICollectionViewDelegate{
+extension MyPokemonViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     // number of cell
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -125,15 +142,19 @@ extension MyPokemonViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if isDisplayThreeColumns {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SmallPokemonCell.identifier, for: indexPath) as? SmallPokemonCell else{
+        
+        switch displayType {
+
+        case .oneColumn:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PokemonCardCell.identifier, for: indexPath) as? PokemonCardCell else{
                 fatalError("failed to dequeue view cell")
             }
             let pokemon = self.filteredPokemon[indexPath.row]
             cell.configPokemonCell(pokemon: pokemon)
             
             return cell
-        }else{
+            
+        case .twoColumns:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PokemonCell.identifier, for: indexPath) as? PokemonCell else{
                 fatalError("failed to dequeue view cell")
             }
@@ -142,28 +163,61 @@ extension MyPokemonViewController: UICollectionViewDataSource, UICollectionViewD
             
             return cell
             
+        case .threeColumns:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SmallPokemonCell.identifier, for: indexPath) as? SmallPokemonCell else{
+                fatalError("failed to dequeue view cell")
+            }
+            let pokemon = self.filteredPokemon[indexPath.row]
+            cell.configPokemonCell(pokemon: pokemon)
+            
+            return cell
         }
     }
     
 }
 
 
-extension MyPokemonViewController: UICollectionViewDelegateFlowLayout{
+extension MyPokemonViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let sizeTwoColums = ((self.view.frame.width - 40)/2) - 13.34
-        let sizeThreeColums = ((self.view.frame.width - 40)/3) - 6.25
-        return isDisplayThreeColumns ? CGSize(width: sizeThreeColums, height: sizeThreeColums) : CGSize(width: sizeTwoColums, height: sizeTwoColums)
+        
+        switch displayType{
+        case .oneColumn:
+            let width = self.view.frame.width - 40
+            let height = ((self.view.frame.width - 40)/2) - 13.34
+            return  CGSize(width: width, height: height)
+        case .twoColumns:
+            let size = ((self.view.frame.width - 40)/2) - 13.34
+            return  CGSize(width: size, height: size)
+        case .threeColumns:
+            let size = ((self.view.frame.width - 40)/3) - 6.25
+            return  CGSize(width: size, height: size)
+        }
+        
     }
     
     // vertical spacing
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return isDisplayThreeColumns ? 5 : 20
+        switch displayType{
+        case .oneColumn:
+            return 20
+        case .twoColumns:
+            return 20
+        case .threeColumns:
+            return 5
+        }
     }
     
     // horizomtal spacing
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return isDisplayThreeColumns ? 5 : 20
+        switch displayType{
+        case .oneColumn:
+            return 0
+        case .twoColumns:
+            return 20
+        case .threeColumns:
+            return 5
+        }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20)
