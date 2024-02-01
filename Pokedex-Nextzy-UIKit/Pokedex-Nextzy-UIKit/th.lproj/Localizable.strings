@@ -6,6 +6,7 @@
   
 */
 
+// Login VC
 "email_label_text" = "อีเมล";
 "password_label_text" = "รหัสผ่าน";
 "login_button_text" = "เข้าสู่ระบบ";
@@ -53,3 +54,6 @@
 "confirm_password_placeholder" = "ยืนยันรหัสผ่าน";
 "first_name_placeholder" = "กรอกชื่อจริงของคุณ";
 "last_name_placeholder" = "กรอกนามสกุลของคุณ";
+
+// Progress View
+"loading_label_text" = "กำลังโหลด";

@@ -7,7 +7,6 @@
 */
 
 // Login VC
-
 "email_label_text"  = "Email";
 "password_label_text"  = "Password";
 "login_button_text" = "Login";
@@ -55,4 +54,7 @@
 "confirm_password_placeholder" = "Enter your confirm password";
 "first_name_placeholder" = "Enter your first name";
 "last_name_placeholder" = "Enter your last name";
+
+// Progress View
+"loading_label_text" = "Loading";
 
