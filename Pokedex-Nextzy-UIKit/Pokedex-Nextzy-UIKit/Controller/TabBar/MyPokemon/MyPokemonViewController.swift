@@ -50,44 +50,39 @@ class MyPokemonViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.setupNavbar()
         
         // filter pokemon from view model to display fav pokemon
         self.filteredPokemon = pokedexViewModel.pokemons?.filter { myPokemonViewModel.myPokemonIDs.contains($0.id) } ?? []
-        
-        // Check for display My pokemon empty view
-        if(self.filteredPokemon.isEmpty){
-            self.emptyView.isHidden = false
-        }else{
-            self.emptyView.isHidden  = true
-        }
-        
+        self.emptyView.isHidden = !self.filteredPokemon.isEmpty
         self.collectionView.reloadData()
-         
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.delegate = self
         collectionView.dataSource = self
         self.setupUI()
-        
-
     }
     
     // MARK: - UI Setup
     
-    func setupNavbar(){
+    func setupNavbar() {
+        guard let navigationBar = self.navigationController?.navigationBar else {
+            return
+        }
         self.view.backgroundColor = .red
-        self.navigationController?.navigationBar.backgroundColor = .clear
-        self.navigationController?.navigationBar.prefersLargeTitles = false
-        self.navigationController?.navigationBar.tintColor = UIColor.pinkPokemon
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-        
+        navigationBar.backgroundColor = .clear
+        navigationBar.prefersLargeTitles = false
+        navigationBar.tintColor = UIColor.pinkPokemon
+        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         
         let columnsImageName = isDisplayThreeColumns ? "square.grid.2x2" : "square.grid.3x3"
-        let columnsButton = UIBarButtonItem(image: UIImage(systemName: columnsImageName), style: .plain, target: self, action: #selector(toggleColumnDisplayed))
+        let columnsButton = UIBarButtonItem(image: UIImage(systemName: columnsImageName), 
+                                            style: .plain,
+                                            target: self,
+                                            action: #selector(toggleColumnDisplayed))
         
         self.navigationItem.leftBarButtonItems = [columnsButton]
     }
@@ -112,7 +107,6 @@ class MyPokemonViewController: UIViewController {
         ])
     }
     
-    
     // MARK: - Selectors
     @objc private func toggleColumnDisplayed(){
         self.isDisplayThreeColumns.toggle()
@@ -120,7 +114,6 @@ class MyPokemonViewController: UIViewController {
         self.setupUI()
         self.collectionView.reloadData()
     }
-
 
 }
 
@@ -150,15 +143,12 @@ extension MyPokemonViewController: UICollectionViewDataSource, UICollectionViewD
             return cell
             
         }
-        
     }
-    
     
 }
 
 
 extension MyPokemonViewController: UICollectionViewDelegateFlowLayout{
-     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let sizeTwoColums = ((self.view.frame.width - 40)/2) - 13.34
@@ -186,7 +176,6 @@ extension MyPokemonViewController: UICollectionViewDelegateFlowLayout{
 
         let pokemonDetailVC = DetailViewController(pokemon: self.filteredPokemon[indexPath.item], pokedexViewModel: pokedexViewModel,myPokemonViewModel: myPokemonViewModel)
         
-
         hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(pokemonDetailVC, animated: true)
         hidesBottomBarWhenPushed = false
