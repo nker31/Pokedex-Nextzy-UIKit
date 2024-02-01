@@ -31,7 +31,7 @@ class PokeballProgressView: UIView {
     
     lazy var progresslabel: UILabel = {
         let label = UILabel()
-        label.text = "Loading"
+        label.text = String(localized: "loading_label_text")
         label.textColor = .white
         label.font = .systemFont(ofSize: 16, weight: .bold)
         return label
