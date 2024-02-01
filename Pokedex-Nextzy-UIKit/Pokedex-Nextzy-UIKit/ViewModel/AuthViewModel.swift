@@ -39,8 +39,6 @@ class AuthViewModel {
         await fetchUserData()
     }
 
-
-    
     func signOut() {
         do{
             print("Debugger: sign out tapped")
@@ -121,16 +119,17 @@ class AuthViewModel {
                     await self.fetchUserData()
                 }
                 print("Debugger: Updated user data complete")
-                self.delegate?.toggleAlert(messege: "Update wowwwwwww")
+                self.delegate?.toggleAlert(messege: "Update data successfully")
                 completion(.success(true))
-                
                 
                 // if failed
             case .failure(let errorMessage):
                 print("Error uploading from edit profile: \(errorMessage.localizedDescription)")
+                self.delegate?.toggleAlert(messege: "Update data failed")
                 completion(.failure(errorMessage))
             }
         }
+        
     }
     
     func uploadImage(image: UIImage, imageName: String, completion: @escaping (Result<URL, Error>) -> Void) async {
@@ -299,6 +298,27 @@ extension AuthViewModel {
                 self.delegate?.toggleAlert(messege: "Reset password email has been sent")
             case .failure(_):
                 self.delegate?.toggleAlert(messege: "Failed to reset password \n Please try again")
+            }
+        }
+    }
+    
+    func tapUpdate(firstName: String, lastName: String, newImage: UIImage) {
+        guard firstName.count >= 3 && lastName.count >= 3 else {
+            self.delegate?.toggleAlert(messege: "Firstname and Lastname must be at least 3 characters")
+            return
+        }
+        
+        Task {
+            await self.editUserData(firstname: firstName,
+                                    lastname: lastName,
+                                    profileImageData: newImage)
+            { result in
+                switch result {
+                case .success(_):
+                    self.delegate?.toggleAlert(messege: "Update data successfully")
+                case .failure(_):
+                    self.delegate?.toggleAlert(messege: "Update failed")
+                }
             }
         }
     }
