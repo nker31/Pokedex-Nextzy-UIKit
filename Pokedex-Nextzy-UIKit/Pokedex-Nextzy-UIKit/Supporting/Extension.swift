@@ -60,6 +60,12 @@ extension UIViewController{
             self.view.backgroundColor = .gray
         }
     }
+    
+    enum DisplayType{
+        case oneColumn
+        case twoColumns
+        case threeColumns
+    }
 }
 
 extension UIView{

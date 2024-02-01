@@ -10,12 +10,6 @@ import UIKit
 class PokedexViewController: UIViewController{
 
     // MARK: - Varibles
-    enum DisplayType{
-        case oneColumn
-        case twoColumns
-        case threeColumns
-    }
-    
     private let authViewModel: AuthViewModel
     private let pokedexViewModel: PokedexViewModel
     private let myPokemonViewModel: MyPokemonViewModel
