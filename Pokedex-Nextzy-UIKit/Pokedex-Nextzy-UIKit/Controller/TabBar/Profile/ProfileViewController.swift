@@ -24,10 +24,17 @@ class ProfileViewController: UIViewController {
     }
     
     // MARK: - UI Components
-    lazy var coverScreenView = UIView()
+    lazy var coverScreenView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .pinkPokemon
+        return view
+    }()
+    
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = .pinkPokemon.withAlphaComponent(0.2)
+        tableView.separatorStyle = .none
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         return tableView
     }()
     
@@ -35,37 +42,41 @@ class ProfileViewController: UIViewController {
         let label = UILabel()
         label.textColor = .white
         label.font = .systemFont(ofSize: 20, weight: .semibold)
-        
         return label
     }()
     
     lazy var profileImageView: UIImageView = {
-        let image = UIImage(named: "pokeball-profile")
-        let imageView = UIImageView(image: image)
-        
+        let imageView = UIImageView()
+        imageView.layer.cornerRadius = (view.frame.width / 3) / 2
+        imageView.clipsToBounds = true
         return imageView
+    }()
+    
+    lazy var signOutButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle(String(localized: "sign_out_button_text"), for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .pinkPokemon
+        button.layer.cornerRadius = 20
+        button.addTarget(self, action: #selector(didTapSignOutButton), for: .touchUpInside)
+        return button
     }()
 
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
-        if let currentUser = authViewModel.currentUser{
-            let imageURL = currentUser.profileImageURL
-            profileImageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: "pokeball-profile"))
-            userFullnameLabel.text = "\(currentUser.firstname ) \(currentUser.lastname )"
-        }
-        
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
+        self.authViewModel.getProfileData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
-        
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
+        authViewModel.delegate = self
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -85,13 +96,7 @@ class ProfileViewController: UIViewController {
         coverScreenView.translatesAutoresizingMaskIntoConstraints = false
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
         userFullnameLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        coverScreenView.backgroundColor = UIColor.pinkPokemon
-        tableView.backgroundColor = UIColor.pinkPokemon.withAlphaComponent(0.2)
-        tableView.separatorStyle = .none
-        
-        profileImageView.layer.cornerRadius = (view.frame.width / 3) / 2
-        profileImageView.clipsToBounds = true
+        tableView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
             coverScreenView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -115,6 +120,19 @@ class ProfileViewController: UIViewController {
         ])
     }
     
+    func configureCell(_ cell: UITableViewCell, imageName: String) {
+        cell.imageView?.image = UIImage(systemName: imageName)
+        cell.imageView?.tintColor = .pinkPokemon
+        cell.textLabel?.textColor = .pinkPokemon
+        cell.accessoryType = .disclosureIndicator
+        cell.selectionStyle = .none
+    }
+    
+    // MARK: - Selector
+    @objc func didTapSignOutButton() {
+        authViewModel.tapSignOut()
+    }
+    
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
@@ -135,70 +153,54 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.row == 0 {
             cell.textLabel?.text = String(localized: "edit_profile_title")
-            cell.imageView?.image = UIImage(systemName: "pencil")
-            cell.imageView?.tintColor = UIColor.pinkPokemon
-            cell.textLabel?.textColor = UIColor.pinkPokemon
-            cell.accessoryType = .disclosureIndicator
-            cell.selectionStyle = .none
+            configureCell(cell, imageName: "pencil")
         } else if indexPath.row == 1 {
             cell.textLabel?.text = String(localized: "terms_and_conditions_title")
-            cell.imageView?.image = UIImage(systemName: "chart.bar.doc.horizontal.fill")
-            cell.imageView?.tintColor = UIColor.pinkPokemon
-            cell.textLabel?.textColor = UIColor.pinkPokemon
-            cell.accessoryType = .disclosureIndicator
-            cell.selectionStyle = .none
+            configureCell(cell, imageName: "chart.bar.doc.horizontal.fill")
         } else {
-            // Create a custom cell for the button
             let buttonCell = UITableViewCell(style: .default, reuseIdentifier: nil)
-            buttonCell.backgroundColor = UIColor.pinkPokemon.withAlphaComponent(0)
+            buttonCell.backgroundColor = .clear
+            buttonCell.contentView.addSubview(signOutButton)
             
-            let button = UIButton(type: .system)
-            button.setTitle(String(localized: "sign_out_button_text"), for: .normal)
-            button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
-            button.setTitleColor(.white, for: .normal)
-            button.backgroundColor = UIColor.pinkPokemon
-            button.layer.cornerRadius = 20
-            button.addTarget(self, action: #selector(signOutButtonTapped), for: .touchUpInside)
-            
-            buttonCell.contentView.addSubview(button)
-            
-            // Add constraints for the button
-            button.translatesAutoresizingMaskIntoConstraints = false
+            signOutButton.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                button.topAnchor.constraint(equalTo: buttonCell.contentView.topAnchor, constant: 30),
-                button.leadingAnchor.constraint(equalTo: buttonCell.contentView.leadingAnchor, constant: 15),
-                button.trailingAnchor.constraint(equalTo: buttonCell.contentView.trailingAnchor, constant: -15),
-                button.heightAnchor.constraint(equalToConstant: 40)
+                signOutButton.topAnchor.constraint(equalTo: buttonCell.contentView.topAnchor, constant: 30),
+                signOutButton.leadingAnchor.constraint(equalTo: buttonCell.contentView.leadingAnchor, constant: 15),
+                signOutButton.trailingAnchor.constraint(equalTo: buttonCell.contentView.trailingAnchor, constant: -15),
+                signOutButton.heightAnchor.constraint(equalToConstant: 40)
             ])
-            
             return buttonCell
         }
-        
         return cell
     }
     
     // navigate to selected viewcontroller
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0{
+        if indexPath.row == 0 {
             let editProfileController = EditProfileViewController(authViewModel: authViewModel)
             self.navigationController?.pushViewController(editProfileController, animated: true)
             
-        }else if indexPath.row == 1{
+        } else if indexPath.row == 1 {
             let webViewController = WebViewController()
             self.present(webViewController, animated: true)
         }
     }
+    
+}
 
-    // Sign out function
-    @objc func signOutButtonTapped() {
-        authViewModel.signOut()
-        showAlert(message: "Sign out completed")
-        displayLogin()
-    }
-    func displayLogin() {
+extension ProfileViewController: AuthViewModelDelegate {
+    func navigateToNextView() {
         let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
         sceneDelegate?.presentLoginViewController()
     }
     
+    func setUserData(firstName: String, lastName: String, imageURL: String) {
+        self.userFullnameLabel.text = "\(firstName) \(lastName)"
+        self.profileImageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: "pokeball-profile"))
+    }
+    
+    func toggleAlert(messege: String) {
+        self.showAlert(message: messege)
+    }
 }
 
