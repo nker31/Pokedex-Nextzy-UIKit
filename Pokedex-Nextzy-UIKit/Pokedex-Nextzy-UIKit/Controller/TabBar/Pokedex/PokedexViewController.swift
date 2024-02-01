@@ -8,9 +8,7 @@
 import UIKit
 
 class PokedexViewController: UIViewController{
-    
-    
-    
+
     // MARK: - Varibles
     private let authViewModel: AuthViewModel
     private let pokedexViewModel: PokedexViewModel
@@ -67,9 +65,8 @@ class PokedexViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavbar()
-        
-
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         Task {
@@ -81,7 +78,6 @@ class PokedexViewController: UIViewController{
         setupUI()
         refreshControl.addTarget(self, action: #selector(pullRefresh), for: .valueChanged)
         collectionView.refreshControl = refreshControl
-        
     }
     
     // MARK: - UI Setup
@@ -89,7 +85,7 @@ class PokedexViewController: UIViewController{
         self.view.backgroundColor = .red
         self.navigationController?.navigationBar.backgroundColor = .clear
         self.navigationController?.navigationBar.prefersLargeTitles = false
-        self.navigationController?.navigationBar.tintColor = UIColor.pinkPokemon
+        self.navigationController?.navigationBar.tintColor = .pinkPokemon
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         
         let searchButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchButtonTapped))
@@ -107,12 +103,11 @@ class PokedexViewController: UIViewController{
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         
-        
         self.view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
         self.progressView.addSubview(progresslabel)
         progresslabel.translatesAutoresizingMaskIntoConstraints = false
-        
         
         self.view.addSubview(progressView)
         progressView.translatesAutoresizingMaskIntoConstraints = false
@@ -131,11 +126,9 @@ class PokedexViewController: UIViewController{
             collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
         ])
-        
-
     }
+    
     private func loadData() {
-        // should start progress view here
         progressView.isHidden = false
         Task {
             do {
