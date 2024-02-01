@@ -35,11 +35,15 @@ class PokedexViewController: UIViewController{
     
     
     // MARK: - UI Components
-    let refreshControl = UIRefreshControl()
+    let refreshControl: UIRefreshControl = {
+        let controller = UIRefreshControl()
+        controller.addTarget(self, action: #selector(pullRefresh), for: .valueChanged)
+        return controller
+    }()
     
     lazy var progressView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+        view.backgroundColor = .black.withAlphaComponent(0.3)
         view.isHidden = true
         return view
     }()
@@ -63,11 +67,6 @@ class PokedexViewController: UIViewController{
         return collectionView
     }()
     
-    
-
-    
-
-    
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -83,19 +82,24 @@ class PokedexViewController: UIViewController{
             }
         }
         setupUI()
-        refreshControl.addTarget(self, action: #selector(pullRefresh), for: .valueChanged)
-        collectionView.refreshControl = refreshControl
+        self.collectionView.refreshControl = refreshControl
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
     }
     
     // MARK: - UI Setup
     private func setupNavbar() {
         self.view.backgroundColor = .red
-        self.navigationController?.navigationBar.backgroundColor = .clear
-        self.navigationController?.navigationBar.prefersLargeTitles = false
-        self.navigationController?.navigationBar.tintColor = .pinkPokemon
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        if let navigationBar = self.navigationController?.navigationBar {
+            navigationBar.backgroundColor = .clear
+            navigationBar.prefersLargeTitles = false
+            navigationBar.tintColor = .pinkPokemon
+            navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        }
         
-        let searchButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchButtonTapped))
+        let searchButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, 
+                                                            target: self,
+                                                            action: #selector(searchButtonTapped))
         
         var columnsImageName: String
         switch displayType {
@@ -107,17 +111,17 @@ class PokedexViewController: UIViewController{
             columnsImageName = "square.grid.3x3"
         }
         
-        let columnsButton = UIBarButtonItem(image: UIImage(systemName: columnsImageName), style: .plain, target: self, action: #selector(toggleColumnDisplayed))
+        let columnsButton = UIBarButtonItem(image: UIImage(systemName: columnsImageName), 
+                                            style: .plain, 
+                                            target: self,
+                                            action: #selector(toggleColumnDisplayed))
         
         self.navigationItem.leftBarButtonItems = [columnsButton]
         self.navigationItem.rightBarButtonItem = searchButton
     }
     
     private func setupUI(){
-        self.view.backgroundColor = UIColor.pinkPokemon
-        
-        self.collectionView.dataSource = self
-        self.collectionView.delegate = self
+        self.view.backgroundColor = .pinkPokemon
         
         self.view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -159,8 +163,9 @@ class PokedexViewController: UIViewController{
     // MARK: - Selectors
     
     @objc private func searchButtonTapped() {
-        let searchViewController = SearchViewController( pokedexViewModel: pokedexViewModel, myPokemonViewModel: myPokemonViewModel)
-            let navigationController = UINavigationController(rootViewController: searchViewController)
+        let searchViewController = SearchViewController( pokedexViewModel: pokedexViewModel
+                                                         , myPokemonViewModel: myPokemonViewModel)
+        let navigationController = UINavigationController(rootViewController: searchViewController)
         navigationController.modalPresentationStyle = .overFullScreen
             present(navigationController, animated: true, completion: nil)
         }
@@ -233,9 +238,7 @@ extension PokedexViewController: UICollectionViewDataSource, UICollectionViewDel
 
 extension PokedexViewController: UICollectionViewDelegateFlowLayout{
     
-    func collectionView(_ collectionView: UICollectionView, 
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         switch displayType{
         case .oneColumn:
@@ -287,7 +290,6 @@ extension PokedexViewController: UICollectionViewDelegateFlowLayout{
         let pokemonDetailVC = DetailViewController(pokemon: self.pokemonArray[indexPath.item], pokedexViewModel: pokedexViewModel, myPokemonViewModel: myPokemonViewModel
         )
         
-
         hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(pokemonDetailVC, animated: true)
         hidesBottomBarWhenPushed = false
