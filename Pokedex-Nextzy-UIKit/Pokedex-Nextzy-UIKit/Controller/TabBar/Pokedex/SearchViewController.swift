@@ -10,6 +10,7 @@ import UIKit
 class SearchViewController: UIViewController {
     
     // MARK: - Variables
+    
     private let pokedexViewModel: PokedexViewModel
     private let myPokemonViewModel: MyPokemonViewModel
     private var pokemonArray:[Pokemon] = []
@@ -80,9 +81,10 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
         setupNavbar()
         setupUI()
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
     }
 
     // MARK: - UI Setup
@@ -93,8 +95,7 @@ class SearchViewController: UIViewController {
     }
 
     private func setupUI() {
-        self.collectionView.dataSource = self
-        self.collectionView.delegate = self
+        self.view.backgroundColor = .systemBackground
         
         self.view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
