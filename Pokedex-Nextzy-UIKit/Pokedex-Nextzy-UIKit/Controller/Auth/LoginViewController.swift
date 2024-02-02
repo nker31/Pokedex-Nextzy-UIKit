@@ -140,8 +140,8 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func didTapForgotPasswordButton(_ sender: UIButton) {
-//        let forgotPasswordVC = ForgotViewController(authViewModel: authViewModel)
-//        self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
+        let forgotPasswordVC = ForgotViewController()
+        self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
     }
     
     @objc private func didTapRegisterButton(_ sender: UIButton) {
