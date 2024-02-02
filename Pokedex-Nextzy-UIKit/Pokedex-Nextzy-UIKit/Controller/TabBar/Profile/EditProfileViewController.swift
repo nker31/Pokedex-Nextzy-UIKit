@@ -104,7 +104,7 @@ class EditProfileViewController: UIViewController {
     }
     
     private func setupUI(){
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .systemBackground
         
         let textfieldStack = UIStackView(arrangedSubviews: [
             createLabelStackView(title: String(localized: "first_name_label_text"), field: firstnameTextfield),
@@ -124,7 +124,7 @@ class EditProfileViewController: UIViewController {
         textfieldStack.spacing = 15
         self.view.addSubview(textfieldStack)
         textfieldStack.translatesAutoresizingMaskIntoConstraints = false
-        textfieldStack.backgroundColor = .white
+        textfieldStack.backgroundColor = .systemBackground
         
         self.view.addSubview(updateButton)
         updateButton.translatesAutoresizingMaskIntoConstraints = false
