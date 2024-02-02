@@ -178,6 +178,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             let editProfileController = EditProfileViewController(authViewModel: authViewModel)
+            editProfileController.delegate = self
             self.navigationController?.pushViewController(editProfileController, animated: true)
             
         } else if indexPath.row == 1 {
@@ -204,3 +205,9 @@ extension ProfileViewController: AuthViewModelDelegate {
     }
 }
 
+extension ProfileViewController: EditProfileDelegate {
+    func setNewImage(newImage: UIImage) {
+        profileImageView.image = newImage
+    }
+
+}
