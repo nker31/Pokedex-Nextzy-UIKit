@@ -82,6 +82,7 @@
 		51A673FF2B62B56000745C01 /* StatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A673FE2B62B56000745C01 /* StatCell.swift */; };
 		51B5EF6A2B6CC30100928ED6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B5EF692B6CC30100928ED6 /* LoginViewModel.swift */; };
 		51B5EF6D2B6CC3B400928ED6 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B5EF6C2B6CC3B400928ED6 /* AuthenticationManager.swift */; };
+		51B5EF6F2B6CD79F00928ED6 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B5EF6E2B6CD79F00928ED6 /* ForgotPasswordViewModel.swift */; };
 		51CB3E412B64E155001877C4 /* MyPokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CB3E402B64E155001877C4 /* MyPokemonViewController.swift */; };
 		51CB3E432B64EE2E001877C4 /* MyPokemonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CB3E422B64EE2E001877C4 /* MyPokemonViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -135,6 +136,7 @@
 		51A673FE2B62B56000745C01 /* StatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatCell.swift; sourceTree = "<group>"; };
 		51B5EF692B6CC30100928ED6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		51B5EF6C2B6CC3B400928ED6 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		51B5EF6E2B6CD79F00928ED6 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		51CB3E402B64E155001877C4 /* MyPokemonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPokemonViewController.swift; sourceTree = "<group>"; };
 		51CB3E422B64EE2E001877C4 /* MyPokemonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPokemonViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -317,6 +319,7 @@
 				51339CDC2B602D1300DA49EC /* PokedexViewModel.swift */,
 				51CB3E422B64EE2E001877C4 /* MyPokemonViewModel.swift */,
 				51B5EF692B6CC30100928ED6 /* LoginViewModel.swift */,
+				51B5EF6E2B6CD79F00928ED6 /* ForgotPasswordViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				519FCA182B5A46FE002BC2B5 /* CustomButton.swift in Sources */,
 				51339CE62B60CEB000DA49EC /* SearchViewController.swift in Sources */,
 				51040E1A2B6653D0009BD5AA /* SplashViewController.swift in Sources */,
+				51B5EF6F2B6CD79F00928ED6 /* ForgotPasswordViewModel.swift in Sources */,
 				519FCA5C2B5A70DD002BC2B5 /* AuthViewModel.swift in Sources */,
 				518043B12B63985600552B6A /* StatBar.swift in Sources */,
 				518043B92B639BBA00552B6A /* DetailTextCompents.swift in Sources */,
