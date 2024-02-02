@@ -10,6 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
+    var authManager = AuthenticationManager()
     var authViewModel = AuthViewModel()
     var pokedexViewModel = PokedexViewModel()
     var myPokemonViewModel = MyPokemonViewModel()
@@ -38,7 +39,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func presentLoginViewController() {
-        let loginViewController = LoginViewController(authViewModel: authViewModel)
+        let loginViewModel = LoginViewModel(authManager: self.authManager)
+        let loginViewController = LoginViewController(loginViewModel: loginViewModel)
         let nav = UINavigationController(rootViewController: loginViewController)
         nav.modalPresentationStyle = .fullScreen
         window?.rootViewController = nav
