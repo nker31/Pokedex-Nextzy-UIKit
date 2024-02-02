@@ -54,7 +54,7 @@ class PokedexViewController: UIViewController {
         layout.scrollDirection = .vertical
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .systemBackground
         collectionView.register(PokemonCell.self, forCellWithReuseIdentifier: PokemonCell.identifier)
         collectionView.register(SmallPokemonCell.self, forCellWithReuseIdentifier: SmallPokemonCell.identifier)
         collectionView.register(PokemonCardCell.self, forCellWithReuseIdentifier: PokemonCardCell.identifier)
@@ -87,7 +87,7 @@ class PokedexViewController: UIViewController {
             navigationBar.backgroundColor = .clear
             navigationBar.prefersLargeTitles = false
             navigationBar.tintColor = .pinkPokemon
-            navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+            navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
         }
         
         let searchButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, 
