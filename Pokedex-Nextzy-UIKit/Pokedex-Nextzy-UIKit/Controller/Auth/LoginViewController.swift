@@ -145,8 +145,8 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func didTapRegisterButton(_ sender: UIButton) {
-//        let registerVC = RegisterViewController(authViewModel: authViewModel)
-//        self.navigationController?.pushViewController(registerVC, animated: true)
+        let registerVC = RegisterViewController()
+        self.navigationController?.pushViewController(registerVC, animated: true)
     }
     
 }
