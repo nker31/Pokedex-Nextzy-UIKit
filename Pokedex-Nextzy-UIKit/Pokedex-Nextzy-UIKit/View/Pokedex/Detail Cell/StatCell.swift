@@ -20,7 +20,7 @@ class StatCell: UITableViewCell {
     
     func setupUI(){
         if let pokemon = self.pokemon{
-            self.backgroundColor = .white
+            self.backgroundColor = .systemBackground
             let hpStatBar = StatBar(label: "HP", stat: pokemon.hp )
             let attackStatBar = StatBar(label: "Attack", stat: pokemon.hp )
             let defenseStatBar = StatBar(label: "Defense", stat: pokemon.hp)
