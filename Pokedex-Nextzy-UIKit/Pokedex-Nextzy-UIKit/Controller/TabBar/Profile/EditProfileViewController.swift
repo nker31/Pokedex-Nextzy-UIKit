@@ -7,10 +7,16 @@
 
 import UIKit
 
+protocol EditProfileDelegate {
+    func setNewImage(newImage: UIImage)
+}
+
 class EditProfileViewController: UIViewController {
 
     // MARK: - Varibles
     private let authViewModel: AuthViewModel
+    
+    var delegate: EditProfileDelegate?
 
     init(authViewModel: AuthViewModel) {
         self.authViewModel = authViewModel
@@ -165,6 +171,7 @@ class EditProfileViewController: UIViewController {
         authViewModel.tapUpdate(firstName: firstName,
                                 lastName: lastName,
                                 newImage: newImage)
+        delegate?.setNewImage(newImage: newImage)
     
     }
 }
