@@ -11,7 +11,7 @@ import FirebaseFirestore
 import FirebaseStorage
 
 class AuthenticationManager {
-    
+    static var shared = AuthenticationManager()
     var userSession: FirebaseAuth.User?
     var currentUser: User?
 

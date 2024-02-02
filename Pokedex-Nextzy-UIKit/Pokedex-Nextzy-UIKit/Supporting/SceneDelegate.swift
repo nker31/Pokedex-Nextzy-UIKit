@@ -39,7 +39,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func presentLoginViewController() {
-        let loginViewModel = LoginViewModel(authManager: self.authManager)
+        let loginViewModel = LoginViewModel()
         let loginViewController = LoginViewController(loginViewModel: loginViewModel)
         let nav = UINavigationController(rootViewController: loginViewController)
         nav.modalPresentationStyle = .fullScreen

@@ -15,13 +15,10 @@ protocol LoginViewModelDelegate {
 class LoginViewModel {
     
     // MARK: - Variables
-    private let authManager: AuthenticationManager
+    private let authManager = AuthenticationManager.shared
     var delegate: LoginViewModelDelegate?
     
     // MARK: - Initializer
-    init(authManager: AuthenticationManager) {
-        self.authManager = authManager
-    }
     
     // MARK: - Method
     func tapLogin(email: String, password: String) {
