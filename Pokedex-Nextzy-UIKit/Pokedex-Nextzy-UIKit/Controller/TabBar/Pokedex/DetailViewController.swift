@@ -68,12 +68,13 @@ class DetailViewController: UIViewController {
         let segmentedControl = UISegmentedControl(items: [String(localized: "about_segment_title"), String(localized: "stat_segment_title"), String(localized: "evolution_segment_title")])
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
+        segmentedControl.backgroundColor = .systemGray5
         return segmentedControl
     }()
     
     lazy var tabMenuView: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 200))
-        view.backgroundColor = .white
+        view.backgroundColor = .systemGray4
         return view
     }()
     
@@ -231,8 +232,8 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource, UISc
 
         if offsetY >= -95 {
             navigationController?.navigationBar.backgroundColor = .clear
-            navigationController?.navigationBar.tintColor = .red
-            navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+            navigationController?.navigationBar.tintColor = .pinkPokemon
+            navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
             navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
         } else {
             navigationController?.navigationBar.backgroundColor = .clear
