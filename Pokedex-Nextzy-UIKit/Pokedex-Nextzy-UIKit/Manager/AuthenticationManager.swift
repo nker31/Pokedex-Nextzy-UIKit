@@ -43,6 +43,41 @@ class AuthenticationManager {
         }
     }
     
+    func register(withEmail email: String, password: String, firstname: String, lastname: String, profileImageData: UIImage, completion: @escaping (Result<User, Error>) -> Void) {
+        
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let authResult = authResult else {
+                let error = NSError(domain: "Registration error", code: 0, userInfo: nil)
+                completion(.failure(error))
+                return
+            }
+            
+            // upload image
+            Task{
+                await self.uploadImage(image: profileImageData, imageName: authResult.user.uid) { result in
+                    
+                    switch result {
+                    case .success(let imageURL):
+                        let user = User(id: authResult.user.uid, firstname: firstname, lastname: lastname, email: email, profileImageURL: imageURL.absoluteString)
+                        if let encodedUser = try? Firestore.Encoder().encode(user){
+                            Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
+                            print("Debugger: \(user)")
+                            completion(.success(user))
+                        }
+                    case .failure(let uploadError):
+                        print("Error uploading image: \(uploadError.localizedDescription)")
+                        completion(.failure(uploadError))
+                    }
+                }
+            }
+        }
+    }
+    
     func editUserData(firstname: String, lastname: String, profileImageData: UIImage, completion: @escaping (Result<Bool, Error>) -> Void) async {
         print("Debugger: editUserData is being called")
         // get current user uid
