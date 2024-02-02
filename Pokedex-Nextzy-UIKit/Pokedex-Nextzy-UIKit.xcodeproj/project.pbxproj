@@ -84,6 +84,7 @@
 		51B5EF6D2B6CC3B400928ED6 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B5EF6C2B6CC3B400928ED6 /* AuthenticationManager.swift */; };
 		51B5EF6F2B6CD79F00928ED6 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B5EF6E2B6CD79F00928ED6 /* ForgotPasswordViewModel.swift */; };
 		51B5EF722B6CDF0800928ED6 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B5EF712B6CDF0800928ED6 /* RegisterViewModel.swift */; };
+		51B5EF742B6CE43C00928ED6 /* PokemonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B5EF732B6CE43C00928ED6 /* PokemonManager.swift */; };
 		51CB3E412B64E155001877C4 /* MyPokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CB3E402B64E155001877C4 /* MyPokemonViewController.swift */; };
 		51CB3E432B64EE2E001877C4 /* MyPokemonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CB3E422B64EE2E001877C4 /* MyPokemonViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -139,6 +140,7 @@
 		51B5EF6C2B6CC3B400928ED6 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		51B5EF6E2B6CD79F00928ED6 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		51B5EF712B6CDF0800928ED6 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		51B5EF732B6CE43C00928ED6 /* PokemonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonManager.swift; sourceTree = "<group>"; };
 		51CB3E402B64E155001877C4 /* MyPokemonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPokemonViewController.swift; sourceTree = "<group>"; };
 		51CB3E422B64EE2E001877C4 /* MyPokemonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPokemonViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -370,6 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				51B5EF6C2B6CC3B400928ED6 /* AuthenticationManager.swift */,
+				51B5EF732B6CE43C00928ED6 /* PokemonManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				518043B32B6398BB00552B6A /* PokemonTypeComponent.swift in Sources */,
 				518043B52B63990800552B6A /* EvolutionCompenent.swift in Sources */,
 				51339CDF2B602D5E00DA49EC /* Pokemon.swift in Sources */,
+				51B5EF742B6CE43C00928ED6 /* PokemonManager.swift in Sources */,
 				51339CF12B625F4F00DA49EC /* AboutCell.swift in Sources */,
 				519FCA1C2B5A4769002BC2B5 /* ImagePickerButton.swift in Sources */,
 				51A34ADC2B5E1D9900D5CF19 /* User.swift in Sources */,
