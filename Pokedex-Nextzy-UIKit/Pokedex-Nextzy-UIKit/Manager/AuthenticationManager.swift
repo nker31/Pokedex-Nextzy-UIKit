@@ -43,6 +43,62 @@ class AuthenticationManager {
         }
     }
     
+    func editUserData(firstname: String, lastname: String, profileImageData: UIImage, completion: @escaping (Result<Bool, Error>) -> Void) async {
+        print("Debugger: editUserData is being called")
+        // get current user uid
+        guard let currentUserUID = self.currentUser?.id else {
+            print("Debugger: error user session")
+            return
+        }
+        
+        let userDocRef = Firestore.firestore().collection("users").document(currentUserUID)
+        let batch = Firestore.firestore().batch()
+        
+        await self.uploadImage(image: profileImageData, imageName: currentUserUID) { result in
+            
+            switch result {
+            case .success(let newImageURL):
+                let stringURL = newImageURL.absoluteString
+                batch.updateData(["firstname": firstname, "lastname": lastname, "profileImageURL": stringURL], forDocument: userDocRef)
+                batch.commit()
+                Task {
+                    await self.fetchUserData()
+                }
+                print("Debugger: Updated user data complete")
+                completion(.success(true))
+            case .failure(let errorMessage):
+                print("Error uploading from edit profile: \(errorMessage.localizedDescription)")
+                completion(.failure(errorMessage))
+            }
+        }
+        
+    }
+    
+    func uploadImage(image: UIImage, imageName: String, completion: @escaping (Result<URL, Error>) -> Void) async {
+        
+        guard let imageData = image.jpegData(compressionQuality: 0.5) else {
+            print("Debugger: Failed to compress image")
+            return
+        }
+        
+        let storageRef = Storage.storage().reference(withPath: "profile_images/\(imageName).jpg")
+        
+        storageRef.putData(imageData, metadata: nil) { (metadata, error) in
+            if let error = error {
+                print("Error uploading image: \(error.localizedDescription)")
+                completion(.failure(error))
+            } else {
+                storageRef.downloadURL { (url, error) in
+                    if let url = url {
+                        completion(.success(url))
+                    } else if let error = error {
+                        completion(.failure(error))
+                    }
+                }
+            }
+        }
+    }
+    
     func signOut() {
         do{
             print("Debugger: sign out tapped")
