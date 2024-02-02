@@ -31,6 +31,18 @@ class AuthenticationManager {
         await fetchUserData()
     }
     
+    func resetPassword(withEmail email: String, completion: @escaping (Result<String, Error>) -> Void) {
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if let error = error {
+                print("Failed to reset password: \(error.localizedDescription)")
+                completion(.failure(error))
+            } else {
+                print("Sent password reset email successfully")
+                completion(.success("Sent password reset email successfully"))
+            }
+        }
+    }
+    
     func signOut() {
         do{
             print("Debugger: sign out tapped")
