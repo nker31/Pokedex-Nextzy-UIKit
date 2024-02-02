@@ -80,6 +80,8 @@
 		51A34ADC2B5E1D9900D5CF19 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A34ADB2B5E1D9900D5CF19 /* User.swift */; };
 		51A34ADE2B5E816700D5CF19 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A34ADD2B5E816700D5CF19 /* ProfileViewController.swift */; };
 		51A673FF2B62B56000745C01 /* StatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A673FE2B62B56000745C01 /* StatCell.swift */; };
+		51B5EF6A2B6CC30100928ED6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B5EF692B6CC30100928ED6 /* LoginViewModel.swift */; };
+		51B5EF6D2B6CC3B400928ED6 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B5EF6C2B6CC3B400928ED6 /* AuthenticationManager.swift */; };
 		51CB3E412B64E155001877C4 /* MyPokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CB3E402B64E155001877C4 /* MyPokemonViewController.swift */; };
 		51CB3E432B64EE2E001877C4 /* MyPokemonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CB3E422B64EE2E001877C4 /* MyPokemonViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -131,6 +133,8 @@
 		51A34ADB2B5E1D9900D5CF19 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		51A34ADD2B5E816700D5CF19 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		51A673FE2B62B56000745C01 /* StatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatCell.swift; sourceTree = "<group>"; };
+		51B5EF692B6CC30100928ED6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		51B5EF6C2B6CC3B400928ED6 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		51CB3E402B64E155001877C4 /* MyPokemonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPokemonViewController.swift; sourceTree = "<group>"; };
 		51CB3E422B64EE2E001877C4 /* MyPokemonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPokemonViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -215,6 +219,7 @@
 		511EF5242B57830000554F78 /* Pokedex-Nextzy-UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				51B5EF6B2B6CC39000928ED6 /* Manager */,
 				519FC9F22B5A20A6002BC2B5 /* Model */,
 				519FC9F32B5A20AF002BC2B5 /* View */,
 				519FC9F62B5A20CF002BC2B5 /* ViewModel */,
@@ -311,6 +316,7 @@
 				519FCA5B2B5A70DD002BC2B5 /* AuthViewModel.swift */,
 				51339CDC2B602D1300DA49EC /* PokedexViewModel.swift */,
 				51CB3E422B64EE2E001877C4 /* MyPokemonViewModel.swift */,
+				51B5EF692B6CC30100928ED6 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -354,6 +360,14 @@
 				512345EC2B5F6A0700E84B66 /* Profile */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		51B5EF6B2B6CC39000928ED6 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				51B5EF6C2B6CC3B400928ED6 /* AuthenticationManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		51CB3E3F2B64E100001877C4 /* MyPokemon */ = {
@@ -483,6 +497,7 @@
 				516C9A2E2B6788B700DCE4F9 /* TextButton.swift in Sources */,
 				516C9A302B678ADB00DCE4F9 /* LoginTextField.swift in Sources */,
 				519FCA162B5A46A3002BC2B5 /* CustomTextField.swift in Sources */,
+				51B5EF6D2B6CC3B400928ED6 /* AuthenticationManager.swift in Sources */,
 				51339CE42B60C7DE00DA49EC /* SmallPokemonCell.swift in Sources */,
 				51040E1D2B66B9F2009BD5AA /* MyPokemonEmptyView.swift in Sources */,
 				519FCA102B5A35CE002BC2B5 /* LoginViewController.swift in Sources */,
@@ -506,6 +521,7 @@
 				518043B92B639BBA00552B6A /* DetailTextCompents.swift in Sources */,
 				511EF5262B57830000554F78 /* AppDelegate.swift in Sources */,
 				51040E1F2B66C356009BD5AA /* PokemonTypeOverlay.swift in Sources */,
+				51B5EF6A2B6CC30100928ED6 /* LoginViewModel.swift in Sources */,
 				512345F02B5F8E9000E84B66 /* WebViewController.swift in Sources */,
 				519FCA5E2B5A78FE002BC2B5 /* TabBarController.swift in Sources */,
 				51A673FF2B62B56000745C01 /* StatCell.swift in Sources */,
