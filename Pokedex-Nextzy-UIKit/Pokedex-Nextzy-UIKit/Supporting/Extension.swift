@@ -37,17 +37,14 @@ extension UIViewController{
 }
 
 extension UIView {
+    
     func setColorBackgroundFromType(type: String) {
         if let color = UIColor(named: type) {
             self.backgroundColor = color
         } else {
             self.backgroundColor = .gray
         }
-    }   
-    
-}
-
-extension UIView {
+    }
 
     static func spacer(size: CGFloat = 50, for layout: NSLayoutConstraint.Axis = .horizontal) -> UIView {
         let spacer = UIView()
