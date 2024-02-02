@@ -91,7 +91,7 @@ class RegisterViewController: UIViewController{
     }
     
     private func setupUI() {
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .systemBackground
         let textfieldStack = UIStackView(arrangedSubviews: [
             createLabelStackView(title: String(localized: "email_label_text"), field: emailTextfield),
             createLabelStackView(title: String(localized: "password_label_text"), field: passwordTextfield),
@@ -117,7 +117,7 @@ class RegisterViewController: UIViewController{
         textfieldStack.spacing = 15
         self.view.addSubview(textfieldStack)
         textfieldStack.translatesAutoresizingMaskIntoConstraints = false
-        textfieldStack.backgroundColor = .white
+        textfieldStack.backgroundColor = .systemBackground
         
         self.view.addSubview(registerButton)
         registerButton.translatesAutoresizingMaskIntoConstraints = false
