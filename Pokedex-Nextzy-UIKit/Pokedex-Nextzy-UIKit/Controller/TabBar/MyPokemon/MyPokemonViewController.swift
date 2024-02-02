@@ -35,7 +35,7 @@ class MyPokemonViewController: UIViewController {
         layout.scrollDirection = .vertical
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .systemBackground
         collectionView.register(PokemonCardCell.self, forCellWithReuseIdentifier: PokemonCardCell.identifier)
         collectionView.register(PokemonCell.self, forCellWithReuseIdentifier: PokemonCell.identifier)
         collectionView.register(SmallPokemonCell.self, forCellWithReuseIdentifier: SmallPokemonCell.identifier)
@@ -77,7 +77,7 @@ class MyPokemonViewController: UIViewController {
         navigationBar.backgroundColor = .clear
         navigationBar.prefersLargeTitles = false
         navigationBar.tintColor = .pinkPokemon
-        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
         
         var columnsImageName: String
         switch displayType {
