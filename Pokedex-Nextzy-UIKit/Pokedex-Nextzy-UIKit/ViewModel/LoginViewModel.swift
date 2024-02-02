@@ -9,7 +9,7 @@ import Foundation
 
 protocol LoginViewModelDelegate {
     func toggleAlert(messege: String)
-    
+    func navigateToNextView()
 }
 
 class LoginViewModel {
@@ -29,6 +29,7 @@ class LoginViewModel {
             delegate?.toggleAlert(messege: String(localized: "alert_invalid_email"))
             return
         }
+        
         guard authManager.isValidPassword(password) else {
             delegate?.toggleAlert(messege: String(localized: "alert_invalid_password"))
             return
@@ -37,13 +38,15 @@ class LoginViewModel {
         Task {
             do {
                 try await authManager.signIn(email: email, password: password)
+                print("Debugger: Sign in success")
+                DispatchQueue.main.async {
+                    self.delegate?.navigateToNextView()
+                }
             } catch {
                 print("Debugger: Sign in failed")
                 delegate?.toggleAlert(messege: String(localized: "alert_login_failed"))
             }
         }
-        
     }
-    
     
 }
