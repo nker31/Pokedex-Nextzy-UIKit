@@ -18,6 +18,7 @@
 		512345F02B5F8E9000E84B66 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512345EF2B5F8E9000E84B66 /* WebViewController.swift */; };
 		512345F32B5FAD6A00E84B66 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 512345F22B5FAD6A00E84B66 /* Kingfisher */; };
 		512345F72B5FC99900E84B66 /* PokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512345F62B5FC99900E84B66 /* PokemonCell.swift */; };
+		512AC9612B6E3E4E00F30FEE /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512AC9602B6E3E4E00F30FEE /* ProfileViewModel.swift */; };
 		51339CDD2B602D1300DA49EC /* PokedexViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51339CDC2B602D1300DA49EC /* PokedexViewModel.swift */; };
 		51339CDF2B602D5E00DA49EC /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51339CDE2B602D5E00DA49EC /* Pokemon.swift */; };
 		51339CE22B602F2800DA49EC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 51339CE12B602F2800DA49EC /* Alamofire */; };
@@ -103,6 +104,7 @@
 		512345ED2B5F6A1A00E84B66 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		512345EF2B5F8E9000E84B66 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		512345F62B5FC99900E84B66 /* PokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCell.swift; sourceTree = "<group>"; };
+		512AC9602B6E3E4E00F30FEE /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		51339CDC2B602D1300DA49EC /* PokedexViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexViewModel.swift; sourceTree = "<group>"; };
 		51339CDE2B602D5E00DA49EC /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		51339CE32B60C7DE00DA49EC /* SmallPokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallPokemonCell.swift; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 			isa = PBXGroup;
 			children = (
 				51B5EF772B6CE67200928ED6 /* TabBarViewModel.swift */,
+				512AC9602B6E3E4E00F30FEE /* ProfileViewModel.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 				519FCA5E2B5A78FE002BC2B5 /* TabBarController.swift in Sources */,
 				51A673FF2B62B56000745C01 /* StatCell.swift in Sources */,
 				51A34ADE2B5E816700D5CF19 /* ProfileViewController.swift in Sources */,
+				512AC9612B6E3E4E00F30FEE /* ProfileViewModel.swift in Sources */,
 				511EF5282B57830000554F78 /* SceneDelegate.swift in Sources */,
 				519FCA142B5A3606002BC2B5 /* ForgotViewController.swift in Sources */,
 				51339CDD2B602D1300DA49EC /* PokedexViewModel.swift in Sources */,
