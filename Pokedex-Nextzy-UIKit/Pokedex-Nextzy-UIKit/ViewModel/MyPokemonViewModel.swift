@@ -5,67 +5,48 @@
 //  Created by Nathat Kuanthanom on 27/1/2567 BE.
 //
 
-import Firebase
-import FirebaseFirestoreSwift
+import Foundation
 
-class MyPokemonViewModel{
-    var myPokemonIDs:[String] = []
-    var currentUserID: String = ""
+protocol MyPokemonViewModelDelegate {
+    func toggleViewReload()
+}
+
+class MyPokemonViewModel {
     
-    func fetchMyPokemon(userID: String) async{
-        self.currentUserID = userID
-        
-        let db = Firestore.firestore()
-        do{
-            let documentSnapshot = try await  db.collection("pokemons").document(userID).getDocument()
-            
-            if documentSnapshot.exists{
-                // fetch pokemon id array
-                let data = documentSnapshot.data()
-                // assign fetced array to view model array
-                myPokemonIDs = data?["favPokemon"] as? [String] ?? ["nothing here"]
-            }else{
-                // if document is not exist then create new document from userID
-                try await db.collection("pokemons").document(userID).setData(["favPokemon": []])
-            }
-        }
-        catch{
-            
-        }
+    enum DisplayType {
+        case oneColumn
+        case twoColumns
+        case threeColumns
     }
     
-    func addPokemonToFavList(pokemonID: String) async{
-        
-        // local part
-        if(self.myPokemonIDs.contains(pokemonID)){
-            if let targetIndex = myPokemonIDs.firstIndex(of: pokemonID){
-                myPokemonIDs.remove(at: targetIndex)
-                print("removed \(pokemonID) already")
-                print("Debugger: my pokemon array after remove: \(myPokemonIDs)")
-            }
-            
-        }else{
-            self.myPokemonIDs.append(pokemonID)
-            print("Debugger: This pokemon was added")
-            print("Debugger: my pokemon array after add: \(myPokemonIDs)")
-            
+    private let pokemonManager = PokemonManager.shared
+    private let myPokemonManager = MyPokemonManager.shared
+    var myPokemonsID: [String] = []
+    var displayedPokemons: [Pokemon] = []
+    var delegate: MyPokemonViewModelDelegate?
+    var collectionViewDisplayType: DisplayType = .twoColumns
+    
+    func loadMyPokemonData() {
+        guard let pokemons = pokemonManager.pokemons else {
+            return
+        }
+        myPokemonsID = myPokemonManager.myPokemonsID
+        displayedPokemons = pokemons.filter { myPokemonsID.contains($0.id) }
+        self.delegate?.toggleViewReload()
+    }
+    
+    func tapChangeDisplayType() {
+        switch collectionViewDisplayType {
+        case .oneColumn:
+            collectionViewDisplayType = .twoColumns
+        case .twoColumns:
+            collectionViewDisplayType = .threeColumns
+        case .threeColumns:
+            collectionViewDisplayType = .oneColumn
         }
         
-        // Firebase
-        let db = Firestore.firestore()
-        let documentRef = db.collection("pokemons").document(self.currentUserID)
-        
-        do {
-            try await documentRef.updateData([
-                "favPokemon": myPokemonIDs
-            ])
-            print("Debugger: updated favorite pokemon successfully")
-            await self.fetchMyPokemon(userID: currentUserID)
-        } catch {
-            print("Debugger: got an error from updating favorite pokemon")
-        }
-        
-        
+        delegate?.toggleViewReload()
     }
     
 }
+
