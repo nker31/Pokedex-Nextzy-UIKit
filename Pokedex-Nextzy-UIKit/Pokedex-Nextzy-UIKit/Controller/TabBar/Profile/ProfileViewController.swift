@@ -136,13 +136,11 @@ class ProfileViewController: UIViewController {
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    // number of section
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    // number of row
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
@@ -177,9 +175,8 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     // navigate to selected viewcontroller
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-//            let editProfileController = EditProfileViewController(authViewModel: authViewModel)
-//            editProfileController.delegate = self
-//            self.navigationController?.pushViewController(editProfileController, animated: true)
+            let editProfileController = EditProfileViewController()
+            self.navigationController?.pushViewController(editProfileController, animated: true)
             
         } else if indexPath.row == 1 {
             let webViewController = WebViewController()
@@ -198,13 +195,6 @@ extension ProfileViewController: ProfileViewModelDelegate {
     func navigateToNextView() {
         let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
         sceneDelegate?.presentLoginViewController()
-    }
-
-}
-
-extension ProfileViewController: EditProfileDelegate {
-    func setNewImage(newImage: UIImage) {
-        profileImageView.image = newImage
     }
 
 }
