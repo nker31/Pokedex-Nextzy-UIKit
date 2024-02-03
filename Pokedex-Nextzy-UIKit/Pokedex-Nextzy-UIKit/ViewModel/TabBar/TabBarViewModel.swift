@@ -14,14 +14,15 @@ protocol TabBarViewModelDelegate {
 }
 
 class TabBarViewModel {
-    
     private let authManager = AuthenticationManager.shared
+    private let myPokemonManager = MyPokemonManager.shared
     var delegate: TabBarViewModelDelegate?
 
     func loadView() {
         delegate?.toggleProgessView(isHidden: false)
         Task {
             await authManager.fetchUserData()
+            await myPokemonManager.fetchMyPokemon(userID: authManager.currentUser?.id ?? "")
             sleep(UInt32(2.0))
             DispatchQueue.main.async {
                 self.delegate?.toggleViewReload()
