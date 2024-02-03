@@ -12,9 +12,17 @@ protocol PokedexViewModelDelegate {
 }
 
 class PokedexViewModel {
+    
+    enum DisplayType {
+        case oneColumn
+        case twoColumns
+        case threeColumns
+    }
+    
     private let pokemonManager = PokemonManager.shared
     var delegate: PokedexViewModelDelegate?
     var pokemons: [Pokemon] = []
+    var collectionViewDisplayType: DisplayType = .twoColumns
     
     func loadPokemonData() {
         Task {
@@ -22,6 +30,17 @@ class PokedexViewModel {
             DispatchQueue.main.async {
                 self.delegate?.toggleViewReload()
             }
+        }
+    }
+    
+    func tapChangeDisplayType() {
+        switch collectionViewDisplayType {
+        case .oneColumn:
+            collectionViewDisplayType = .twoColumns
+        case .twoColumns:
+            collectionViewDisplayType = .threeColumns
+        case .threeColumns:
+            collectionViewDisplayType = .oneColumn
         }
     }
 
