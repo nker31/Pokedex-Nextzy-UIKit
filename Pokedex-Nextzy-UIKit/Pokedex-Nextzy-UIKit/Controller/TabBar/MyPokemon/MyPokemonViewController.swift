@@ -158,7 +158,6 @@ extension MyPokemonViewController: UICollectionViewDataSource, UICollectionViewD
     
 }
 
-
 extension MyPokemonViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -201,17 +200,16 @@ extension MyPokemonViewController: UICollectionViewDelegateFlowLayout {
             return 5
         }
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-//        let pokemonDetailVC = DetailViewController(pokemon: myPokemonViewModel.displayedPokemons[indexPath.item], pokedexViewModel: pokedexViewModel,myPokemonViewModel: myPokemonViewModel)
-//        
-//        hidesBottomBarWhenPushed = true
-//        navigationController?.pushViewController(pokemonDetailVC, animated: true)
-//        hidesBottomBarWhenPushed = false
+        let pokemonDetailVC = DetailViewController(pokemon: myPokemonViewModel.displayedPokemons[indexPath.item])
+        hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(pokemonDetailVC, animated: true)
+        hidesBottomBarWhenPushed = false
     }
 
 }
