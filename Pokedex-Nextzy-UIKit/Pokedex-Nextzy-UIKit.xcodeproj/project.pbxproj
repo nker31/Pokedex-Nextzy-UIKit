@@ -29,6 +29,7 @@
 		51339CF52B626D2800DA49EC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51339CF42B626D2800DA49EC /* DetailViewController.swift */; };
 		513D90062B6EC92C00ED9B63 /* PokedexViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513D90052B6EC92C00ED9B63 /* PokedexViewModel.swift */; };
 		513D90082B6ECC3A00ED9B63 /* MyPokemonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513D90072B6ECC3A00ED9B63 /* MyPokemonManager.swift */; };
+		513D900A2B6EDEB000ED9B63 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513D90092B6EDEB000ED9B63 /* DetailViewModel.swift */; };
 		515D22002B6A0E0900561C3C /* auth-video-bg.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 515D21FF2B6A0E0900561C3C /* auth-video-bg.mp4 */; };
 		515D22292B6A4B8200561C3C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 515D222B2B6A4B8200561C3C /* Localizable.strings */; };
 		515D222F2B6B52B700561C3C /* PokemonCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515D222E2B6B52B700561C3C /* PokemonCardCell.swift */; };
@@ -116,6 +117,7 @@
 		51339CF42B626D2800DA49EC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		513D90052B6EC92C00ED9B63 /* PokedexViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexViewModel.swift; sourceTree = "<group>"; };
 		513D90072B6ECC3A00ED9B63 /* MyPokemonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPokemonManager.swift; sourceTree = "<group>"; };
+		513D90092B6EDEB000ED9B63 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		515D21FF2B6A0E0900561C3C /* auth-video-bg.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "auth-video-bg.mp4"; sourceTree = "<group>"; };
 		515D222A2B6A4B8200561C3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		515D222C2B6A4BA500561C3C /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 				512AC9602B6E3E4E00F30FEE /* ProfileViewModel.swift */,
 				512AC9622B6E420F00F30FEE /* EditProfileViewModel.swift */,
 				513D90052B6EC92C00ED9B63 /* PokedexViewModel.swift */,
+				513D90092B6EDEB000ED9B63 /* DetailViewModel.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				51339CE62B60CEB000DA49EC /* SearchViewController.swift in Sources */,
 				51040E1A2B6653D0009BD5AA /* SplashViewController.swift in Sources */,
 				51B5EF6F2B6CD79F00928ED6 /* ForgotPasswordViewModel.swift in Sources */,
+				513D900A2B6EDEB000ED9B63 /* DetailViewModel.swift in Sources */,
 				519FCA5C2B5A70DD002BC2B5 /* AuthViewModel.swift in Sources */,
 				518043B12B63985600552B6A /* StatBar.swift in Sources */,
 				518043B92B639BBA00552B6A /* DetailTextCompents.swift in Sources */,
