@@ -10,16 +10,11 @@ import UIKit
 class SearchViewController: UIViewController {
     
     // MARK: - Variables
+    private let searchViewModel: SearchViewModel
     
-    private let pokedexViewModel: PokedexViewModel
-    private let myPokemonViewModel: MyPokemonViewModel
-    private var pokemonArray:[Pokemon] = []
-    var filteredPokemon: [Pokemon] = []
-    
-    init(pokedexViewModel: PokedexViewModel,myPokemonViewModel: MyPokemonViewModel) {
-        self.pokedexViewModel = pokedexViewModel
-        self.pokemonArray = pokedexViewModel.pokemons ?? [MOCK_POKEMON[0]]
-        self.myPokemonViewModel = myPokemonViewModel
+    // MARK: - Initializer
+    init(pokedexViewModel: PokedexViewModel) {
+        self.searchViewModel = SearchViewModel()
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -83,6 +78,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         setupNavbar()
         setupUI()
+        self.searchViewModel.delegate = self
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
     }
@@ -135,35 +131,14 @@ extension SearchViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        var searchedPokemon: [Pokemon] {
-            if searchText.isEmpty {
-                notFoundImageView.isHidden = true
-                notFoundLabel.isHidden = true
-                return []
-            } else {
-                // filter pokemon from search text
-                let result = pokemonArray.filter { $0.name.starts(with: searchText) }
-                // display view if no result
-                if result.isEmpty {
-                    notFoundImageView.isHidden = false
-                    notFoundLabel.isHidden = false
-                    notFoundLabel.text = "\(String(localized: "no_result_label_text")) \(searchText)"
-                }else{
-                    notFoundImageView.isHidden = true
-                    notFoundLabel.isHidden = true
-                }
-                return result
-            }
-        }
-        self.filteredPokemon = searchedPokemon
-        collectionView.reloadData()
+        searchViewModel.onSearchTextChange(searchText: searchText)
     }
 
 }
-extension SearchViewController: UICollectionViewDataSource, UICollectionViewDelegate{
+extension SearchViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     // number of cell
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.filteredPokemon.count
+        return searchViewModel.filteredPokemon.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -172,7 +147,7 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
             fatalError("failed to dequeue view cell")
         }
         
-        let pokemon = self.filteredPokemon[indexPath.row]
+        let pokemon = searchViewModel.filteredPokemon[indexPath.row]
         cell.configPokemonCell(pokemon: pokemon)
         
         return cell
@@ -181,7 +156,7 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
     
 }
 
-extension SearchViewController: UICollectionViewDelegateFlowLayout{
+extension SearchViewController: UICollectionViewDelegateFlowLayout {
     // cell size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = ((self.view.frame.width - 40)/2) - 13.34
@@ -201,9 +176,22 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout{
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let pokemonDetailVC = DetailViewController(pokemon: self.filteredPokemon[indexPath.item])
+        let pokemonDetailVC = DetailViewController(pokemon: searchViewModel.filteredPokemon[indexPath.item])
         hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(pokemonDetailVC, animated: true)
         hidesBottomBarWhenPushed = false
     }
+}
+
+extension SearchViewController: SearchViewModelDelegate {
+    func toggleEmptyState(isHidden: Bool, searchText: String) {
+        notFoundImageView.isHidden = isHidden
+        notFoundLabel.isHidden = isHidden
+        notFoundLabel.text = "\(String(localized: "no_result_label_text")) \(searchText)"
+    }
+
+    func toggleCollectionViewReload() {
+        collectionView.reloadData()
+    }
+
 }
