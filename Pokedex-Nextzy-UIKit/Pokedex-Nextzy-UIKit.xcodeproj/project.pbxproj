@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5103BB1E2B6FE9AF002EE892 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5103BB1D2B6FE9AF002EE892 /* SearchViewModel.swift */; };
 		51040E1A2B6653D0009BD5AA /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51040E192B6653D0009BD5AA /* SplashViewController.swift */; };
 		51040E1D2B66B9F2009BD5AA /* MyPokemonEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51040E1C2B66B9F2009BD5AA /* MyPokemonEmptyView.swift */; };
 		51040E1F2B66C356009BD5AA /* PokemonTypeOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51040E1E2B66C356009BD5AA /* PokemonTypeOverlay.swift */; };
@@ -95,6 +96,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5103BB1D2B6FE9AF002EE892 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		51040E192B6653D0009BD5AA /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		51040E1C2B66B9F2009BD5AA /* MyPokemonEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPokemonEmptyView.swift; sourceTree = "<group>"; };
 		51040E1E2B66C356009BD5AA /* PokemonTypeOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTypeOverlay.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 			children = (
 				513D90052B6EC92C00ED9B63 /* PokedexViewModel.swift */,
 				513D90092B6EDEB000ED9B63 /* DetailViewModel.swift */,
+				5103BB1D2B6FE9AF002EE892 /* SearchViewModel.swift */,
 			);
 			path = Pokedex;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				519FCA142B5A3606002BC2B5 /* ForgotViewController.swift in Sources */,
 				513D90082B6ECC3A00ED9B63 /* MyPokemonManager.swift in Sources */,
 				518043BB2B63B45900552B6A /* MapComponent.swift in Sources */,
+				5103BB1E2B6FE9AF002EE892 /* SearchViewModel.swift in Sources */,
 				512345F72B5FC99900E84B66 /* PokemonCell.swift in Sources */,
 				51CB3E432B64EE2E001877C4 /* MyPokemonViewModel.swift in Sources */,
 				51339CF52B626D2800DA49EC /* DetailViewController.swift in Sources */,
