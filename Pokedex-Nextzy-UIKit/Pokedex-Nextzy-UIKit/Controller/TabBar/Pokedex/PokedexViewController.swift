@@ -248,8 +248,7 @@ extension PokedexViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let pokemonDetailVC = DetailViewController(pokemon: self.pokedexViewModel.pokemons[indexPath.item], pokedexViewModel: pokedexViewModel, myPokemonViewModel: myPokemonViewModel
-        )
+        let pokemonDetailVC = DetailViewController(pokemon: self.pokedexViewModel.pokemons[indexPath.item])
         
         hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(pokemonDetailVC, animated: true)
