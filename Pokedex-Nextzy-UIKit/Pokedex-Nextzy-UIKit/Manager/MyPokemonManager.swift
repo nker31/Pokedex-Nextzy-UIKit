@@ -31,4 +31,20 @@ class MyPokemonManager {
         }
     }
     
+    func addPokemonToFavList(pokemonID: [String], userID: String) async {
+        // Firebase
+        let db = Firestore.firestore()
+        let documentRef = db.collection("pokemons").document(userID)
+        
+        do {
+            try await documentRef.updateData([
+                "favPokemon": pokemonID
+            ])
+            print("Debugger: updated favorite pokemon successfully")
+            await self.fetchMyPokemon(userID: userID)
+        } catch {
+            print("Debugger: got an error from updating favorite pokemon")
+        }
+        
+    }
 }
