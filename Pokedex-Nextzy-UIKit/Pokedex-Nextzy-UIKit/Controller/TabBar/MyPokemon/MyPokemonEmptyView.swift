@@ -30,16 +30,15 @@ class MyPokemonEmptyView: UIView {
         let label = UILabel()
         label.text = String(localized: "empty_pokemon_label_text")
         label.textAlignment = .center
-        label.textColor = .gray
+        label.textColor = .systemGray
         label.numberOfLines = 0
-        
         return label
     }()
     
     // MARK: - UI Setup
     
     func setupUI(){
-        self.backgroundColor = .white
+        self.backgroundColor = .systemBackground
         self.addSubview(pokemonImageView)
         self.addSubview(emptyTextLabel)
         
