@@ -10,15 +10,11 @@ import UIKit
 class TabBarController: UITabBarController {
     
     // MARK: - Varibles
-    private let authViewModel: AuthViewModel
-    private let pokedexViewModel: PokedexViewModel
-    private let myPokemonViewModel: MyPokemonViewModel
+    private let tabBarViewModel: TabBarViewModel
     
     // MARK: - Initializer
-    init(authViewModel: AuthViewModel, pokedexViewModel: PokedexViewModel, myPokemonViewModel: MyPokemonViewModel) {
-        self.authViewModel = authViewModel
-        self.pokedexViewModel = pokedexViewModel
-        self.myPokemonViewModel = myPokemonViewModel
+    init() {
+        self.tabBarViewModel = TabBarViewModel()
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -29,50 +25,37 @@ class TabBarController: UITabBarController {
     // MARK: - UI Components
     lazy var progressView = PokeballProgressView()
     
-    
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        progressView.isHidden = false
-        Task{
-            do{
-                await authViewModel.fetchUserData()
-                if let currentUser = authViewModel.currentUser {
-                    await myPokemonViewModel.fetchMyPokemon(userID: currentUser.id)
-                }
-                self.setupTab()
-                sleep(UInt32(2.0))
-                progressView.isHidden = true
-            }
-            
-        }
-        
+        tabBarViewModel.loadView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabBarViewModel.delegate = self
         self.setupTab()
         self.setupUI()
-
-        UINavigationBar.appearance().barTintColor = UIColor.systemBackground
-        UINavigationBar.appearance().tintColor = UIColor.pinkPokemon
+        
+        UINavigationBar.appearance().barTintColor = .systemBackground
+        UINavigationBar.appearance().tintColor = .pinkPokemon
     }
     
     // MARK: - UI Setup
-    private func setupTab(){
+    private func setupTab() {
         self.tabBar.barTintColor = UIColor.systemBackground
         self.tabBar.tintColor = UIColor.pinkPokemon
         
-        let pokedex = self.createNav(with: String(localized: "pokedex_tabbar_title"), and: UIImage(systemName: "pawprint.fill"), vc: PokedexViewController(authViewModel: authViewModel,pokedexViewModel: pokedexViewModel, myPokemonViewModel: myPokemonViewModel))
+        let pokedex = self.createNav(with: String(localized: "pokedex_tabbar_title"), and: UIImage(systemName: "pawprint.fill"), vc: PokedexViewController())
         
-        let myPokemon = self.createNav(with: String(localized: "my_pokemon_tabbar_title"), and: UIImage(systemName: "heart.text.square"), vc: MyPokemonViewController(authViewModel: authViewModel, pokedexViewModel: pokedexViewModel, myPokemonViewModel: myPokemonViewModel))
+        let myPokemon = self.createNav(with: String(localized: "my_pokemon_tabbar_title"), and: UIImage(systemName: "heart.text.square"), vc: MyPokemonViewController())
         
-        let profile = self.createNav(with: String(localized: "profile_tabbar_title"), and: UIImage(systemName: "person.fill"), vc: ProfileViewController(authViewModel: authViewModel))
+        let profile = self.createNav(with: String(localized: "profile_tabbar_title"), and: UIImage(systemName: "person.fill"), vc: ProfileViewController())
         
         self.setViewControllers([pokedex, myPokemon, profile], animated: true)
     }
     
-    private func createNav(with title:String, and image: UIImage?, vc: UIViewController) -> UINavigationController{
+    private func createNav(with title:String, and image: UIImage?, vc: UIViewController) -> UINavigationController {
         let nav = UINavigationController(rootViewController: vc)
         nav.tabBarItem.title = title
         nav.tabBarItem.image = image
@@ -80,8 +63,9 @@ class TabBarController: UITabBarController {
         return nav
     }
     
-    private func setupUI(){
+    private func setupUI() {
         self.view.addSubview(progressView)
+        progressView.isHidden = true
         progressView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -92,4 +76,19 @@ class TabBarController: UITabBarController {
         ])
     }
 
+}
+
+extension TabBarController: TabBarViewModelDelegate {
+    func toggleAlert(messege: String) {
+        showAlert(message: messege)
+    }
+    
+    func toggleProgessView(isHidden: Bool) {
+        progressView.isHidden = isHidden
+    }
+    
+    func toggleViewReload() {
+        self.setupTab()
+    }
+    
 }
