@@ -62,6 +62,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         self.loginViewModel.delegate = self
         self.setupView()
+        self.tapToHideKeyboard()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
