@@ -11,13 +11,11 @@ class PokedexViewController: UIViewController {
 
     // MARK: - Varibles
     private let pokedexViewModel: PokedexViewModel
-    private let myPokemonViewModel: MyPokemonViewModel
     private var displayType: DisplayType = .twoColumns
     private var pokemonArray: [Pokemon] = []
     
-    init(myPokemonViewModel: MyPokemonViewModel) {
+    init() {
         self.pokedexViewModel = PokedexViewModel()
-        self.myPokemonViewModel = myPokemonViewModel
         super.init(nibName: nil, bundle: nil)
     }
     
