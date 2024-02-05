@@ -34,7 +34,8 @@ class ForgotViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         forgotViewModel.delegate = self
-        setupUI()
+        self.setupUI()
+        self.tapToHideKeyboard()
     }
     
     // MARK: - UI Setup
