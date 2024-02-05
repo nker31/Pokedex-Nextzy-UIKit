@@ -34,6 +34,18 @@ extension UIViewController{
         case twoColumns
         case threeColumns
     }
+    
+    func tapToHideKeyboard() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
 }
 
 extension UIView {
