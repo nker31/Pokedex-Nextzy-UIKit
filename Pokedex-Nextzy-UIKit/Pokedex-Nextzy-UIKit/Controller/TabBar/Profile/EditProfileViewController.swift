@@ -87,6 +87,7 @@ class EditProfileViewController: UIViewController {
         setupUI()
         setupNavbar()
         editProfileViewModel.getProfileData()
+        self.tapToHideKeyboard()
     }
     
     // MARK: - UI Setup
