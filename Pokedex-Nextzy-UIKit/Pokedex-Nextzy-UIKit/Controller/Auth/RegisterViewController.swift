@@ -78,6 +78,7 @@ class RegisterViewController: UIViewController{
         setupUI()
         imagePicker.delegate = self
         registerViewModel.delegate = self
+        self.tapToHideKeyboard()
     }
     
     // MARK: - UI Setup
