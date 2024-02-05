@@ -45,7 +45,6 @@ class SearchViewController: UIViewController {
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFit
         imageView.isHidden = true
-        
         return imageView
     }()
     
@@ -53,7 +52,7 @@ class SearchViewController: UIViewController {
         let label = UILabel()
         label.text = ""
         label.textAlignment = .center
-        label.textColor = .gray
+        label.textColor = .systemGray
         label.isHidden = true
         return label
     }()
