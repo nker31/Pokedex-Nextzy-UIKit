@@ -10,18 +10,11 @@ import UIKit
 class MyPokemonViewController: UIViewController {
     
     // MARK: - Varibles
-    private let authViewModel: AuthViewModel
-    private let pokedexViewModel: PokedexViewModel
     private let myPokemonViewModel: MyPokemonViewModel
-    private var displayType: DisplayType = .twoColumns
-    private var isDisplayThreeColumns = false
-    private var filteredPokemon:[Pokemon] = []
     
     // MARK: - Initializer
-    init(authViewModel: AuthViewModel, pokedexViewModel: PokedexViewModel, myPokemonViewModel: MyPokemonViewModel) {
-        self.authViewModel = authViewModel
-        self.pokedexViewModel = pokedexViewModel
-        self.myPokemonViewModel = myPokemonViewModel
+    init() {
+        self.myPokemonViewModel = MyPokemonViewModel()
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -53,16 +46,14 @@ class MyPokemonViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setupNavbar()
-        
-        // filter pokemon from view model to display fav pokemon
-        self.filteredPokemon = pokedexViewModel.pokemons?.filter { myPokemonViewModel.myPokemonIDs.contains($0.id) } ?? []
-        self.emptyView.isHidden = !self.filteredPokemon.isEmpty
+        myPokemonViewModel.loadMyPokemonData()
+        self.emptyView.isHidden = !self.myPokemonViewModel.myPokemonsID.isEmpty
         self.collectionView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        myPokemonViewModel.delegate = self
         collectionView.delegate = self
         collectionView.dataSource = self
         self.setupUI()
@@ -80,7 +71,7 @@ class MyPokemonViewController: UIViewController {
         navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
         
         var columnsImageName: String
-        switch displayType {
+        switch myPokemonViewModel.collectionViewDisplayType {
         case .oneColumn:
             columnsImageName = "square.grid.2x2"
         case .twoColumns:
@@ -119,17 +110,8 @@ class MyPokemonViewController: UIViewController {
     
     // MARK: - Selectors
     @objc private func toggleColumnDisplayed() {
-        switch displayType {
-        case .oneColumn:
-            displayType = .twoColumns
-        case .twoColumns:
-            displayType = .threeColumns
-        case .threeColumns:
-            displayType = .oneColumn
-        }
+        myPokemonViewModel.tapChangeDisplayType()
         setupNavbar()
-        setupUI()
-        collectionView.reloadData()
     }
 
 }
@@ -138,18 +120,18 @@ extension MyPokemonViewController: UICollectionViewDataSource, UICollectionViewD
     
     // number of cell
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.filteredPokemon.count
+        return myPokemonViewModel.displayedPokemons.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        switch displayType {
+        switch myPokemonViewModel.collectionViewDisplayType {
 
         case .oneColumn:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PokemonCardCell.identifier, for: indexPath) as? PokemonCardCell else{
                 fatalError("failed to dequeue view cell")
             }
-            let pokemon = self.filteredPokemon[indexPath.row]
+            let pokemon = myPokemonViewModel.displayedPokemons[indexPath.row]
             cell.configPokemonCell(pokemon: pokemon)
             
             return cell
@@ -158,7 +140,7 @@ extension MyPokemonViewController: UICollectionViewDataSource, UICollectionViewD
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PokemonCell.identifier, for: indexPath) as? PokemonCell else{
                 fatalError("failed to dequeue view cell")
             }
-            let pokemon = self.filteredPokemon[indexPath.row]
+            let pokemon = myPokemonViewModel.displayedPokemons[indexPath.row]
             cell.configPokemonCell(pokemon: pokemon)
             
             return cell
@@ -167,7 +149,7 @@ extension MyPokemonViewController: UICollectionViewDataSource, UICollectionViewD
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SmallPokemonCell.identifier, for: indexPath) as? SmallPokemonCell else{
                 fatalError("failed to dequeue view cell")
             }
-            let pokemon = self.filteredPokemon[indexPath.row]
+            let pokemon = myPokemonViewModel.displayedPokemons[indexPath.row]
             cell.configPokemonCell(pokemon: pokemon)
             
             return cell
@@ -176,12 +158,11 @@ extension MyPokemonViewController: UICollectionViewDataSource, UICollectionViewD
     
 }
 
-
 extension MyPokemonViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        switch displayType{
+        switch myPokemonViewModel.collectionViewDisplayType {
         case .oneColumn:
             let width = self.view.frame.width - 40
             let height = ((self.view.frame.width - 40)/2) - 13.34
@@ -198,7 +179,7 @@ extension MyPokemonViewController: UICollectionViewDelegateFlowLayout {
     
     // vertical spacing
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        switch displayType{
+        switch myPokemonViewModel.collectionViewDisplayType {
         case .oneColumn:
             return 20
         case .twoColumns:
@@ -210,7 +191,7 @@ extension MyPokemonViewController: UICollectionViewDelegateFlowLayout {
     
     // horizomtal spacing
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        switch displayType{
+        switch myPokemonViewModel.collectionViewDisplayType {
         case .oneColumn:
             return 0
         case .twoColumns:
@@ -219,20 +200,23 @@ extension MyPokemonViewController: UICollectionViewDelegateFlowLayout {
             return 5
         }
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedItem = indexPath.item
-        print("Selected item: \(selectedItem)")
-        print("Selected pokemon: \(self.filteredPokemon[indexPath.item].name)")
-
-        let pokemonDetailVC = DetailViewController(pokemon: self.filteredPokemon[indexPath.item], pokedexViewModel: pokedexViewModel,myPokemonViewModel: myPokemonViewModel)
-        
+        let pokemonDetailVC = DetailViewController(pokemon: myPokemonViewModel.displayedPokemons[indexPath.item])
         hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(pokemonDetailVC, animated: true)
         hidesBottomBarWhenPushed = false
     }
 
+}
+
+extension MyPokemonViewController: MyPokemonViewModelDelegate {
+    func toggleViewReload() {
+        collectionView.reloadData()
+    }
+    
 }

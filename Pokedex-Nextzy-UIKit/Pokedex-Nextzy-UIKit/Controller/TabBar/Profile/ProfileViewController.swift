@@ -12,10 +12,10 @@ import Kingfisher
 class ProfileViewController: UIViewController {
     
     // MARK: - Varibles
-    private let authViewModel: AuthViewModel
+    private let profileViewModel: ProfileViewModel
 
-    init(authViewModel: AuthViewModel) {
-        self.authViewModel = authViewModel
+    init() {
+        self.profileViewModel = ProfileViewModel()
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -67,7 +67,7 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
-        self.authViewModel.getProfileData()
+        profileViewModel.getProfileData()
     }
     
     override func viewDidLoad() {
@@ -75,7 +75,7 @@ class ProfileViewController: UIViewController {
         self.setupUI()
         tableView.delegate = self
         tableView.dataSource = self
-        authViewModel.delegate = self
+        profileViewModel.delegate = self
 
     }
     
@@ -130,19 +130,17 @@ class ProfileViewController: UIViewController {
     
     // MARK: - Selector
     @objc func didTapSignOutButton() {
-        authViewModel.tapSignOut()
+        profileViewModel.tapSignOut()
     }
     
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    // number of section
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    // number of row
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
@@ -177,8 +175,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     // navigate to selected viewcontroller
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            let editProfileController = EditProfileViewController(authViewModel: authViewModel)
-            editProfileController.delegate = self
+            let editProfileController = EditProfileViewController()
             self.navigationController?.pushViewController(editProfileController, animated: true)
             
         } else if indexPath.row == 1 {
@@ -189,25 +186,15 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-extension ProfileViewController: AuthViewModelDelegate {
-    func navigateToNextView() {
-        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
-        sceneDelegate?.presentLoginViewController()
-    }
-    
-    func setUserData(firstName: String, lastName: String, imageURL: String) {
+extension ProfileViewController: ProfileViewModelDelegate {
+    func setProfileData(firstName: String, lastName: String, imageURL: String) {
         self.userFullnameLabel.text = "\(firstName) \(lastName)"
         self.profileImageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: "pokeball-profile"))
     }
     
-    func toggleAlert(messege: String) {
-        self.showAlert(message: messege)
-    }
-}
-
-extension ProfileViewController: EditProfileDelegate {
-    func setNewImage(newImage: UIImage) {
-        profileImageView.image = newImage
+    func navigateToNextView() {
+        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+        sceneDelegate?.presentLoginViewController()
     }
 
 }

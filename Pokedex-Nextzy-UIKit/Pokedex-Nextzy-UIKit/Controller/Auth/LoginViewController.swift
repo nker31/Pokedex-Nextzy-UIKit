@@ -11,15 +11,15 @@ import AVKit
 
 class LoginViewController: UIViewController {
 
-    
+
     // MARK: - Varibles
+    
+    private let loginViewModel: LoginViewModel
     var player: AVPlayer?
     var playerViewController: AVPlayerViewController?
-    
-    private let authViewModel: AuthViewModel
 
-    init(authViewModel: AuthViewModel) {
-        self.authViewModel = authViewModel
+    init(loginViewModel: LoginViewModel) {
+        self.loginViewModel = loginViewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -60,7 +60,7 @@ class LoginViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.authViewModel.delegate = self
+        self.loginViewModel.delegate = self
         self.setupView()
     }
     
@@ -134,37 +134,30 @@ class LoginViewController: UIViewController {
     @objc private func didTapLoginButton(_ sender: UIButton) {
         guard let email = emailField.text,
               let password = passwordField.text 
-        else {
-            return
-        }
-        authViewModel.tapLogin(email: email, password: password)
+        else { return }
+        
+        loginViewModel.tapLogin(email: email, password: password)
     }
     
     @objc private func didTapForgotPasswordButton(_ sender: UIButton) {
-        let forgotPasswordVC = ForgotViewController(authViewModel: authViewModel)
+        let forgotPasswordVC = ForgotViewController()
         self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
     }
     
     @objc private func didTapRegisterButton(_ sender: UIButton) {
-        let registerVC = RegisterViewController(authViewModel: authViewModel)
+        let registerVC = RegisterViewController()
         self.navigationController?.pushViewController(registerVC, animated: true)
     }
     
 }
 
-extension LoginViewController: AuthViewModelDelegate {
+extension LoginViewController: LoginViewModelDelegate {
+    func toggleAlert(messege: String) {
+        showAlert(message: messege)
+    }
+
     func navigateToNextView() {
         let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
         sceneDelegate?.presentTabBarController()
     }
-    
-    func setUserData(firstName: String, lastName: String, imageURL: String) {
-        
-    }
-    
-    func toggleAlert(messege: String) {
-        self.showAlert(message: messege)
-    }
-    
-    
 }

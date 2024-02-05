@@ -10,23 +10,18 @@ import UIKit
 class PokedexViewController: UIViewController {
 
     // MARK: - Varibles
-    private let authViewModel: AuthViewModel
     private let pokedexViewModel: PokedexViewModel
-    private let myPokemonViewModel: MyPokemonViewModel
     private var displayType: DisplayType = .twoColumns
     private var pokemonArray: [Pokemon] = []
     
-    init(authViewModel: AuthViewModel, pokedexViewModel: PokedexViewModel, myPokemonViewModel: MyPokemonViewModel) {
-        self.authViewModel = authViewModel
-        self.pokedexViewModel = pokedexViewModel
-        self.myPokemonViewModel = myPokemonViewModel
+    init() {
+        self.pokedexViewModel = PokedexViewModel()
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     // MARK: - UI Components
     let refreshControl: UIRefreshControl = {
@@ -41,6 +36,7 @@ class PokedexViewController: UIViewController {
         view.isHidden = true
         return view
     }()
+    
     lazy var progresslabel: UILabel = {
         let label = UILabel()
         label.text = String(localized: "loading_label_text")
@@ -69,12 +65,7 @@ class PokedexViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Task {
-            do {
-                pokemonArray = await pokedexViewModel.fecthPokemonAPI()
-                collectionView.reloadData()
-            }
-        }
+        pokedexViewModel.loadPokemonData()
         setupUI()
         self.collectionView.refreshControl = refreshControl
         self.collectionView.dataSource = self
@@ -141,67 +132,45 @@ class PokedexViewController: UIViewController {
         ])
     }
     
-    private func loadData() {
-        progressView.isHidden = false
-        Task {
-            do {
-                pokemonArray = await pokedexViewModel.fecthPokemonAPI()
-                sleep(UInt32(1.0))
-                collectionView.reloadData()
-                progressView.isHidden = true
-            }
-        }
-    }
-    
     // MARK: - Selectors
     
     @objc private func searchButtonTapped() {
-        let searchViewController = SearchViewController( pokedexViewModel: pokedexViewModel
-                                                         , myPokemonViewModel: myPokemonViewModel)
+        let searchViewController = SearchViewController( pokedexViewModel: pokedexViewModel)
         let navigationController = UINavigationController(rootViewController: searchViewController)
         navigationController.modalPresentationStyle = .overFullScreen
             present(navigationController, animated: true, completion: nil)
-        }
+    }
     
     
     @objc private func toggleColumnDisplayed() {
-        switch displayType {
-        case .oneColumn:
-            displayType = .twoColumns
-        case .twoColumns:
-            displayType = .threeColumns
-        case .threeColumns:
-            displayType = .oneColumn
-        }
+        pokedexViewModel.tapChangeDisplayType()
         setupNavbar()
-        setupUI()
-        collectionView.reloadData() 
+        collectionView.reloadData()
+        
     }
     
     @objc func pullRefresh(_ sender: Any) {
-        loadData()
+        pokedexViewModel.loadPokemonData()
         refreshControl.endRefreshing()
     }
-
-
 }
 
 extension PokedexViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     // number of cell
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.pokemonArray.count
+        return self.pokedexViewModel.pokemons.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        switch displayType {
+        switch pokedexViewModel.collectionViewDisplayType {
 
         case .oneColumn:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PokemonCardCell.identifier, for: indexPath) as? PokemonCardCell else{
                 fatalError("failed to dequeue view cell")
             }
-            let pokemon = self.pokemonArray[indexPath.row]
+            let pokemon = self.pokedexViewModel.pokemons[indexPath.row]
             cell.configPokemonCell(pokemon: pokemon)
             
             return cell
@@ -210,7 +179,7 @@ extension PokedexViewController: UICollectionViewDataSource, UICollectionViewDel
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PokemonCell.identifier, for: indexPath) as? PokemonCell else{
                 fatalError("failed to dequeue view cell")
             }
-            let pokemon = self.pokemonArray[indexPath.row]
+            let pokemon = self.pokedexViewModel.pokemons[indexPath.row]
             cell.configPokemonCell(pokemon: pokemon)
             
             return cell
@@ -219,7 +188,7 @@ extension PokedexViewController: UICollectionViewDataSource, UICollectionViewDel
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SmallPokemonCell.identifier, for: indexPath) as? SmallPokemonCell else{
                 fatalError("failed to dequeue view cell")
             }
-            let pokemon = self.pokemonArray[indexPath.row]
+            let pokemon = self.pokedexViewModel.pokemons[indexPath.row]
             cell.configPokemonCell(pokemon: pokemon)
             
             return cell
@@ -233,7 +202,7 @@ extension PokedexViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        switch displayType{
+        switch pokedexViewModel.collectionViewDisplayType {
         case .oneColumn:
             let width = self.view.frame.width - 40
             let height = ((self.view.frame.width - 40)/2) - 13.34
@@ -249,7 +218,7 @@ extension PokedexViewController: UICollectionViewDelegateFlowLayout {
     
     // vertical spacing
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        switch displayType{
+        switch pokedexViewModel.collectionViewDisplayType {
         case .oneColumn:
             return 20
         case .twoColumns:
@@ -261,7 +230,7 @@ extension PokedexViewController: UICollectionViewDelegateFlowLayout {
     
     // horizomtal spacing
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        switch displayType{
+        switch pokedexViewModel.collectionViewDisplayType {
         case .oneColumn:
             return 0
         case .twoColumns:
@@ -276,12 +245,7 @@ extension PokedexViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedItem = indexPath.item
-        print("Selected item: \(selectedItem)")
-        print("Selected pokemon: \(self.pokemonArray[indexPath.item].name)")
-
-        let pokemonDetailVC = DetailViewController(pokemon: self.pokemonArray[indexPath.item], pokedexViewModel: pokedexViewModel, myPokemonViewModel: myPokemonViewModel
-        )
+        let pokemonDetailVC = DetailViewController(pokemon: self.pokedexViewModel.pokemons[indexPath.item])
         
         hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(pokemonDetailVC, animated: true)
@@ -290,4 +254,10 @@ extension PokedexViewController: UICollectionViewDelegateFlowLayout {
 
 }
 
+extension PokedexViewController: PokedexViewModelDelegate {
+    func toggleViewReload() {
+        collectionView.reloadData()
+    }
+    
+}
 

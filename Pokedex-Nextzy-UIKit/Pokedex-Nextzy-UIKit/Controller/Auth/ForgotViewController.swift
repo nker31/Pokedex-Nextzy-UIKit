@@ -10,10 +10,10 @@ import UIKit
 class ForgotViewController: UIViewController {
     
     // MARK: - Varibles
-    private let authViewModel: AuthViewModel
+    private let forgotViewModel: ForgotPasswordViewModel
 
-    init(authViewModel: AuthViewModel) {
-        self.authViewModel = authViewModel
+    init() {
+        self.forgotViewModel = ForgotPasswordViewModel()
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -33,8 +33,8 @@ class ForgotViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        forgotViewModel.delegate = self
         setupUI()
-        authViewModel.delegate = self
     }
     
     // MARK: - UI Setup
@@ -87,24 +87,16 @@ class ForgotViewController: UIViewController {
     
     // MARK: - Selectors
     @objc func didTapForgotButton(_ sender: UIButton) {
-        if let email = emailTextfield.text {
-            authViewModel.tapForgotPassword(email: email)
+        guard let email = emailTextfield.text else {
+            return
         }
+        forgotViewModel.tapResetPassword(email: email)
     }
     
 }
 
-extension ForgotViewController: AuthViewModelDelegate {
-    func navigateToNextView() {
-        
-    }
-    
-    func setUserData(firstName: String, lastName: String, imageURL: String) {
-        
-    }
-    
+extension ForgotViewController: ForgotPasswordViewModelDelegate {
     func toggleAlert(messege: String) {
-        self.showAlert(message: messege)
+        showAlert(message: messege)
     }
-    
 }

@@ -10,9 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
-    var authViewModel = AuthViewModel()
-    var pokedexViewModel = PokedexViewModel()
-    var myPokemonViewModel = MyPokemonViewModel()
+    var authManager = AuthenticationManager.shared
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
@@ -20,15 +18,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: scene.coordinateSpace.bounds)
         window?.windowScene = scene
         
-        // Show splash screen for 5 second
         window?.rootViewController = SplashViewController()
         
         Timer.scheduledTimer(withTimeInterval: 2.8, repeats: false) { _ in
-            // if firebase has current user then display tab menu
-            if let _ = self.authViewModel.userSession {
+            if let _ = self.authManager.userSession {
                 self.presentTabBarController()
             } 
-            // if no current user session display login
             else {
                 self.presentLoginViewController()
             }
@@ -38,13 +33,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func presentLoginViewController() {
-        let loginViewController = LoginViewController(authViewModel: authViewModel)
+        let loginViewModel = LoginViewModel()
+        let loginViewController = LoginViewController(loginViewModel: loginViewModel)
         let nav = UINavigationController(rootViewController: loginViewController)
         nav.modalPresentationStyle = .fullScreen
         window?.rootViewController = nav
     }
     func presentTabBarController() {
-        let tabMenu = TabBarController(authViewModel: authViewModel, pokedexViewModel: pokedexViewModel, myPokemonViewModel: myPokemonViewModel)
+        let tabMenu = TabBarController()
         tabMenu.modalPresentationStyle = .fullScreen
         window?.rootViewController = tabMenu
     }

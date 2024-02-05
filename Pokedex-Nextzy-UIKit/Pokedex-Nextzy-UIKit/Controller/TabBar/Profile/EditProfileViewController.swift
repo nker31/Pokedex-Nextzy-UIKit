@@ -7,19 +7,14 @@
 
 import UIKit
 
-protocol EditProfileDelegate {
-    func setNewImage(newImage: UIImage)
-}
-
 class EditProfileViewController: UIViewController {
 
     // MARK: - Varibles
-    private let authViewModel: AuthViewModel
-    
-    var delegate: EditProfileDelegate?
+    private let editProfileViewModel: EditProfileViewModel
 
-    init(authViewModel: AuthViewModel) {
-        self.authViewModel = authViewModel
+    // MARK: - Initializer
+    init() {
+        self.editProfileViewModel = EditProfileViewModel()
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -86,12 +81,12 @@ class EditProfileViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        authViewModel.delegate = self
+        editProfileViewModel.delegate = self
         imagePicker.delegate = self
         
         setupUI()
         setupNavbar()
-        authViewModel.getProfileData()
+        editProfileViewModel.getProfileData()
     }
     
     // MARK: - UI Setup
@@ -168,11 +163,9 @@ class EditProfileViewController: UIViewController {
             print("Debugger: error from tap update button")
             return
         }
-        authViewModel.tapUpdate(firstName: firstName,
+        editProfileViewModel.tapUpdate(firstName: firstName,
                                 lastName: lastName,
                                 newImage: newImage)
-        delegate?.setNewImage(newImage: newImage)
-    
     }
 }
 
@@ -189,11 +182,8 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
     }
 }
 
-extension EditProfileViewController: AuthViewModelDelegate {
-    func navigateToNextView() {
-    }
-    
-    func setUserData(firstName: String, lastName: String, imageURL: String) {
+extension EditProfileViewController: EditProfileViewModelDelegate {
+    func setProfileData(firstName: String, lastName: String, imageURL: String) {
         self.firstnameTextfield.text = firstName
         self.lastnameTextfield.text = lastName
         self.profileImageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: "pokeball-profile"))

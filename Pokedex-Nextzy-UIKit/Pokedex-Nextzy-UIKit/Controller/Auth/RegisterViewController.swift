@@ -9,10 +9,10 @@ import UIKit
 
 class RegisterViewController: UIViewController{
     // MARK: - Varibles
-    private let authViewModel: AuthViewModel
+    private let registerViewModel: RegisterViewModel
 
-    init(authViewModel: AuthViewModel) {
-        self.authViewModel = authViewModel
+    init() {
+        self.registerViewModel = RegisterViewModel()
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -77,7 +77,7 @@ class RegisterViewController: UIViewController{
         setupNavbar()
         setupUI()
         imagePicker.delegate = self
-        authViewModel.delegate = self
+        registerViewModel.delegate = self
     }
     
     // MARK: - UI Setup
@@ -163,12 +163,12 @@ class RegisterViewController: UIViewController{
                   return
               }
         
-        authViewModel.tapRegister(email: email,
-                                  password: password, 
-                                  confirmPassword: confirmPassword,
-                                  firstName: firstName,
-                                  lastName: lastName,
-                                  profileImageData: profileImage)
+        registerViewModel.tapRegister(email: email,
+                                      password: password,
+                                      confirmPassword: confirmPassword,
+                                      firstName: firstName,
+                                      lastName: lastName,
+                                      profileImageData: profileImage)
     }
 
     @objc private func didTapPhotoButton() {
@@ -191,18 +191,13 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
     }
 }
 
-extension RegisterViewController: AuthViewModelDelegate {
+extension RegisterViewController: RegisterViewModelDelegate {
+    func toggleAlert(messege: String) {
+        showAlert(message: messege)
+    }
+    
     func navigateToNextView() {
         let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
         sceneDelegate?.presentTabBarController()
-    }
-    
-    func setUserData(firstName: String, lastName: String, imageURL: String) {
-        
-    }
-    
-
-    func toggleAlert(messege: String) {
-        self.showAlert(message: messege)
     }
 }
