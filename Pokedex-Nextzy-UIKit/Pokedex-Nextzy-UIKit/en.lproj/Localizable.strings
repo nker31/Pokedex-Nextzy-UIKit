@@ -1,0 +1,74 @@
+/* 
+  Localizable.strings
+  Pokedex-Nextzy-UIKit
+
+  Created by Nathat Kuanthanom on 31/1/2567 BE.
+  
+*/
+
+// Login VC
+"email_label_text"  = "Email";
+"password_label_text"  = "Password";
+"login_button_text" = "Login";
+"register_button_text" = "No account ? Register";
+"forgot_password_button_text" = "Forgot password ?";
+
+// Register VC
+"register_title" = "Register";
+"confirm_password_label_text" = "Confirm Password";
+"first_name_label_text" = "First name";
+"last_name_label_text" = "Last name";
+
+// Forgot VC
+"forgot_password_title" = "Forgot Password";
+
+// Tab bar
+"pokedex_tabbar_title" = "Pokedex";
+"my_pokemon_tabbar_title" = "My Pokemon";
+"profile_tabbar_title" = "Profile";
+
+// Pokedex VC
+"about_segment_title" = "About";
+"stat_segment_title" = "Stats";
+"evolution_segment_title" = "Evolutions";
+
+// Search VC
+"cancel_button_text" = "Cancel";
+"pokemon_name_placeholder" = "Enter pokemon name";
+"no_result_label_text" = "No result for";
+
+// Empty VC
+"empty_pokemon_label_text" = "You haven't added any Pokémon to your favorite list yet.";
+
+// Profile VC
+"edit_profile_title" = "Edit My Profile";
+"terms_and_conditions_title" = "Terms and Conditions";
+"sign_out_button_text" = "Sign Out";
+
+// Edit Profile VC
+"update_button_text" = "Update";
+
+// Textfield Placeholder
+"email_placeholder" = "Enter your email";
+"password_placeholder" = "Enter your password";
+"confirm_password_placeholder" = "Enter your confirm password";
+"first_name_placeholder" = "Enter your first name";
+"last_name_placeholder" = "Enter your last name";
+
+// Progress View
+"loading_label_text" = "Loading";
+
+// Alert Messege
+"alert_invalid_email" = "Invalid email";
+"alert_invalid_password" = "Password must be at least 8 character";
+"alert_invalid_confirm_password" = "Password does not match with Confirm password";
+"alert_invalid_name" = "Firstname and Lastname must be at least 3 characters";
+
+"alert_login_failed" = "Wrong email or password";
+"alert_register_failed" = "Register failed";
+
+"alert_update_success" = "Update data successfully";
+"alert_update_failed" = "Update data failed";
+
+"alert_reset_success" = "Reset password email has been sent";
+"alert_reset_failed" = "Failed to reset password \n Please try again";

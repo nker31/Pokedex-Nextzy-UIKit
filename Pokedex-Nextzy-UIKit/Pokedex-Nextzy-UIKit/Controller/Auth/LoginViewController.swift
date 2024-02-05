@@ -6,15 +6,20 @@
 //
 
 import UIKit
+import AVFoundation
+import AVKit
 
 class LoginViewController: UIViewController {
 
-    
-    // MARK: - Varibles
-    private let authViewModel: AuthViewModel
 
-    init(authViewModel: AuthViewModel) {
-        self.authViewModel = authViewModel
+    // MARK: - Varibles
+    
+    private let loginViewModel: LoginViewModel
+    var player: AVPlayer?
+    var playerViewController: AVPlayerViewController?
+
+    init(loginViewModel: LoginViewModel) {
+        self.loginViewModel = loginViewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -30,58 +35,24 @@ class LoginViewController: UIViewController {
         return imageView
     }()
     
-    lazy var emailField: UITextField = {
-        let field = UITextField()
-        field.autocapitalizationType = .none
-        field.borderStyle = .none
-        field.placeholder = "Enter your email"
-        field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: field.frame.size.height))
-        field.leftViewMode = .always
-        return field
-    }()
+    lazy var emailField = LoginTextField(textfieldType: .email)
     
-    lazy var passwordField: UITextField = {
-        let field = UITextField()
-        field.borderStyle = .none
-        field.placeholder = "Enter your password"
-        field.isSecureTextEntry = true
-        field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: field.frame.size.height))
-        field.leftViewMode = .always
-        return field
-    }()
+    lazy var passwordField = LoginTextField(textfieldType: .password)
 
     lazy var forgotPasswordButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Forgot password ?", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 14, weight: .bold)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .systemBackground
-        button.alpha = 0.6
-        button.layer.cornerRadius = 6
+        let button = TextButton(title: String(localized: "forgot_password_button_text"))
         button.addTarget(self, action: #selector(didTapForgotPasswordButton(_:)), for: .touchUpInside)
         return button
     }()
     
     lazy var loginButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Login", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .medium)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = UIColor(red: 0.941, green: 0.388, blue: 0.396, alpha: 1) // #f06365
-        button.alpha = 1
-        button.layer.cornerRadius = 6
+        let button = CustomButton(title: String(localized: "login_button_text"), cornerRadius: 6)
         button.addTarget(self, action: #selector(didTapLoginButton(_:)), for: .touchUpInside)
         return button
     }()
     
-    
     lazy var noAccountButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("No account? Register", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 14, weight: .bold)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .systemBackground
-        button.alpha = 0.6
+        let button = TextButton(title: String(localized: "register_button_text"))
         button.addTarget(self, action: #selector(didTapRegisterButton(_:)), for: .touchUpInside)
         return button
     }()
@@ -89,7 +60,14 @@ class LoginViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.loginViewModel.delegate = self
         self.setupView()
+        self.tapToHideKeyboard()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        player?.pause()
     }
     
     // MARK: - UI Setup
@@ -98,10 +76,10 @@ class LoginViewController: UIViewController {
         let label = UILabel()
         label.text = title
         label.font = UIFont.boldSystemFont(ofSize: 14)
-        label.textColor = UIColor.gray
+        label.textColor = .white
         
         let dividerLine = UIView()
-        dividerLine.backgroundColor = UIColor(red: 0.941, green: 0.388, blue: 0.396, alpha: 1) // #f06365
+        dividerLine.backgroundColor = .pinkPokemon
         dividerLine.heightAnchor.constraint(equalToConstant: 1).isActive = true
            
         let labelStackView = UIStackView(arrangedSubviews: [label, field, dividerLine])
@@ -121,12 +99,18 @@ class LoginViewController: UIViewController {
     
     
     private func setupView() {
-        self.view.backgroundColor = .systemBackground
+        let player = AVPlayer(url: URL(fileURLWithPath: Bundle.main.path(forResource: "auth-video-bg", ofType: "mp4")!))
+        let layer = AVPlayerLayer(player: player)
+        layer.frame = view.bounds
+        layer.videoGravity = .resizeAspectFill
         
+        player.play()
+        view.layer.addSublayer(layer)
+
         let verticalStackView = UIStackView(arrangedSubviews: [
             logoImage,
-            createLabelStackView(title: "Email", field: emailField),
-            createLabelStackView(title: "Password", field: passwordField),
+            createLabelStackView(title: String(localized: "email_label_text"), field: emailField),
+            createLabelStackView(title: String(localized: "password_label_text"), field: passwordField),
             createForgotPasswordButtonStackView(),
             loginButton,
             noAccountButton
@@ -142,68 +126,39 @@ class LoginViewController: UIViewController {
             verticalStackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             verticalStackView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
             verticalStackView.widthAnchor.constraint(equalToConstant: 300),
-            logoImage.heightAnchor.constraint(equalToConstant: 95)
+            logoImage.heightAnchor.constraint(equalToConstant: 95),
         ])
         
     }
     
-    
     // MARK: - Selectors
     @objc private func didTapLoginButton(_ sender: UIButton) {
+        guard let email = emailField.text,
+              let password = passwordField.text 
+        else { return }
         
-        // Check empty email and password
-        guard let email = emailField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
-              !email.isEmpty,
-              let password = passwordField.text,
-              !password.isEmpty else {
-            print("Debugger: Email or password is nil")
-            showAlert(message: "Please enter email and password")
-            return
-        }
-        if(authViewModel.isValidEmail(email)){
-            if(authViewModel.isValidPassword(password)){
-                Task {
-                    do {
-                        try await authViewModel.signIn(email: email, password: password)
-                        print("Debugger: Login successful.")
-                        self.showTabBarController()
-                    } catch {
-                        self.showAlert(message: "Wrong email or password")
-                        print("Debugger: Login failed with error: \(error.localizedDescription)")
-                    }
-                }
-                
-            }else{
-                showAlert(message: "Password must be at least 8 character")
-            }
-        }else{
-            showAlert(message: "Invalid email")
-        }
+        loginViewModel.tapLogin(email: email, password: password)
     }
     
-    @objc private func didTapForgotPasswordButton(_ sender: UIButton){
-        let forgotPasswordVC = ForgotViewController(authViewModel: authViewModel)
+    @objc private func didTapForgotPasswordButton(_ sender: UIButton) {
+        let forgotPasswordVC = ForgotViewController()
         self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
     }
     
-    @objc private func didTapRegisterButton(_ sender: UIButton){
-        let registerVC = RegisterViewController(authViewModel: authViewModel)
+    @objc private func didTapRegisterButton(_ sender: UIButton) {
+        let registerVC = RegisterViewController()
         self.navigationController?.pushViewController(registerVC, animated: true)
     }
     
-    // MARK: - Function
-    
-    
-    private func showTabBarController() {
-        print("DEBUG: showTabBarController()")
+}
+
+extension LoginViewController: LoginViewModelDelegate {
+    func toggleAlert(messege: String) {
+        showAlert(message: messege)
+    }
+
+    func navigateToNextView() {
         let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
         sceneDelegate?.presentTabBarController()
     }
-
-    
 }
-
-
-    
-
-

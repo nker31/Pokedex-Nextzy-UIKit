@@ -44,7 +44,7 @@ class DetailTextLabel: UILabel{
     init(text: String){
         super.init(frame: .zero)
         self.text = text
-        self.textColor = UIColor.black
+        self.textColor = UIColor.label
         self.font = .systemFont(ofSize: 14, weight: .regular)
     }
     

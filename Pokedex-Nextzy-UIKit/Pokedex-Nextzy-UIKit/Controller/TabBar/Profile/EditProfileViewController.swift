@@ -10,10 +10,11 @@ import UIKit
 class EditProfileViewController: UIViewController {
 
     // MARK: - Varibles
-    private let authViewModel: AuthViewModel
+    private let editProfileViewModel: EditProfileViewModel
 
-    init(authViewModel: AuthViewModel) {
-        self.authViewModel = authViewModel
+    // MARK: - Initializer
+    init() {
+        self.editProfileViewModel = EditProfileViewModel()
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -23,16 +24,28 @@ class EditProfileViewController: UIViewController {
     
     // MARK: - UI Components
     // Profile image and cover
-    lazy var coverScreenView = UIView()
+    lazy var coverScreenView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .pinkPokemon
+        return view
+    }()
+    
     lazy var profileImageView: UIImageView = {
         let imageName = "pokeball-profile"
         let image = UIImage(named: imageName)
         let imageView = UIImageView(image: image)
         imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = 60
         return imageView
     }()
+    
     // Image picker
-    lazy var imagePickerButton = ImagePickerButton()
+    lazy var imagePickerButton: ImagePickerButton = {
+        let button = ImagePickerButton()
+        button.layer.cornerRadius = 15
+        button.addTarget(self, action: #selector(didTapPhotoButton), for: .touchUpInside)
+        return button
+    }()
     let imagePicker = UIImagePickerController()
     
     // Textfield 
@@ -40,16 +53,22 @@ class EditProfileViewController: UIViewController {
     let lastnameTextfield = CustomTextField(textfieldType: .lastname)
     
     // Button
-    let updateButton = CustomButton(title: "Update")
+    let updateButton: UIButton = {
+        let button = CustomButton(title: String(localized: "update_button_text"))
+        button.layer.cornerRadius = 20
+        button.addTarget(self, action: #selector(didTapUpdateButton), for: .touchUpInside)
+        return button
+    }()
     
+    // text field row
     private func createLabelStackView(title: String, field: UITextField) -> UIStackView {
         let label = UILabel()
         label.text = title
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = UIColor.gray
+        label.textColor = .gray
         
         let dividerLine = UIView()
-        dividerLine.backgroundColor = UIColor.pinkPokemon // #f06365
+        dividerLine.backgroundColor = .pinkPokemon // #f06365
         dividerLine.heightAnchor.constraint(equalToConstant: 1).isActive = true
            
         let labelStackView = UIStackView(arrangedSubviews: [label, field, dividerLine])
@@ -60,71 +79,51 @@ class EditProfileViewController: UIViewController {
     }
     
     // MARK: - Life Cycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if let imageURL = authViewModel.currentUser?.profileImageURL{
-            profileImageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: "pokeball-profile"))
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        editProfileViewModel.delegate = self
+        imagePicker.delegate = self
+        
         setupUI()
         setupNavbar()
-        imagePicker.delegate = self
-        imagePickerButton.addTarget(self, action: #selector(didTapPhotoButton), for: .touchUpInside)
-        updateButton.addTarget(self, action: #selector(didTapUpdateButton), for: .touchUpInside)
-        // Make sure to set up the text fields after calling setupUI()
-        firstnameTextfield.text = authViewModel.currentUser?.firstname ?? "John"
-        lastnameTextfield.text = authViewModel.currentUser?.lastname ?? "Doe"
+        editProfileViewModel.getProfileData()
+        self.tapToHideKeyboard()
     }
     
     // MARK: - UI Setup
     private func setupNavbar(){
-        self.title = "Edit my profile"
+        self.title = String(localized: "edit_profile_title")
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        
     }
     
     private func setupUI(){
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .systemBackground
+        
         let textfieldStack = UIStackView(arrangedSubviews: [
-            createLabelStackView(title: "Firstname", field: firstnameTextfield),
-            createLabelStackView(title: "Lastname", field: lastnameTextfield),
-            
+            createLabelStackView(title: String(localized: "first_name_label_text"), field: firstnameTextfield),
+            createLabelStackView(title: String(localized: "last_name_label_text"), field: lastnameTextfield),
         ])
-        
-        
-        
-        
+         
         self.view.addSubview(coverScreenView)
-        coverScreenView.backgroundColor = UIColor.pinkPokemon // #f06365
         coverScreenView.translatesAutoresizingMaskIntoConstraints = false
         
         self.view.addSubview(profileImageView)
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
-        profileImageView.layer.cornerRadius = 60
         
         self.view.addSubview(imagePickerButton)
         imagePickerButton.translatesAutoresizingMaskIntoConstraints = false
-        imagePickerButton.layer.cornerRadius = 15
-        
-
-        
         
         textfieldStack.axis = .vertical
         textfieldStack.spacing = 15
         self.view.addSubview(textfieldStack)
         textfieldStack.translatesAutoresizingMaskIntoConstraints = false
-        textfieldStack.backgroundColor = .white
+        textfieldStack.backgroundColor = .systemBackground
         
         self.view.addSubview(updateButton)
         updateButton.translatesAutoresizingMaskIntoConstraints = false
-        updateButton.layer.cornerRadius = 20
-        
         
         NSLayoutConstraint.activate([
             coverScreenView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -133,7 +132,7 @@ class EditProfileViewController: UIViewController {
             coverScreenView.heightAnchor.constraint(equalToConstant: 280),
             
             profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            profileImageView.bottomAnchor.constraint(equalTo: coverScreenView.bottomAnchor, constant: -20),
+            profileImageView.bottomAnchor.constraint(equalTo: coverScreenView.bottomAnchor, constant: -15),
             profileImageView.widthAnchor.constraint(equalToConstant: 120),
             profileImageView.heightAnchor.constraint(equalToConstant: 120),
             
@@ -150,17 +149,12 @@ class EditProfileViewController: UIViewController {
             updateButton.topAnchor.constraint(equalTo: textfieldStack.bottomAnchor, constant: 30),
             updateButton.widthAnchor.constraint(equalToConstant: 320),
             updateButton.heightAnchor.constraint(equalToConstant: 40)
-            
-            
-
         ])
-        
     }
     
     // MARK: - Selectors
     @objc private func didTapPhotoButton(){
         present(imagePicker, animated: true, completion: nil)
-
     }
     
     @objc private func didTapUpdateButton(){
@@ -170,26 +164,15 @@ class EditProfileViewController: UIViewController {
             print("Debugger: error from tap update button")
             return
         }
-        Task{
-            await authViewModel.editUserData(firstname: firstName, lastname: lastName, profileImageData: newImage) { result in
-                switch result {
-                case .success(_):
-                    self.showAlert(message: "update successfully")
-                    self.dismiss(animated: true)
-                    
-                case .failure(_):
-                    self.showAlert(message: "update failed")
-                }
-            }
-        }
-        
+        editProfileViewModel.tapUpdate(firstName: firstName,
+                                lastName: lastName,
+                                newImage: newImage)
     }
 }
 
 extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let selectedImage = info[.originalImage] as? UIImage {
-
             profileImageView.image = selectedImage
         }
         picker.dismiss(animated: true, completion: nil)
@@ -197,5 +180,17 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension EditProfileViewController: EditProfileViewModelDelegate {
+    func setProfileData(firstName: String, lastName: String, imageURL: String) {
+        self.firstnameTextfield.text = firstName
+        self.lastnameTextfield.text = lastName
+        self.profileImageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: "pokeball-profile"))
+    }
+    
+    func toggleAlert(messege: String) {
+        self.showAlert(message: messege)
     }
 }

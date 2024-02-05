@@ -8,11 +8,12 @@
 import UIKit
 
 class ForgotViewController: UIViewController {
+    
     // MARK: - Varibles
-    private let authViewModel: AuthViewModel
+    private let forgotViewModel: ForgotPasswordViewModel
 
-    init(authViewModel: AuthViewModel) {
-        self.authViewModel = authViewModel
+    init() {
+        self.forgotViewModel = ForgotPasswordViewModel()
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -20,17 +21,21 @@ class ForgotViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     // MARK: - UI Components
     lazy var emailTextfield = CustomTextField(textfieldType: .email)
-    lazy var forgotButton = CustomButton(title: "Forgot password")
+    lazy var forgotButton: UIButton = {
+        let button = CustomButton(title: String(localized: "forgot_password_title"))
+        button.layer.cornerRadius = 6
+        button.addTarget(self, action: #selector(didTapForgotButton(_:)), for: .touchUpInside)
+        return button
+    }()
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-        
-        forgotButton.addTarget(self, action: #selector(didTapForgotButton(_:)), for: .touchUpInside)
+        forgotViewModel.delegate = self
+        self.setupUI()
+        self.tapToHideKeyboard()
     }
     
     // MARK: - UI Setup
@@ -52,7 +57,7 @@ class ForgotViewController: UIViewController {
     }
     
     func setupNavbar(){
-        self.title = "Forgot Password"
+        self.title = String(localized: "forgot_password_title")
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.tintColor = UIColor.pinkPokemon
         self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.pinkPokemon]
@@ -62,11 +67,8 @@ class ForgotViewController: UIViewController {
         setupNavbar()
         self.view.backgroundColor = .systemBackground
         
-        forgotButton.layer.cornerRadius = 6
-        
         let verticalStackView = UIStackView(arrangedSubviews: [
-            
-            createLabelStackView(title: "Email", field: emailTextfield),
+            createLabelStackView(title: String(localized: "email_label_text"), field: emailTextfield),
             forgotButton
         ])
         
@@ -80,31 +82,22 @@ class ForgotViewController: UIViewController {
             verticalStackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             verticalStackView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
             verticalStackView.widthAnchor.constraint(equalToConstant: 300),
-
         ])
         
     }
     
     // MARK: - Selectors
-
     @objc func didTapForgotButton(_ sender: UIButton) {
-        if let email = emailTextfield.text {
-            print("Debugger: forgot password of \(email)")
-            authViewModel.resetPassword(withEmail: email) { result in
-                switch result {
-                case .success(let successMessage):
-                    self.dismiss(animated: true) {
-                        self.navigationController?.popViewController(animated: true)
-                        self.showAlert(message: successMessage)
-                    }
-                    
-                case .failure(let errorMessage):
-                    self.showAlert(message: "Failed to reset password")
-                    print("Debugger: Error from reset password \(errorMessage)")
-                }
-            }
+        guard let email = emailTextfield.text else {
+            return
         }
+        forgotViewModel.tapResetPassword(email: email)
     }
-
     
+}
+
+extension ForgotViewController: ForgotPasswordViewModelDelegate {
+    func toggleAlert(messege: String) {
+        showAlert(message: messege)
+    }
 }

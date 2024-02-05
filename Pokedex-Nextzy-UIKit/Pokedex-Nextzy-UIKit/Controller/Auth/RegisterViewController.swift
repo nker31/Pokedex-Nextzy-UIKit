@@ -9,13 +9,10 @@ import UIKit
 
 class RegisterViewController: UIViewController{
     // MARK: - Varibles
-    
-    
-    // MARK: - UI Components
-    private let authViewModel: AuthViewModel
+    private let registerViewModel: RegisterViewModel
 
-    init(authViewModel: AuthViewModel) {
-        self.authViewModel = authViewModel
+    init() {
+        self.registerViewModel = RegisterViewModel()
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -23,6 +20,7 @@ class RegisterViewController: UIViewController{
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - UI Components
     // Profile image and cover
     lazy var coverScreenView = UIView()
     lazy var profileImageView: UIImageView = {
@@ -32,8 +30,13 @@ class RegisterViewController: UIViewController{
         imageView.layer.masksToBounds = true
         return imageView
     }()
+    
     // Image picker
-    lazy var imagePickerButton = ImagePickerButton()
+    lazy var imagePickerButton:ImagePickerButton = {
+        let button = ImagePickerButton()
+        button.addTarget(self, action: #selector(didTapPhotoButton), for: .touchUpInside)
+        return button
+    }()
     let imagePicker = UIImagePickerController()
     
     // Textfield
@@ -42,7 +45,12 @@ class RegisterViewController: UIViewController{
     let confirmTextfield = CustomTextField(textfieldType: .confirmpassword)
     let firstnameTextfield = CustomTextField(textfieldType: .firstname)
     let lastnameTextfield = CustomTextField(textfieldType: .lastname)
-    let registerButton = CustomButton(title: "Register")
+    
+    let registerButton: UIButton = {
+        let button = CustomButton(title: String(localized: "register_title"))
+        button.addTarget(self, action: #selector(didClickRegister(_:)), for: .touchUpInside)
+        return button
+    }()
     
     // row stack view
     private func createLabelStackView(title: String, field: UITextField) -> UIStackView {
@@ -52,7 +60,7 @@ class RegisterViewController: UIViewController{
         label.textColor = UIColor.gray
         
         let dividerLine = UIView()
-        dividerLine.backgroundColor = UIColor.pinkPokemon // #f06365
+        dividerLine.backgroundColor = .pinkPokemon
         dividerLine.heightAnchor.constraint(equalToConstant: 1).isActive = true
            
         let labelStackView = UIStackView(arrangedSubviews: [label, field, dividerLine])
@@ -69,32 +77,30 @@ class RegisterViewController: UIViewController{
         setupNavbar()
         setupUI()
         imagePicker.delegate = self
-        imagePickerButton.addTarget(self, action: #selector(didTapPhotoButton), for: .touchUpInside)
-        registerButton.addTarget(self, action: #selector(didClickRegister(_:)), for: .touchUpInside)
-        
-
+        registerViewModel.delegate = self
+        self.tapToHideKeyboard()
     }
     
     // MARK: - UI Setup
-    private func setupNavbar(){
-        self.title = "Register"
+    
+    private func setupNavbar() {
+        self.title = String(localized: "register_title")
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
-    private func setupUI(){
-        self.view.backgroundColor = .white
+    private func setupUI() {
+        self.view.backgroundColor = .systemBackground
         let textfieldStack = UIStackView(arrangedSubviews: [
-            createLabelStackView(title: "Email", field: emailTextfield),
-            createLabelStackView(title: "Password", field: passwordTextfield),
-            createLabelStackView(title: "Confirm Password", field: confirmTextfield),
-            createLabelStackView(title: "Firstname", field: firstnameTextfield),
-            createLabelStackView(title: "Lastname", field: lastnameTextfield),
+            createLabelStackView(title: String(localized: "email_label_text"), field: emailTextfield),
+            createLabelStackView(title: String(localized: "password_label_text"), field: passwordTextfield),
+            createLabelStackView(title: String(localized: "confirm_password_label_text"), field: confirmTextfield),
+            createLabelStackView(title: String(localized: "first_name_label_text"), field: firstnameTextfield),
+            createLabelStackView(title: String(localized: "last_name_label_text"), field: lastnameTextfield),
             
         ])
-        
         
         self.view.addSubview(coverScreenView)
         coverScreenView.backgroundColor = UIColor.pinkPokemon // #f06365
@@ -108,19 +114,15 @@ class RegisterViewController: UIViewController{
         imagePickerButton.translatesAutoresizingMaskIntoConstraints = false
         imagePickerButton.layer.cornerRadius = 15
         
-
-        
-        
         textfieldStack.axis = .vertical
         textfieldStack.spacing = 15
         self.view.addSubview(textfieldStack)
         textfieldStack.translatesAutoresizingMaskIntoConstraints = false
-        textfieldStack.backgroundColor = .white
+        textfieldStack.backgroundColor = .systemBackground
         
         self.view.addSubview(registerButton)
         registerButton.translatesAutoresizingMaskIntoConstraints = false
         registerButton.layer.cornerRadius = 20
-        
         
         NSLayoutConstraint.activate([
             coverScreenView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -146,88 +148,40 @@ class RegisterViewController: UIViewController{
             registerButton.topAnchor.constraint(equalTo: textfieldStack.bottomAnchor, constant: 30),
             registerButton.widthAnchor.constraint(equalToConstant: 320),
             registerButton.heightAnchor.constraint(equalToConstant: 40)
-            
-            
-
         ])
         
     }
     
-    
     // MARK: - Selectors
     @objc func didClickRegister(_ sender: UIButton!) {
+        print("Debugger: register tapped")
         guard let email = emailTextfield.text,
               let password = passwordTextfield.text,
               let confirmPassword = confirmTextfield.text,
               let firstName = firstnameTextfield.text,
-              let lastName = lastnameTextfield.text else {
+              let lastName = lastnameTextfield.text,
+              let profileImage = profileImageView.image else {
                   return
               }
-
-        guard authViewModel.isValidEmail(email) else {
-            showAlert(message: "Invalid email")
-            return
-        }
-
-        guard authViewModel.isValidPassword(password) else {
-            showAlert(message: "Password must be at least 8 characters")
-            return
-        }
-
-        guard password == confirmPassword else {
-            showAlert(message: "Password does not match with Confirm password")
-            return
-        }
-
-        guard firstName.count >= 3 && lastName.count >= 3 else {
-            showAlert(message: "Firstname and Lastname must be at least 3 characters")
-            return
-        }
         
-        guard let profileImage = profileImageView.image else{
-            return
-        }
-
-        authViewModel.register(withEmail: email, password: password, firstname: firstName, lastname: lastName, profileImageData: profileImage) { result in
-            switch result {
-            case .success(let user):
-                // Registration successful
-                print("Registration successful. User: \(user)")
-                self.showTabBarController()
-                
-                
-            case .failure(let error):
-                // Registration failed
-                print("Registration failed with error: \(error.localizedDescription)")
-            }
-        }
-        
+        registerViewModel.tapRegister(email: email,
+                                      password: password,
+                                      confirmPassword: confirmPassword,
+                                      firstName: firstName,
+                                      lastName: lastName,
+                                      profileImageData: profileImage)
     }
 
-
-    
-    @objc private func didTapPhotoButton(){
+    @objc private func didTapPhotoButton() {
         present(imagePicker, animated: true, completion: nil)
-
     }
     
-    // MARK: - Function
-
-    private func showTabBarController() {
-        print("DEBUG: showTabBarController()")
-        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
-        sceneDelegate?.presentTabBarController()
-    }
-    
-
-
-
 }
 
 extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let selectedImage = info[.originalImage] as? UIImage {
-
             profileImageView.image = selectedImage
         }
         picker.dismiss(animated: true, completion: nil)
@@ -238,3 +192,13 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
     }
 }
 
+extension RegisterViewController: RegisterViewModelDelegate {
+    func toggleAlert(messege: String) {
+        showAlert(message: messege)
+    }
+    
+    func navigateToNextView() {
+        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+        sceneDelegate?.presentTabBarController()
+    }
+}

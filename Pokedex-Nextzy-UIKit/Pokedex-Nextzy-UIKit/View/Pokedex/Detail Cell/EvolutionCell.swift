@@ -21,7 +21,7 @@ class EvolutionCell: UITableViewCell {
     }
     
     func setupUI(){
-        self.backgroundColor = .white
+        self.backgroundColor = .systemBackground
         
         if(filteredPokemonEvo.isEmpty){
             
@@ -51,7 +51,7 @@ class EvolutionCell: UITableViewCell {
             evolutionStack.topAnchor.constraint(equalTo: self.topAnchor, constant: 25),
             evolutionStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
             evolutionStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
-            evolutionStack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -25)
+            evolutionStack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -300)
         ])
     }
     

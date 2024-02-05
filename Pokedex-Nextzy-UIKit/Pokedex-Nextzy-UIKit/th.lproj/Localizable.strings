@@ -1,0 +1,74 @@
+/* 
+  Localizable.strings
+  Pokedex-Nextzy-UIKit
+
+  Created by Nathat Kuanthanom on 31/1/2567 BE.
+  
+*/
+
+// Login VC
+"email_label_text" = "อีเมล";
+"password_label_text" = "รหัสผ่าน";
+"login_button_text" = "เข้าสู่ระบบ";
+"register_button_text" = "ไม่มีบัญชีเหรอ ลงทะเบียนสิ";
+"forgot_password_button_text" = "ลืมรหัสผ่าน ?";
+
+// Register VC
+"register_title" = "ลงทะเบียน";
+"confirm_password_label_text" = "ยืนยันรหัสผ่าน";
+"first_name_label_text" = "ชื่อจริง";
+"last_name_label_text" = "นามสกุล";
+
+// Forgot VC
+"forgot_password_title" = "ลืมรหัสผ่าน";
+
+// Tab bar
+"pokedex_tabbar_title" = "โปเกเด็กซ์";
+"my_pokemon_tabbar_title" = "โปเกม่อนที่ชอบ";
+"profile_tabbar_title" = "โปรไฟล์";
+
+// Pokedex VC
+"about_segment_title" = "ข้อมูลทั่วไป";
+"stat_segment_title" = "ค่าพลัง";
+"evolution_segment_title" = "การวิวัฒนาการ";
+
+// Search VC
+"cancel_button_text" = "ยกเลิก";
+"pokemon_name_placeholder" = "กรอกชื่อโปเกม่อน";
+"no_result_label_text" = "ไม่พบโปเกม่อนที่ค้นหา";
+
+// Empty VC
+"empty_pokemon_label_text" = "คุณยังไม่มีโปเกม่อนที่ชื่นชอบ";
+
+// Profile VC
+"edit_profile_title" = "แก้ไขข้อมูลส่วนตัว";
+"terms_and_conditions_title" = "ข้อตกลงและเงื่อนไขการใช้บริการ";
+"sign_out_button_text" = "ออกจากระบบ";
+
+// Edit Profile VC
+"update_button_text" = "อัปเดต";
+
+// Textfield Placeholder
+"email_placeholder" = "กรอกอีเมลของคุณ";
+"password_placeholder" = "กรอกรหัสผ่านของคุณ";
+"confirm_password_placeholder" = "ยืนยันรหัสผ่าน";
+"first_name_placeholder" = "กรอกชื่อจริงของคุณ";
+"last_name_placeholder" = "กรอกนามสกุลของคุณ";
+
+// Progress View
+"loading_label_text" = "กำลังโหลด";
+
+// Alert Messege
+"alert_invalid_email" = "อีเมลไม่ถูกต้อง";
+"alert_invalid_password" = "รหัสผ่านต้องมีความยาว 8 ตัวอักษรขึ้นไป";
+"alert_invalid_confirm_password" = "รหัสผ่านและยืนยันรหัสผ่านไม่สัมพันธ์กัน";
+"alert_invalid_name" = "ชื่อจริงและนามสกุลต้องมีความยาวอย่างน้อย 3 ตัวอักษรขึ้นไป";
+
+"alert_login_failed" = "อีเมลหรือรหัสผ่านไม่ถูกต้อง";
+"alert_register_failed" = "ลงทะเบียนล้มเหลว";
+
+"alert_update_success" = "แก้ไขข้อมูลเสร็จสิ้น";
+"alert_update_failed" = "เกิดข้อผิดพลาดในการแก้ไขข้อมูล";
+
+"alert_reset_success" = "อีเมลสำหรับรีเซ็ตรหัสผ่านได้ถูกส่งไปยังอีเมลของคุณแล้ว";
+"alert_reset_failed" = "รีเซ็ตรหัสผ่านล้มเหลว \n โปรดลองใหม่อีกครั้ง";
