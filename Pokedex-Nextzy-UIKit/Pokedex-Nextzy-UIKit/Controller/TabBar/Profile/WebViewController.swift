@@ -10,6 +10,15 @@ import WebKit
 
 class WebViewController: UIViewController {
     
+    init(){
+        super.init(nibName: nil, bundle: nil)
+        setupUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     // MARK: - UI Components
     let webView = WKWebView()
     
@@ -17,15 +26,17 @@ class WebViewController: UIViewController {
         let button = UIButton()
         button.setImage(UIImage(systemName: "arrow.left" ), for: .normal)
         button.tintColor = UIColor.pinkPokemon
+        button.addTarget(self, action: #selector(didTapBackButton), for: .touchUpInside)
         return button
     }()
+    
+    // Storyboard
+    @IBOutlet weak var webViewStoryboard: WKWebView!
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
         loadWebView()
-        self.backButton.addTarget(self, action: #selector(didTapBackButton), for: .touchUpInside)
     }
     
     // MARK: - UI Setup
@@ -49,9 +60,16 @@ class WebViewController: UIViewController {
         ])
     }
     
-    func loadWebView(){
-        if let url = URL(string: "https://pokedex-nextzy.web.app/") {
-            let request = URLRequest(url: url)
+    func loadWebView() {
+        guard let url = URL(string: "https://pokedex-nextzy.web.app/") else {
+            return
+        }
+        
+        let request = URLRequest(url: url)
+        
+        if let webView = webViewStoryboard {
+            webView.load(request)
+        } else {
             webView.load(request)
         }
     }
@@ -60,5 +78,10 @@ class WebViewController: UIViewController {
     @objc func didTapBackButton() {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func didTapBackButtonStoryboard(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 
 }
