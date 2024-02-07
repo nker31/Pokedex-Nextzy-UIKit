@@ -17,10 +17,12 @@ class ProfileViewController: UIViewController {
     init() {
         self.profileViewModel = ProfileViewModel()
         super.init(nibName: nil, bundle: nil)
+        self.setupUI()
     }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        self.profileViewModel = ProfileViewModel()
+        super.init(coder: coder)
     }
     
     // MARK: - UI Components
@@ -62,6 +64,10 @@ class ProfileViewController: UIViewController {
         button.addTarget(self, action: #selector(didTapSignOutButton), for: .touchUpInside)
         return button
     }()
+    
+    // Storyboard
+    @IBOutlet weak var profileImageViewStoryboard: UIImageView!
+    @IBOutlet weak var userFullnameLabelStoryboard: UILabel!
 
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
@@ -72,7 +78,6 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupUI()
         tableView.delegate = self
         tableView.dataSource = self
         profileViewModel.delegate = self
@@ -130,9 +135,12 @@ class ProfileViewController: UIViewController {
     
     // MARK: - Selector
     @objc func didTapSignOutButton() {
-        profileViewModel.tapSignOut()
+        profileViewModel.tapSignOut(signOutType: .programmatic)
     }
-    
+
+    @IBAction func didTapSignOutButtonStoryboard(_ sender: Any) {
+        profileViewModel.tapSignOut(signOutType: .storyboard)
+    }
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
@@ -187,9 +195,18 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension ProfileViewController: ProfileViewModelDelegate {
+    func segueToNextView() {
+        performSegue(withIdentifier: "SignOutSuccess", sender: Any.self)
+    }
+    
     func setProfileData(firstName: String, lastName: String, imageURL: String) {
-        self.userFullnameLabel.text = "\(firstName) \(lastName)"
-        self.profileImageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: "pokeball-profile"))
+        // Programmatic
+        userFullnameLabel.text = "\(firstName) \(lastName)"
+        profileImageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: "pokeball-profile"))
+        // Storyboard
+        userFullnameLabelStoryboard.text = "\(firstName) \(lastName)"
+        profileImageViewStoryboard.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: "pokeball-profile"))
+        
     }
     
     func navigateToNextView() {
