@@ -10,18 +10,22 @@ import Foundation
 protocol LoginViewModelDelegate {
     func toggleAlert(messege: String)
     func navigateToNextView()
+    func segueToNextView()
 }
 
 class LoginViewModel {
     
+    enum LoginType {
+        case programmatic
+        case storyboard
+    }
+    
     // MARK: - Variables
     private let authManager = AuthenticationManager.shared
     var delegate: LoginViewModelDelegate?
-    
-    // MARK: - Initializer
-    
+
     // MARK: - Method
-    func tapLogin(email: String, password: String) {
+    func tapLogin(email: String, password: String, loginType: LoginType) {
         guard authManager.isValidEmail(email) else {
             delegate?.toggleAlert(messege: String(localized: "alert_invalid_email"))
             return
@@ -37,11 +41,18 @@ class LoginViewModel {
                 try await authManager.signIn(email: email, password: password)
                 print("Debugger: Sign in success")
                 DispatchQueue.main.async {
-                    self.delegate?.navigateToNextView()
+                    switch loginType {
+                    case .programmatic:
+                        self.delegate?.navigateToNextView()
+                    case .storyboard:
+                        self.delegate?.segueToNextView()
+                    }
                 }
             } catch {
                 print("Debugger: Sign in failed")
-                delegate?.toggleAlert(messege: String(localized: "alert_login_failed"))
+                DispatchQueue.main.async {
+                    self.delegate?.toggleAlert(messege: String(localized: "alert_login_failed"))
+                }
             }
         }
     }
