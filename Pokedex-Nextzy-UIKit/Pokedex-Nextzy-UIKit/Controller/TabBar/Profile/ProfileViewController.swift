@@ -203,10 +203,14 @@ extension ProfileViewController: ProfileViewModelDelegate {
         // Programmatic
         userFullnameLabel.text = "\(firstName) \(lastName)"
         profileImageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: "pokeball-profile"))
-        // Storyboard
-        userFullnameLabelStoryboard.text = "\(firstName) \(lastName)"
-        profileImageViewStoryboard.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: "pokeball-profile"))
         
+        // Storyboard
+        guard let fullNameLable = userFullnameLabelStoryboard,
+              let profileImage = profileImageViewStoryboard else { return }
+        
+        fullNameLable.text = "\(firstName) \(lastName)"
+        profileImage.kf.setImage(with: URL(string: imageURL), 
+                                 placeholder: UIImage(named: "pokeball-profile"))
     }
     
     func navigateToNextView() {
