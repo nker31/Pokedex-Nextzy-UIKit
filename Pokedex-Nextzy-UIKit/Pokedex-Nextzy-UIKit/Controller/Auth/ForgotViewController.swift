@@ -15,10 +15,12 @@ class ForgotViewController: UIViewController {
     init() {
         self.forgotViewModel = ForgotPasswordViewModel()
         super.init(nibName: nil, bundle: nil)
+        self.setupUI()
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        self.forgotViewModel = ForgotPasswordViewModel()
+        super.init(coder: coder)
     }
     
     // MARK: - UI Components
@@ -30,11 +32,13 @@ class ForgotViewController: UIViewController {
         return button
     }()
     
+    // Storyboard
+    @IBOutlet weak var emailFieldStoryboard: UITextField!
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         forgotViewModel.delegate = self
-        self.setupUI()
         self.tapToHideKeyboard()
     }
     
@@ -89,6 +93,13 @@ class ForgotViewController: UIViewController {
     // MARK: - Selectors
     @objc func didTapForgotButton(_ sender: UIButton) {
         guard let email = emailTextfield.text else {
+            return
+        }
+        forgotViewModel.tapResetPassword(email: email)
+    }
+    
+    @IBAction func didTapForgotButtonStoryboard(_ sender: Any) {
+        guard let email = emailFieldStoryboard.text else {
             return
         }
         forgotViewModel.tapResetPassword(email: email)
