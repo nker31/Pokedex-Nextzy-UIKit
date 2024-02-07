@@ -10,9 +10,15 @@ import Foundation
 protocol ProfileViewModelDelegate {
     func setProfileData(firstName: String, lastName: String, imageURL: String)
     func navigateToNextView()
+    func segueToNextView()
 }
 
 class ProfileViewModel {
+    
+    enum SignOutType {
+        case programmatic
+        case storyboard
+    }
     
     private let authManager = AuthenticationManager.shared
     var delegate: ProfileViewModelDelegate?
@@ -21,14 +27,18 @@ class ProfileViewModel {
         guard let user = authManager.currentUser else {
             return
         }
-        
         self.delegate?.setProfileData(firstName: user.firstname,
                                       lastName: user.lastname,
                                       imageURL: user.profileImageURL)
     }
     
-    func tapSignOut() {
+    func tapSignOut(signOutType: SignOutType) {
         authManager.signOut()
-        self.delegate?.navigateToNextView()
+        switch signOutType {
+        case .programmatic:
+            self.delegate?.navigateToNextView()
+        case .storyboard:
+            self.delegate?.segueToNextView()
+        }
     }
 }
