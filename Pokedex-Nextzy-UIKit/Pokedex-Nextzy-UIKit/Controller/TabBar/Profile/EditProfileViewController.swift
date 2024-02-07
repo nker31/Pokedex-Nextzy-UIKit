@@ -89,11 +89,11 @@ class EditProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavbar()
+        editProfileViewModel.getProfileData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        editProfileViewModel.getProfileData()
         editProfileViewModel.delegate = self
         imagePicker.delegate = self
         tapToHideKeyboard()
