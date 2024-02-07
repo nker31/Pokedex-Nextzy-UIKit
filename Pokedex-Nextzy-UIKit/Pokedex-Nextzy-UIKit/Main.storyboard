@@ -648,6 +648,9 @@
                                         <rect key="frame" x="0.0" y="40.333333333333314" width="105.33333333333333" height="40.333333333333343"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="policy"/>
+                                        <connections>
+                                            <segue destination="6H4-fA-OET" kind="presentation" id="h6K-HF-PcB"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -864,13 +867,65 @@
             </objects>
             <point key="canvasLocation" x="3680" y="756"/>
         </scene>
+        <!--Web View Controller-->
+        <scene sceneID="G9u-EW-Wji">
+            <objects>
+                <viewController id="6H4-fA-OET" customClass="WebViewController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="t7x-9I-2pO">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KNm-G2-yl4">
+                                <rect key="frame" x="0.0" y="60" width="393" height="782"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWh-kR-epS">
+                                <rect key="frame" x="10" y="10" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="FtP-w4-Mjh"/>
+                                    <constraint firstAttribute="height" constant="40" id="qUW-aq-8eS"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrow.left" catalog="system">
+                                    <color key="baseForegroundColor" name="PinkPokemon"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="didTapBackButtonStoryboard:" destination="6H4-fA-OET" eventType="touchUpInside" id="yws-X9-VEh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tN1-re-VgG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tN1-re-VgG" firstAttribute="trailing" secondItem="KNm-G2-yl4" secondAttribute="trailing" id="BPH-hd-a7e"/>
+                            <constraint firstItem="KNm-G2-yl4" firstAttribute="top" secondItem="HWh-kR-epS" secondAttribute="bottom" constant="10" id="OlT-iu-Zia"/>
+                            <constraint firstItem="HWh-kR-epS" firstAttribute="top" secondItem="t7x-9I-2pO" secondAttribute="top" constant="10" id="dKF-4w-Js3"/>
+                            <constraint firstItem="KNm-G2-yl4" firstAttribute="leading" secondItem="tN1-re-VgG" secondAttribute="leading" id="jFW-Vm-Iwb"/>
+                            <constraint firstItem="tN1-re-VgG" firstAttribute="bottom" secondItem="KNm-G2-yl4" secondAttribute="bottom" id="pdj-00-ew4"/>
+                            <constraint firstItem="HWh-kR-epS" firstAttribute="leading" secondItem="tN1-re-VgG" secondAttribute="leading" constant="10" id="tJQ-gm-rUF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webViewStoryboard" destination="KNm-G2-yl4" id="Uaq-CW-UKg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oyA-LR-IyG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2546" y="1502"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="Oq8-SN-QRr"/>
         <segue reference="K93-5P-SFX"/>
         <segue reference="Lai-Oh-afh"/>
         <segue reference="PU1-gd-kw3"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="arrow.left" catalog="system" width="128" height="95"/>
         <image name="camera" catalog="system" width="128" height="93"/>
         <image name="heart.text.square.fill" catalog="system" width="128" height="114"/>
         <image name="pawprint.fill" catalog="system" width="128" height="112"/>
