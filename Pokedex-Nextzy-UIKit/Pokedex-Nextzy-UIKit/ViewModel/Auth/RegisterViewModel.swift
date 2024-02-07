@@ -11,9 +11,15 @@ import UIKit
 protocol RegisterViewModelDelegate {
     func toggleAlert(messege: String)
     func navigateToNextView()
+    func segueToNextView()
 }
 
 class RegisterViewModel {
+    
+    enum RegisterType {
+        case programmatic
+        case storyboard
+    }
     
     // MARK: - Variables
     private let authManager = AuthenticationManager.shared
@@ -24,7 +30,8 @@ class RegisterViewModel {
                      confirmPassword: String,
                      firstName: String,
                      lastName: String,
-                     profileImageData: UIImage) {
+                     profileImageData: UIImage, 
+                     registerType: RegisterType) {
         
         let isValid = registerValidation(email: email,
                                          password: password,
@@ -40,7 +47,12 @@ class RegisterViewModel {
             { result in
                 switch result {
                 case .success(_):
-                    self.delegate?.navigateToNextView()
+                    switch registerType {
+                    case .programmatic:
+                        self.delegate?.navigateToNextView()
+                    case .storyboard:
+                        self.delegate?.segueToNextView()
+                    }
                 case .failure(_):
                     self.delegate?.toggleAlert(messege: String(localized: "alert_register_failed"))
                 }
