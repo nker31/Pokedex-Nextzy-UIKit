@@ -16,10 +16,12 @@ class EditProfileViewController: UIViewController {
     init() {
         self.editProfileViewModel = EditProfileViewModel()
         super.init(nibName: nil, bundle: nil)
+        setupUI()
     }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        self.editProfileViewModel = EditProfileViewModel()
+        super.init(coder: coder)
     }
     
     // MARK: - UI Components
@@ -78,25 +80,35 @@ class EditProfileViewController: UIViewController {
         return labelStackView
     }
     
+    // Storyboard
+    @IBOutlet weak var profileImageViewStoryboard: UIImageView!
+    @IBOutlet weak var firstnameFieldStoryboard: UITextField!
+    @IBOutlet weak var lastnameFieldStoryboard: UITextField!
+    
     // MARK: - Life Cycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavbar()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        editProfileViewModel.getProfileData()
         editProfileViewModel.delegate = self
         imagePicker.delegate = self
-        
-        setupUI()
-        setupNavbar()
-        editProfileViewModel.getProfileData()
-        self.tapToHideKeyboard()
+        tapToHideKeyboard()
     }
     
     // MARK: - UI Setup
     private func setupNavbar(){
         self.title = String(localized: "edit_profile_title")
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.tintColor = .white
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        guard let nav = navigationController?.navigationBar else {
+            return
+        }
+        nav.tintColor = .white
+        nav.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        nav.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        nav.prefersLargeTitles = true
     }
     
     private func setupUI(){
@@ -168,12 +180,36 @@ class EditProfileViewController: UIViewController {
                                 lastName: lastName,
                                 newImage: newImage)
     }
+    
+    // Storyboard
+    @IBAction func didTapImagePickerStoryboard(_ sender: Any) {
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    @IBAction func didTapUpdateButtonStoryboard(_ sender: Any) {
+        guard let firstName = firstnameFieldStoryboard.text,
+              let lastName = lastnameFieldStoryboard.text,
+              let newImage = profileImageViewStoryboard.image else{
+            print("Debugger: error from tap update button")
+            return
+        }
+        editProfileViewModel.tapUpdate(firstName: firstName,
+                                lastName: lastName,
+                                newImage: newImage)
+        
+    }
+    
 }
 
 extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let selectedImage = info[.originalImage] as? UIImage {
-            profileImageView.image = selectedImage
+            if let storyboardImageView = profileImageViewStoryboard {
+                storyboardImageView.image = selectedImage
+            } else {
+                profileImageView.image = selectedImage
+            }
         }
         picker.dismiss(animated: true, completion: nil)
     }
@@ -184,10 +220,21 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
 }
 
 extension EditProfileViewController: EditProfileViewModelDelegate {
+    
     func setProfileData(firstName: String, lastName: String, imageURL: String) {
         self.firstnameTextfield.text = firstName
         self.lastnameTextfield.text = lastName
         self.profileImageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: "pokeball-profile"))
+        
+        guard let imageView = profileImageViewStoryboard,
+              let firstnameLabel = firstnameFieldStoryboard,
+              let lastnameLabel = lastnameFieldStoryboard else {
+            return
+        }
+        
+        imageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: "pokeball-profile"))
+        firstnameLabel.text = firstName
+        lastnameLabel.text = lastName
     }
     
     func toggleAlert(messege: String) {
