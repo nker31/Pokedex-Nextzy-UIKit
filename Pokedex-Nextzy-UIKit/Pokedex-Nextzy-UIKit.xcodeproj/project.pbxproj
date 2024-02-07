@@ -11,6 +11,8 @@
 		51040E1A2B6653D0009BD5AA /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51040E192B6653D0009BD5AA /* SplashViewController.swift */; };
 		51040E1D2B66B9F2009BD5AA /* MyPokemonEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51040E1C2B66B9F2009BD5AA /* MyPokemonEmptyView.swift */; };
 		51040E1F2B66C356009BD5AA /* PokemonTypeOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51040E1E2B66C356009BD5AA /* PokemonTypeOverlay.swift */; };
+		51104D092B723CB300CBEEA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51104D082B723CB300CBEEA9 /* Main.storyboard */; };
+		51104D0B2B723E7000CBEEA9 /* PresentionSytleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51104D0A2B723E7000CBEEA9 /* PresentionSytleController.swift */; };
 		511EF5262B57830000554F78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EF5252B57830000554F78 /* AppDelegate.swift */; };
 		511EF5282B57830000554F78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EF5272B57830000554F78 /* SceneDelegate.swift */; };
 		511EF52F2B57830100554F78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 511EF52E2B57830100554F78 /* Assets.xcassets */; };
@@ -99,6 +101,8 @@
 		51040E192B6653D0009BD5AA /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		51040E1C2B66B9F2009BD5AA /* MyPokemonEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPokemonEmptyView.swift; sourceTree = "<group>"; };
 		51040E1E2B66C356009BD5AA /* PokemonTypeOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTypeOverlay.swift; sourceTree = "<group>"; };
+		51104D082B723CB300CBEEA9 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		51104D0A2B723E7000CBEEA9 /* PresentionSytleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentionSytleController.swift; sourceTree = "<group>"; };
 		511EF5222B57830000554F78 /* Pokedex-Nextzy-UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pokedex-Nextzy-UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		511EF5252B57830000554F78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		511EF5272B57830000554F78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -271,6 +275,7 @@
 				511EF52E2B57830100554F78 /* Assets.xcassets */,
 				515D222B2B6A4B8200561C3C /* Localizable.strings */,
 				515D21FF2B6A0E0900561C3C /* auth-video-bg.mp4 */,
+				51104D082B723CB300CBEEA9 /* Main.storyboard */,
 				511EF5302B57830100554F78 /* LaunchScreen.storyboard */,
 				511EF5332B57830100554F78 /* Info.plist */,
 				516C9A352B679D0000DCE4F9 /* GoogleService-Info.plist */,
@@ -366,6 +371,7 @@
 			isa = PBXGroup;
 			children = (
 				51040E192B6653D0009BD5AA /* SplashViewController.swift */,
+				51104D0A2B723E7000CBEEA9 /* PresentionSytleController.swift */,
 				519FC9F92B5A2277002BC2B5 /* Auth */,
 				519FC9FA2B5A227C002BC2B5 /* TabBar */,
 			);
@@ -544,6 +550,7 @@
 				515D22292B6A4B8200561C3C /* Localizable.strings in Resources */,
 				515D22002B6A0E0900561C3C /* auth-video-bg.mp4 in Resources */,
 				511EF5322B57830100554F78 /* LaunchScreen.storyboard in Resources */,
+				51104D092B723CB300CBEEA9 /* Main.storyboard in Resources */,
 				511EF52F2B57830100554F78 /* Assets.xcassets in Resources */,
 				516C9A362B679D0000DCE4F9 /* GoogleService-Info.plist in Resources */,
 			);
@@ -574,6 +581,7 @@
 				518043B52B63990800552B6A /* EvolutionCompenent.swift in Sources */,
 				51339CDF2B602D5E00DA49EC /* Pokemon.swift in Sources */,
 				51B5EF742B6CE43C00928ED6 /* PokemonManager.swift in Sources */,
+				51104D0B2B723E7000CBEEA9 /* PresentionSytleController.swift in Sources */,
 				51339CF12B625F4F00DA49EC /* AboutCell.swift in Sources */,
 				519FCA1C2B5A4769002BC2B5 /* ImagePickerButton.swift in Sources */,
 				51A34ADC2B5E1D9900D5CF19 /* User.swift in Sources */,
@@ -765,6 +773,7 @@
 				INFOPLIST_FILE = "Pokedex-Nextzy-UIKit/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -791,6 +800,7 @@
 				INFOPLIST_FILE = "Pokedex-Nextzy-UIKit/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
