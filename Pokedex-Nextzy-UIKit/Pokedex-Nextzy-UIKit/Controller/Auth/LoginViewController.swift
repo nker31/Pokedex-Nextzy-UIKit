@@ -10,21 +10,22 @@ import AVFoundation
 import AVKit
 
 class LoginViewController: UIViewController {
-
-
-    // MARK: - Varibles
     
+    // MARK: - Varibles
     private let loginViewModel: LoginViewModel
     var player: AVPlayer?
     var playerViewController: AVPlayerViewController?
 
+    // MARK: - Initializer
     init(loginViewModel: LoginViewModel) {
         self.loginViewModel = loginViewModel
         super.init(nibName: nil, bundle: nil)
+        self.setupView()
     }
-
+    
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        self.loginViewModel = LoginViewModel()
+        super.init(coder: coder)
     }
     
     // MARK: - UI Components
@@ -57,11 +58,14 @@ class LoginViewController: UIViewController {
         return button
     }()
     
+    // Storyboard
+    @IBOutlet weak var emailFieldStoryboard: UITextField!
+    @IBOutlet weak var passwordFieldStoryboard: UITextField!
+
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loginViewModel.delegate = self
-        self.setupView()
         self.tapToHideKeyboard()
     }
     
@@ -137,7 +141,7 @@ class LoginViewController: UIViewController {
               let password = passwordField.text 
         else { return }
         
-        loginViewModel.tapLogin(email: email, password: password)
+        loginViewModel.tapLogin(email: email, password: password, loginType: .programmatic)
     }
     
     @objc private func didTapForgotPasswordButton(_ sender: UIButton) {
@@ -150,9 +154,22 @@ class LoginViewController: UIViewController {
         self.navigationController?.pushViewController(registerVC, animated: true)
     }
     
+    // Storyboard
+    @IBAction func didTapLoginButtonStoryboard(_ sender: UIButton) {
+
+        guard let email = emailFieldStoryboard.text,
+              let password = passwordFieldStoryboard.text
+        else { return }
+        
+        print("Debugger: Email = {\(email)} Password = {\(password)}")
+
+        loginViewModel.tapLogin(email: email, password: password, loginType: .storyboard)
+    }
+    
 }
 
 extension LoginViewController: LoginViewModelDelegate {
+    
     func toggleAlert(messege: String) {
         showAlert(message: messege)
     }
@@ -161,4 +178,9 @@ extension LoginViewController: LoginViewModelDelegate {
         let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
         sceneDelegate?.presentTabBarController()
     }
+    
+    func segueToNextView() {
+        performSegue(withIdentifier: "LoginSuccess", sender: Any.self)
+    }
+    
 }
