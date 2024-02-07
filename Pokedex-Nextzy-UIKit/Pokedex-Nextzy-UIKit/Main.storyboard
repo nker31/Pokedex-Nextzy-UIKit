@@ -6,6 +6,7 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,18 +26,18 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6XA-qo-8Nt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-393" y="-694"/>
+            <point key="canvasLocation" x="694" y="-1543"/>
         </scene>
         <!--Login-->
         <scene sceneID="9xe-bd-w0f">
             <objects>
                 <viewController title="Login" id="F5n-D2-SZU" customClass="LoginViewController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TeE-ss-mnt">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="NJR-cJ-6uu">
-                                <rect key="frame" x="46.666666666666657" y="242.66666666666666" width="300" height="366.66666666666674"/>
+                                <rect key="frame" x="46.666666666666657" y="237.66666666666666" width="300" height="366.66666666666674"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokedex-logo" translatesAutoresizingMaskIntoConstraints="NO" id="8ex-3b-JsD">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="95"/>
@@ -115,6 +116,9 @@
                                         <buttonConfiguration key="configuration" style="filled" title="Login">
                                             <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="18"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="didTapLoginButtonStoryboard:" destination="F5n-D2-SZU" eventType="touchUpInside" id="IMn-PY-PhI"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ZO-Ck-fE2">
                                         <rect key="frame" x="0.0" y="351.66666666666674" width="300" height="15"/>
@@ -145,6 +149,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="gRI-rc-jQ0"/>
                     <connections>
+                        <outlet property="emailFieldStoryboard" destination="Oe4-Bf-h2d" id="f1v-VV-uJA"/>
+                        <outlet property="passwordFieldStoryboard" destination="OmJ-mc-BOu" id="yDZ-iX-AhO"/>
                         <segue destination="pue-8G-ccw" kind="show" identifier="LoginSuccess" id="UMi-4Y-15c"/>
                     </connections>
                 </viewController>
@@ -152,12 +158,12 @@
             </objects>
             <point key="canvasLocation" x="695.41984732824426" y="-693.66197183098598"/>
         </scene>
-        <!--Register-->
+        <!--Register View Controller-->
         <scene sceneID="nZw-7a-X89">
             <objects>
-                <viewController title="Register" id="27P-zI-fbz" customClass="RegisterViewController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="27P-zI-fbz" customClass="RegisterViewController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y09-Qt-h2c">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jj6-Hz-lAL" userLabel="coverView">
@@ -181,13 +187,17 @@
                                             <constraint firstAttribute="height" constant="30" id="D1r-xz-6SF"/>
                                             <constraint firstAttribute="width" constant="30" id="bdx-Gv-9e2"/>
                                         </constraints>
+                                        <color key="tintColor" name="Normal"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled"/>
+                                        <buttonConfiguration key="configuration" style="filled" image="camera" catalog="system"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didTapImagePickerStoryboard:" destination="27P-zI-fbz" eventType="touchUpInside" id="JJp-6r-Z0W"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="PinkPokemon"/>
@@ -358,6 +368,9 @@
                                         <integer key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="dipTapRegisterButtonStoryboard:" destination="27P-zI-fbz" eventType="touchUpInside" id="wgW-fw-kWg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ecl-vN-H6I"/>
@@ -373,21 +386,30 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zHd-Ri-xXe"/>
+                    <connections>
+                        <outlet property="confirmPasswordFieldStoryboard" destination="iZU-4V-yrj" id="KHE-NB-yYm"/>
+                        <outlet property="emailFieldStoryboard" destination="K6N-wF-eVJ" id="RPY-E3-IPW"/>
+                        <outlet property="firstnameFieldStoryboard" destination="DKF-Bn-ZIz" id="9UR-hq-jPL"/>
+                        <outlet property="lastnameFieldStoryboard" destination="LHZ-km-Afe" id="zEq-vy-Qgh"/>
+                        <outlet property="passwordFieldStoryboard" destination="Db9-js-eT8" id="2TM-d0-HIB"/>
+                        <outlet property="profileImageViewStoryboard" destination="bEF-VO-71D" id="bRF-Ao-eY2"/>
+                        <segue destination="pue-8G-ccw" kind="show" identifier="RegisterSuccess" id="Lai-Oh-afh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eyo-bb-bt8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1917" y="-320"/>
+            <point key="canvasLocation" x="-1161" y="96"/>
         </scene>
         <!--Forgot Password-->
         <scene sceneID="xmB-fI-gvn">
             <objects>
-                <viewController title="Forgot Password" id="Udu-NW-gDr" sceneMemberID="viewController">
+                <viewController title="Forgot Password" id="Udu-NW-gDr" customClass="ForgotViewController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y5b-ER-b9y">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7jo-Y8-Qif" userLabel="Container">
-                                <rect key="frame" x="36.666666666666657" y="370" width="320" height="112.33333333333331"/>
+                                <rect key="frame" x="36.666666666666657" y="365" width="320" height="112.33333333333331"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Nxb-dl-z7r">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="56.666666666666664"/>
@@ -415,11 +437,14 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEQ-Cc-HZv">
                                         <rect key="frame" x="0.0" y="76.666666666666686" width="320" height="35.666666666666657"/>
-                                        <color key="tintColor" name="PinkPokemon"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Forgot Password">
                                             <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="18"/>
+                                            <color key="baseBackgroundColor" name="PinkPokemon"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="didTapForgotButtonStoryboard:" destination="Udu-NW-gDr" eventType="touchUpInside" id="8eQ-gZ-xHG"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -435,22 +460,56 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dhE-Vo-wWC"/>
+                    <connections>
+                        <outlet property="emailFieldStoryboard" destination="Vz6-DT-dS6" id="hIX-MY-yAt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q1w-ED-gJ4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1908" y="-1025"/>
+            <point key="canvasLocation" x="-1213" y="-819"/>
         </scene>
         <!--Pokedex-->
         <scene sceneID="Ig4-9a-tY4">
             <objects>
-                <viewController id="tun-yz-NXV" sceneMemberID="viewController">
+                <viewController id="tun-yz-NXV" customClass="PokedexViewController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NPI-v1-0Ke">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eXa-sl-H8E">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
+                                <color key="backgroundColor" name="Ice"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ko2-qv-zkW">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="9hM-qb-7cS">
+                                        <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0p2-cb-PLb">
+                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="OfU-As-3XJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OfU-As-3XJ" firstAttribute="trailing" secondItem="eXa-sl-H8E" secondAttribute="trailing" id="B5w-rM-jne"/>
+                            <constraint firstItem="eXa-sl-H8E" firstAttribute="top" secondItem="OfU-As-3XJ" secondAttribute="top" id="O7G-Te-wCQ"/>
+                            <constraint firstItem="OfU-As-3XJ" firstAttribute="bottom" secondItem="eXa-sl-H8E" secondAttribute="bottom" id="wiB-G9-1lF"/>
+                            <constraint firstItem="eXa-sl-H8E" firstAttribute="leading" secondItem="OfU-As-3XJ" secondAttribute="leading" id="z5H-se-FbC"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Pokedex" image="pawprint.fill" catalog="system" id="2ET-2a-B34"/>
+                    <connections>
+                        <outlet property="collectionViewStoryboard" destination="eXa-sl-H8E" id="Z6U-Yt-oMO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pBd-Bp-rXS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -459,18 +518,46 @@
         <!--My Pokemon-->
         <scene sceneID="eVk-Dn-HZt">
             <objects>
-                <viewController id="feW-yA-BpF" sceneMemberID="viewController">
+                <viewController id="feW-yA-BpF" customClass="MyPokemonViewController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2tD-zv-d6H">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ns0-3h-eR1">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
+                                <color key="backgroundColor" name="Fighting"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Jja-2e-5ff">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U0M-eR-tTj">
+                                        <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hn2-GR-0Vh">
+                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="dUa-rz-KyB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dUa-rz-KyB" firstAttribute="trailing" secondItem="ns0-3h-eR1" secondAttribute="trailing" id="DKm-cX-HzP"/>
+                            <constraint firstItem="dUa-rz-KyB" firstAttribute="bottom" secondItem="ns0-3h-eR1" secondAttribute="bottom" id="HRE-7G-Cnp"/>
+                            <constraint firstItem="ns0-3h-eR1" firstAttribute="leading" secondItem="dUa-rz-KyB" secondAttribute="leading" id="tKK-hA-bO4"/>
+                            <constraint firstItem="ns0-3h-eR1" firstAttribute="top" secondItem="dUa-rz-KyB" secondAttribute="top" id="u9z-dD-FeP"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="My Pokemon" image="heart.text.square.fill" catalog="system" id="8It-Lb-XRd"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TxL-5m-eer" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="695" y="1177"/>
+            <point key="canvasLocation" x="1135" y="1177"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="JYm-3d-CUm">
@@ -490,14 +577,14 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oli-6p-X0m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="694" y="391"/>
+            <point key="canvasLocation" x="695" y="265"/>
         </scene>
         <!--Profile-->
         <scene sceneID="DBA-VF-noK">
             <objects>
                 <viewController id="HaS-Jd-wOS" customClass="ProfileViewController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cte-XT-lg4">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0uQ-ck-X7X">
@@ -509,12 +596,17 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokeball-profile" translatesAutoresizingMaskIntoConstraints="NO" id="D7H-ym-GuG">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokeball-profile" translatesAutoresizingMaskIntoConstraints="NO" id="D7H-ym-GuG">
                                         <rect key="frame" x="136.66666666666666" y="96" width="119.99999999999997" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="120" id="DgL-5y-3L5"/>
                                             <constraint firstAttribute="width" constant="120" id="lj1-vO-uUl"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="60"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" name="PinkPokemon"/>
@@ -527,17 +619,47 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6IQ-QA-S9O">
-                                <rect key="frame" x="20" y="678" width="353" height="41"/>
+                                <rect key="frame" x="20" y="751.66666666666663" width="353" height="40.333333333333371"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Sign Out"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Sign Out">
+                                    <color key="baseBackgroundColor" name="PinkPokemon"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="didTapSignOutButton:" destination="HaS-Jd-wOS" eventType="touchUpInside" id="TYe-2r-cZ1"/>
+                                    <action selector="didTapSignOutButtonStoryboard:" destination="HaS-Jd-wOS" eventType="touchUpInside" id="NN7-gu-TKU"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fzt-Yj-T45" userLabel="Container">
+                                <rect key="frame" x="141" y="310" width="105.33333333333331" height="80.666666666666686"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drg-4B-xOI">
+                                        <rect key="frame" x="0.0" y="0.0" width="105.33333333333333" height="40.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="edit profile"/>
+                                        <connections>
+                                            <segue destination="UXN-qR-QNf" kind="show" id="Oq8-SN-QRr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="skQ-Wj-Id8">
+                                        <rect key="frame" x="0.0" y="40.333333333333314" width="105.33333333333333" height="40.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="policy"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="drg-4B-xOI" firstAttribute="centerX" secondItem="fzt-Yj-T45" secondAttribute="centerX" id="fgK-id-6ob"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Srz-KT-Qeq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="fzt-Yj-T45" firstAttribute="leading" secondItem="Srz-KT-Qeq" secondAttribute="leading" constant="141" id="1i9-Ci-YYu"/>
+                            <constraint firstItem="fzt-Yj-T45" firstAttribute="top" secondItem="0uQ-ck-X7X" secondAttribute="bottom" constant="30" id="3hX-FO-k7h"/>
                             <constraint firstItem="Srz-KT-Qeq" firstAttribute="trailing" secondItem="6IQ-QA-S9O" secondAttribute="trailing" constant="20" id="5hy-uZ-LBK"/>
                             <constraint firstItem="Srz-KT-Qeq" firstAttribute="trailing" secondItem="0uQ-ck-X7X" secondAttribute="trailing" id="83w-M1-SUx"/>
                             <constraint firstItem="0uQ-ck-X7X" firstAttribute="leading" secondItem="Srz-KT-Qeq" secondAttribute="leading" id="Gf0-vC-HPk"/>
@@ -548,13 +670,16 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="Vp8-U3-sxE"/>
+                    <navigationItem key="navigationItem" id="Jp0-Lu-kCU"/>
                     <connections>
-                        <outlet property="signOutButton" destination="6IQ-QA-S9O" id="bwa-lB-Qgi"/>
+                        <outlet property="profileImageViewStoryboard" destination="D7H-ym-GuG" id="SY0-t9-RRN"/>
+                        <outlet property="userFullnameLabelStoryboard" destination="kkv-Jc-Alq" id="VfY-HG-T0V"/>
+                        <segue destination="F5n-D2-SZU" kind="show" identifier="SignOutSuccess" id="PU1-gd-kw3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xhr-f3-wPG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1917" y="1177"/>
+            <point key="canvasLocation" x="2547" y="756"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Kl4-WB-5UU">
@@ -581,15 +706,186 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="95i-FQ-sZc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="389" y="-1640"/>
+            <point key="canvasLocation" x="2019" y="-2152"/>
+        </scene>
+        <!--Edit Profile View Controller-->
+        <scene sceneID="AHY-us-XLw">
+            <objects>
+                <viewController id="UXN-qR-QNf" customClass="EditProfileViewController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a2y-lh-dJB">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RaG-nI-62p">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="280"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokeball-profile" translatesAutoresizingMaskIntoConstraints="NO" id="6MV-Se-j69">
+                                        <rect key="frame" x="136.66666666666666" y="140" width="119.99999999999997" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="E0O-nm-CtA"/>
+                                            <constraint firstAttribute="height" constant="120" id="yuu-NT-eSc"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="60"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3s-8I-hFa">
+                                        <rect key="frame" x="226.66666666666666" y="230" width="29.999999999999972" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="frk-cQ-yWj"/>
+                                            <constraint firstAttribute="width" constant="30" id="zgi-Jq-uNs"/>
+                                        </constraints>
+                                        <color key="tintColor" name="Normal"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" image="camera" catalog="system"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didTapImagePickerStoryboard:" destination="UXN-qR-QNf" eventType="touchUpInside" id="I29-Lf-MwG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="PinkPokemon"/>
+                                <constraints>
+                                    <constraint firstItem="6MV-Se-j69" firstAttribute="trailing" secondItem="p3s-8I-hFa" secondAttribute="trailing" id="9xT-na-fNa"/>
+                                    <constraint firstAttribute="height" constant="280" id="Cac-Rg-kan"/>
+                                    <constraint firstItem="6MV-Se-j69" firstAttribute="bottom" secondItem="p3s-8I-hFa" secondAttribute="bottom" id="I7Y-G9-637"/>
+                                    <constraint firstAttribute="bottom" secondItem="6MV-Se-j69" secondAttribute="bottom" constant="20" id="YYf-yd-gXd"/>
+                                    <constraint firstItem="6MV-Se-j69" firstAttribute="centerX" secondItem="RaG-nI-62p" secondAttribute="centerX" id="d6V-dA-DOr"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ffl-vC-IOa">
+                                <rect key="frame" x="36.666666666666657" y="300" width="320" height="166"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="XX4-KV-gqq">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXb-2L-Ajx">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="17"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your first name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oQH-WH-5vu">
+                                                <rect key="frame" x="0.0" y="22" width="320" height="20"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="Im5-Q7-At3"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WmI-cQ-MQm">
+                                                <rect key="frame" x="0.0" y="47" width="320" height="1"/>
+                                                <color key="backgroundColor" name="PinkPokemon"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="mtp-ie-bvI"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="UU9-JK-apc">
+                                        <rect key="frame" x="0.0" y="63" width="320" height="48"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCc-CF-ysI">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="17"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L1T-Ye-8Za">
+                                                <rect key="frame" x="0.0" y="22" width="320" height="20"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="zJ8-Jx-Lhv"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OGu-dG-Gqz">
+                                                <rect key="frame" x="0.0" y="47" width="320" height="1"/>
+                                                <color key="backgroundColor" name="PinkPokemon"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="bmG-Wz-A8R"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nK0-hw-l9J">
+                                        <rect key="frame" x="0.0" y="126" width="320" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="320" id="YTe-1C-BDl"/>
+                                            <constraint firstAttribute="height" constant="40" id="g3I-XL-hY5"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Update">
+                                            <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="18"/>
+                                            <color key="baseBackgroundColor" name="PinkPokemon"/>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didTapUpdateButtonStoryboard:" destination="UXN-qR-QNf" eventType="touchUpInside" id="62R-it-nqa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="Rg1-wW-xu7"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Xgy-dj-Qdn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ffl-vC-IOa" firstAttribute="top" secondItem="RaG-nI-62p" secondAttribute="bottom" constant="20" id="Ikx-FC-jsx"/>
+                            <constraint firstItem="Xgy-dj-Qdn" firstAttribute="trailing" secondItem="RaG-nI-62p" secondAttribute="trailing" id="T5e-Hu-28c"/>
+                            <constraint firstItem="ffl-vC-IOa" firstAttribute="centerX" secondItem="a2y-lh-dJB" secondAttribute="centerX" id="ZLM-sj-3G0"/>
+                            <constraint firstItem="RaG-nI-62p" firstAttribute="leading" secondItem="Xgy-dj-Qdn" secondAttribute="leading" id="a5N-Xh-tzk"/>
+                            <constraint firstItem="RaG-nI-62p" firstAttribute="top" secondItem="a2y-lh-dJB" secondAttribute="top" id="uN2-2q-Dma"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="S9y-f8-qDO"/>
+                    <connections>
+                        <outlet property="firstnameFieldStoryboard" destination="oQH-WH-5vu" id="m5Y-eg-Oqh"/>
+                        <outlet property="lastnameFieldStoryboard" destination="L1T-Ye-8Za" id="RVi-Zm-TZK"/>
+                        <outlet property="profileImageViewStoryboard" destination="6MV-Se-j69" id="iYf-Y4-m5i"/>
+                        <segue destination="HaS-Jd-wOS" kind="show" id="K93-5P-SFX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Me7-4U-Pm9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3680" y="756"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="K93-5P-SFX"/>
+        <segue reference="Lai-Oh-afh"/>
+        <segue reference="PU1-gd-kw3"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <image name="camera" catalog="system" width="128" height="93"/>
         <image name="heart.text.square.fill" catalog="system" width="128" height="114"/>
         <image name="pawprint.fill" catalog="system" width="128" height="112"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="pokeball-profile" width="400" height="400"/>
         <image name="pokedex-logo" width="387" height="140"/>
+        <namedColor name="Fighting">
+            <color red="0.81176470588235294" green="0.24313725490196078" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Ice">
+            <color red="0.44705882352941179" green="0.80784313725490198" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Normal">
+            <color red="0.56862745098039214" green="0.59999999999999998" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="PinkPokemon">
             <color red="0.94117647058823528" green="0.38823529411764707" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
