@@ -996,10 +996,10 @@
             </objects>
             <point key="canvasLocation" x="2927" y="1785"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Setting Storyboard Controller-->
         <scene sceneID="onZ-aG-ycV">
             <objects>
-                <viewController id="iL3-fH-TJc" customClass="SettingsViewController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="iL3-fH-TJc" customClass="SettingStoryboardController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="epo-PB-Buf">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1030,12 +1030,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="Tci-6O-6x0"/>
                     <connections>
-                        <outlet property="tableViewStoryboard" destination="tKx-Z1-rZo" id="r7s-cl-iDb"/>
+                        <outlet property="tableView" destination="tKx-Z1-rZo" id="fVK-wB-l10"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c0Y-Zw-c1y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4322.900763358778" y="1784.5070422535211"/>
+            <point key="canvasLocation" x="4331" y="1785"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
