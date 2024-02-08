@@ -51,12 +51,6 @@ class PokemonTypeOverlay: UIView{
             label.trailingAnchor.constraint(equalTo: labelOverlay.trailingAnchor, constant: -7),
             
             labelOverlay.heightAnchor.constraint(equalToConstant: 25)
-            
-            
         ])
-        
-        
     }
-    
-    
 }
