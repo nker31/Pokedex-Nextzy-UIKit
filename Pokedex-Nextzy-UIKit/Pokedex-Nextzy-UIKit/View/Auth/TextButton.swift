@@ -12,7 +12,7 @@ class TextButton: UIButton {
     init(title: String){
         super.init(frame: .zero)
         self.setTitle(title, for: .normal)
-        self.titleLabel?.font = .systemFont(ofSize: 14, weight: .bold)
+        self.titleLabel?.font = .notoSansBold(size: 14)
         self.setTitleColor(.white , for: .normal)
         self.backgroundColor = .clear
         self.alpha = 1
