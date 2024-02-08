@@ -946,10 +946,10 @@
             </objects>
             <point key="canvasLocation" x="1356" y="1785"/>
         </scene>
-        <!--Web View Controller-->
+        <!--Web View Storyboard Controller-->
         <scene sceneID="G9u-EW-Wji">
             <objects>
-                <viewController id="6H4-fA-OET" customClass="WebViewController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6H4-fA-OET" customClass="WebViewStoryboardController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t7x-9I-2pO">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -973,7 +973,7 @@
                                     <color key="baseForegroundColor" name="PinkPokemon"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="didTapBackButtonStoryboard:" destination="6H4-fA-OET" eventType="touchUpInside" id="yws-X9-VEh"/>
+                                    <action selector="didTapBackButton:" destination="6H4-fA-OET" eventType="touchUpInside" id="nLH-dg-LiM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -989,7 +989,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="webViewStoryboard" destination="KNm-G2-yl4" id="Uaq-CW-UKg"/>
+                        <outlet property="webView" destination="KNm-G2-yl4" id="F9t-yb-DwS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oyA-LR-IyG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
