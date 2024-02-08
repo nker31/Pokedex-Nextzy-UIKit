@@ -47,6 +47,7 @@
 		51617A7E2B7490D3007801D5 /* NotoSansThai-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51617A752B7490D2007801D5 /* NotoSansThai-SemiBold.ttf */; };
 		51617A7F2B7490D3007801D5 /* NotoSansThai-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51617A762B7490D3007801D5 /* NotoSansThai-ExtraBold.ttf */; };
 		51617A802B7490D3007801D5 /* NotoSansThai-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51617A772B7490D3007801D5 /* NotoSansThai-Medium.ttf */; };
+		51617A822B74935B007801D5 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51617A812B74935B007801D5 /* FontExtension.swift */; };
 		516C9A2E2B6788B700DCE4F9 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516C9A2D2B6788B700DCE4F9 /* TextButton.swift */; };
 		516C9A302B678ADB00DCE4F9 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516C9A2F2B678ADB00DCE4F9 /* LoginTextField.swift */; };
 		516C9A362B679D0000DCE4F9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 516C9A352B679D0000DCE4F9 /* GoogleService-Info.plist */; };
@@ -150,6 +151,7 @@
 		51617A752B7490D2007801D5 /* NotoSansThai-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansThai-SemiBold.ttf"; sourceTree = "<group>"; };
 		51617A762B7490D3007801D5 /* NotoSansThai-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansThai-ExtraBold.ttf"; sourceTree = "<group>"; };
 		51617A772B7490D3007801D5 /* NotoSansThai-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansThai-Medium.ttf"; sourceTree = "<group>"; };
+		51617A812B74935B007801D5 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		516C9A2D2B6788B700DCE4F9 /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
 		516C9A2F2B678ADB00DCE4F9 /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		516C9A352B679D0000DCE4F9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				519FC9F62B5A20CF002BC2B5 /* ViewModel */,
 				519FC9F72B5A21D5002BC2B5 /* Controller */,
 				519FC9F82B5A21EC002BC2B5 /* Supporting */,
+				51617A842B749685007801D5 /* Extension */,
 				51617A6E2B7490B2007801D5 /* Fonts */,
 				511EF52E2B57830100554F78 /* Assets.xcassets */,
 				515D222B2B6A4B8200561C3C /* Localizable.strings */,
@@ -354,6 +357,15 @@
 				51617A722B7490D2007801D5 /* NotoSansThai-Thin.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		51617A842B749685007801D5 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				519FCA192B5A4733002BC2B5 /* Extension.swift */,
+				51617A812B74935B007801D5 /* FontExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		518043AC2B63977300552B6A /* Detail Cell */ = {
@@ -424,7 +436,6 @@
 			children = (
 				511EF5252B57830000554F78 /* AppDelegate.swift */,
 				511EF5272B57830000554F78 /* SceneDelegate.swift */,
-				519FCA192B5A4733002BC2B5 /* Extension.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -624,6 +635,7 @@
 				513D90062B6EC92C00ED9B63 /* PokedexViewModel.swift in Sources */,
 				51339CE42B60C7DE00DA49EC /* SmallPokemonCell.swift in Sources */,
 				51040E1D2B66B9F2009BD5AA /* MyPokemonEmptyView.swift in Sources */,
+				51617A822B74935B007801D5 /* FontExtension.swift in Sources */,
 				519FCA102B5A35CE002BC2B5 /* LoginViewController.swift in Sources */,
 				519FCA122B5A35D7002BC2B5 /* RegisterViewController.swift in Sources */,
 				51B5EF782B6CE67200928ED6 /* TabBarViewModel.swift in Sources */,
