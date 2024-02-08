@@ -16,10 +16,14 @@ class TabBarController: UITabBarController {
     init() {
         self.tabBarViewModel = TabBarViewModel()
         super.init(nibName: nil, bundle: nil)
+        self.setupTab()
+        self.setupUI()
+        tabBarViewModel.loadView()
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        self.tabBarViewModel = TabBarViewModel()
+        super.init(coder: coder)
     }
     
     // MARK: - UI Components
@@ -28,17 +32,15 @@ class TabBarController: UITabBarController {
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tabBarViewModel.loadView()
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarViewModel.delegate = self
-        self.setupTab()
-        self.setupUI()
-        
         UINavigationBar.appearance().barTintColor = .systemBackground
         UINavigationBar.appearance().tintColor = .pinkPokemon
+        navigationItem.setHidesBackButton(true, animated: false)
     }
     
     // MARK: - UI Setup
@@ -88,7 +90,7 @@ extension TabBarController: TabBarViewModelDelegate {
     }
     
     func toggleViewReload() {
-        self.setupTab()
+        setupTab()
     }
     
 }

@@ -16,10 +16,12 @@ class MyPokemonViewController: UIViewController {
     init() {
         self.myPokemonViewModel = MyPokemonViewModel()
         super.init(nibName: nil, bundle: nil)
+        self.setupUI()
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        self.myPokemonViewModel = MyPokemonViewModel()
+        super.init(coder: coder)
     }
     
     // MARK: - UI Components
@@ -56,7 +58,7 @@ class MyPokemonViewController: UIViewController {
         myPokemonViewModel.delegate = self
         collectionView.delegate = self
         collectionView.dataSource = self
-        self.setupUI()
+        
     }
     
     // MARK: - UI Setup

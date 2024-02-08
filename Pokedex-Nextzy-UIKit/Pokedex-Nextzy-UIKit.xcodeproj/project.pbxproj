@@ -326,6 +326,7 @@
 		512345F52B5FC97E00E84B66 /* Pokedex */ = {
 			isa = PBXGroup;
 			children = (
+				51617A8D2B74BD54007801D5 /* Storyboard */,
 				518043AF2B63983800552B6A /* Components */,
 				518043AC2B63977300552B6A /* Detail Cell */,
 				512345F62B5FC99900E84B66 /* PokemonCell.swift */,
@@ -369,6 +370,29 @@
 				51617A872B749783007801D5 /* UIViewExtension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		51617A8D2B74BD54007801D5 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		51617A902B74C591007801D5 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		51617A912B74C59E007801D5 /* Programmatic */ = {
+			isa = PBXGroup;
+			children = (
+				519FC9F92B5A2277002BC2B5 /* Auth */,
+				519FC9FA2B5A227C002BC2B5 /* TabBar */,
+			);
+			path = Programmatic;
 			sourceTree = "<group>";
 		};
 		518043AC2B63977300552B6A /* Detail Cell */ = {
@@ -428,8 +452,8 @@
 			children = (
 				51040E192B6653D0009BD5AA /* SplashViewController.swift */,
 				51104D0A2B723E7000CBEEA9 /* PresentionSytleController.swift */,
-				519FC9F92B5A2277002BC2B5 /* Auth */,
-				519FC9FA2B5A227C002BC2B5 /* TabBar */,
+				51617A912B74C59E007801D5 /* Programmatic */,
+				51617A902B74C591007801D5 /* Storyboard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

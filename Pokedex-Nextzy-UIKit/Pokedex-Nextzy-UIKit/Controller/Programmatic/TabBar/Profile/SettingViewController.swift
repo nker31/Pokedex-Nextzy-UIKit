@@ -23,6 +23,8 @@ class SettingsViewController: UIViewController {
         return tableView
     }()
     
+    @IBOutlet weak var tableViewStoryboard: UITableView!
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,8 @@ class SettingsViewController: UIViewController {
         settingViewModel.delegate = self
         tableView.dataSource = self
         tableView.delegate = self
+        tableViewStoryboard.delegate = self
+        tableViewStoryboard.dataSource = self
     }
     
     // MARK: - UI Setup
