@@ -11,16 +11,18 @@ class PokedexViewController: UIViewController {
 
     // MARK: - Varibles
     private let pokedexViewModel: PokedexViewModel
-    private var displayType: DisplayType = .twoColumns
-    private var pokemonArray: [Pokemon] = []
     
     init() {
+        print("Debugger: Called me by Programmatic")
         self.pokedexViewModel = PokedexViewModel()
         super.init(nibName: nil, bundle: nil)
+        self.setupUI()
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        print("Debugger: Called me by Storyboard")
+        self.pokedexViewModel = PokedexViewModel()
+        super.init(coder: coder)
     }
     
     // MARK: - UI Components
@@ -61,15 +63,16 @@ class PokedexViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavbar()
+        self.collectionView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         pokedexViewModel.loadPokemonData()
-        setupUI()
         self.collectionView.refreshControl = refreshControl
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+        pokedexViewModel.delegate = self
     }
     
     // MARK: - UI Setup
@@ -81,12 +84,12 @@ class PokedexViewController: UIViewController {
             navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
         }
         
-        let searchButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, 
+        let searchButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search,
                                                             target: self,
                                                             action: #selector(searchButtonTapped))
         
         var columnsImageName: String
-        switch displayType {
+        switch pokedexViewModel.collectionViewDisplayType {
         case .oneColumn:
             columnsImageName = "square.grid.2x2"
         case .twoColumns:
@@ -95,8 +98,8 @@ class PokedexViewController: UIViewController {
             columnsImageName = "rectangle.grid.1x2"
         }
         
-        let columnsButton = UIBarButtonItem(image: UIImage(systemName: columnsImageName), 
-                                            style: .plain, 
+        let columnsButton = UIBarButtonItem(image: UIImage(systemName: columnsImageName),
+                                            style: .plain,
                                             target: self,
                                             action: #selector(toggleColumnDisplayed))
         
@@ -140,7 +143,6 @@ class PokedexViewController: UIViewController {
         navigationController.modalPresentationStyle = .overFullScreen
             present(navigationController, animated: true, completion: nil)
     }
-    
     
     @objc private func toggleColumnDisplayed() {
         pokedexViewModel.tapChangeDisplayType()
@@ -194,8 +196,6 @@ extension PokedexViewController: UICollectionViewDataSource, UICollectionViewDel
             return cell
         }
     }
-    
-    
 }
 
 extension PokedexViewController: UICollectionViewDelegateFlowLayout {
@@ -255,9 +255,12 @@ extension PokedexViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension PokedexViewController: PokedexViewModelDelegate {
+    func toggleAlert(messege: String) {
+        showAlert(message: messege)
+    }
+    
     func toggleViewReload() {
         collectionView.reloadData()
     }
     
 }
-
