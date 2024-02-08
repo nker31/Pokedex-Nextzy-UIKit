@@ -32,21 +32,6 @@ class PokedexViewController: UIViewController {
         return controller
     }()
     
-    lazy var progressView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .black.withAlphaComponent(0.3)
-        view.isHidden = true
-        return view
-    }()
-    
-    lazy var progresslabel: UILabel = {
-        let label = UILabel()
-        label.text = String(localized: "loading_label_text")
-        label.textColor = .white
-        label.font = .systemFont(ofSize: 16, weight: .bold)
-        return label
-    }()
-    
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -113,21 +98,7 @@ class PokedexViewController: UIViewController {
         self.view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
-        self.progressView.addSubview(progresslabel)
-        progresslabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.view.addSubview(progressView)
-        progressView.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
-            progresslabel.centerXAnchor.constraint(equalTo: progressView.centerXAnchor),
-            progresslabel.centerYAnchor.constraint(equalTo: progressView.centerYAnchor),
-            
-            progressView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            progressView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            progressView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            progressView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-
             collectionView.topAnchor.constraint(equalTo: self.view.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
