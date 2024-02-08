@@ -408,7 +408,7 @@
         <!--Forgot Password-->
         <scene sceneID="xmB-fI-gvn">
             <objects>
-                <viewController title="Forgot Password" id="Udu-NW-gDr" customClass="ForgotViewController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Forgot Password" id="Udu-NW-gDr" customClass="ForgotStoryboardController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y5b-ER-b9y">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -448,7 +448,7 @@
                                             <color key="baseBackgroundColor" name="PinkPokemon"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="didTapForgotButtonStoryboard:" destination="Udu-NW-gDr" eventType="touchUpInside" id="8eQ-gZ-xHG"/>
+                                            <action selector="didTapForgotButton:" destination="Udu-NW-gDr" eventType="touchUpInside" id="trr-7r-2NQ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -466,7 +466,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="dhE-Vo-wWC"/>
                     <connections>
-                        <outlet property="emailFieldStoryboard" destination="Vz6-DT-dS6" id="hIX-MY-yAt"/>
+                        <outlet property="emailField" destination="Vz6-DT-dS6" id="WG0-Gg-PFc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q1w-ED-gJ4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
