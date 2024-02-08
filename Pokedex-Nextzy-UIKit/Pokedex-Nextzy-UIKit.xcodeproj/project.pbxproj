@@ -66,7 +66,6 @@
 		519FCA142B5A3606002BC2B5 /* ForgotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA132B5A3606002BC2B5 /* ForgotViewController.swift */; };
 		519FCA162B5A46A3002BC2B5 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA152B5A46A3002BC2B5 /* CustomTextField.swift */; };
 		519FCA182B5A46FE002BC2B5 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA172B5A46FE002BC2B5 /* CustomButton.swift */; };
-		519FCA1A2B5A4733002BC2B5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA192B5A4733002BC2B5 /* Extension.swift */; };
 		519FCA1C2B5A4769002BC2B5 /* ImagePickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519FCA1B2B5A4769002BC2B5 /* ImagePickerButton.swift */; };
 		519FCA242B5A6F1F002BC2B5 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 519FCA232B5A6F1F002BC2B5 /* FirebaseAnalytics */; };
 		519FCA262B5A6F1F002BC2B5 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 519FCA252B5A6F1F002BC2B5 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -170,7 +169,6 @@
 		519FCA132B5A3606002BC2B5 /* ForgotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotViewController.swift; sourceTree = "<group>"; };
 		519FCA152B5A46A3002BC2B5 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		519FCA172B5A46FE002BC2B5 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		519FCA192B5A4733002BC2B5 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		519FCA1B2B5A4769002BC2B5 /* ImagePickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerButton.swift; sourceTree = "<group>"; };
 		519FCA5D2B5A78FE002BC2B5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		519FCA5F2B5A8F28002BC2B5 /* PokedexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexViewController.swift; sourceTree = "<group>"; };
@@ -366,7 +364,6 @@
 		51617A842B749685007801D5 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				519FCA192B5A4733002BC2B5 /* Extension.swift */,
 				51617A812B74935B007801D5 /* FontExtension.swift */,
 				51617A852B74972A007801D5 /* UIViewControllerExtension.swift */,
 				51617A872B749783007801D5 /* UIViewExtension.swift */,
@@ -631,7 +628,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				512345EE2B5F6A1A00E84B66 /* EditProfileViewController.swift in Sources */,
-				519FCA1A2B5A4733002BC2B5 /* Extension.swift in Sources */,
 				516C9A2E2B6788B700DCE4F9 /* TextButton.swift in Sources */,
 				51005BDE2B7482A300C4CC54 /* SettingViewModel.swift in Sources */,
 				516C9A302B678ADB00DCE4F9 /* LoginTextField.swift in Sources */,
