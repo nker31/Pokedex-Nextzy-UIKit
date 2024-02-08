@@ -12,7 +12,6 @@ class WebViewController: UIViewController {
     
     init(){
         super.init(nibName: nil, bundle: nil)
-        setupUI()
     }
     
     required init?(coder: NSCoder) {
@@ -30,12 +29,10 @@ class WebViewController: UIViewController {
         return button
     }()
     
-    // Storyboard
-    @IBOutlet weak var webViewStoryboard: WKWebView!
-    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         loadWebView()
     }
     
@@ -64,24 +61,12 @@ class WebViewController: UIViewController {
         guard let url = URL(string: "https://pokedex-nextzy.web.app/") else {
             return
         }
-        
         let request = URLRequest(url: url)
-        
-        if let webView = webViewStoryboard {
-            webView.load(request)
-        } else {
-            webView.load(request)
-        }
+        webView.load(request)
     }
     
     // MARK: - Selectors
     @objc func didTapBackButton() {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    @IBAction func didTapBackButtonStoryboard(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-
 }
