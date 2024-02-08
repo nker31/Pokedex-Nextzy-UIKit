@@ -33,7 +33,7 @@ class PokeballProgressView: UIView {
         let label = UILabel()
         label.text = String(localized: "loading_label_text")
         label.textColor = .white
-        label.font = .systemFont(ofSize: 16, weight: .bold)
+        label.font = .notoSansBold(size: 16)
         return label
     }()
     
