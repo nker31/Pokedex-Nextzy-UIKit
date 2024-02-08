@@ -57,10 +57,6 @@ class LoginViewController: UIViewController {
         button.addTarget(self, action: #selector(didTapRegisterButton(_:)), for: .touchUpInside)
         return button
     }()
-    
-    // Storyboard
-    @IBOutlet weak var emailFieldStoryboard: UITextField!
-    @IBOutlet weak var passwordFieldStoryboard: UITextField!
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -152,18 +148,6 @@ class LoginViewController: UIViewController {
     @objc private func didTapRegisterButton(_ sender: UIButton) {
         let registerVC = RegisterViewController()
         self.navigationController?.pushViewController(registerVC, animated: true)
-    }
-    
-    // Storyboard
-    @IBAction func didTapLoginButtonStoryboard(_ sender: UIButton) {
-
-        guard let email = emailFieldStoryboard.text,
-              let password = passwordFieldStoryboard.text
-        else { return }
-        
-        print("Debugger: Email = {\(email)} Password = {\(password)}")
-
-        loginViewModel.tapLogin(email: email, password: password, loginType: .storyboard)
     }
     
 }
