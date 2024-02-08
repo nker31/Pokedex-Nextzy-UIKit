@@ -60,6 +60,7 @@
 		51617AA62B754103007801D5 /* ProfileStoryboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51617AA52B754103007801D5 /* ProfileStoryboardController.swift */; };
 		51617AA82B7543FA007801D5 /* SettingStoryboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51617AA72B7543FA007801D5 /* SettingStoryboardController.swift */; };
 		51617AAA2B754705007801D5 /* EditProfileStoryboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51617AA92B754705007801D5 /* EditProfileStoryboardController.swift */; };
+		51617AAC2B7549A4007801D5 /* WebViewStoryboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51617AAB2B7549A4007801D5 /* WebViewStoryboardController.swift */; };
 		516C9A2E2B6788B700DCE4F9 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516C9A2D2B6788B700DCE4F9 /* TextButton.swift */; };
 		516C9A302B678ADB00DCE4F9 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516C9A2F2B678ADB00DCE4F9 /* LoginTextField.swift */; };
 		516C9A362B679D0000DCE4F9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 516C9A352B679D0000DCE4F9 /* GoogleService-Info.plist */; };
@@ -175,6 +176,7 @@
 		51617AA52B754103007801D5 /* ProfileStoryboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStoryboardController.swift; sourceTree = "<group>"; };
 		51617AA72B7543FA007801D5 /* SettingStoryboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingStoryboardController.swift; sourceTree = "<group>"; };
 		51617AA92B754705007801D5 /* EditProfileStoryboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileStoryboardController.swift; sourceTree = "<group>"; };
+		51617AAB2B7549A4007801D5 /* WebViewStoryboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewStoryboardController.swift; sourceTree = "<group>"; };
 		516C9A2D2B6788B700DCE4F9 /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
 		516C9A2F2B678ADB00DCE4F9 /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		516C9A352B679D0000DCE4F9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -427,6 +429,7 @@
 				51617AA52B754103007801D5 /* ProfileStoryboardController.swift */,
 				51617AA72B7543FA007801D5 /* SettingStoryboardController.swift */,
 				51617AA92B754705007801D5 /* EditProfileStoryboardController.swift */,
+				51617AAB2B7549A4007801D5 /* WebViewStoryboardController.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -717,6 +720,7 @@
 				51339CE82B6104B200DA49EC /* PokeballProgressView.swift in Sources */,
 				518043B32B6398BB00552B6A /* PokemonTypeComponent.swift in Sources */,
 				518043B52B63990800552B6A /* EvolutionCompenent.swift in Sources */,
+				51617AAC2B7549A4007801D5 /* WebViewStoryboardController.swift in Sources */,
 				51339CDF2B602D5E00DA49EC /* Pokemon.swift in Sources */,
 				51B5EF742B6CE43C00928ED6 /* PokemonManager.swift in Sources */,
 				51104D0B2B723E7000CBEEA9 /* PresentionSytleController.swift in Sources */,
