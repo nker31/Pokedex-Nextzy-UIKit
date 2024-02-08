@@ -9,16 +9,13 @@ import UIKit
 
 class RegisterViewController: UIViewController{
     // MARK: - Varibles
-    private let registerViewModel: RegisterViewModel
+    private let registerViewModel: RegisterViewModel = RegisterViewModel()
 
     init() {
-        self.registerViewModel = RegisterViewModel()
         super.init(nibName: nil, bundle: nil)
-        setupUI()
     }
 
     required init?(coder: NSCoder) {
-        self.registerViewModel = RegisterViewModel()
         super.init(coder: coder)
     }
     
@@ -53,15 +50,7 @@ class RegisterViewController: UIViewController{
         button.addTarget(self, action: #selector(didClickRegister(_:)), for: .touchUpInside)
         return button
     }()
-    
-    // Storyboard
-    @IBOutlet weak var profileImageViewStoryboard: UIImageView!
-    @IBOutlet weak var emailFieldStoryboard: UITextField!
-    @IBOutlet weak var passwordFieldStoryboard: UITextField!
-    @IBOutlet weak var confirmPasswordFieldStoryboard: UITextField!
-    @IBOutlet weak var firstnameFieldStoryboard: UITextField!
-    @IBOutlet weak var lastnameFieldStoryboard: UITextField!
-    
+
     // row stack view
     private func createLabelStackView(title: String, field: UITextField) -> UIStackView {
         let label = UILabel()
@@ -85,6 +74,7 @@ class RegisterViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavbar()
+        setupUI()
         imagePicker.delegate = self
         registerViewModel.delegate = self
         self.tapToHideKeyboard()
@@ -184,32 +174,7 @@ class RegisterViewController: UIViewController{
     @objc private func didTapPhotoButton() {
         present(imagePicker, animated: true, completion: nil)
     }
-    
-    @IBAction func dipTapRegisterButtonStoryboard(_ sender: UIButton) {
-        print("Debugger: register Storyboard tapped")
-        guard let email = emailFieldStoryboard.text,
-              let password = passwordFieldStoryboard.text,
-              let confirmPassword = confirmPasswordFieldStoryboard.text,
-              let firstName = firstnameFieldStoryboard.text,
-              let lastName = lastnameFieldStoryboard.text,
-              let profileImage = profileImageViewStoryboard.image else {
-                  return
-              }
-        
-        registerViewModel.tapRegister(email: email,
-                                      password: password,
-                                      confirmPassword: confirmPassword,
-                                      firstName: firstName,
-                                      lastName: lastName,
-                                      profileImageData: profileImage,
-                                      registerType: .storyboard)
-    }
-    
-    @IBAction func didTapImagePickerStoryboard(_ sender: Any) {
-        present(imagePicker, animated: true, completion: nil)
-    }
-    
-    
+
 }
 
 extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -217,7 +182,6 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let selectedImage = info[.originalImage] as? UIImage {
             profileImageView.image = selectedImage
-            profileImageViewStoryboard.image = selectedImage
         }
         picker.dismiss(animated: true, completion: nil)
     }
