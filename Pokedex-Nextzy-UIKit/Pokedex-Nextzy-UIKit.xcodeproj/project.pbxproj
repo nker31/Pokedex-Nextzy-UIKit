@@ -52,6 +52,7 @@
 		51617A882B749783007801D5 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51617A872B749783007801D5 /* UIViewExtension.swift */; };
 		51617A972B74C7B3007801D5 /* PokedexStoryboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51617A962B74C7B3007801D5 /* PokedexStoryboardController.swift */; };
 		51617A992B74C9F4007801D5 /* PokemonStoryboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51617A982B74C9F4007801D5 /* PokemonStoryboardCell.swift */; };
+		51617A9B2B74D07D007801D5 /* MyPokemonStoryboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51617A9A2B74D07D007801D5 /* MyPokemonStoryboardController.swift */; };
 		516C9A2E2B6788B700DCE4F9 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516C9A2D2B6788B700DCE4F9 /* TextButton.swift */; };
 		516C9A302B678ADB00DCE4F9 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516C9A2F2B678ADB00DCE4F9 /* LoginTextField.swift */; };
 		516C9A362B679D0000DCE4F9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 516C9A352B679D0000DCE4F9 /* GoogleService-Info.plist */; };
@@ -159,6 +160,7 @@
 		51617A872B749783007801D5 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		51617A962B74C7B3007801D5 /* PokedexStoryboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexStoryboardController.swift; sourceTree = "<group>"; };
 		51617A982B74C9F4007801D5 /* PokemonStoryboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStoryboardCell.swift; sourceTree = "<group>"; };
+		51617A9A2B74D07D007801D5 /* MyPokemonStoryboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPokemonStoryboardController.swift; sourceTree = "<group>"; };
 		516C9A2D2B6788B700DCE4F9 /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
 		516C9A2F2B678ADB00DCE4F9 /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		516C9A352B679D0000DCE4F9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -405,6 +407,7 @@
 			isa = PBXGroup;
 			children = (
 				51617A962B74C7B3007801D5 /* PokedexStoryboardController.swift */,
+				51617A9A2B74D07D007801D5 /* MyPokemonStoryboardController.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -674,6 +677,7 @@
 				51B5EF6D2B6CC3B400928ED6 /* AuthenticationManager.swift in Sources */,
 				513D90062B6EC92C00ED9B63 /* PokedexViewModel.swift in Sources */,
 				51339CE42B60C7DE00DA49EC /* SmallPokemonCell.swift in Sources */,
+				51617A9B2B74D07D007801D5 /* MyPokemonStoryboardController.swift in Sources */,
 				51040E1D2B66B9F2009BD5AA /* MyPokemonEmptyView.swift in Sources */,
 				51617A822B74935B007801D5 /* FontExtension.swift in Sources */,
 				519FCA102B5A35CE002BC2B5 /* LoginViewController.swift in Sources */,
