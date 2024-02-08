@@ -10,16 +10,14 @@ import UIKit
 class ForgotViewController: UIViewController {
     
     // MARK: - Varibles
-    private let forgotViewModel: ForgotPasswordViewModel
+    private let forgotViewModel: ForgotPasswordViewModel = ForgotPasswordViewModel()
 
     init() {
-        self.forgotViewModel = ForgotPasswordViewModel()
         super.init(nibName: nil, bundle: nil)
         self.setupUI()
     }
     
     required init?(coder: NSCoder) {
-        self.forgotViewModel = ForgotPasswordViewModel()
         super.init(coder: coder)
     }
     
@@ -32,14 +30,13 @@ class ForgotViewController: UIViewController {
         return button
     }()
     
-    // Storyboard
-    @IBOutlet weak var emailFieldStoryboard: UITextField!
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         forgotViewModel.delegate = self
-        self.tapToHideKeyboard()
+        setupUI()
+        tapToHideKeyboard()
     }
     
     // MARK: - UI Setup
@@ -97,14 +94,7 @@ class ForgotViewController: UIViewController {
         }
         forgotViewModel.tapResetPassword(email: email)
     }
-    
-    @IBAction func didTapForgotButtonStoryboard(_ sender: Any) {
-        guard let email = emailFieldStoryboard.text else {
-            return
-        }
-        forgotViewModel.tapResetPassword(email: email)
-    }
-    
+
 }
 
 extension ForgotViewController: ForgotPasswordViewModelDelegate {
