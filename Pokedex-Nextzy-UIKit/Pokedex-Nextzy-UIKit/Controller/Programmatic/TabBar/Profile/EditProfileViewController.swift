@@ -10,17 +10,14 @@ import UIKit
 class EditProfileViewController: UIViewController {
 
     // MARK: - Varibles
-    private let editProfileViewModel: EditProfileViewModel
+    private let editProfileViewModel: EditProfileViewModel = EditProfileViewModel()
 
     // MARK: - Initializer
     init() {
-        self.editProfileViewModel = EditProfileViewModel()
         super.init(nibName: nil, bundle: nil)
-        setupUI()
     }
 
     required init?(coder: NSCoder) {
-        self.editProfileViewModel = EditProfileViewModel()
         super.init(coder: coder)
     }
     
@@ -80,11 +77,6 @@ class EditProfileViewController: UIViewController {
         return labelStackView
     }
     
-    // Storyboard
-    @IBOutlet weak var profileImageViewStoryboard: UIImageView!
-    @IBOutlet weak var firstnameFieldStoryboard: UITextField!
-    @IBOutlet weak var lastnameFieldStoryboard: UITextField!
-    
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -94,6 +86,7 @@ class EditProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         editProfileViewModel.delegate = self
         imagePicker.delegate = self
         tapToHideKeyboard()
@@ -181,35 +174,13 @@ class EditProfileViewController: UIViewController {
                                 newImage: newImage)
     }
     
-    // Storyboard
-    @IBAction func didTapImagePickerStoryboard(_ sender: Any) {
-        present(imagePicker, animated: true, completion: nil)
-    }
-    
-    @IBAction func didTapUpdateButtonStoryboard(_ sender: Any) {
-        guard let firstName = firstnameFieldStoryboard.text,
-              let lastName = lastnameFieldStoryboard.text,
-              let newImage = profileImageViewStoryboard.image else{
-            print("Debugger: error from tap update button")
-            return
-        }
-        editProfileViewModel.tapUpdate(firstName: firstName,
-                                lastName: lastName,
-                                newImage: newImage)
-        
-    }
-    
 }
 
 extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let selectedImage = info[.originalImage] as? UIImage {
-            if let storyboardImageView = profileImageViewStoryboard {
-                storyboardImageView.image = selectedImage
-            } else {
-                profileImageView.image = selectedImage
-            }
+            profileImageView.image = selectedImage
         }
         picker.dismiss(animated: true, completion: nil)
     }
@@ -225,16 +196,6 @@ extension EditProfileViewController: EditProfileViewModelDelegate {
         self.firstnameTextfield.text = firstName
         self.lastnameTextfield.text = lastName
         self.profileImageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: "pokeball-profile"))
-        
-        guard let imageView = profileImageViewStoryboard,
-              let firstnameLabel = firstnameFieldStoryboard,
-              let lastnameLabel = lastnameFieldStoryboard else {
-            return
-        }
-        
-        imageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: "pokeball-profile"))
-        firstnameLabel.text = firstName
-        lastnameLabel.text = lastName
     }
     
     func toggleAlert(messege: String) {
