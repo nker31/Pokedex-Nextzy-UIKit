@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51005BDC2B74760900C4CC54 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51005BDB2B74760900C4CC54 /* SettingViewController.swift */; };
+		51005BDE2B7482A300C4CC54 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51005BDD2B7482A300C4CC54 /* SettingViewModel.swift */; };
 		5103BB1E2B6FE9AF002EE892 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5103BB1D2B6FE9AF002EE892 /* SearchViewModel.swift */; };
 		51040E1A2B6653D0009BD5AA /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51040E192B6653D0009BD5AA /* SplashViewController.swift */; };
 		51040E1D2B66B9F2009BD5AA /* MyPokemonEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51040E1C2B66B9F2009BD5AA /* MyPokemonEmptyView.swift */; };
@@ -36,6 +38,15 @@
 		515D22002B6A0E0900561C3C /* auth-video-bg.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 515D21FF2B6A0E0900561C3C /* auth-video-bg.mp4 */; };
 		515D22292B6A4B8200561C3C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 515D222B2B6A4B8200561C3C /* Localizable.strings */; };
 		515D222F2B6B52B700561C3C /* PokemonCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515D222E2B6B52B700561C3C /* PokemonCardCell.swift */; };
+		51617A782B7490D3007801D5 /* NotoSansThai-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51617A6F2B7490D2007801D5 /* NotoSansThai-ExtraLight.ttf */; };
+		51617A792B7490D3007801D5 /* NotoSansThai-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51617A702B7490D2007801D5 /* NotoSansThai-Light.ttf */; };
+		51617A7A2B7490D3007801D5 /* NotoSansThai-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51617A712B7490D2007801D5 /* NotoSansThai-Black.ttf */; };
+		51617A7B2B7490D3007801D5 /* NotoSansThai-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51617A722B7490D2007801D5 /* NotoSansThai-Thin.ttf */; };
+		51617A7C2B7490D3007801D5 /* NotoSansThai-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51617A732B7490D2007801D5 /* NotoSansThai-Bold.ttf */; };
+		51617A7D2B7490D3007801D5 /* NotoSansThai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51617A742B7490D2007801D5 /* NotoSansThai-Regular.ttf */; };
+		51617A7E2B7490D3007801D5 /* NotoSansThai-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51617A752B7490D2007801D5 /* NotoSansThai-SemiBold.ttf */; };
+		51617A7F2B7490D3007801D5 /* NotoSansThai-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51617A762B7490D3007801D5 /* NotoSansThai-ExtraBold.ttf */; };
+		51617A802B7490D3007801D5 /* NotoSansThai-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51617A772B7490D3007801D5 /* NotoSansThai-Medium.ttf */; };
 		516C9A2E2B6788B700DCE4F9 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516C9A2D2B6788B700DCE4F9 /* TextButton.swift */; };
 		516C9A302B678ADB00DCE4F9 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516C9A2F2B678ADB00DCE4F9 /* LoginTextField.swift */; };
 		516C9A362B679D0000DCE4F9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 516C9A352B679D0000DCE4F9 /* GoogleService-Info.plist */; };
@@ -97,6 +108,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		51005BDB2B74760900C4CC54 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		51005BDD2B7482A300C4CC54 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		5103BB1D2B6FE9AF002EE892 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		51040E192B6653D0009BD5AA /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		51040E1C2B66B9F2009BD5AA /* MyPokemonEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPokemonEmptyView.swift; sourceTree = "<group>"; };
@@ -128,6 +141,15 @@
 		515D222C2B6A4BA500561C3C /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		515D222D2B6A4BA500561C3C /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Localizable.strings; sourceTree = "<group>"; };
 		515D222E2B6B52B700561C3C /* PokemonCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCardCell.swift; sourceTree = "<group>"; };
+		51617A6F2B7490D2007801D5 /* NotoSansThai-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansThai-ExtraLight.ttf"; sourceTree = "<group>"; };
+		51617A702B7490D2007801D5 /* NotoSansThai-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansThai-Light.ttf"; sourceTree = "<group>"; };
+		51617A712B7490D2007801D5 /* NotoSansThai-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansThai-Black.ttf"; sourceTree = "<group>"; };
+		51617A722B7490D2007801D5 /* NotoSansThai-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansThai-Thin.ttf"; sourceTree = "<group>"; };
+		51617A732B7490D2007801D5 /* NotoSansThai-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansThai-Bold.ttf"; sourceTree = "<group>"; };
+		51617A742B7490D2007801D5 /* NotoSansThai-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansThai-Regular.ttf"; sourceTree = "<group>"; };
+		51617A752B7490D2007801D5 /* NotoSansThai-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansThai-SemiBold.ttf"; sourceTree = "<group>"; };
+		51617A762B7490D3007801D5 /* NotoSansThai-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansThai-ExtraBold.ttf"; sourceTree = "<group>"; };
+		51617A772B7490D3007801D5 /* NotoSansThai-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansThai-Medium.ttf"; sourceTree = "<group>"; };
 		516C9A2D2B6788B700DCE4F9 /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
 		516C9A2F2B678ADB00DCE4F9 /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		516C9A352B679D0000DCE4F9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -224,6 +246,7 @@
 			children = (
 				512AC9602B6E3E4E00F30FEE /* ProfileViewModel.swift */,
 				512AC9622B6E420F00F30FEE /* EditProfileViewModel.swift */,
+				51005BDD2B7482A300C4CC54 /* SettingViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -272,6 +295,7 @@
 				519FC9F62B5A20CF002BC2B5 /* ViewModel */,
 				519FC9F72B5A21D5002BC2B5 /* Controller */,
 				519FC9F82B5A21EC002BC2B5 /* Supporting */,
+				51617A6E2B7490B2007801D5 /* Fonts */,
 				511EF52E2B57830100554F78 /* Assets.xcassets */,
 				515D222B2B6A4B8200561C3C /* Localizable.strings */,
 				515D21FF2B6A0E0900561C3C /* auth-video-bg.mp4 */,
@@ -289,6 +313,7 @@
 				51A34ADD2B5E816700D5CF19 /* ProfileViewController.swift */,
 				512345ED2B5F6A1A00E84B66 /* EditProfileViewController.swift */,
 				512345EF2B5F8E9000E84B66 /* WebViewController.swift */,
+				51005BDB2B74760900C4CC54 /* SettingViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -313,6 +338,22 @@
 				51339CF42B626D2800DA49EC /* DetailViewController.swift */,
 			);
 			path = Pokedex;
+			sourceTree = "<group>";
+		};
+		51617A6E2B7490B2007801D5 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				51617A712B7490D2007801D5 /* NotoSansThai-Black.ttf */,
+				51617A732B7490D2007801D5 /* NotoSansThai-Bold.ttf */,
+				51617A762B7490D3007801D5 /* NotoSansThai-ExtraBold.ttf */,
+				51617A6F2B7490D2007801D5 /* NotoSansThai-ExtraLight.ttf */,
+				51617A702B7490D2007801D5 /* NotoSansThai-Light.ttf */,
+				51617A772B7490D3007801D5 /* NotoSansThai-Medium.ttf */,
+				51617A742B7490D2007801D5 /* NotoSansThai-Regular.ttf */,
+				51617A752B7490D2007801D5 /* NotoSansThai-SemiBold.ttf */,
+				51617A722B7490D2007801D5 /* NotoSansThai-Thin.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		518043AC2B63977300552B6A /* Detail Cell */ = {
@@ -547,12 +588,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51617A7B2B7490D3007801D5 /* NotoSansThai-Thin.ttf in Resources */,
+				51617A7F2B7490D3007801D5 /* NotoSansThai-ExtraBold.ttf in Resources */,
 				515D22292B6A4B8200561C3C /* Localizable.strings in Resources */,
+				51617A7D2B7490D3007801D5 /* NotoSansThai-Regular.ttf in Resources */,
 				515D22002B6A0E0900561C3C /* auth-video-bg.mp4 in Resources */,
+				51617A802B7490D3007801D5 /* NotoSansThai-Medium.ttf in Resources */,
+				51617A792B7490D3007801D5 /* NotoSansThai-Light.ttf in Resources */,
 				511EF5322B57830100554F78 /* LaunchScreen.storyboard in Resources */,
+				51617A782B7490D3007801D5 /* NotoSansThai-ExtraLight.ttf in Resources */,
 				51104D092B723CB300CBEEA9 /* Main.storyboard in Resources */,
 				511EF52F2B57830100554F78 /* Assets.xcassets in Resources */,
 				516C9A362B679D0000DCE4F9 /* GoogleService-Info.plist in Resources */,
+				51617A7C2B7490D3007801D5 /* NotoSansThai-Bold.ttf in Resources */,
+				51617A7A2B7490D3007801D5 /* NotoSansThai-Black.ttf in Resources */,
+				51617A7E2B7490D3007801D5 /* NotoSansThai-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,8 +616,10 @@
 				512345EE2B5F6A1A00E84B66 /* EditProfileViewController.swift in Sources */,
 				519FCA1A2B5A4733002BC2B5 /* Extension.swift in Sources */,
 				516C9A2E2B6788B700DCE4F9 /* TextButton.swift in Sources */,
+				51005BDE2B7482A300C4CC54 /* SettingViewModel.swift in Sources */,
 				516C9A302B678ADB00DCE4F9 /* LoginTextField.swift in Sources */,
 				519FCA162B5A46A3002BC2B5 /* CustomTextField.swift in Sources */,
+				51005BDC2B74760900C4CC54 /* SettingViewController.swift in Sources */,
 				51B5EF6D2B6CC3B400928ED6 /* AuthenticationManager.swift in Sources */,
 				513D90062B6EC92C00ED9B63 /* PokedexViewModel.swift in Sources */,
 				51339CE42B60C7DE00DA49EC /* SmallPokemonCell.swift in Sources */,
