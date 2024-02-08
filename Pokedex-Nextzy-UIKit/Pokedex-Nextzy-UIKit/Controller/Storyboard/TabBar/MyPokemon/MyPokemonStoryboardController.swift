@@ -18,6 +18,7 @@ class MyPokemonStoryboardController: UIViewController {
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         myPokemonViewModel.loadMyPokemonData()
+        setupNavbar()
         collectionView.reloadData()
     }
     
@@ -26,6 +27,40 @@ class MyPokemonStoryboardController: UIViewController {
         myPokemonViewModel.delegate = self
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+    // MARK: - UI Setup
+    func setupNavbar() {
+        guard let nav = navigationController?.navigationBar else {
+            return
+        }
+        title = "My pokemon"
+        nav.tintColor = .green
+        nav.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.red]
+        nav.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.poison]
+        
+        var columnsImageName: String
+        switch myPokemonViewModel.collectionViewDisplayType {
+        case .oneColumn:
+            columnsImageName = "square.grid.2x2"
+        case .twoColumns:
+            columnsImageName = "square.grid.3x3"
+        case .threeColumns:
+            columnsImageName = "rectangle.grid.1x2"
+        }
+        
+        let columnsButton = UIBarButtonItem(image: UIImage(systemName: columnsImageName),
+                                            style: .plain,
+                                            target: self,
+                                            action: #selector(toggleColumnDisplayed))
+        
+        self.navigationItem.leftBarButtonItems = [columnsButton]
+    }
+    // MARK: - Selectors
+    @objc private func toggleColumnDisplayed() {
+        print("Debugger: tap nav button")
+        myPokemonViewModel.tapChangeDisplayType()
+        setupNavbar()
     }
 }
 
@@ -119,10 +154,7 @@ extension MyPokemonStoryboardController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let pokemonDetailVC = DetailViewController(pokemon: myPokemonViewModel.displayedPokemons[indexPath.item])
-        hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(pokemonDetailVC, animated: true)
-        hidesBottomBarWhenPushed = false
+        
     }
 
 }

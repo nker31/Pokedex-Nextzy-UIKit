@@ -424,12 +424,9 @@
 			isa = PBXGroup;
 			children = (
 				51617A9C2B74D6A0007801D5 /* TabBarStoryboardController.swift */,
-				51617A962B74C7B3007801D5 /* PokedexStoryboardController.swift */,
-				51617A9A2B74D07D007801D5 /* MyPokemonStoryboardController.swift */,
-				51617AA52B754103007801D5 /* ProfileStoryboardController.swift */,
-				51617AA72B7543FA007801D5 /* SettingStoryboardController.swift */,
-				51617AA92B754705007801D5 /* EditProfileStoryboardController.swift */,
-				51617AAB2B7549A4007801D5 /* WebViewStoryboardController.swift */,
+				51617AAD2B754BE7007801D5 /* Pokedex */,
+				51617AAE2B754BED007801D5 /* MyPokemon */,
+				51617AAF2B754BF7007801D5 /* Profile */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -442,6 +439,33 @@
 				51617AA32B753DD5007801D5 /* ForgotStoryboardController.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		51617AAD2B754BE7007801D5 /* Pokedex */ = {
+			isa = PBXGroup;
+			children = (
+				51617A962B74C7B3007801D5 /* PokedexStoryboardController.swift */,
+			);
+			path = Pokedex;
+			sourceTree = "<group>";
+		};
+		51617AAE2B754BED007801D5 /* MyPokemon */ = {
+			isa = PBXGroup;
+			children = (
+				51617A9A2B74D07D007801D5 /* MyPokemonStoryboardController.swift */,
+			);
+			path = MyPokemon;
+			sourceTree = "<group>";
+		};
+		51617AAF2B754BF7007801D5 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				51617AA52B754103007801D5 /* ProfileStoryboardController.swift */,
+				51617AA92B754705007801D5 /* EditProfileStoryboardController.swift */,
+				51617AAB2B7549A4007801D5 /* WebViewStoryboardController.swift */,
+				51617AA72B7543FA007801D5 /* SettingStoryboardController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		518043AC2B63977300552B6A /* Detail Cell */ = {
