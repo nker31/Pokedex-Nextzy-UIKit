@@ -19,8 +19,6 @@ class DetailTitleLabel: UILabel{
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
 }
 
 class DetailSubtitleLabel: UILabel{
@@ -35,8 +33,6 @@ class DetailSubtitleLabel: UILabel{
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
 }
 
 class DetailTextLabel: UILabel{
@@ -45,14 +41,12 @@ class DetailTextLabel: UILabel{
         super.init(frame: .zero)
         self.text = text
         self.textColor = UIColor.label
-        self.font = .systemFont(ofSize: 14, weight: .regular)
+        self.font = .notoSansRegular(size: 14)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
 }
 
 class DetailDescription: UILabel{
@@ -62,7 +56,7 @@ class DetailDescription: UILabel{
         self.numberOfLines = 0
         self.lineBreakMode = .byWordWrapping
         self.textAlignment = .center
-        self.font = .systemFont(ofSize: 14, weight: .regular)
+        self.font = .notoSansRegular(size: 14)
     }
     
     required init?(coder: NSCoder) {

@@ -25,7 +25,7 @@ class CustomTextField: UITextField {
         self.borderStyle = .none
         self.autocapitalizationType = .none
         self.autocorrectionType = .no
-        self.font = UIFont.systemFont(ofSize: 18)
+        self.font = .notoSansRegular(size: 18)
         self.textColor = UIColor(red: 0.941, green: 0.388, blue: 0.396, alpha: 1)
         self.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.frame.size.height))
         self.leftViewMode = .always
