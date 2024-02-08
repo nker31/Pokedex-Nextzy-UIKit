@@ -653,7 +653,7 @@
         <!--Profile-->
         <scene sceneID="DBA-VF-noK">
             <objects>
-                <viewController id="HaS-Jd-wOS" customClass="ProfileViewController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="HaS-Jd-wOS" customClass="ProfileStoryboardController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cte-XT-lg4">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -701,7 +701,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="didTapSignOutButtonStoryboard:" destination="HaS-Jd-wOS" eventType="touchUpInside" id="NN7-gu-TKU"/>
+                                    <action selector="didTapSignOutButton:" destination="HaS-Jd-wOS" eventType="touchUpInside" id="ClI-cP-tYV"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fzt-Yj-T45" userLabel="Container">
@@ -754,8 +754,8 @@
                     <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="Vp8-U3-sxE"/>
                     <navigationItem key="navigationItem" id="Jp0-Lu-kCU"/>
                     <connections>
-                        <outlet property="profileImageViewStoryboard" destination="D7H-ym-GuG" id="SY0-t9-RRN"/>
-                        <outlet property="userFullnameLabelStoryboard" destination="kkv-Jc-Alq" id="VfY-HG-T0V"/>
+                        <outlet property="profileImageView" destination="D7H-ym-GuG" id="3Jg-vH-tie"/>
+                        <outlet property="userFullnameLabel" destination="kkv-Jc-Alq" id="Qd7-do-JQ4"/>
                         <segue destination="F5n-D2-SZU" kind="show" identifier="SignOutSuccess" id="PU1-gd-kw3"/>
                     </connections>
                 </viewController>
@@ -1039,6 +1039,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="Oq8-SN-QRr"/>
         <segue reference="K93-5P-SFX"/>
         <segue reference="Lai-Oh-afh"/>
         <segue reference="PU1-gd-kw3"/>
