@@ -50,7 +50,7 @@ extension MyPokemonStoryboardController: UICollectionViewDataSource, UICollectio
             return cell
             
         case .twoColumns:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PokemonCell.identifier, for: indexPath) as? PokemonCell else{
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PokemonStoryboardCell.identifier, for: indexPath) as? PokemonStoryboardCell else{
                 fatalError("failed to dequeue view cell")
             }
             let pokemon = myPokemonViewModel.displayedPokemons[indexPath.row]
