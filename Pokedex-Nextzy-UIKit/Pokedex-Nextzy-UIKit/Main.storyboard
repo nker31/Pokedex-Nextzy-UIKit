@@ -163,10 +163,10 @@
             </objects>
             <point key="canvasLocation" x="97" y="-764"/>
         </scene>
-        <!--Register View Controller-->
+        <!--Register Storyboard Controller-->
         <scene sceneID="nZw-7a-X89">
             <objects>
-                <viewController id="27P-zI-fbz" customClass="RegisterViewController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="27P-zI-fbz" customClass="RegisterStoryboardController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y09-Qt-h2c">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -201,7 +201,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="didTapImagePickerStoryboard:" destination="27P-zI-fbz" eventType="touchUpInside" id="JJp-6r-Z0W"/>
+                                            <action selector="didTapImagePicker:" destination="27P-zI-fbz" eventType="touchUpInside" id="2hK-vf-ia9"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -374,7 +374,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="dipTapRegisterButtonStoryboard:" destination="27P-zI-fbz" eventType="touchUpInside" id="wgW-fw-kWg"/>
+                                    <action selector="dipTapRegisterButtonStoryboard:" destination="27P-zI-fbz" eventType="touchUpInside" id="RgK-66-Fb3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -392,12 +392,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="zHd-Ri-xXe"/>
                     <connections>
-                        <outlet property="confirmPasswordFieldStoryboard" destination="iZU-4V-yrj" id="KHE-NB-yYm"/>
-                        <outlet property="emailFieldStoryboard" destination="K6N-wF-eVJ" id="RPY-E3-IPW"/>
-                        <outlet property="firstnameFieldStoryboard" destination="DKF-Bn-ZIz" id="9UR-hq-jPL"/>
-                        <outlet property="lastnameFieldStoryboard" destination="LHZ-km-Afe" id="zEq-vy-Qgh"/>
-                        <outlet property="passwordFieldStoryboard" destination="Db9-js-eT8" id="2TM-d0-HIB"/>
-                        <outlet property="profileImageViewStoryboard" destination="bEF-VO-71D" id="bRF-Ao-eY2"/>
+                        <outlet property="confirmPasswordField" destination="iZU-4V-yrj" id="O5Z-EJ-7Jt"/>
+                        <outlet property="emailField" destination="K6N-wF-eVJ" id="Jk2-xZ-QOZ"/>
+                        <outlet property="firstnameField" destination="DKF-Bn-ZIz" id="PKN-ah-mNa"/>
+                        <outlet property="lastnameField" destination="LHZ-km-Afe" id="eOM-Ui-gsi"/>
+                        <outlet property="passwordField" destination="Db9-js-eT8" id="aud-0b-b3C"/>
+                        <outlet property="profileImageView" destination="bEF-VO-71D" id="nd5-l8-edx"/>
                         <segue destination="pue-8G-ccw" kind="show" identifier="RegisterSuccess" id="Lai-Oh-afh"/>
                     </connections>
                 </viewController>
@@ -690,7 +690,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6IQ-QA-S9O">
-                                <rect key="frame" x="20" y="702.66666666666663" width="353" height="40.333333333333371"/>
+                                <rect key="frame" x="20" y="751.66666666666663" width="353" height="40.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Sign Out">
                                     <color key="baseBackgroundColor" name="PinkPokemon"/>
@@ -1039,8 +1039,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="keQ-JG-U7Q"/>
-        <segue reference="UMi-4Y-15c"/>
+        <segue reference="K93-5P-SFX"/>
+        <segue reference="Lai-Oh-afh"/>
         <segue reference="PU1-gd-kw3"/>
     </inferredMetricsTieBreakers>
     <resources>
