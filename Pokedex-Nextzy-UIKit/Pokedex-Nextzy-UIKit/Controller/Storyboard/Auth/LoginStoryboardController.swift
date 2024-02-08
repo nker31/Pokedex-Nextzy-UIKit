@@ -16,6 +16,16 @@ class LoginStoryboardController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     
     // MARK: - Life Cycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loginViewModel.delegate = self
@@ -25,11 +35,10 @@ class LoginStoryboardController: UIViewController {
     // MARK: - Selectors
     @IBAction func didTapLoginButton(_ sender: Any) {
         guard let email = emailField.text,
-              let password = emailField.text else {
+              let password = passwordField.text else {
             return
         }
 
-        print("Debugger: Email = {\(email)} Password = {\(password)}")
         loginViewModel.tapLogin(email: email, password: password, loginType: .storyboard)
     }
 }
