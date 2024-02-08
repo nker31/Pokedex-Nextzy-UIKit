@@ -9,6 +9,7 @@ import Foundation
 
 protocol PokedexViewModelDelegate {
     func toggleViewReload()
+    func toggleAlert(messege: String)
 }
 
 class PokedexViewModel {
@@ -26,9 +27,16 @@ class PokedexViewModel {
     
     func loadPokemonData() {
         Task {
-            pokemons = await pokemonManager.fetchPokemon()
-            DispatchQueue.main.async {
-                self.delegate?.toggleViewReload()
+            do {
+                pokemons = try await pokemonManager.fetchPokemon()
+                DispatchQueue.main.async {
+                    self.delegate?.toggleViewReload()
+                }
+            } catch {
+                print("Debugger: got error \(error) from PokemonManager")
+                DispatchQueue.main.async {
+                    self.delegate?.toggleAlert(messege: "Failed to fetch pokemon data")
+                }
             }
         }
     }
