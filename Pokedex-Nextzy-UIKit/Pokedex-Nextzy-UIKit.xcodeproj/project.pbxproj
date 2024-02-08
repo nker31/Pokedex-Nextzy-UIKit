@@ -54,6 +54,7 @@
 		51617A992B74C9F4007801D5 /* PokemonStoryboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51617A982B74C9F4007801D5 /* PokemonStoryboardCell.swift */; };
 		51617A9B2B74D07D007801D5 /* MyPokemonStoryboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51617A9A2B74D07D007801D5 /* MyPokemonStoryboardController.swift */; };
 		51617A9D2B74D6A0007801D5 /* TabBarStoryboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51617A9C2B74D6A0007801D5 /* TabBarStoryboardController.swift */; };
+		51617A9F2B7532BE007801D5 /* LoginStoryboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51617A9E2B7532BE007801D5 /* LoginStoryboardController.swift */; };
 		516C9A2E2B6788B700DCE4F9 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516C9A2D2B6788B700DCE4F9 /* TextButton.swift */; };
 		516C9A302B678ADB00DCE4F9 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516C9A2F2B678ADB00DCE4F9 /* LoginTextField.swift */; };
 		516C9A362B679D0000DCE4F9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 516C9A352B679D0000DCE4F9 /* GoogleService-Info.plist */; };
@@ -163,6 +164,7 @@
 		51617A982B74C9F4007801D5 /* PokemonStoryboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStoryboardCell.swift; sourceTree = "<group>"; };
 		51617A9A2B74D07D007801D5 /* MyPokemonStoryboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPokemonStoryboardController.swift; sourceTree = "<group>"; };
 		51617A9C2B74D6A0007801D5 /* TabBarStoryboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarStoryboardController.swift; sourceTree = "<group>"; };
+		51617A9E2B7532BE007801D5 /* LoginStoryboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStoryboardController.swift; sourceTree = "<group>"; };
 		516C9A2D2B6788B700DCE4F9 /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
 		516C9A2F2B678ADB00DCE4F9 /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		516C9A352B679D0000DCE4F9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 		51617A902B74C591007801D5 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				51617AA02B7532C2007801D5 /* Auth */,
 				51617A952B74C791007801D5 /* TabBar */,
 			);
 			path = Storyboard;
@@ -413,6 +416,14 @@
 				51617A9A2B74D07D007801D5 /* MyPokemonStoryboardController.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		51617AA02B7532C2007801D5 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				51617A9E2B7532BE007801D5 /* LoginStoryboardController.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		518043AC2B63977300552B6A /* Detail Cell */ = {
@@ -685,6 +696,7 @@
 				51617A822B74935B007801D5 /* FontExtension.swift in Sources */,
 				519FCA102B5A35CE002BC2B5 /* LoginViewController.swift in Sources */,
 				519FCA122B5A35D7002BC2B5 /* RegisterViewController.swift in Sources */,
+				51617A9F2B7532BE007801D5 /* LoginStoryboardController.swift in Sources */,
 				51B5EF782B6CE67200928ED6 /* TabBarViewModel.swift in Sources */,
 				518043AA2B6348D200552B6A /* EvolutionCell.swift in Sources */,
 				51339CE82B6104B200DA49EC /* PokeballProgressView.swift in Sources */,
