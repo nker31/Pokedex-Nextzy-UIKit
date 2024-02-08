@@ -36,7 +36,7 @@
         <!--Login-->
         <scene sceneID="9xe-bd-w0f">
             <objects>
-                <viewController title="Login" id="F5n-D2-SZU" customClass="LoginViewController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Login" id="F5n-D2-SZU" customClass="LoginStoryboardController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TeE-ss-mnt">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -122,7 +122,7 @@
                                             <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="18"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="didTapLoginButtonStoryboard:" destination="F5n-D2-SZU" eventType="touchUpInside" id="IMn-PY-PhI"/>
+                                            <action selector="didTapLoginButton:" destination="F5n-D2-SZU" eventType="touchUpInside" id="bej-Dp-Ww5"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ZO-Ck-fE2">
@@ -154,8 +154,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="gRI-rc-jQ0"/>
                     <connections>
-                        <outlet property="emailFieldStoryboard" destination="Oe4-Bf-h2d" id="f1v-VV-uJA"/>
-                        <outlet property="passwordFieldStoryboard" destination="OmJ-mc-BOu" id="yDZ-iX-AhO"/>
+                        <outlet property="emailField" destination="Oe4-Bf-h2d" id="2jd-10-0l4"/>
+                        <outlet property="passwordField" destination="OmJ-mc-BOu" id="epl-OJ-wqq"/>
                         <segue destination="pue-8G-ccw" kind="show" identifier="LoginSuccess" id="UMi-4Y-15c"/>
                     </connections>
                 </viewController>
@@ -476,7 +476,7 @@
         <!--Pokedex-->
         <scene sceneID="Ig4-9a-tY4">
             <objects>
-                <viewController id="tun-yz-NXV" customClass="PokedexStoryboardController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Pokedex" id="tun-yz-NXV" customClass="PokedexStoryboardController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NPI-v1-0Ke">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -561,7 +561,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ITe-RF-9pK">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
-                                <color key="backgroundColor" name="Bug"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vs5-gG-W2r">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -612,7 +612,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dUa-rz-KyB"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemCyanColor"/>
                         <constraints>
                             <constraint firstItem="dUa-rz-KyB" firstAttribute="trailing" secondItem="ITe-RF-9pK" secondAttribute="trailing" id="FZH-uh-l4k"/>
                             <constraint firstItem="dUa-rz-KyB" firstAttribute="bottom" secondItem="ITe-RF-9pK" secondAttribute="bottom" id="IhR-ov-WJu"/>
@@ -620,19 +620,20 @@
                             <constraint firstItem="ITe-RF-9pK" firstAttribute="top" secondItem="dUa-rz-KyB" secondAttribute="top" id="obR-fb-yBA"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Pokemon" image="heart.text.square.fill" catalog="system" id="8It-Lb-XRd"/>
+                    <tabBarItem key="tabBarItem" title="My Pokemon" image="heart.text.square.fill" catalog="system" id="Mry-WU-gB2"/>
+                    <navigationItem key="navigationItem" title="My Pokemon" id="jpQ-xa-Agm"/>
                     <connections>
                         <outlet property="collectionView" destination="ITe-RF-9pK" id="OVu-Ia-5Hg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TxL-5m-eer" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="97" y="1065"/>
+            <point key="canvasLocation" x="244" y="1098"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar Storyboard Controller-->
         <scene sceneID="JYm-3d-CUm">
             <objects>
-                <tabBarController id="pue-8G-ccw" customClass="TabBarController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="pue-8G-ccw" customClass="TabBarStoryboardController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="q7a-G8-qWL"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kem-nf-nHt">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
@@ -641,8 +642,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="tun-yz-NXV" kind="relationship" relationship="viewControllers" id="sqm-jY-7DC"/>
-                        <segue destination="feW-yA-BpF" kind="relationship" relationship="viewControllers" id="tfs-Kq-XsP"/>
-                        <segue destination="HaS-Jd-wOS" kind="relationship" relationship="viewControllers" id="8cY-At-9b9"/>
+                        <segue destination="feW-yA-BpF" kind="relationship" relationship="viewControllers" id="waV-xo-5GO"/>
+                        <segue destination="HaS-Jd-wOS" kind="relationship" relationship="viewControllers" id="keQ-JG-U7Q"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oli-6p-X0m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -760,7 +761,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xhr-f3-wPG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2929" y="1065"/>
+            <point key="canvasLocation" x="1596" y="612"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Kl4-WB-5UU">
@@ -1038,7 +1039,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="8cY-At-9b9"/>
+        <segue reference="keQ-JG-U7Q"/>
         <segue reference="UMi-4Y-15c"/>
         <segue reference="PU1-gd-kw3"/>
     </inferredMetricsTieBreakers>
@@ -1050,9 +1051,6 @@
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="pokeball-profile" width="400" height="400"/>
         <image name="pokedex-logo" width="387" height="140"/>
-        <namedColor name="Bug">
-            <color red="0.56862745098039214" green="0.75294117647058822" blue="0.17647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="Normal">
             <color red="0.56862745098039214" green="0.59999999999999998" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -1064,6 +1062,12 @@
         </systemColor>
         <systemColor name="systemBrownColor">
             <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemCyanColor">
+            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
