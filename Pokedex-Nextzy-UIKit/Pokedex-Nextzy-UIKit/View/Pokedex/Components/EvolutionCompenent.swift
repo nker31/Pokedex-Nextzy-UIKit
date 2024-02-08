@@ -34,21 +34,21 @@ class EvolutionComponent: UIView{
     
     var pokemonLabelOne: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 14, weight: .semibold)
+        label.font = .notoSansSemiBold(size: 14)
         label.textColor = .gray
         return label
     }()
     
     var pokemonLabelTwo: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 14, weight: .semibold)
+        label.font = .notoSansSemiBold(size: 14)
         label.textColor = .gray
         return label
     }()
     
     var levelLabel:UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 16, weight: .semibold)
+        label.font = .notoSansSemiBold(size: 16)
         label.textColor = .gray
         return label
     }()

@@ -15,7 +15,7 @@ class PokemonCell: UICollectionViewCell {
     // MARK: - UI Components
     lazy var pokemonName: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 18, weight: .semibold)
+        label.font = .notoSansSemiBold(size: 18)
         label.textColor = .white
         
         return label

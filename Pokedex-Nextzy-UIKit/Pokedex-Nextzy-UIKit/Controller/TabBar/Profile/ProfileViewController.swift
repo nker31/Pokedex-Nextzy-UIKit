@@ -43,7 +43,7 @@ class ProfileViewController: UIViewController {
     lazy var userFullnameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = .systemFont(ofSize: 20, weight: .semibold)
+        label.font = .notoSansSemiBold(size: 20)
         return label
     }()
     
@@ -57,7 +57,7 @@ class ProfileViewController: UIViewController {
     lazy var signOutButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle(String(localized: "sign_out_button_text"), for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
+        button.titleLabel?.font = .notoSansSemiBold(size: 18)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .pinkPokemon
         button.layer.cornerRadius = 20

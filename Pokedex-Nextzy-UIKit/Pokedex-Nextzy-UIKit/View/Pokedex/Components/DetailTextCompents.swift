@@ -13,7 +13,7 @@ class DetailTitleLabel: UILabel{
         super.init(frame: .zero)
         self.text = title
         self.textColor = UIColor.pinkPokemon
-        self.font = .systemFont(ofSize: 16, weight: .semibold)
+        self.font = .notoSansSemiBold(size: 16)
     }
     
     required init?(coder: NSCoder) {
@@ -29,7 +29,7 @@ class DetailSubtitleLabel: UILabel{
         super.init(frame: .zero)
         self.text = title
         self.textColor = UIColor.gray
-        self.font = .systemFont(ofSize: 14, weight: .semibold)
+        self.font = .notoSansSemiBold(size: 14)
     }
     
     required init?(coder: NSCoder) {

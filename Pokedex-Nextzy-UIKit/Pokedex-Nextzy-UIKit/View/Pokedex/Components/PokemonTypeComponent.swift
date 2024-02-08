@@ -21,9 +21,9 @@ class PokemonTypeComponent:UIView{
     }
     
     // MARK: - UI
-    var label:UILabel = {
+    var label: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 14, weight: .semibold)
+        label.font = .notoSansSemiBold(size: 14)
         label.textColor = .white
         return label
     }()

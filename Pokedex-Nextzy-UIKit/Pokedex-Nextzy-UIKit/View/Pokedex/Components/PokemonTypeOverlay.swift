@@ -23,7 +23,7 @@ class PokemonTypeOverlay: UIView{
     // MARK: - UI
     var label:UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 12, weight: .semibold)
+        label.font = .notoSansSemiBold(size: 12)
         label.textColor = .white
         return label
     }()

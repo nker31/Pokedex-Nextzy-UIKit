@@ -15,7 +15,7 @@ class PokemonCardCell: UICollectionViewCell {
     // MARK: - UI Components
     lazy var pokemonName: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 20, weight: .semibold)
+        label.font = .notoSansSemiBold(size: 20)
         label.textColor = .white
         return label
     }()
