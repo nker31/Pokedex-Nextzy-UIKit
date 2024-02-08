@@ -13,22 +13,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var authManager = AuthenticationManager.shared
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: scene.coordinateSpace.bounds)
         window?.windowScene = scene
-        
         window?.rootViewController = SplashViewController()
-        
         Timer.scheduledTimer(withTimeInterval: 2.8, repeats: false) { _ in
-            if let _ = self.authManager.userSession {
-                self.presentTabBarController()
-            } 
-            else {
-                self.presentLoginViewController()
-            }
+            let vc = PresentionSytleController()
+            vc.modalPresentationStyle = .fullScreen
+            self.window?.rootViewController = vc
         }
-        
         window?.makeKeyAndVisible()
     }
 
