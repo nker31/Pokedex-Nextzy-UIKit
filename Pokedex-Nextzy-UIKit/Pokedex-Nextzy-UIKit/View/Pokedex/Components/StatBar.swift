@@ -28,19 +28,20 @@ class StatBar: UIView {
     var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray
-        label.font = .systemFont(ofSize: 14, weight: .medium)
+        label.font = .notoSansMedium(size: 14)
         return label
     }()
 
     var statLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 14, weight: .semibold)
+        label.font = .notoSansSemiBold(size: 14)
         return label
     }()
+    
     var progressBar: UIProgressView = {
         let progressView = UIProgressView(progressViewStyle: .default)
         progressView.progressTintColor = UIColor(red: 0.357, green: 0.678, blue: 0.925, alpha: 1) // #5badec
-        progressView.trackTintColor = UIColor.lightGray.withAlphaComponent(0.4)
+        progressView.trackTintColor = .lightGray.withAlphaComponent(0.4)
         return progressView
     }()
 
