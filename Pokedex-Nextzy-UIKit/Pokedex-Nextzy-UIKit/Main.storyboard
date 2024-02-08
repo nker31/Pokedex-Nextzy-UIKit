@@ -790,10 +790,10 @@
             </objects>
             <point key="canvasLocation" x="2019" y="-2152"/>
         </scene>
-        <!--Edit Profile View Controller-->
+        <!--Edit Profile Storyboard Controller-->
         <scene sceneID="AHY-us-XLw">
             <objects>
-                <viewController id="UXN-qR-QNf" customClass="EditProfileViewController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UXN-qR-QNf" customClass="EditProfileStoryboardController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a2y-lh-dJB">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -828,7 +828,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="didTapImagePickerStoryboard:" destination="UXN-qR-QNf" eventType="touchUpInside" id="I29-Lf-MwG"/>
+                                            <action selector="didTapImagePickerStoryboard:" destination="UXN-qR-QNf" eventType="touchUpInside" id="fPR-n2-FFS"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -915,7 +915,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="didTapUpdateButtonStoryboard:" destination="UXN-qR-QNf" eventType="touchUpInside" id="62R-it-nqa"/>
+                                            <action selector="didTapUpdateButtonStoryboard:" destination="UXN-qR-QNf" eventType="touchUpInside" id="NPn-dv-C1e"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -936,9 +936,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="S9y-f8-qDO"/>
                     <connections>
-                        <outlet property="firstnameFieldStoryboard" destination="oQH-WH-5vu" id="m5Y-eg-Oqh"/>
-                        <outlet property="lastnameFieldStoryboard" destination="L1T-Ye-8Za" id="RVi-Zm-TZK"/>
-                        <outlet property="profileImageViewStoryboard" destination="6MV-Se-j69" id="iYf-Y4-m5i"/>
+                        <outlet property="firstnameField" destination="oQH-WH-5vu" id="10P-4V-f38"/>
+                        <outlet property="lastnameField" destination="L1T-Ye-8Za" id="gB0-rx-CFj"/>
+                        <outlet property="profileImageView" destination="6MV-Se-j69" id="LyM-n2-4Xm"/>
                         <segue destination="HaS-Jd-wOS" kind="show" id="K93-5P-SFX"/>
                     </connections>
                 </viewController>
@@ -1039,7 +1039,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Oq8-SN-QRr"/>
         <segue reference="K93-5P-SFX"/>
         <segue reference="Lai-Oh-afh"/>
         <segue reference="PU1-gd-kw3"/>
