@@ -150,7 +150,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
 
     // row element
@@ -163,6 +163,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         } else if indexPath.row == 1 {
             cell.textLabel?.text = String(localized: "terms_and_conditions_title")
             configureCell(cell, imageName: "chart.bar.doc.horizontal.fill")
+        } else if indexPath.row == 2 {
+            cell.textLabel?.text = "Language Setting"
+            configureCell(cell, imageName: "globe.americas.fill")
         } else {
             let buttonCell = UITableViewCell(style: .default, reuseIdentifier: nil)
             buttonCell.backgroundColor = .clear
@@ -189,6 +192,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         } else if indexPath.row == 1 {
             let webViewController = WebViewController()
             self.present(webViewController, animated: true)
+        } else if indexPath.row == 2 {
+            let settingController = SettingsViewController()
+            self.navigationController?.pushViewController(settingController, animated: true)
         }
     }
     
