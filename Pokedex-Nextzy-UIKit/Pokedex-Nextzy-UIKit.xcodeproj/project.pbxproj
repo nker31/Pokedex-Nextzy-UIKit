@@ -49,6 +49,7 @@
 		51617A802B7490D3007801D5 /* NotoSansThai-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51617A772B7490D3007801D5 /* NotoSansThai-Medium.ttf */; };
 		51617A822B74935B007801D5 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51617A812B74935B007801D5 /* FontExtension.swift */; };
 		51617A862B74972A007801D5 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51617A852B74972A007801D5 /* UIViewControllerExtension.swift */; };
+		51617A882B749783007801D5 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51617A872B749783007801D5 /* UIViewExtension.swift */; };
 		516C9A2E2B6788B700DCE4F9 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516C9A2D2B6788B700DCE4F9 /* TextButton.swift */; };
 		516C9A302B678ADB00DCE4F9 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516C9A2F2B678ADB00DCE4F9 /* LoginTextField.swift */; };
 		516C9A362B679D0000DCE4F9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 516C9A352B679D0000DCE4F9 /* GoogleService-Info.plist */; };
@@ -154,6 +155,7 @@
 		51617A772B7490D3007801D5 /* NotoSansThai-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansThai-Medium.ttf"; sourceTree = "<group>"; };
 		51617A812B74935B007801D5 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		51617A852B74972A007801D5 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		51617A872B749783007801D5 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		516C9A2D2B6788B700DCE4F9 /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
 		516C9A2F2B678ADB00DCE4F9 /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		516C9A352B679D0000DCE4F9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 				519FCA192B5A4733002BC2B5 /* Extension.swift */,
 				51617A812B74935B007801D5 /* FontExtension.swift */,
 				51617A852B74972A007801D5 /* UIViewControllerExtension.swift */,
+				51617A872B749783007801D5 /* UIViewExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -662,6 +665,7 @@
 				51040E1A2B6653D0009BD5AA /* SplashViewController.swift in Sources */,
 				51B5EF6F2B6CD79F00928ED6 /* ForgotPasswordViewModel.swift in Sources */,
 				513D900A2B6EDEB000ED9B63 /* DetailViewModel.swift in Sources */,
+				51617A882B749783007801D5 /* UIViewExtension.swift in Sources */,
 				518043B12B63985600552B6A /* StatBar.swift in Sources */,
 				518043B92B639BBA00552B6A /* DetailTextCompents.swift in Sources */,
 				511EF5262B57830000554F78 /* AppDelegate.swift in Sources */,
