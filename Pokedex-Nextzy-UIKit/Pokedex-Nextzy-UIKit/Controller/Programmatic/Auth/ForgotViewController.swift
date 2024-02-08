@@ -14,7 +14,6 @@ class ForgotViewController: UIViewController {
 
     init() {
         super.init(nibName: nil, bundle: nil)
-        self.setupUI()
     }
     
     required init?(coder: NSCoder) {
