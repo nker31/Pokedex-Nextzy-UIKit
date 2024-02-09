@@ -16,6 +16,7 @@
 		510D512B2B75D052008130D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 510D512D2B75D052008130D8 /* Main.storyboard */; };
 		510D51342B75E7F3008130D8 /* PokemonStoryboardCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510D51332B75E7F3008130D8 /* PokemonStoryboardCardCell.swift */; };
 		510D51372B75E883008130D8 /* PokemonStoryboardCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 510D51362B75E883008130D8 /* PokemonStoryboardCardCell.xib */; };
+		510D51392B75FD3C008130D8 /* PokemonStoryboardSmallCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 510D51382B75FD3C008130D8 /* PokemonStoryboardSmallCell.xib */; };
 		51104D0B2B723E7000CBEEA9 /* PresentionSytleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51104D0A2B723E7000CBEEA9 /* PresentionSytleController.swift */; };
 		511EF5262B57830000554F78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EF5252B57830000554F78 /* AppDelegate.swift */; };
 		511EF5282B57830000554F78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EF5272B57830000554F78 /* SceneDelegate.swift */; };
@@ -134,6 +135,7 @@
 		510D51322B75D666008130D8 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Main.strings; sourceTree = "<group>"; };
 		510D51332B75E7F3008130D8 /* PokemonStoryboardCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStoryboardCardCell.swift; sourceTree = "<group>"; };
 		510D51362B75E883008130D8 /* PokemonStoryboardCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonStoryboardCardCell.xib; sourceTree = "<group>"; };
+		510D51382B75FD3C008130D8 /* PokemonStoryboardSmallCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonStoryboardSmallCell.xib; sourceTree = "<group>"; };
 		51104D0A2B723E7000CBEEA9 /* PresentionSytleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentionSytleController.swift; sourceTree = "<group>"; };
 		511EF5222B57830000554F78 /* Pokedex-Nextzy-UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pokedex-Nextzy-UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		511EF5252B57830000554F78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				510D51362B75E883008130D8 /* PokemonStoryboardCardCell.xib */,
+				510D51382B75FD3C008130D8 /* PokemonStoryboardSmallCell.xib */,
 			);
 			path = xib;
 			sourceTree = "<group>";
@@ -722,6 +725,7 @@
 				515D22002B6A0E0900561C3C /* auth-video-bg.mp4 in Resources */,
 				51617A802B7490D3007801D5 /* NotoSansThai-Medium.ttf in Resources */,
 				51617A792B7490D3007801D5 /* NotoSansThai-Light.ttf in Resources */,
+				510D51392B75FD3C008130D8 /* PokemonStoryboardSmallCell.xib in Resources */,
 				511EF5322B57830100554F78 /* LaunchScreen.storyboard in Resources */,
 				51617A782B7490D3007801D5 /* NotoSansThai-ExtraLight.ttf in Resources */,
 				510D512B2B75D052008130D8 /* Main.storyboard in Resources */,
