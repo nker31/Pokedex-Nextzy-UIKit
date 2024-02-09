@@ -514,10 +514,15 @@
                                                         <constraint firstAttribute="height" constant="80" id="BNn-Xu-pdq"/>
                                                     </constraints>
                                                 </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="p0D-nZ-0wm">
+                                                    <rect key="frame" x="15" y="50" width="45" height="41"/>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="p0D-nZ-0wm" firstAttribute="leading" secondItem="ygj-Sq-4gd" secondAttribute="leading" constant="15" id="4Ka-Tc-GXh"/>
                                                 <constraint firstItem="8h8-Uk-HCx" firstAttribute="top" secondItem="ygj-Sq-4gd" secondAttribute="top" constant="15" id="JNO-3B-VRN"/>
                                                 <constraint firstAttribute="trailing" secondItem="7a7-b7-GJf" secondAttribute="trailing" constant="15" id="MK1-ZX-Ibx"/>
+                                                <constraint firstItem="p0D-nZ-0wm" firstAttribute="top" secondItem="8h8-Uk-HCx" secondAttribute="bottom" constant="10" id="X0P-gM-ltZ"/>
                                                 <constraint firstAttribute="bottom" secondItem="7a7-b7-GJf" secondAttribute="bottom" constant="15" id="evf-Oh-xIR"/>
                                                 <constraint firstItem="8h8-Uk-HCx" firstAttribute="leading" secondItem="ygj-Sq-4gd" secondAttribute="leading" constant="15" id="uOB-eS-QQq"/>
                                             </constraints>
@@ -531,6 +536,7 @@
                                         <connections>
                                             <outlet property="pokemonImageView" destination="7a7-b7-GJf" id="qU0-g6-dbY"/>
                                             <outlet property="pokemonNameLabel" destination="8h8-Uk-HCx" id="VlQ-Rg-6nd"/>
+                                            <outlet property="pokemonTypeStackView" destination="p0D-nZ-0wm" id="6eT-2b-0iG"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -553,7 +559,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pBd-Bp-rXS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1105" y="1724"/>
+            <point key="canvasLocation" x="-1106.1068702290077" y="1723.943661971831"/>
         </scene>
         <!--Search Storyboard Controller-->
         <scene sceneID="3gU-s7-Rwq">
@@ -573,32 +579,37 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="PokemonStoryboardCell" id="i8f-4I-j0u" customClass="PokemonStoryboardCell" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="PokemonStoryboardCell" id="g50-Lp-1kv" customClass="PokemonStoryboardCell" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hy9-GS-v2y">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aak-Cq-kCN">
                                             <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58P-Rr-LjO">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMM-IU-bln">
                                                     <rect key="frame" x="14.999999999999996" y="14.999999999999998" width="47.666666666666657" height="27.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSansThai-SemiBold" family="Noto Sans Thai" pointSize="18"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dnc-Xb-Buz">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="niY-Eg-dLl">
                                                     <rect key="frame" x="33" y="33" width="80" height="80"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="80" id="I8C-n0-bQa"/>
-                                                        <constraint firstAttribute="width" constant="80" id="Kcg-wl-5My"/>
+                                                        <constraint firstAttribute="width" constant="80" id="aHe-jh-mQO"/>
+                                                        <constraint firstAttribute="height" constant="80" id="kKV-az-jKs"/>
                                                     </constraints>
                                                 </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Xqk-6a-ryN">
+                                                    <rect key="frame" x="15" y="50" width="45" height="41"/>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="58P-Rr-LjO" firstAttribute="top" secondItem="hy9-GS-v2y" secondAttribute="top" constant="15" id="bWY-c3-wlx"/>
-                                                <constraint firstItem="58P-Rr-LjO" firstAttribute="leading" secondItem="hy9-GS-v2y" secondAttribute="leading" constant="15" id="ccK-6l-szz"/>
-                                                <constraint firstAttribute="trailing" secondItem="Dnc-Xb-Buz" secondAttribute="trailing" constant="15" id="ndx-na-hoh"/>
-                                                <constraint firstAttribute="bottom" secondItem="Dnc-Xb-Buz" secondAttribute="bottom" constant="15" id="vcD-8s-AA6"/>
+                                                <constraint firstItem="Xqk-6a-ryN" firstAttribute="leading" secondItem="aak-Cq-kCN" secondAttribute="leading" constant="15" id="Dla-mZ-ota"/>
+                                                <constraint firstItem="VMM-IU-bln" firstAttribute="leading" secondItem="aak-Cq-kCN" secondAttribute="leading" constant="15" id="MmD-0p-z2K"/>
+                                                <constraint firstAttribute="bottom" secondItem="niY-Eg-dLl" secondAttribute="bottom" constant="15" id="Yh3-WS-4Pk"/>
+                                                <constraint firstItem="Xqk-6a-ryN" firstAttribute="top" secondItem="VMM-IU-bln" secondAttribute="bottom" constant="10" id="cbe-V0-T9w"/>
+                                                <constraint firstAttribute="trailing" secondItem="niY-Eg-dLl" secondAttribute="trailing" constant="15" id="i6A-Vk-1zb"/>
+                                                <constraint firstItem="VMM-IU-bln" firstAttribute="top" secondItem="aak-Cq-kCN" secondAttribute="top" constant="15" id="uUO-ey-RoX"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -608,8 +619,9 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="pokemonImageView" destination="Dnc-Xb-Buz" id="Mm9-1T-31x"/>
-                                            <outlet property="pokemonNameLabel" destination="58P-Rr-LjO" id="DRn-nv-5TL"/>
+                                            <outlet property="pokemonImageView" destination="niY-Eg-dLl" id="PNV-tS-dkv"/>
+                                            <outlet property="pokemonNameLabel" destination="VMM-IU-bln" id="O5d-AK-E30"/>
+                                            <outlet property="pokemonTypeStackView" destination="Xqk-6a-ryN" id="JKH-MJ-OV8"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -649,7 +661,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wCw-xK-9Ud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-110.68702290076335" y="2748.5915492957747"/>
+            <point key="canvasLocation" x="-1520" y="2468"/>
         </scene>
         <!--My Pokemon-->
         <scene sceneID="eVk-Dn-HZt">
@@ -669,32 +681,37 @@
                                     <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="PokemonStoryboardCell" id="ofD-Pl-xJi" customClass="PokemonStoryboardCell" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="PokemonStoryboardCell" id="yee-WI-rrK" customClass="PokemonStoryboardCell" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target">
                                         <rect key="frame" x="20" y="20" width="127.99999999999997" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="CmG-h7-e5c">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gak-aq-HBc">
                                             <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ko1-ZU-yQF">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3f-fL-xRo">
                                                     <rect key="frame" x="14.999999999999996" y="14.999999999999998" width="47.666666666666657" height="27.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSansThai-SemiBold" family="Noto Sans Thai" pointSize="18"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CLB-ae-BZp">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uEr-QW-Kgr">
                                                     <rect key="frame" x="33" y="33" width="80" height="80"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="80" id="CvQ-dg-9Ue"/>
-                                                        <constraint firstAttribute="width" constant="80" id="sXU-Bh-nyJ"/>
+                                                        <constraint firstAttribute="width" constant="80" id="4zo-VH-Fra"/>
+                                                        <constraint firstAttribute="height" constant="80" id="uRQ-mG-lKN"/>
                                                     </constraints>
                                                 </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Sa6-ng-5AH">
+                                                    <rect key="frame" x="15" y="50" width="45" height="41"/>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Ko1-ZU-yQF" firstAttribute="leading" secondItem="CmG-h7-e5c" secondAttribute="leading" constant="15" id="6ml-a4-EUH"/>
-                                                <constraint firstAttribute="bottom" secondItem="CLB-ae-BZp" secondAttribute="bottom" constant="15" id="BWg-Pm-Dl2"/>
-                                                <constraint firstItem="Ko1-ZU-yQF" firstAttribute="top" secondItem="CmG-h7-e5c" secondAttribute="top" constant="15" id="I7o-Po-MI1"/>
-                                                <constraint firstAttribute="trailing" secondItem="CLB-ae-BZp" secondAttribute="trailing" constant="15" id="SAH-gt-IeL"/>
+                                                <constraint firstItem="Sa6-ng-5AH" firstAttribute="leading" secondItem="gak-aq-HBc" secondAttribute="leading" constant="15" id="4An-W3-JPp"/>
+                                                <constraint firstItem="G3f-fL-xRo" firstAttribute="leading" secondItem="gak-aq-HBc" secondAttribute="leading" constant="15" id="Hn7-su-vc9"/>
+                                                <constraint firstItem="G3f-fL-xRo" firstAttribute="top" secondItem="gak-aq-HBc" secondAttribute="top" constant="15" id="Ktb-JP-5iu"/>
+                                                <constraint firstItem="Sa6-ng-5AH" firstAttribute="top" secondItem="G3f-fL-xRo" secondAttribute="bottom" constant="10" id="QB1-wf-5mJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="uEr-QW-Kgr" secondAttribute="trailing" constant="15" id="kX5-PQ-xwL"/>
+                                                <constraint firstAttribute="bottom" secondItem="uEr-QW-Kgr" secondAttribute="bottom" constant="15" id="neI-gC-n67"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -704,8 +721,9 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="pokemonImageView" destination="CLB-ae-BZp" id="4GU-C4-gia"/>
-                                            <outlet property="pokemonNameLabel" destination="Ko1-ZU-yQF" id="h0U-W6-eVC"/>
+                                            <outlet property="pokemonImageView" destination="uEr-QW-Kgr" id="gbE-e0-wEw"/>
+                                            <outlet property="pokemonNameLabel" destination="G3f-fL-xRo" id="2zr-1y-baF"/>
+                                            <outlet property="pokemonTypeStackView" destination="Sa6-ng-5AH" id="0sh-5J-573"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -1183,7 +1201,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5NX-EP-Gev" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1106" y="2749"/>
+            <point key="canvasLocation" x="-2674" y="2468"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
