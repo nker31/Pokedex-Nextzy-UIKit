@@ -548,11 +548,108 @@
                     <navigationItem key="navigationItem" id="STH-hp-Rql"/>
                     <connections>
                         <outlet property="collectionView" destination="eXa-sl-H8E" id="PPk-1b-rKu"/>
+                        <segue destination="4gm-QM-1Iu" kind="show" identifier="PresentSearch" id="0kC-QS-Bm5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pBd-Bp-rXS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1105" y="1724"/>
+        </scene>
+        <!--Search Storyboard Controller-->
+        <scene sceneID="3gU-s7-Rwq">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="t6q-jJ-Moj" customClass="SearchStoryboardController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X3I-In-QOq">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IJh-Sk-Z3t">
+                                <rect key="frame" x="0.0" y="56" width="393" height="786"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qVG-dC-QRO">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="PokemonStoryboardCell" id="i8f-4I-j0u" customClass="PokemonStoryboardCell" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hy9-GS-v2y">
+                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58P-Rr-LjO">
+                                                    <rect key="frame" x="14.999999999999996" y="14.999999999999998" width="47.666666666666657" height="27.333333333333329"/>
+                                                    <fontDescription key="fontDescription" name="NotoSansThai-SemiBold" family="Noto Sans Thai" pointSize="18"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dnc-Xb-Buz">
+                                                    <rect key="frame" x="33" y="33" width="80" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="80" id="I8C-n0-bQa"/>
+                                                        <constraint firstAttribute="width" constant="80" id="Kcg-wl-5My"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="58P-Rr-LjO" firstAttribute="top" secondItem="hy9-GS-v2y" secondAttribute="top" constant="15" id="bWY-c3-wlx"/>
+                                                <constraint firstItem="58P-Rr-LjO" firstAttribute="leading" secondItem="hy9-GS-v2y" secondAttribute="leading" constant="15" id="ccK-6l-szz"/>
+                                                <constraint firstAttribute="trailing" secondItem="Dnc-Xb-Buz" secondAttribute="trailing" constant="15" id="ndx-na-hoh"/>
+                                                <constraint firstAttribute="bottom" secondItem="Dnc-Xb-Buz" secondAttribute="bottom" constant="15" id="vcD-8s-AA6"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="pokemonImageView" destination="Dnc-Xb-Buz" id="Mm9-1T-31x"/>
+                                            <outlet property="pokemonNameLabel" destination="58P-Rr-LjO" id="DRn-nv-5TL"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AX8-uq-e46">
+                                <rect key="frame" x="158.66666666666666" y="411" width="76" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pikachu-back" translatesAutoresizingMaskIntoConstraints="NO" id="gHD-Bj-Thq">
+                                <rect key="frame" x="-92" y="191" width="577" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="sEJ-K1-tU1"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6MW-Q8-4NN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="IJh-Sk-Z3t" firstAttribute="top" secondItem="6MW-Q8-4NN" secondAttribute="top" id="Ar0-HV-PvD"/>
+                            <constraint firstAttribute="bottom" secondItem="IJh-Sk-Z3t" secondAttribute="bottom" id="YXA-0W-h4U"/>
+                            <constraint firstItem="AX8-uq-e46" firstAttribute="centerY" secondItem="X3I-In-QOq" secondAttribute="centerY" id="b2o-ya-SFM"/>
+                            <constraint firstItem="AX8-uq-e46" firstAttribute="centerX" secondItem="X3I-In-QOq" secondAttribute="centerX" id="ehQ-hV-mG2"/>
+                            <constraint firstItem="IJh-Sk-Z3t" firstAttribute="leading" secondItem="6MW-Q8-4NN" secondAttribute="leading" id="g39-5O-C6S"/>
+                            <constraint firstItem="gHD-Bj-Thq" firstAttribute="centerX" secondItem="X3I-In-QOq" secondAttribute="centerX" id="kTh-l1-uip"/>
+                            <constraint firstItem="6MW-Q8-4NN" firstAttribute="trailing" secondItem="IJh-Sk-Z3t" secondAttribute="trailing" id="sci-pp-waU"/>
+                            <constraint firstItem="AX8-uq-e46" firstAttribute="top" secondItem="gHD-Bj-Thq" secondAttribute="bottom" constant="20" id="uoe-cH-E53"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="fO4-eQ-qwe"/>
+                    <connections>
+                        <outlet property="collectionView" destination="IJh-Sk-Z3t" id="4ab-Wq-Icu"/>
+                        <outlet property="notFoundImageView" destination="gHD-Bj-Thq" id="miX-m2-0zA"/>
+                        <outlet property="notFoundLabel" destination="AX8-uq-e46" id="56e-sG-rFq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wCw-xK-9Ud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-110.68702290076335" y="2748.5915492957747"/>
         </scene>
         <!--My Pokemon-->
         <scene sceneID="eVk-Dn-HZt">
@@ -1069,6 +1166,25 @@
             </objects>
             <point key="canvasLocation" x="1937" y="881"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HzO-al-Bmm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="4gm-QM-1Iu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="3Pl-8H-kB7"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d0M-6V-yKr">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="t6q-jJ-Moj" kind="relationship" relationship="rootViewController" id="oyD-re-FJg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5NX-EP-Gev" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1106" y="2749"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="5L5-kc-FZB"/>
@@ -1081,6 +1197,7 @@
         <image name="heart.text.square.fill" catalog="system" width="128" height="114"/>
         <image name="pawprint.fill" catalog="system" width="128" height="112"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="pikachu-back" width="577" height="433"/>
         <image name="pokeball-profile" width="400" height="400"/>
         <image name="pokedex-logo" width="387" height="140"/>
         <namedColor name="Normal">
