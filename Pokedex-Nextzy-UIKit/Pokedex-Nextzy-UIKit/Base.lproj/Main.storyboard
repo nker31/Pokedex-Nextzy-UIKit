@@ -23,6 +23,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="l02-yH-ZiY">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.9288699627" green="0.3796390295" blue="0.39842075110000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -156,7 +159,7 @@
                     <connections>
                         <outlet property="emailField" destination="Oe4-Bf-h2d" id="2jd-10-0l4"/>
                         <outlet property="passwordField" destination="OmJ-mc-BOu" id="epl-OJ-wqq"/>
-                        <segue destination="pue-8G-ccw" kind="show" identifier="LoginSuccess" id="UMi-4Y-15c"/>
+                        <segue destination="pue-8G-ccw" kind="show" identifier="LoginSuccess" id="K3c-en-04w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E10-RT-It0" sceneMemberID="firstResponder"/>
@@ -488,7 +491,7 @@
                                     <size key="itemSize" width="150" height="150"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
+                                    <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="PokemonStoryboardCell" id="CL6-M6-zKN" customClass="PokemonStoryboardCell" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target">
@@ -566,11 +569,11 @@
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="PokemonStoryboardCell" id="ofD-Pl-xJi" customClass="PokemonStoryboardCell" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                        <rect key="frame" x="20" y="20" width="127.99999999999997" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="CmG-h7-e5c">
                                             <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
@@ -628,7 +631,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TxL-5m-eer" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="244" y="1098"/>
+            <point key="canvasLocation" x="97" y="1065"/>
         </scene>
         <!--Tab Bar Storyboard Controller-->
         <scene sceneID="JYm-3d-CUm">
@@ -690,7 +693,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6IQ-QA-S9O">
-                                <rect key="frame" x="20" y="751.66666666666663" width="353" height="40.333333333333371"/>
+                                <rect key="frame" x="20" y="702.66666666666663" width="353" height="40.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Sign Out">
                                     <color key="baseBackgroundColor" name="PinkPokemon"/>
@@ -761,34 +764,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xhr-f3-wPG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1596" y="612"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Kl4-WB-5UU">
-            <objects>
-                <viewController id="upC-L1-WKo" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="n7d-HO-p6Z">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8WC-Fz-da7">
-                                <rect key="frame" x="177" y="415.66666666666669" width="39" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="CwS-xb-kLo"/>
-                        <color key="backgroundColor" systemColor="systemBrownColor"/>
-                        <constraints>
-                            <constraint firstItem="8WC-Fz-da7" firstAttribute="centerY" secondItem="n7d-HO-p6Z" secondAttribute="centerY" id="Fsg-IB-cmP"/>
-                            <constraint firstItem="8WC-Fz-da7" firstAttribute="centerX" secondItem="n7d-HO-p6Z" secondAttribute="centerX" id="hEw-WJ-Z5e"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="95i-FQ-sZc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2019" y="-2152"/>
+            <point key="canvasLocation" x="2654" y="669"/>
         </scene>
         <!--Edit Profile Storyboard Controller-->
         <scene sceneID="AHY-us-XLw">
@@ -994,7 +970,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oyA-LR-IyG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2927" y="1785"/>
+            <point key="canvasLocation" x="2311" y="1785"/>
         </scene>
         <!--Setting Storyboard Controller-->
         <scene sceneID="onZ-aG-ycV">
@@ -1035,12 +1011,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c0Y-Zw-c1y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4331" y="1785"/>
+            <point key="canvasLocation" x="3453" y="1785"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="K93-5P-SFX"/>
-        <segue reference="Lai-Oh-afh"/>
+        <segue reference="keQ-JG-U7Q"/>
+        <segue reference="K3c-en-04w"/>
         <segue reference="PU1-gd-kw3"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -1059,9 +1035,6 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBrownColor">
-            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemCyanColor">
             <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

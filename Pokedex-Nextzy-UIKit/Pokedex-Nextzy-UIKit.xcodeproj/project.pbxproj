@@ -13,7 +13,7 @@
 		51040E1A2B6653D0009BD5AA /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51040E192B6653D0009BD5AA /* SplashViewController.swift */; };
 		51040E1D2B66B9F2009BD5AA /* MyPokemonEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51040E1C2B66B9F2009BD5AA /* MyPokemonEmptyView.swift */; };
 		51040E1F2B66C356009BD5AA /* PokemonTypeOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51040E1E2B66C356009BD5AA /* PokemonTypeOverlay.swift */; };
-		51104D092B723CB300CBEEA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51104D082B723CB300CBEEA9 /* Main.storyboard */; };
+		510D512B2B75D052008130D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 510D512D2B75D052008130D8 /* Main.storyboard */; };
 		51104D0B2B723E7000CBEEA9 /* PresentionSytleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51104D0A2B723E7000CBEEA9 /* PresentionSytleController.swift */; };
 		511EF5262B57830000554F78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EF5252B57830000554F78 /* AppDelegate.swift */; };
 		511EF5282B57830000554F78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EF5272B57830000554F78 /* SceneDelegate.swift */; };
@@ -127,7 +127,9 @@
 		51040E192B6653D0009BD5AA /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		51040E1C2B66B9F2009BD5AA /* MyPokemonEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPokemonEmptyView.swift; sourceTree = "<group>"; };
 		51040E1E2B66C356009BD5AA /* PokemonTypeOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTypeOverlay.swift; sourceTree = "<group>"; };
-		51104D082B723CB300CBEEA9 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		510D512C2B75D052008130D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		510D51302B75D665008130D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		510D51322B75D666008130D8 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Main.strings; sourceTree = "<group>"; };
 		51104D0A2B723E7000CBEEA9 /* PresentionSytleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentionSytleController.swift; sourceTree = "<group>"; };
 		511EF5222B57830000554F78 /* Pokedex-Nextzy-UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pokedex-Nextzy-UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		511EF5252B57830000554F78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -326,7 +328,7 @@
 				511EF52E2B57830100554F78 /* Assets.xcassets */,
 				515D222B2B6A4B8200561C3C /* Localizable.strings */,
 				515D21FF2B6A0E0900561C3C /* auth-video-bg.mp4 */,
-				51104D082B723CB300CBEEA9 /* Main.storyboard */,
+				510D512D2B75D052008130D8 /* Main.storyboard */,
 				511EF5302B57830100554F78 /* LaunchScreen.storyboard */,
 				511EF5332B57830100554F78 /* Info.plist */,
 				516C9A352B679D0000DCE4F9 /* GoogleService-Info.plist */,
@@ -708,7 +710,7 @@
 				51617A792B7490D3007801D5 /* NotoSansThai-Light.ttf in Resources */,
 				511EF5322B57830100554F78 /* LaunchScreen.storyboard in Resources */,
 				51617A782B7490D3007801D5 /* NotoSansThai-ExtraLight.ttf in Resources */,
-				51104D092B723CB300CBEEA9 /* Main.storyboard in Resources */,
+				510D512B2B75D052008130D8 /* Main.storyboard in Resources */,
 				511EF52F2B57830100554F78 /* Assets.xcassets in Resources */,
 				516C9A362B679D0000DCE4F9 /* GoogleService-Info.plist in Resources */,
 				51617A7C2B7490D3007801D5 /* NotoSansThai-Bold.ttf in Resources */,
@@ -795,6 +797,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		510D512D2B75D052008130D8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				510D512C2B75D052008130D8 /* Base */,
+				510D51302B75D665008130D8 /* en */,
+				510D51322B75D666008130D8 /* th */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		511EF5302B57830100554F78 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
