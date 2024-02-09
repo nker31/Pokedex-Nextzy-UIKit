@@ -18,6 +18,7 @@
 		510D51372B75E883008130D8 /* PokemonStoryboardCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 510D51362B75E883008130D8 /* PokemonStoryboardCardCell.xib */; };
 		510D51392B75FD3C008130D8 /* PokemonStoryboardSmallCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 510D51382B75FD3C008130D8 /* PokemonStoryboardSmallCell.xib */; };
 		510D513B2B75FE20008130D8 /* PokemonStoryboardSmallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510D513A2B75FE20008130D8 /* PokemonStoryboardSmallCell.swift */; };
+		510D513D2B7606F1008130D8 /* SearchStoryboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510D513C2B7606F1008130D8 /* SearchStoryboardController.swift */; };
 		51104D0B2B723E7000CBEEA9 /* PresentionSytleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51104D0A2B723E7000CBEEA9 /* PresentionSytleController.swift */; };
 		511EF5262B57830000554F78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EF5252B57830000554F78 /* AppDelegate.swift */; };
 		511EF5282B57830000554F78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EF5272B57830000554F78 /* SceneDelegate.swift */; };
@@ -138,6 +139,7 @@
 		510D51362B75E883008130D8 /* PokemonStoryboardCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonStoryboardCardCell.xib; sourceTree = "<group>"; };
 		510D51382B75FD3C008130D8 /* PokemonStoryboardSmallCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonStoryboardSmallCell.xib; sourceTree = "<group>"; };
 		510D513A2B75FE20008130D8 /* PokemonStoryboardSmallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStoryboardSmallCell.swift; sourceTree = "<group>"; };
+		510D513C2B7606F1008130D8 /* SearchStoryboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStoryboardController.swift; sourceTree = "<group>"; };
 		51104D0A2B723E7000CBEEA9 /* PresentionSytleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentionSytleController.swift; sourceTree = "<group>"; };
 		511EF5222B57830000554F78 /* Pokedex-Nextzy-UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pokedex-Nextzy-UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		511EF5252B57830000554F78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 			isa = PBXGroup;
 			children = (
 				51617A962B74C7B3007801D5 /* PokedexStoryboardController.swift */,
+				510D513C2B7606F1008130D8 /* SearchStoryboardController.swift */,
 			);
 			path = Pokedex;
 			sourceTree = "<group>";
@@ -780,6 +783,7 @@
 				51617A992B74C9F4007801D5 /* PokemonStoryboardCell.swift in Sources */,
 				51B5EF722B6CDF0800928ED6 /* RegisterViewModel.swift in Sources */,
 				51617AA62B754103007801D5 /* ProfileStoryboardController.swift in Sources */,
+				510D513D2B7606F1008130D8 /* SearchStoryboardController.swift in Sources */,
 				51CB3E412B64E155001877C4 /* MyPokemonViewController.swift in Sources */,
 				519FCA602B5A8F28002BC2B5 /* PokedexViewController.swift in Sources */,
 				515D222F2B6B52B700561C3C /* PokemonCardCell.swift in Sources */,
