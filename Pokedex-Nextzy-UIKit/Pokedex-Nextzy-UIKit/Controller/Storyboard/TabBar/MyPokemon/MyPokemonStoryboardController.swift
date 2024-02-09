@@ -27,6 +27,11 @@ class MyPokemonStoryboardController: UIViewController {
         myPokemonViewModel.delegate = self
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        let cardCell = UINib(nibName: "PokemonStoryboardCardCell", bundle: nil)
+        collectionView.register(cardCell, forCellWithReuseIdentifier: PokemonStoryboardCardCell.identifier)
+        let smallCell = UINib(nibName: "PokemonStoryboardSmallCell", bundle: nil)
+        collectionView.register(smallCell, forCellWithReuseIdentifier: PokemonStoryboardSmallCell.identifier)
     }
     
     // MARK: - UI Setup
@@ -75,7 +80,7 @@ extension MyPokemonStoryboardController: UICollectionViewDataSource, UICollectio
         switch myPokemonViewModel.collectionViewDisplayType {
 
         case .oneColumn:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PokemonCardCell.identifier, for: indexPath) as? PokemonCardCell else{
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PokemonStoryboardCardCell.identifier, for: indexPath) as? PokemonStoryboardCardCell else{
                 fatalError("failed to dequeue view cell")
             }
             let pokemon = myPokemonViewModel.displayedPokemons[indexPath.row]
@@ -93,7 +98,7 @@ extension MyPokemonStoryboardController: UICollectionViewDataSource, UICollectio
             return cell
             
         case .threeColumns:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SmallPokemonCell.identifier, for: indexPath) as? SmallPokemonCell else{
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PokemonStoryboardSmallCell.identifier, for: indexPath) as? PokemonStoryboardSmallCell else{
                 fatalError("failed to dequeue view cell")
             }
             let pokemon = myPokemonViewModel.displayedPokemons[indexPath.row]
