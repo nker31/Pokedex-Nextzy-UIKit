@@ -43,6 +43,7 @@
 // Profile VC
 "edit_profile_title" = "Edit My Profile";
 "terms_and_conditions_title" = "Terms and Conditions";
+"language_setting_title" = "Language Setting";
 "sign_out_button_text" = "Sign Out";
 
 // Edit Profile VC

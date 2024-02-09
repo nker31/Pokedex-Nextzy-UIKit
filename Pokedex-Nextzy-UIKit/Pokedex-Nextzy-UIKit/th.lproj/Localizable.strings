@@ -43,6 +43,7 @@
 // Profile VC
 "edit_profile_title" = "แก้ไขข้อมูลส่วนตัว";
 "terms_and_conditions_title" = "ข้อตกลงและเงื่อนไขการใช้บริการ";
+"language_setting_title" = "ตั้งค่าภาษา";
 "sign_out_button_text" = "ออกจากระบบ";
 
 // Edit Profile VC
