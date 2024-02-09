@@ -17,10 +17,54 @@ class PokedexStoryboardController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavbar()
         pokedexViewModel.loadPokemonData()
         pokedexViewModel.delegate = self
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+    private func setupNavbar() {
+        title = String(localized: "pokedex_tabbar_title")
+        if let nav = self.navigationController?.navigationBar {
+            nav.backgroundColor = .clear
+            nav.prefersLargeTitles = false
+            nav.tintColor = .pinkPokemon
+            nav.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
+        }
+        
+        let searchButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search,
+                                                            target: self,
+                                                            action: #selector(searchButtonTapped))
+        
+        var columnsImageName: String
+        switch pokedexViewModel.collectionViewDisplayType {
+        case .oneColumn:
+            columnsImageName = "square.grid.2x2"
+        case .twoColumns:
+            columnsImageName = "square.grid.3x3"
+        case .threeColumns:
+            columnsImageName = "rectangle.grid.1x2"
+        }
+        
+        let columnsButton = UIBarButtonItem(image: UIImage(systemName: columnsImageName),
+                                            style: .plain,
+                                            target: self,
+                                            action: #selector(toggleColumnDisplayed))
+        
+        self.navigationItem.leftBarButtonItems = [columnsButton]
+        self.navigationItem.rightBarButtonItem = searchButton
+    }
+    
+    @objc private func searchButtonTapped() {
+        
+    }
+    
+    @objc private func toggleColumnDisplayed() {
+        pokedexViewModel.tapChangeDisplayType()
+        setupNavbar()
+        collectionView.reloadData()
+        
     }
     
 }
@@ -39,8 +83,6 @@ extension PokedexStoryboardController: UICollectionViewDelegate, UICollectionVie
         
         return cell
     }
-
-    
 }
 
 extension PokedexStoryboardController: UICollectionViewDelegateFlowLayout {
@@ -73,7 +115,7 @@ extension PokedexStoryboardController: UICollectionViewDelegateFlowLayout {
         }
     }
     
-    // horizomtal spacing
+    // horizontal spacing
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         switch pokedexViewModel.collectionViewDisplayType {
         case .oneColumn:
