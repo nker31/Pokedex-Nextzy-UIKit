@@ -34,10 +34,9 @@ class MyPokemonStoryboardController: UIViewController {
         guard let nav = navigationController?.navigationBar else {
             return
         }
-        title = "My pokemon"
-        nav.tintColor = .green
-        nav.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.red]
-        nav.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.poison]
+        title = String(localized: "my_pokemon_tabbar_title")
+        nav.tintColor = .pinkPokemon
+        nav.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         
         var columnsImageName: String
         switch myPokemonViewModel.collectionViewDisplayType {
