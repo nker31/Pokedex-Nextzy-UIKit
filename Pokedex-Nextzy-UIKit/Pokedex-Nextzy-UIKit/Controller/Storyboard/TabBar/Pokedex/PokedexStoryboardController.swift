@@ -62,7 +62,7 @@ class PokedexStoryboardController: UIViewController {
     }
     
     @objc private func searchButtonTapped() {
-        
+        performSegue(withIdentifier: "PresentSearch", sender: Any.self)
     }
     
     @objc private func toggleColumnDisplayed() {
@@ -80,7 +80,6 @@ extension PokedexStoryboardController: UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         
         switch pokedexViewModel.collectionViewDisplayType {
 
