@@ -485,8 +485,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eXa-sl-H8E">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
-                                <color key="backgroundColor" red="0.9288699627" green="0.3796390295" blue="0.39842075110000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="56" width="393" height="747"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ko2-qv-zkW">
                                     <size key="itemSize" width="150" height="150"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -545,14 +545,14 @@
                             <constraint firstItem="eXa-sl-H8E" firstAttribute="leading" secondItem="OfU-As-3XJ" secondAttribute="leading" id="z5H-se-FbC"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Pokedex" image="pawprint.fill" catalog="system" id="2ET-2a-B34"/>
+                    <navigationItem key="navigationItem" id="STH-hp-Rql"/>
                     <connections>
                         <outlet property="collectionView" destination="eXa-sl-H8E" id="PPk-1b-rKu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pBd-Bp-rXS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1161.0687022900763" y="1065.4929577464789"/>
+            <point key="canvasLocation" x="-1105" y="1724"/>
         </scene>
         <!--My Pokemon-->
         <scene sceneID="eVk-Dn-HZt">
@@ -563,8 +563,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ITe-RF-9pK">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
-                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <rect key="frame" x="0.0" y="56" width="393" height="747"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vs5-gG-W2r">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -615,7 +615,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dUa-rz-KyB"/>
-                        <color key="backgroundColor" systemColor="systemCyanColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="dUa-rz-KyB" firstAttribute="trailing" secondItem="ITe-RF-9pK" secondAttribute="trailing" id="FZH-uh-l4k"/>
                             <constraint firstItem="dUa-rz-KyB" firstAttribute="bottom" secondItem="ITe-RF-9pK" secondAttribute="bottom" id="IhR-ov-WJu"/>
@@ -623,7 +623,6 @@
                             <constraint firstItem="ITe-RF-9pK" firstAttribute="top" secondItem="dUa-rz-KyB" secondAttribute="top" id="obR-fb-yBA"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Pokemon" image="heart.text.square.fill" catalog="system" id="Mry-WU-gB2"/>
                     <navigationItem key="navigationItem" title="My Pokemon" id="jpQ-xa-Agm"/>
                     <connections>
                         <outlet property="collectionView" destination="ITe-RF-9pK" id="OVu-Ia-5Hg"/>
@@ -631,7 +630,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TxL-5m-eer" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="97" y="1065"/>
+            <point key="canvasLocation" x="375" y="1724"/>
         </scene>
         <!--Tab Bar Storyboard Controller-->
         <scene sceneID="JYm-3d-CUm">
@@ -644,16 +643,16 @@
                         <color key="selectedImageTintColor" name="PinkPokemon"/>
                     </tabBar>
                     <connections>
-                        <segue destination="tun-yz-NXV" kind="relationship" relationship="viewControllers" id="sqm-jY-7DC"/>
-                        <segue destination="feW-yA-BpF" kind="relationship" relationship="viewControllers" id="waV-xo-5GO"/>
-                        <segue destination="HaS-Jd-wOS" kind="relationship" relationship="viewControllers" id="keQ-JG-U7Q"/>
+                        <segue destination="jPS-P3-zGa" kind="relationship" relationship="viewControllers" id="2hW-X5-gV5"/>
+                        <segue destination="m57-GH-qL5" kind="relationship" relationship="viewControllers" id="St4-QX-w2Z"/>
+                        <segue destination="XdZ-Uf-lJk" kind="relationship" relationship="viewControllers" id="5L5-kc-FZB"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oli-6p-X0m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="98" y="96"/>
         </scene>
-        <!--Profile-->
+        <!--Profile Storyboard Controller-->
         <scene sceneID="DBA-VF-noK">
             <objects>
                 <viewController id="HaS-Jd-wOS" customClass="ProfileStoryboardController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
@@ -693,7 +692,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6IQ-QA-S9O">
-                                <rect key="frame" x="20" y="702.66666666666663" width="353" height="40.333333333333371"/>
+                                <rect key="frame" x="20" y="712.66666666666663" width="353" height="40.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Sign Out">
                                     <color key="baseBackgroundColor" name="PinkPokemon"/>
@@ -754,7 +753,6 @@
                             <constraint firstItem="6IQ-QA-S9O" firstAttribute="centerX" secondItem="Cte-XT-lg4" secondAttribute="centerX" id="wLR-Mh-MKO"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="Vp8-U3-sxE"/>
                     <navigationItem key="navigationItem" id="Jp0-Lu-kCU"/>
                     <connections>
                         <outlet property="profileImageView" destination="D7H-ym-GuG" id="3Jg-vH-tie"/>
@@ -764,7 +762,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xhr-f3-wPG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2654" y="669"/>
+            <point key="canvasLocation" x="3253" y="881"/>
         </scene>
         <!--Edit Profile Storyboard Controller-->
         <scene sceneID="AHY-us-XLw">
@@ -915,12 +913,12 @@
                         <outlet property="firstnameField" destination="oQH-WH-5vu" id="10P-4V-f38"/>
                         <outlet property="lastnameField" destination="L1T-Ye-8Za" id="gB0-rx-CFj"/>
                         <outlet property="profileImageView" destination="6MV-Se-j69" id="LyM-n2-4Xm"/>
-                        <segue destination="HaS-Jd-wOS" kind="show" id="K93-5P-SFX"/>
+                        <segue destination="XdZ-Uf-lJk" kind="show" id="K93-5P-SFX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Me7-4U-Pm9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1356" y="1785"/>
+            <point key="canvasLocation" x="2240" y="1785"/>
         </scene>
         <!--Web View Storyboard Controller-->
         <scene sceneID="G9u-EW-Wji">
@@ -970,7 +968,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oyA-LR-IyG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2311" y="1785"/>
+            <point key="canvasLocation" x="3253" y="1785"/>
         </scene>
         <!--Setting Storyboard Controller-->
         <scene sceneID="onZ-aG-ycV">
@@ -981,7 +979,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tKx-Z1-rZo">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <rect key="frame" x="0.0" y="56" width="393" height="747"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="InK-b0-vCJ">
@@ -1011,11 +1009,69 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c0Y-Zw-c1y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3453" y="1785"/>
+            <point key="canvasLocation" x="4199" y="1785"/>
+        </scene>
+        <!--Pokedex-->
+        <scene sceneID="z0d-jo-bGh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jPS-P3-zGa" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Pokedex" image="pawprint.fill" catalog="system" id="2ET-2a-B34"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bCg-i7-ZA5">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="tun-yz-NXV" kind="relationship" relationship="rootViewController" id="AiF-uu-LTt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1UO-KV-YQA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1105" y="881"/>
+        </scene>
+        <!--My Pokemon-->
+        <scene sceneID="3Qb-dx-6tX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m57-GH-qL5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My Pokemon" image="heart.text.square.fill" catalog="system" id="Mry-WU-gB2"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cWc-AD-7sH">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="feW-yA-BpF" kind="relationship" relationship="rootViewController" id="MSU-8x-BUE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OPP-I0-t2V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="375" y="881"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="N8m-Mq-RvA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XdZ-Uf-lJk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="Vp8-U3-sxE"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="g6C-sb-Hif"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kMV-o3-6z4">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HaS-Jd-wOS" kind="relationship" relationship="rootViewController" id="sfg-ou-Zmd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nBK-gO-FSW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1937" y="881"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="keQ-JG-U7Q"/>
+        <segue reference="5L5-kc-FZB"/>
         <segue reference="K3c-en-04w"/>
         <segue reference="PU1-gd-kw3"/>
     </inferredMetricsTieBreakers>
@@ -1035,12 +1091,6 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemCyanColor">
-            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
