@@ -14,6 +14,7 @@ class PokemonStoryboardCardCell: UICollectionViewCell {
     // MARK: - UI Components
     @IBOutlet weak var pokemonNameLabel: UILabel!
     @IBOutlet weak var pokemonImageView: UIImageView!
+    @IBOutlet weak var pokemonTypeStackView: UIStackView!
 
     // MARK: - UI Setup
     func configPokemonCell(pokemon: Pokemon) {
@@ -21,5 +22,18 @@ class PokemonStoryboardCardCell: UICollectionViewCell {
         guard let type = pokemon.types.first else { return }
         setColorBackgroundFromType(type: type)
         pokemonImageView.kf.setImage(with: pokemon.imageUrl, placeholder: UIImage(named: "pokeball"))
+        createPokemonTypeStackView(types: pokemon.types)
+    }
+    
+    func createPokemonTypeStackView(types: [String]) {
+        pokemonTypeStackView.subviews.forEach { $0.removeFromSuperview() }
+        for type in types {
+            let typeComponents = PokemonTypeOverlay(type: type)
+            pokemonTypeStackView.addArrangedSubview(typeComponents)
+        }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
     }
 }
