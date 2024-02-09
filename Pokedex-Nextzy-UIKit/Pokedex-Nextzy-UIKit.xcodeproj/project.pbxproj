@@ -14,6 +14,8 @@
 		51040E1D2B66B9F2009BD5AA /* MyPokemonEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51040E1C2B66B9F2009BD5AA /* MyPokemonEmptyView.swift */; };
 		51040E1F2B66C356009BD5AA /* PokemonTypeOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51040E1E2B66C356009BD5AA /* PokemonTypeOverlay.swift */; };
 		510D512B2B75D052008130D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 510D512D2B75D052008130D8 /* Main.storyboard */; };
+		510D51342B75E7F3008130D8 /* PokemonStoryboardCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510D51332B75E7F3008130D8 /* PokemonStoryboardCardCell.swift */; };
+		510D51372B75E883008130D8 /* PokemonStoryboardCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 510D51362B75E883008130D8 /* PokemonStoryboardCardCell.xib */; };
 		51104D0B2B723E7000CBEEA9 /* PresentionSytleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51104D0A2B723E7000CBEEA9 /* PresentionSytleController.swift */; };
 		511EF5262B57830000554F78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EF5252B57830000554F78 /* AppDelegate.swift */; };
 		511EF5282B57830000554F78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EF5272B57830000554F78 /* SceneDelegate.swift */; };
@@ -130,6 +132,8 @@
 		510D512C2B75D052008130D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		510D51302B75D665008130D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		510D51322B75D666008130D8 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Main.strings; sourceTree = "<group>"; };
+		510D51332B75E7F3008130D8 /* PokemonStoryboardCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStoryboardCardCell.swift; sourceTree = "<group>"; };
+		510D51362B75E883008130D8 /* PokemonStoryboardCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonStoryboardCardCell.xib; sourceTree = "<group>"; };
 		51104D0A2B723E7000CBEEA9 /* PresentionSytleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentionSytleController.swift; sourceTree = "<group>"; };
 		511EF5222B57830000554F78 /* Pokedex-Nextzy-UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pokedex-Nextzy-UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		511EF5252B57830000554F78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -298,6 +302,14 @@
 			path = MyPokemon;
 			sourceTree = "<group>";
 		};
+		510D51352B75E868008130D8 /* xib */ = {
+			isa = PBXGroup;
+			children = (
+				510D51362B75E883008130D8 /* PokemonStoryboardCardCell.xib */,
+			);
+			path = xib;
+			sourceTree = "<group>";
+		};
 		511EF5192B57830000554F78 = {
 			isa = PBXGroup;
 			children = (
@@ -328,6 +340,7 @@
 				511EF52E2B57830100554F78 /* Assets.xcassets */,
 				515D222B2B6A4B8200561C3C /* Localizable.strings */,
 				515D21FF2B6A0E0900561C3C /* auth-video-bg.mp4 */,
+				510D51352B75E868008130D8 /* xib */,
 				510D512D2B75D052008130D8 /* Main.storyboard */,
 				511EF5302B57830100554F78 /* LaunchScreen.storyboard */,
 				511EF5332B57830100554F78 /* Info.plist */,
@@ -400,6 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				51617A982B74C9F4007801D5 /* PokemonStoryboardCell.swift */,
+				510D51332B75E7F3008130D8 /* PokemonStoryboardCardCell.swift */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -711,6 +725,7 @@
 				511EF5322B57830100554F78 /* LaunchScreen.storyboard in Resources */,
 				51617A782B7490D3007801D5 /* NotoSansThai-ExtraLight.ttf in Resources */,
 				510D512B2B75D052008130D8 /* Main.storyboard in Resources */,
+				510D51372B75E883008130D8 /* PokemonStoryboardCardCell.xib in Resources */,
 				511EF52F2B57830100554F78 /* Assets.xcassets in Resources */,
 				516C9A362B679D0000DCE4F9 /* GoogleService-Info.plist in Resources */,
 				51617A7C2B7490D3007801D5 /* NotoSansThai-Bold.ttf in Resources */,
@@ -742,6 +757,7 @@
 				519FCA122B5A35D7002BC2B5 /* RegisterViewController.swift in Sources */,
 				51617A9F2B7532BE007801D5 /* LoginStoryboardController.swift in Sources */,
 				51B5EF782B6CE67200928ED6 /* TabBarViewModel.swift in Sources */,
+				510D51342B75E7F3008130D8 /* PokemonStoryboardCardCell.swift in Sources */,
 				518043AA2B6348D200552B6A /* EvolutionCell.swift in Sources */,
 				51339CE82B6104B200DA49EC /* PokeballProgressView.swift in Sources */,
 				518043B32B6398BB00552B6A /* PokemonTypeComponent.swift in Sources */,
