@@ -16,17 +16,12 @@ class TabBarStoryboardController: UITabBarController {
     lazy var progressView = PokeballProgressView()
     
     // MARK: - Life Cycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarViewModel.delegate = self
         tabBarViewModel.loadView()
-        UINavigationBar.appearance().barTintColor = .systemBackground
-        UINavigationBar.appearance().tintColor = .pinkPokemon
         navigationItem.setHidesBackButton(true, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
 
 }
