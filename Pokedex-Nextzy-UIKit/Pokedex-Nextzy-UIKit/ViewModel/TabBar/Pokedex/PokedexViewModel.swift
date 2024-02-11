@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol PokedexViewModelDelegate {
+protocol PokedexViewModelDelegate: AnyObject {
     func toggleViewReload()
     func toggleAlert(messege: String)
 }
@@ -21,7 +21,7 @@ class PokedexViewModel {
     }
     
     private let pokemonManager = PokemonManager.shared
-    var delegate: PokedexViewModelDelegate?
+    weak var delegate: PokedexViewModelDelegate?
     var pokemons: [Pokemon] = []
     var collectionViewDisplayType: DisplayType = .twoColumns
     
