@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ProfileViewModelDelegate {
+protocol ProfileViewModelDelegate: AnyObject {
     func setProfileData(firstName: String, lastName: String, imageURL: String)
     func navigateToNextView()
     func segueToNextView()
@@ -21,7 +21,7 @@ class ProfileViewModel {
     }
     
     private let authManager = AuthenticationManager.shared
-    var delegate: ProfileViewModelDelegate?
+    weak var delegate: ProfileViewModelDelegate?
     
     func getProfileData() {
         guard let user = authManager.currentUser else {
