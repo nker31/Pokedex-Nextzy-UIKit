@@ -555,11 +555,12 @@
                     <connections>
                         <outlet property="collectionView" destination="eXa-sl-H8E" id="PPk-1b-rKu"/>
                         <segue destination="4gm-QM-1Iu" kind="show" identifier="PresentSearch" id="0kC-QS-Bm5"/>
+                        <segue destination="BBs-rC-cgo" kind="show" identifier="PresentPokemon" id="AbU-sw-2iC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pBd-Bp-rXS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1106.1068702290077" y="1723.943661971831"/>
+            <point key="canvasLocation" x="-1106" y="1724"/>
         </scene>
         <!--Search Storyboard Controller-->
         <scene sceneID="3gU-s7-Rwq">
@@ -741,11 +742,85 @@
                     <navigationItem key="navigationItem" title="My Pokemon" id="jpQ-xa-Agm"/>
                     <connections>
                         <outlet property="collectionView" destination="ITe-RF-9pK" id="OVu-Ia-5Hg"/>
+                        <segue destination="BBs-rC-cgo" kind="show" id="A6c-46-ScO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TxL-5m-eer" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="375" y="1724"/>
+        </scene>
+        <!--Detail Storyboard Controller-->
+        <scene sceneID="pjC-Gs-ZhF">
+            <objects>
+                <viewController id="BBs-rC-cgo" customClass="DetailStoryboardController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xGs-rA-lVr">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AFa-Th-pYB">
+                                <rect key="frame" x="0.0" y="229" width="393" height="128"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hOJ-gW-UtP">
+                                        <rect key="frame" x="116.66666666666669" y="70" width="160" height="160"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="160" id="UFB-p0-ebP"/>
+                                            <constraint firstAttribute="width" constant="160" id="Ueb-fM-3ae"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="hOJ-gW-UtP" secondAttribute="bottom" constant="20" id="0Qv-2F-nWp"/>
+                                    <constraint firstAttribute="height" constant="250" id="pMX-z2-HeX"/>
+                                    <constraint firstItem="hOJ-gW-UtP" firstAttribute="centerX" secondItem="AFa-Th-pYB" secondAttribute="centerX" id="wyX-eS-Dag"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="k9j-4q-I4M">
+                                <rect key="frame" x="0.0" y="56" width="393" height="747"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="24k-12-TQu">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="51.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="24k-12-TQu" id="cXO-ow-sdh">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="51.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="e9v-vq-roS">
+                                <rect key="frame" x="0.0" y="405" width="393" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="About"/>
+                                    <segment title="Stats"/>
+                                    <segment title="Evolution"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dhj-vE-8X2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dhj-vE-8X2" firstAttribute="trailing" secondItem="AFa-Th-pYB" secondAttribute="trailing" id="CAa-Jr-6a7"/>
+                            <constraint firstItem="AFa-Th-pYB" firstAttribute="leading" secondItem="dhj-vE-8X2" secondAttribute="leading" id="L1k-Kb-4Y3"/>
+                            <constraint firstItem="k9j-4q-I4M" firstAttribute="top" secondItem="dhj-vE-8X2" secondAttribute="top" id="gKV-Eb-lgC"/>
+                            <constraint firstItem="dhj-vE-8X2" firstAttribute="trailing" secondItem="k9j-4q-I4M" secondAttribute="trailing" id="gRJ-bm-VMd"/>
+                            <constraint firstItem="k9j-4q-I4M" firstAttribute="leading" secondItem="dhj-vE-8X2" secondAttribute="leading" id="wKG-iA-8Vh"/>
+                            <constraint firstItem="dhj-vE-8X2" firstAttribute="bottom" secondItem="k9j-4q-I4M" secondAttribute="bottom" id="xYA-w3-vfc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="oaB-Fu-wVk"/>
+                    <connections>
+                        <outlet property="headerView" destination="AFa-Th-pYB" id="NKc-i3-75M"/>
+                        <outlet property="pokemonImageView" destination="hOJ-gW-UtP" id="Fnn-bj-6qa"/>
+                        <outlet property="tabMenuView" destination="e9v-vq-roS" id="EvX-an-zLf"/>
+                        <outlet property="tableView" destination="k9j-4q-I4M" id="L6H-tX-39l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kSV-xf-Lak" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-344.27480916030532" y="2467.605633802817"/>
         </scene>
         <!--Tab Bar Storyboard Controller-->
         <scene sceneID="JYm-3d-CUm">
@@ -1197,6 +1272,7 @@
         <segue reference="qnC-CP-y8q"/>
         <segue reference="K93-5P-SFX"/>
         <segue reference="K3c-en-04w"/>
+        <segue reference="AbU-sw-2iC"/>
         <segue reference="PU1-gd-kw3"/>
     </inferredMetricsTieBreakers>
     <resources>
