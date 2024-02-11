@@ -11,40 +11,38 @@ import FirebaseFirestoreSwift
 
 class MyPokemonManager {
     
-    static var shared = MyPokemonManager()
-    var myPokemonsID: [String] = []
+    static let shared: MyPokemonManager = MyPokemonManager()
+    private(set) var myPokemonsID: [String] = []
     
-    func fetchMyPokemon(userID: String) async {
+    func fetchMyPokemon(userID: String) async throws {
         let db = Firestore.firestore()
-        do{
-            let documentSnapshot = try await  db.collection("pokemons").document(userID).getDocument()
+        do {
+            let documentSnapshot = try await db.collection("pokemons").document(userID).getDocument()
             
-            if documentSnapshot.exists{
+            if documentSnapshot.exists {
                 let data = documentSnapshot.data()
                 self.myPokemonsID = data?["favPokemon"] as? [String] ?? ["nothing here"]
-            }else{
+            } else {
                 try await db.collection("pokemons").document(userID).setData(["favPokemon": []])
             }
-        }
-        catch{
-            print("Debugger: fetch my pokemon failed")
+        } catch {
+            print("Debugger: (MyPokemonManager) fetch my pokemon failed")
+            throw error
         }
     }
-    
-    func addPokemonToFavList(pokemonID: [String], userID: String) async {
-        // Firebase
+
+    func addPokemonToFavList(pokemonID: [String], userID: String) async throws {
         let db = Firestore.firestore()
         let documentRef = db.collection("pokemons").document(userID)
         
         do {
-            try await documentRef.updateData([
-                "favPokemon": pokemonID
-            ])
+            try await documentRef.updateData(["favPokemon": pokemonID])
             print("Debugger: updated favorite pokemon successfully")
-            await self.fetchMyPokemon(userID: userID)
+            try await self.fetchMyPokemon(userID: userID)
         } catch {
-            print("Debugger: got an error from updating favorite pokemon")
+            print("Debugger: (MyPokemonManager) got an error from updating favorite pokemon")
+            throw error
         }
-        
     }
+
 }
