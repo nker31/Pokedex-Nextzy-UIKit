@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol TabBarViewModelDelegate {
+protocol TabBarViewModelDelegate: AnyObject {
     func toggleAlert(messege: String)
     func toggleProgessView(isHidden: Bool)
     func toggleViewReload()
@@ -16,7 +16,7 @@ protocol TabBarViewModelDelegate {
 class TabBarViewModel {
     private let authManager = AuthenticationManager.shared
     private let myPokemonManager = MyPokemonManager.shared
-    var delegate: TabBarViewModelDelegate?
+    weak var delegate: TabBarViewModelDelegate?
 
     func loadView() {
         delegate?.toggleProgessView(isHidden: false)
