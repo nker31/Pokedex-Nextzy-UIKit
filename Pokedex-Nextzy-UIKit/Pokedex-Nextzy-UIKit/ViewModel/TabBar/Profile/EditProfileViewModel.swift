@@ -8,14 +8,14 @@
 import Foundation
 import UIKit
 
-protocol EditProfileViewModelDelegate {
+protocol EditProfileViewModelDelegate: AnyObject {
     func toggleAlert(messege: String)
     func setProfileData(firstName: String, lastName: String, imageURL: String)
 }
 
 class EditProfileViewModel {
     private let authManager = AuthenticationManager.shared
-    var delegate: EditProfileViewModelDelegate?
+    weak var delegate: EditProfileViewModelDelegate?
     
     func tapUpdate(firstName: String, lastName: String, newImage: UIImage) {
         guard firstName.count >= 3 && lastName.count >= 3 else {
