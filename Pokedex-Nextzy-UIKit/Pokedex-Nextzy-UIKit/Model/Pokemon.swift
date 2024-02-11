@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Pokemon: Identifiable, Codable {
+struct Pokemon: Codable {
     let id: String
     let name: String
     let imageUrl: URL?
