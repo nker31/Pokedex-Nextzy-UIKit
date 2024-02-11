@@ -40,7 +40,7 @@ class LoginViewModel {
             do {
                 try await authManager.signIn(email: email, password: password)
                 print("Debugger: Sign in success")
-                DispatchQueue.main.async {
+                await MainActor.run {
                     switch loginType {
                     case .programmatic:
                         self.delegate?.navigateToNextView()
@@ -50,7 +50,7 @@ class LoginViewModel {
                 }
             } catch {
                 print("Debugger: Sign in failed")
-                DispatchQueue.main.async {
+                await MainActor.run {
                     self.delegate?.toggleAlert(messege: String(localized: "alert_login_failed"))
                 }
             }
