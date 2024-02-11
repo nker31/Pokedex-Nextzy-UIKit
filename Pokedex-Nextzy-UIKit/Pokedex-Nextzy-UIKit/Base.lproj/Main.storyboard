@@ -775,6 +775,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qmD-5k-fv6">
+                                <rect key="frame" x="0.0" y="320" width="393" height="522"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="6aJ-Va-Xeu">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="51.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6aJ-Va-Xeu" id="cMt-3h-BXL">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="51.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0uQ-ck-X7X">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="280"/>
                                 <subviews>
@@ -807,7 +821,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6IQ-QA-S9O">
-                                <rect key="frame" x="20" y="712.66666666666663" width="353" height="40.333333333333371"/>
+                                <rect key="frame" x="20" y="751.66666666666663" width="353" height="40.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Sign Out">
                                     <color key="baseBackgroundColor" name="PinkPokemon"/>
@@ -821,58 +835,32 @@
                                     <action selector="didTapSignOutButton:" destination="HaS-Jd-wOS" eventType="touchUpInside" id="ClI-cP-tYV"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fzt-Yj-T45" userLabel="Container">
-                                <rect key="frame" x="141" y="310" width="105.33333333333331" height="121"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drg-4B-xOI">
-                                        <rect key="frame" x="0.0" y="0.0" width="105.33333333333333" height="40.333333333333336"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="edit profile"/>
-                                        <connections>
-                                            <segue destination="UXN-qR-QNf" kind="show" id="Oq8-SN-QRr"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="skQ-Wj-Id8">
-                                        <rect key="frame" x="0.0" y="40.333333333333314" width="105.33333333333333" height="40.333333333333343"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="policy"/>
-                                        <connections>
-                                            <segue destination="6H4-fA-OET" kind="presentation" id="h6K-HF-PcB"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ear-Nd-rXe">
-                                        <rect key="frame" x="0.0" y="80.666666666666686" width="105.33333333333333" height="40.333333333333343"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="setting"/>
-                                        <connections>
-                                            <segue destination="iL3-fH-TJc" kind="show" id="cSk-GO-LuS"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="drg-4B-xOI" firstAttribute="centerX" secondItem="fzt-Yj-T45" secondAttribute="centerX" id="fgK-id-6ob"/>
-                                </constraints>
-                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Srz-KT-Qeq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="fzt-Yj-T45" firstAttribute="leading" secondItem="Srz-KT-Qeq" secondAttribute="leading" constant="141" id="1i9-Ci-YYu"/>
-                            <constraint firstItem="fzt-Yj-T45" firstAttribute="top" secondItem="0uQ-ck-X7X" secondAttribute="bottom" constant="30" id="3hX-FO-k7h"/>
                             <constraint firstItem="Srz-KT-Qeq" firstAttribute="trailing" secondItem="6IQ-QA-S9O" secondAttribute="trailing" constant="20" id="5hy-uZ-LBK"/>
                             <constraint firstItem="Srz-KT-Qeq" firstAttribute="trailing" secondItem="0uQ-ck-X7X" secondAttribute="trailing" id="83w-M1-SUx"/>
+                            <constraint firstItem="qmD-5k-fv6" firstAttribute="leading" secondItem="Srz-KT-Qeq" secondAttribute="leading" id="9n0-fb-KHV"/>
                             <constraint firstItem="0uQ-ck-X7X" firstAttribute="leading" secondItem="Srz-KT-Qeq" secondAttribute="leading" id="Gf0-vC-HPk"/>
+                            <constraint firstItem="qmD-5k-fv6" firstAttribute="top" secondItem="0uQ-ck-X7X" secondAttribute="bottom" constant="40" id="H47-EJ-Pfu"/>
+                            <constraint firstAttribute="bottom" secondItem="qmD-5k-fv6" secondAttribute="bottom" id="Zpw-n4-eqn"/>
                             <constraint firstItem="6IQ-QA-S9O" firstAttribute="leading" secondItem="Srz-KT-Qeq" secondAttribute="leading" constant="20" id="diL-IT-lRS"/>
                             <constraint firstItem="0uQ-ck-X7X" firstAttribute="top" secondItem="Cte-XT-lg4" secondAttribute="top" id="dme-9a-1ZE"/>
                             <constraint firstItem="Srz-KT-Qeq" firstAttribute="bottom" secondItem="6IQ-QA-S9O" secondAttribute="bottom" constant="50" id="kAF-nZ-Z3D"/>
+                            <constraint firstItem="Srz-KT-Qeq" firstAttribute="trailing" secondItem="qmD-5k-fv6" secondAttribute="trailing" id="khY-aK-if4"/>
                             <constraint firstItem="6IQ-QA-S9O" firstAttribute="centerX" secondItem="Cte-XT-lg4" secondAttribute="centerX" id="wLR-Mh-MKO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Jp0-Lu-kCU"/>
                     <connections>
                         <outlet property="profileImageView" destination="D7H-ym-GuG" id="3Jg-vH-tie"/>
+                        <outlet property="tableView" destination="qmD-5k-fv6" id="fex-py-1ON"/>
                         <outlet property="userFullnameLabel" destination="kkv-Jc-Alq" id="Qd7-do-JQ4"/>
                         <segue destination="F5n-D2-SZU" kind="show" identifier="SignOutSuccess" id="PU1-gd-kw3"/>
+                        <segue destination="UXN-qR-QNf" kind="show" identifier="PresentEditProfile" id="qnC-CP-y8q"/>
+                        <segue destination="6H4-fA-OET" kind="presentation" identifier="PresentWebView" id="1Q0-wQ-B0V"/>
+                        <segue destination="iL3-fH-TJc" kind="show" identifier="PresentSetting" id="9AQ-45-u68"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xhr-f3-wPG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1077,6 +1065,7 @@
                             <constraint firstItem="HWh-kR-epS" firstAttribute="leading" secondItem="tN1-re-VgG" secondAttribute="leading" constant="10" id="tJQ-gm-rUF"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="pbA-EJ-vHW"/>
                     <connections>
                         <outlet property="webView" destination="KNm-G2-yl4" id="F9t-yb-DwS"/>
                     </connections>
@@ -1094,7 +1083,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tKx-Z1-rZo">
-                                <rect key="frame" x="0.0" y="56" width="393" height="747"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="InK-b0-vCJ">
@@ -1205,7 +1194,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5L5-kc-FZB"/>
+        <segue reference="qnC-CP-y8q"/>
+        <segue reference="K93-5P-SFX"/>
         <segue reference="K3c-en-04w"/>
         <segue reference="PU1-gd-kw3"/>
     </inferredMetricsTieBreakers>
