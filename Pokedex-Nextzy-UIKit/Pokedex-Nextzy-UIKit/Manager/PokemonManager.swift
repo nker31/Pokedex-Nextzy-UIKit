@@ -9,13 +9,12 @@ import Foundation
 import Alamofire
 
 class PokemonManager {
-    static var shared = PokemonManager()
-    var pokemons: [Pokemon]?
-    let urlString = "https://raw.githubusercontent.com/wirunpong-j/PokedexAPIMock/master/pokemons.json"
+    static let shared: PokemonManager = PokemonManager()
+    private(set) var pokemons: [Pokemon]?
+    private let urlString: String = "https://raw.githubusercontent.com/wirunpong-j/PokedexAPIMock/master/pokemons.json"
 
     func fetchPokemon() async throws -> [Pokemon] {
         guard let url = URL(string: urlString) else { throw FetchError.invalidURL }
-        
         do {
             let (data, response) = try await URLSession.shared.data(from: url)
             let pokemons = try JSONDecoder().decode([Pokemon].self, from: data)
