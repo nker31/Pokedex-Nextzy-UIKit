@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol LoginViewModelDelegate {
+protocol LoginViewModelDelegate: AnyObject {
     func toggleAlert(messege: String)
     func navigateToNextView()
     func segueToNextView()
@@ -22,7 +22,7 @@ class LoginViewModel {
     
     // MARK: - Variables
     private let authManager = AuthenticationManager.shared
-    var delegate: LoginViewModelDelegate?
+    weak var delegate: LoginViewModelDelegate?
 
     // MARK: - Method
     func tapLogin(email: String, password: String, loginType: LoginType) {
