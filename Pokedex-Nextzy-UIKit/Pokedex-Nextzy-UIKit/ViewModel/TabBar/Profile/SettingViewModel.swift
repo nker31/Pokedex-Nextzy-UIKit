@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol SettingViewModelDelegate {
+protocol SettingViewModelDelegate: AnyObject {
     func toggleAlert(messege: String)
     func toggleViewReload()
 }
 
 class SettingViewModel {
     
-    var delegate: SettingViewModelDelegate?
+    weak var delegate: SettingViewModelDelegate?
     
     func switchLanguage(languageCode: String) {
         UserDefaults.standard.set([languageCode], forKey: "AppleLanguages")
