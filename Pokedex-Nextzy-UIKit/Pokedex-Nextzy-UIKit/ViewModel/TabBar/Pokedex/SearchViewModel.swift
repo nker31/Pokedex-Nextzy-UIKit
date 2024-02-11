@@ -33,7 +33,7 @@ class SearchViewModel {
         if searchText.isEmpty {
             self.filteredPokemon = []
         } else {
-            let result = pokemons.filter { $0.name.starts(with: searchText) }
+            let result = pokemons.filter { $0.name.lowercased().starts(with: searchText.lowercased()) }
             
             if result.isEmpty {
                 delegate?.toggleEmptyState(isHidden: false, searchText: searchText)
