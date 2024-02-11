@@ -123,6 +123,7 @@
 		51B5EF782B6CE67200928ED6 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B5EF772B6CE67200928ED6 /* TabBarViewModel.swift */; };
 		51CB3E412B64E155001877C4 /* MyPokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CB3E402B64E155001877C4 /* MyPokemonViewController.swift */; };
 		51CB3E432B64EE2E001877C4 /* MyPokemonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CB3E422B64EE2E001877C4 /* MyPokemonViewModel.swift */; };
+		51F051352B78BC4D00D1742A /* DetailStoryboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F051342B78BC4D00D1742A /* DetailStoryboardController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -217,6 +218,7 @@
 		51B5EF772B6CE67200928ED6 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		51CB3E402B64E155001877C4 /* MyPokemonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPokemonViewController.swift; sourceTree = "<group>"; };
 		51CB3E422B64EE2E001877C4 /* MyPokemonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPokemonViewModel.swift; sourceTree = "<group>"; };
+		51F051342B78BC4D00D1742A /* DetailStoryboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailStoryboardController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -470,6 +472,7 @@
 			children = (
 				51617A962B74C7B3007801D5 /* PokedexStoryboardController.swift */,
 				510D513C2B7606F1008130D8 /* SearchStoryboardController.swift */,
+				51F051342B78BC4D00D1742A /* DetailStoryboardController.swift */,
 			);
 			path = Pokedex;
 			sourceTree = "<group>";
@@ -806,6 +809,7 @@
 				512345F02B5F8E9000E84B66 /* WebViewController.swift in Sources */,
 				51617AA82B7543FA007801D5 /* SettingStoryboardController.swift in Sources */,
 				51617AA22B753836007801D5 /* RegisterStoryboardController.swift in Sources */,
+				51F051352B78BC4D00D1742A /* DetailStoryboardController.swift in Sources */,
 				519FCA5E2B5A78FE002BC2B5 /* TabBarController.swift in Sources */,
 				51A673FF2B62B56000745C01 /* StatCell.swift in Sources */,
 				51A34ADE2B5E816700D5CF19 /* ProfileViewController.swift in Sources */,
