@@ -57,7 +57,11 @@ class DetailViewModel {
         }
         
         Task {
-            await myPokemonManager.addPokemonToFavList(pokemonID: self.myPokemonID, userID: userID)
+            do {
+                try await myPokemonManager.addPokemonToFavList(pokemonID: self.myPokemonID, userID: userID)
+            } catch {
+                print("Failed to add pokemon with error: \(error)")
+            }
         }
         
         checkFavorite()
