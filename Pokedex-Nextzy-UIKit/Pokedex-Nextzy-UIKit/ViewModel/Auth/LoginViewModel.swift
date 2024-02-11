@@ -26,12 +26,12 @@ class LoginViewModel {
 
     // MARK: - Method
     func tapLogin(email: String, password: String, loginType: LoginType) {
-        guard authManager.isValidEmail(email) else {
+        guard email.isValidEmail() else {
             delegate?.toggleAlert(messege: String(localized: "alert_invalid_email"))
             return
         }
         
-        guard authManager.isValidPassword(password) else {
+        guard password.isValidPassword() else {
             delegate?.toggleAlert(messege: String(localized: "alert_invalid_password"))
             return
         }
