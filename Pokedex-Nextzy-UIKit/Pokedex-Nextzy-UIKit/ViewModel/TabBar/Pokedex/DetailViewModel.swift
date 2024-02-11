@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol DetailViewModelDelegate {
+protocol DetailViewModelDelegate: AnyObject {
     func toggleNavbarReload()
     func toggleTableViewReload()
 }
@@ -22,7 +22,7 @@ class DetailViewModel {
     private let pokemonManager = PokemonManager.shared
     private let myPokemonManager = MyPokemonManager.shared
     private let authManager = AuthenticationManager.shared
-    var delegate: DetailViewModelDelegate?
+    weak var delegate: DetailViewModelDelegate?
     
     var isLiked = false
     var isPresentMenu = selectedMenu.about
