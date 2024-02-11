@@ -12,10 +12,10 @@ import FirebaseStorage
 
 class AuthenticationManager {
     static var shared = AuthenticationManager()
-    var userSession: FirebaseAuth.User?
-    var currentUser: User?
+    private(set) var userSession: FirebaseAuth.User?
+    private(set) var currentUser: User?
 
-    init() {
+    private init() {
         self.userSession = Auth.auth().currentUser
     }
     
@@ -109,7 +109,7 @@ class AuthenticationManager {
         
     }
     
-    func uploadImage(image: UIImage, imageName: String, completion: @escaping (Result<URL, Error>) -> Void) async {
+    private func uploadImage(image: UIImage, imageName: String, completion: @escaping (Result<URL, Error>) -> Void) async {
         
         guard let imageData = image.jpegData(compressionQuality: 0.5) else {
             print("Debugger: Failed to compress image")
