@@ -126,6 +126,8 @@
 		51F051352B78BC4D00D1742A /* DetailStoryboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F051342B78BC4D00D1742A /* DetailStoryboardController.swift */; };
 		51F051392B79056600D1742A /* StatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51F051382B79056600D1742A /* StatCell.xib */; };
 		51F0513C2B790CF900D1742A /* StatCellStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F0513B2B790CF900D1742A /* StatCellStoryboard.swift */; };
+		51F051402B7918A400D1742A /* AboutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51F0513F2B7918A400D1742A /* AboutCell.xib */; };
+		51F051422B791D5700D1742A /* AboutCellStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F051412B791D5700D1742A /* AboutCellStoryboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -223,6 +225,8 @@
 		51F051342B78BC4D00D1742A /* DetailStoryboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailStoryboardController.swift; sourceTree = "<group>"; };
 		51F051382B79056600D1742A /* StatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatCell.xib; sourceTree = "<group>"; };
 		51F0513B2B790CF900D1742A /* StatCellStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatCellStoryboard.swift; sourceTree = "<group>"; };
+		51F0513F2B7918A400D1742A /* AboutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutCell.xib; sourceTree = "<group>"; };
+		51F051412B791D5700D1742A /* AboutCellStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCellStoryboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,6 +323,7 @@
 			children = (
 				510D51362B75E883008130D8 /* PokemonStoryboardCardCell.xib */,
 				510D51382B75FD3C008130D8 /* PokemonStoryboardSmallCell.xib */,
+				51F0513F2B7918A400D1742A /* AboutCell.xib */,
 				51F051382B79056600D1742A /* StatCell.xib */,
 			);
 			path = xib;
@@ -639,6 +644,7 @@
 			isa = PBXGroup;
 			children = (
 				51F0513B2B790CF900D1742A /* StatCellStoryboard.swift */,
+				51F051412B791D5700D1742A /* AboutCellStoryboard.swift */,
 			);
 			path = "Detail Cell";
 			sourceTree = "<group>";
@@ -747,6 +753,7 @@
 				51617A7D2B7490D3007801D5 /* NotoSansThai-Regular.ttf in Resources */,
 				515D22002B6A0E0900561C3C /* auth-video-bg.mp4 in Resources */,
 				51F051392B79056600D1742A /* StatCell.xib in Resources */,
+				51F051402B7918A400D1742A /* AboutCell.xib in Resources */,
 				51617A802B7490D3007801D5 /* NotoSansThai-Medium.ttf in Resources */,
 				51617A792B7490D3007801D5 /* NotoSansThai-Light.ttf in Resources */,
 				510D51392B75FD3C008130D8 /* PokemonStoryboardSmallCell.xib in Resources */,
@@ -796,6 +803,7 @@
 				51339CDF2B602D5E00DA49EC /* Pokemon.swift in Sources */,
 				51B5EF742B6CE43C00928ED6 /* PokemonManager.swift in Sources */,
 				51104D0B2B723E7000CBEEA9 /* PresentionSytleController.swift in Sources */,
+				51F051422B791D5700D1742A /* AboutCellStoryboard.swift in Sources */,
 				51339CF12B625F4F00DA49EC /* AboutCell.swift in Sources */,
 				519FCA1C2B5A4769002BC2B5 /* ImagePickerButton.swift in Sources */,
 				51A34ADC2B5E1D9900D5CF19 /* User.swift in Sources */,
