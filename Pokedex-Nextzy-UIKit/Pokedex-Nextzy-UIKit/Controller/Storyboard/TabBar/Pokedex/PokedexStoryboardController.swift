@@ -160,9 +160,19 @@ extension PokedexStoryboardController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        hidesBottomBarWhenPushed = true
+        performSegue(withIdentifier: "PresentPokemon", sender: pokedexViewModel.pokemons[indexPath.item])
+        hidesBottomBarWhenPushed = false
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PresentPokemon" {
+            if let pokemon = sender as? Pokemon,
+               let destinationVC = segue.destination as? DetailStoryboardController {
+                destinationVC.setPokemon(pokemon)
+            }
+        }
+    }
 }
 
 extension PokedexStoryboardController: PokedexViewModelDelegate {
