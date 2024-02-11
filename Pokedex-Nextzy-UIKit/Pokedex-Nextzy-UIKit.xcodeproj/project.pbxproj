@@ -130,6 +130,7 @@
 		51F051422B791D5700D1742A /* AboutCellStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F051412B791D5700D1742A /* AboutCellStoryboard.swift */; };
 		51F051442B792E8400D1742A /* EvolutionCellStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F051432B792E8400D1742A /* EvolutionCellStoryboard.swift */; };
 		51F051462B792ED800D1742A /* EvolutionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51F051452B792ED800D1742A /* EvolutionCell.xib */; };
+		51F051482B79508600D1742A /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F051472B79508600D1742A /* StringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -231,6 +232,7 @@
 		51F051412B791D5700D1742A /* AboutCellStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCellStoryboard.swift; sourceTree = "<group>"; };
 		51F051432B792E8400D1742A /* EvolutionCellStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionCellStoryboard.swift; sourceTree = "<group>"; };
 		51F051452B792ED800D1742A /* EvolutionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EvolutionCell.xib; sourceTree = "<group>"; };
+		51F051472B79508600D1742A /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -429,6 +431,7 @@
 				51617A812B74935B007801D5 /* FontExtension.swift */,
 				51617A852B74972A007801D5 /* UIViewControllerExtension.swift */,
 				51617A872B749783007801D5 /* UIViewExtension.swift */,
+				51F051472B79508600D1742A /* StringExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -793,6 +796,7 @@
 				51B5EF6D2B6CC3B400928ED6 /* AuthenticationManager.swift in Sources */,
 				513D90062B6EC92C00ED9B63 /* PokedexViewModel.swift in Sources */,
 				51339CE42B60C7DE00DA49EC /* SmallPokemonCell.swift in Sources */,
+				51F051482B79508600D1742A /* StringExtension.swift in Sources */,
 				51617A9B2B74D07D007801D5 /* MyPokemonStoryboardController.swift in Sources */,
 				51040E1D2B66B9F2009BD5AA /* MyPokemonEmptyView.swift in Sources */,
 				51617A822B74935B007801D5 /* FontExtension.swift in Sources */,
