@@ -24,7 +24,7 @@ class TabBarViewModel {
             await authManager.fetchUserData()
             await myPokemonManager.fetchMyPokemon(userID: authManager.currentUser?.id ?? "")
             sleep(UInt32(2.0))
-            DispatchQueue.main.async {
+            await MainActor.run {
                 self.delegate?.toggleViewReload()
                 self.delegate?.toggleProgessView(isHidden: true)
             }
