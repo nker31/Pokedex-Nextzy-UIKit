@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ForgotPasswordViewModelDelegate {
+protocol ForgotPasswordViewModelDelegate: AnyObject {
     func toggleAlert(messege: String)
 }
 
@@ -15,7 +15,7 @@ class ForgotPasswordViewModel {
     
     // MARK: - Variables
     private let authManager = AuthenticationManager.shared
-    var delegate: ForgotPasswordViewModelDelegate?
+    weak var delegate: ForgotPasswordViewModelDelegate?
     
     // MARK: - Method
     func tapResetPassword(email: String) {
