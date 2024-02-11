@@ -22,7 +22,14 @@ class TabBarViewModel {
         delegate?.toggleProgessView(isHidden: false)
         Task {
             await authManager.fetchUserData()
-            await myPokemonManager.fetchMyPokemon(userID: authManager.currentUser?.id ?? "")
+            do {
+                try await myPokemonManager.fetchMyPokemon(userID: authManager.currentUser?.id ?? "")
+            } catch {
+                await MainActor.run {
+                    self.delegate?.toggleProgessView(isHidden: true)
+                    self.delegate?.toggleAlert(messege: "Failed to fetch pokemon data")
+                }
+            }
             sleep(UInt32(2.0))
             await MainActor.run {
                 self.delegate?.toggleViewReload()
