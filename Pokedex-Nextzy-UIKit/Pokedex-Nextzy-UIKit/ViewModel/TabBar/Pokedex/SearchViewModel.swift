@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol SearchViewModelDelegate {
+protocol SearchViewModelDelegate: AnyObject {
     func toggleCollectionViewReload()
     func toggleEmptyState(isHidden: Bool, searchText: String)
 }
 
 class SearchViewModel {
     private let pokemonManager = PokemonManager.shared
-    var delegate: SearchViewModelDelegate?
+    weak var delegate: SearchViewModelDelegate?
     var pokemons: [Pokemon] = []
     var filteredPokemon: [Pokemon] = []
     
