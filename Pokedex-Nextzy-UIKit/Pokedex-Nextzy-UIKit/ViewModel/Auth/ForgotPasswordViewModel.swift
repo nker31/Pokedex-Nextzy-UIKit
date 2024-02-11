@@ -19,7 +19,7 @@ class ForgotPasswordViewModel {
     
     // MARK: - Method
     func tapResetPassword(email: String) {
-        guard authManager.isValidEmail(email) else {
+        guard email.isValidEmail() else {
             delegate?.toggleAlert(messege: String(localized: "alert_invalid_email"))
             return
         }

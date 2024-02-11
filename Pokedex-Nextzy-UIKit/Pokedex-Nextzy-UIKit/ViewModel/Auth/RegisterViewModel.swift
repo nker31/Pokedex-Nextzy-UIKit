@@ -66,12 +66,12 @@ class RegisterViewModel {
                             firstName: String,
                             lastName: String) -> Bool {
         
-        guard authManager.isValidEmail(email) else {
+        guard email.isValidEmail() else {
             delegate?.toggleAlert(messege: String(localized: "alert_invalid_email"))
             return false
         }
         
-        guard authManager.isValidPassword(password) else {
+        guard password.isValidPassword() else {
             delegate?.toggleAlert(messege: String(localized: "alert_invalid_password"))
             return false
         }
