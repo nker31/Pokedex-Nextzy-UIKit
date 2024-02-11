@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol MyPokemonViewModelDelegate {
+protocol MyPokemonViewModelDelegate: AnyObject {
     func toggleViewReload()
 }
 
@@ -23,7 +23,7 @@ class MyPokemonViewModel {
     private let myPokemonManager = MyPokemonManager.shared
     var myPokemonsID: [String] = []
     var displayedPokemons: [Pokemon] = []
-    var delegate: MyPokemonViewModelDelegate?
+    weak var delegate: MyPokemonViewModelDelegate?
     var collectionViewDisplayType: DisplayType = .twoColumns
     
     func loadMyPokemonData() {
