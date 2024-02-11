@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol RegisterViewModelDelegate {
+protocol RegisterViewModelDelegate: AnyObject {
     func toggleAlert(messege: String)
     func navigateToNextView()
     func segueToNextView()
@@ -23,7 +23,7 @@ class RegisterViewModel {
     
     // MARK: - Variables
     private let authManager = AuthenticationManager.shared
-    var delegate: RegisterViewModelDelegate?
+    weak var delegate: RegisterViewModelDelegate?
     
     func tapRegister(email: String,
                      password: String,
