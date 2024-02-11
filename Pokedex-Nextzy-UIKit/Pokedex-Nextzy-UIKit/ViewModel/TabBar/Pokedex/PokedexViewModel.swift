@@ -29,12 +29,12 @@ class PokedexViewModel {
         Task {
             do {
                 pokemons = try await pokemonManager.fetchPokemon()
-                DispatchQueue.main.async {
+                await MainActor.run {
                     self.delegate?.toggleViewReload()
                 }
             } catch {
                 print("Debugger: got error \(error) from PokemonManager")
-                DispatchQueue.main.async {
+                await MainActor.run {
                     self.delegate?.toggleAlert(messege: "Failed to fetch pokemon data")
                 }
             }
