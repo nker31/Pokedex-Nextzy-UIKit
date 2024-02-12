@@ -198,10 +198,10 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Fr7-Bh-vnP">
-                                <rect key="frame" x="0.0" y="150" width="313" height="21.333333333333343"/>
+                                <rect key="frame" x="0.0" y="150" width="313" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JiY-k1-68s">
-                                        <rect key="frame" x="0.0" y="0.0" width="60" height="21.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="4.3333333333333428" width="60" height="21.333333333333332"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="IPf-aD-KB9"/>
                                         </constraints>
@@ -210,7 +210,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="80" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBt-vO-qXK">
-                                        <rect key="frame" x="70" y="0.0" width="30" height="21.333333333333332"/>
+                                        <rect key="frame" x="70" y="4.3333333333333428" width="30" height="21.333333333333332"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="B0M-W7-p1V"/>
                                         </constraints>
@@ -219,7 +219,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CNZ-ol-5Qv">
-                                        <rect key="frame" x="110" y="5.6666666666666572" width="203" height="10"/>
+                                        <rect key="frame" x="110" y="10" width="203" height="10"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" red="0.35686274509999999" green="0.67843137249999996" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
@@ -232,10 +232,10 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uH3-VS-SK5">
-                                <rect key="frame" x="0.0" y="171.33333333333334" width="313" height="30"/>
+                                <rect key="frame" x="0.0" y="180" width="313" height="21.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zrk-SH-sr2">
-                                        <rect key="frame" x="0.0" y="4.3333333333333428" width="60" height="21.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="21.333333333333332"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="Tot-mR-cQ7"/>
                                         </constraints>
@@ -244,7 +244,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="80" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYz-yW-qYe">
-                                        <rect key="frame" x="70" y="4.3333333333333428" width="30" height="21.333333333333332"/>
+                                        <rect key="frame" x="70" y="0.0" width="30" height="21.333333333333332"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="uxb-Bt-1jA"/>
                                         </constraints>
@@ -253,7 +253,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lRc-Re-E5Q">
-                                        <rect key="frame" x="110" y="10" width="203" height="10"/>
+                                        <rect key="frame" x="110" y="5.6666666666666572" width="203" height="10"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" red="0.35686274509999999" green="0.67843137249999996" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
