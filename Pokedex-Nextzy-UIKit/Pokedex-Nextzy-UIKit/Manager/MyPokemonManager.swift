@@ -15,6 +15,10 @@ class MyPokemonManager {
     private(set) var myPokemonsID: [String] = []
     
     func fetchMyPokemon(userID: String) async throws {
+        guard !userID.isEmpty else {
+            print("Debugger: (MyPokemonManager) userID is empty")
+            return
+        }
         let db = Firestore.firestore()
         do {
             let documentSnapshot = try await db.collection("pokemons").document(userID).getDocument()
