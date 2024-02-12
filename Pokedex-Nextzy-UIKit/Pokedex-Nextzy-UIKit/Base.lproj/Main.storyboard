@@ -428,28 +428,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7jo-Y8-Qif" userLabel="Container">
-                                <rect key="frame" x="36.666666666666657" y="370" width="320" height="112.33333333333331"/>
+                                <rect key="frame" x="36.666666666666657" y="360.33333333333331" width="320" height="131.33333333333331"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Nxb-dl-z7r">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="56.666666666666664"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="71.333333333333329"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xr9-sy-UWr">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="17"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                <nil key="textColor"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="21.333333333333332"/>
+                                                <fontDescription key="fontDescription" name="NotoSansThai-Bold" family="Noto Sans Thai" pointSize="14"/>
+                                                <color key="textColor" systemColor="systemGrayColor"/>
                                                 <nil key="highlightedColor"/>
                                                 <attributedString key="userComments">
                                                     <fragment content="email label"/>
                                                 </attributedString>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vz6-DT-dS6">
-                                                <rect key="frame" x="0.0" y="27" width="320" height="18.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="31.333333333333371" width="320" height="29"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="NotoSansThai-Regular" family="Noto Sans Thai" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xGo-C6-8zd">
-                                                <rect key="frame" x="0.0" y="55.666666666666686" width="320" height="1"/>
+                                                <rect key="frame" x="0.0" y="70.333333333333371" width="320" height="1"/>
                                                 <color key="backgroundColor" name="PinkPokemon"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="GB1-Yd-NS6"/>
@@ -458,10 +458,13 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEQ-Cc-HZv">
-                                        <rect key="frame" x="0.0" y="76.666666666666686" width="320" height="35.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="91.333333333333371" width="320" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="utb-Th-oUY"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Forgot Password">
-                                            <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="18"/>
+                                            <fontDescription key="titleFontDescription" name="NotoSansThai-Medium" family="Noto Sans Thai" pointSize="18"/>
                                             <color key="baseBackgroundColor" name="PinkPokemon"/>
                                         </buttonConfiguration>
                                         <connections>
