@@ -30,7 +30,7 @@ class PresentionSytleController: UIViewController {
     }
     
     func setupUI() {
-        view.backgroundColor = .red
+        view.backgroundColor = .pinkPokemon
         view.addSubview(programmaticButton)
         view.addSubview(storyboardButton)
         
@@ -47,29 +47,31 @@ class PresentionSytleController: UIViewController {
     }
     
     @objc func presentProgrammaticUI() {
-        print("Debugger: Programmatic")
-        if (authManager.currentUser != nil) {
-            
+        let vc: UIViewController
+        if authManager.userSession != nil {
+            vc = TabBarController()
         } else {
-            
+            vc = UINavigationController(rootViewController: LoginViewController(loginViewModel: LoginViewModel()))
         }
-        let vc = LoginViewController(loginViewModel: LoginViewModel())
-        let programmaticViewController =  UINavigationController(rootViewController: vc)
+        let programmaticViewController = vc
         programmaticViewController.modalPresentationStyle = .fullScreen
         self.present(programmaticViewController, animated: true)
         
     }
     
     @objc func presentStoryboardUI() {
-        print("Debugger: Storyboard")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let storyboardViewController = storyboard.instantiateInitialViewController() {
+        if authManager.userSession != nil {
+            let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! TabBarStoryboardController
+            tabBarController.modalPresentationStyle = .fullScreen
+            present(tabBarController, animated: true)
+        } else {
+            guard let storyboardViewController = storyboard.instantiateInitialViewController() else {
+                return
+            }
             storyboardViewController.modalPresentationStyle = .fullScreen
             present(storyboardViewController, animated: true)
-        } else {
-            print("Debugger: Unable to instantiate initial view controller from storyboard")
         }
-        
     }
 
 }
