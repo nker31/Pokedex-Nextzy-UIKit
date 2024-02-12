@@ -1,66 +1,78 @@
 
-/* Class = "UITabBarItem"; title = "Pokedex"; ObjectID = "2ET-2a-B34"; */
-"2ET-2a-B34.title" = "Pokedex";
+/* Class = "UISegmentedControl"; 1Zx-bW-0nP.segmentTitles[0] = "Detail"; ObjectID = "1Zx-bW-0nP"; */
+"1Zx-bW-0nP.segmentTitles[0]" = "ข้อมูลทั่วไป";
+
+/* Class = "UISegmentedControl"; 1Zx-bW-0nP.segmentTitles[1] = "Stats"; ObjectID = "1Zx-bW-0nP"; */
+"1Zx-bW-0nP.segmentTitles[1]" = "ค่าพลัง";
+
+/* Class = "UISegmentedControl"; 1Zx-bW-0nP.segmentTitles[2] = "Evolution"; ObjectID = "1Zx-bW-0nP"; */
+"1Zx-bW-0nP.segmentTitles[2]" = "การวิวัฒนาการ";
+
+/* Class = "UITabBarItem"; title = "Pokedex"; ObjectID = "2ET-2a-B34"; Note = "Pokedex TabMneu"; */
+"2ET-2a-B34.title" = "โปเกเด็กซ์";
 
 /* Class = "UIButton"; configuration.title = "No account ? Register"; ObjectID = "3ZO-Ck-fE2"; */
-"3ZO-Ck-fE2.configuration.title" = "No account ? Register";
+"3ZO-Ck-fE2.configuration.title" = "ไม่มีบัญชีเหรอ ลงทะเบียนสิ";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "3ZO-Ck-fE2"; */
 "3ZO-Ck-fE2.normalTitle" = "Button";
 
 /* Class = "UIButton"; configuration.title = "Sign Out"; ObjectID = "6IQ-QA-S9O"; */
-"6IQ-QA-S9O.configuration.title" = "Sign Out";
+"6IQ-QA-S9O.configuration.title" = "ออกจากระบบ";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "6IQ-QA-S9O"; */
 "6IQ-QA-S9O.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "Confirm Password"; ObjectID = "8c0-K9-Nzu"; */
-"8c0-K9-Nzu.text" = "Confirm Password";
+"8c0-K9-Nzu.text" = "ยืนยันรหัสผ่าน";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "8h8-Uk-HCx"; */
 "8h8-Uk-HCx.text" = "Label";
 
+/* Class = "UILabel"; text = "Not found"; ObjectID = "AX8-uq-e46"; */
+"AX8-uq-e46.text" = "ไม่พบโปเกม่อนที่ค้นหา";
+
 /* Class = "UILabel"; text = "First name"; ObjectID = "AXb-2L-Ajx"; */
-"AXb-2L-Ajx.text" = "First name";
+"AXb-2L-Ajx.text" = "ชื่อจริง";
 
 /* Class = "UITextField"; placeholder = "Enter your first name"; ObjectID = "DKF-Bn-ZIz"; */
-"DKF-Bn-ZIz.placeholder" = "Enter your first name";
+"DKF-Bn-ZIz.placeholder" = "กรอกชื่อจริงของคุณ";
 
-/* Class = "UITextField"; placeholder = "Enter your password"; ObjectID = "Db9-js-eT8"; */
-"Db9-js-eT8.placeholder" = "Enter your password";
+/* Class = "UITextField"; placeholder = "Password (min. 8 characters)"; ObjectID = "Db9-js-eT8"; */
+"Db9-js-eT8.placeholder" = "กรอกรหัสผ่านของคุณ อย่างน้อย 8 ตัวอักษร";
 
 /* Class = "UIViewController"; title = "Login"; ObjectID = "F5n-D2-SZU"; */
-"F5n-D2-SZU.title" = "Login";
+"F5n-D2-SZU.title" = "เข้าสู่ระบบ";
 
-/* Class = "UILabel"; text = "Email"; ObjectID = "FPl-tj-iy9"; */
-"FPl-tj-iy9.text" = "Email";
+/* Class = "UILabel"; text = "Email"; ObjectID = "FPl-tj-iy9"; Note = "email label"; */
+"FPl-tj-iy9.text" = "อีเมล";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "G3f-fL-xRo"; */
+"G3f-fL-xRo.text" = "Label";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "HWh-kR-epS"; */
 "HWh-kR-epS.normalTitle" = "Button";
 
 /* Class = "UITextField"; placeholder = "Enter your email"; ObjectID = "K6N-wF-eVJ"; */
-"K6N-wF-eVJ.placeholder" = "Enter your email";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "Ko1-ZU-yQF"; */
-"Ko1-ZU-yQF.text" = "Label";
+"K6N-wF-eVJ.placeholder" = "กรอกอีเมลของคุณ";
 
 /* Class = "UITextField"; placeholder = "Enter your last name"; ObjectID = "L1T-Ye-8Za"; */
-"L1T-Ye-8Za.placeholder" = "Enter your last name";
+"L1T-Ye-8Za.placeholder" = "กรอกนามสกุลของคุณ";
 
 /* Class = "UITextField"; placeholder = "Enter your last name"; ObjectID = "LHZ-km-Afe"; */
-"LHZ-km-Afe.placeholder" = "Enter your last name";
+"LHZ-km-Afe.placeholder" = "กรอกนามสกุลของคุณ";
 
-/* Class = "UITabBarItem"; title = "My Pokemon"; ObjectID = "Mry-WU-gB2"; */
-"Mry-WU-gB2.title" = "My Pokemon";
+/* Class = "UITabBarItem"; title = "My Pokemon"; ObjectID = "Mry-WU-gB2"; Note = "MyPokemon TabMneu"; */
+"Mry-WU-gB2.title" = "โปเกม่อนที่ชอบ";
 
 /* Class = "UITextField"; placeholder = "Enter your email"; ObjectID = "Oe4-Bf-h2d"; */
-"Oe4-Bf-h2d.placeholder" = "Enter your email";
+"Oe4-Bf-h2d.placeholder" = "กรอกอีเมลของคุณ";
 
 /* Class = "UITextField"; placeholder = "Enter your email"; ObjectID = "OmJ-mc-BOu"; */
-"OmJ-mc-BOu.placeholder" = "Enter your email";
+"OmJ-mc-BOu.placeholder" = "กรอกอีเมลของคุณ";
 
 /* Class = "UIButton"; configuration.title = "Register"; ObjectID = "PXk-6Z-N8j"; */
-"PXk-6Z-N8j.configuration.title" = "Register";
+"PXk-6Z-N8j.configuration.title" = "ลงทะเบียน";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "PXk-6Z-N8j"; */
 "PXk-6Z-N8j.normalTitle" = "Button";
@@ -69,46 +81,37 @@
 "RUK-cW-5o7.normalTitle" = "Button";
 
 /* Class = "UIViewController"; title = "Forgot Password"; ObjectID = "Udu-NW-gDr"; */
-"Udu-NW-gDr.title" = "Forgot Password";
+"Udu-NW-gDr.title" = "ลืมรหัสผ่าน";
 
-/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "Vp8-U3-sxE"; */
-"Vp8-U3-sxE.title" = "Profile";
+/* Class = "UILabel"; text = "Label"; ObjectID = "VMM-IU-bln"; */
+"VMM-IU-bln.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "Vp8-U3-sxE"; Note = "Profile TabMneu"; */
+"Vp8-U3-sxE.title" = "โปรไฟล์";
 
 /* Class = "UITextField"; placeholder = "Enter your email"; ObjectID = "Vz6-DT-dS6"; */
-"Vz6-DT-dS6.placeholder" = "Enter your email";
+"Vz6-DT-dS6.placeholder" = "กรอกอีเมลของคุณ";
 
 /* Class = "UIButton"; configuration.title = "Login"; ObjectID = "Z5B-fG-O5d"; */
-"Z5B-fG-O5d.configuration.title" = "Login";
+"Z5B-fG-O5d.configuration.title" = "เข้าสู่ระบบ";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Z5B-fG-O5d"; */
 "Z5B-fG-O5d.normalTitle" = "Button";
 
 /* Class = "UIButton"; configuration.title = "Forgot Password"; ObjectID = "bEQ-Cc-HZv"; */
-"bEQ-Cc-HZv.configuration.title" = "Forgot Password";
+"bEQ-Cc-HZv.configuration.title" = "ลืมรหัสผ่าน";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "bEQ-Cc-HZv"; */
 "bEQ-Cc-HZv.normalTitle" = "Button";
 
 /* Class = "UIButton"; configuration.title = "Forgot password ?"; ObjectID = "brZ-kR-cRH"; */
-"brZ-kR-cRH.configuration.title" = "Forgot password ?";
+"brZ-kR-cRH.configuration.title" = "ลืมรหัสผ่าน ?";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "brZ-kR-cRH"; */
 "brZ-kR-cRH.normalTitle" = "Button";
 
-/* Class = "UIButton"; configuration.title = "edit profile"; ObjectID = "drg-4B-xOI"; */
-"drg-4B-xOI.configuration.title" = "edit profile";
-
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "drg-4B-xOI"; */
-"drg-4B-xOI.normalTitle" = "Button";
-
-/* Class = "UIButton"; configuration.title = "setting"; ObjectID = "ear-Nd-rXe"; */
-"ear-Nd-rXe.configuration.title" = "setting";
-
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ear-Nd-rXe"; */
-"ear-Nd-rXe.normalTitle" = "Button";
-
-/* Class = "UITextField"; placeholder = "Enter your confirm password"; ObjectID = "iZU-4V-yrj"; */
-"iZU-4V-yrj.placeholder" = "Enter your confirm password";
+/* Class = "UITextField"; placeholder = "Confirm password (min. 8 characters)"; ObjectID = "iZU-4V-yrj"; */
+"iZU-4V-yrj.placeholder" = "ยืนยันรหัสผ่าน";
 
 /* Class = "UINavigationItem"; title = "My Pokemon"; ObjectID = "jpQ-xa-Agm"; */
 "jpQ-xa-Agm.title" = "My Pokemon";
@@ -116,44 +119,35 @@
 /* Class = "UILabel"; text = "Firstname lastname"; ObjectID = "kkv-Jc-Alq"; */
 "kkv-Jc-Alq.text" = "Firstname lastname";
 
-/* Class = "UILabel"; text = "Email"; ObjectID = "nII-IK-wjL"; */
-"nII-IK-wjL.text" = "Email";
+/* Class = "UILabel"; text = "Email"; ObjectID = "nII-IK-wjL"; Note = "email label"; */
+"nII-IK-wjL.text" = "อีเมล";
 
 /* Class = "UIButton"; configuration.title = "Update"; ObjectID = "nK0-hw-l9J"; */
-"nK0-hw-l9J.configuration.title" = "Update";
+"nK0-hw-l9J.configuration.title" = "บันทึกการเปลี่ยนแปลง";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "nK0-hw-l9J"; */
 "nK0-hw-l9J.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "First name"; ObjectID = "oIo-dg-l58"; */
-"oIo-dg-l58.text" = "First name";
+"oIo-dg-l58.text" = "ชื่อจริง";
 
 /* Class = "UITextField"; placeholder = "Enter your first name"; ObjectID = "oQH-WH-5vu"; */
-"oQH-WH-5vu.placeholder" = "Enter your first name";
+"oQH-WH-5vu.placeholder" = "กรอกชื่อจริงของคุณ";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "p3s-8I-hFa"; */
 "p3s-8I-hFa.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "Password"; ObjectID = "pYM-dz-AG9"; */
-"pYM-dz-AG9.text" = "Password";
+"pYM-dz-AG9.text" = "รหัสผ่าน";
 
 /* Class = "UILabel"; text = "Last name"; ObjectID = "r5S-dV-y6O"; */
-"r5S-dV-y6O.text" = "Last name";
+"r5S-dV-y6O.text" = "นามสกุล";
 
-/* Class = "UIButton"; configuration.title = "policy"; ObjectID = "skQ-Wj-Id8"; */
-"skQ-Wj-Id8.configuration.title" = "policy";
+/* Class = "UILabel"; text = "Password"; ObjectID = "we9-5c-vmf"; */
+"we9-5c-vmf.text" = "รหัสผ่าน";
 
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "skQ-Wj-Id8"; */
-"skQ-Wj-Id8.normalTitle" = "Button";
-
-/* Class = "UIViewController"; title = "Pokedex"; ObjectID = "tun-yz-NXV"; */
-"tun-yz-NXV.title" = "Pokedex";
-
-/* Class = "UILabel"; text = "password"; ObjectID = "we9-5c-vmf"; */
-"we9-5c-vmf.text" = "password";
-
-/* Class = "UILabel"; text = "Email"; ObjectID = "xr9-sy-UWr"; */
-"xr9-sy-UWr.text" = "Email";
+/* Class = "UILabel"; text = "Email"; ObjectID = "xr9-sy-UWr"; Note = "email label"; */
+"xr9-sy-UWr.text" = "อีเมล";
 
 /* Class = "UILabel"; text = "Last name"; ObjectID = "yCc-CF-ysI"; */
-"yCc-CF-ysI.text" = "Last name";
+"yCc-CF-ysI.text" = "นามสกุล";

@@ -1,5 +1,14 @@
 
-/* Class = "UITabBarItem"; title = "Pokedex"; ObjectID = "2ET-2a-B34"; */
+/* Class = "UISegmentedControl"; 1Zx-bW-0nP.segmentTitles[0] = "Detail"; ObjectID = "1Zx-bW-0nP"; */
+"1Zx-bW-0nP.segmentTitles[0]" = "Detail";
+
+/* Class = "UISegmentedControl"; 1Zx-bW-0nP.segmentTitles[1] = "Stats"; ObjectID = "1Zx-bW-0nP"; */
+"1Zx-bW-0nP.segmentTitles[1]" = "Stats";
+
+/* Class = "UISegmentedControl"; 1Zx-bW-0nP.segmentTitles[2] = "Evolution"; ObjectID = "1Zx-bW-0nP"; */
+"1Zx-bW-0nP.segmentTitles[2]" = "Evolution";
+
+/* Class = "UITabBarItem"; title = "Pokedex"; ObjectID = "2ET-2a-B34"; Note = "Pokedex TabMneu"; */
 "2ET-2a-B34.title" = "Pokedex";
 
 /* Class = "UIButton"; configuration.title = "No account ? Register"; ObjectID = "3ZO-Ck-fE2"; */
@@ -20,20 +29,26 @@
 /* Class = "UILabel"; text = "Label"; ObjectID = "8h8-Uk-HCx"; */
 "8h8-Uk-HCx.text" = "Label";
 
+/* Class = "UILabel"; text = "Not found"; ObjectID = "AX8-uq-e46"; */
+"AX8-uq-e46.text" = "Not found";
+
 /* Class = "UILabel"; text = "First name"; ObjectID = "AXb-2L-Ajx"; */
 "AXb-2L-Ajx.text" = "First name";
 
 /* Class = "UITextField"; placeholder = "Enter your first name"; ObjectID = "DKF-Bn-ZIz"; */
 "DKF-Bn-ZIz.placeholder" = "Enter your first name";
 
-/* Class = "UITextField"; placeholder = "Enter your password"; ObjectID = "Db9-js-eT8"; */
-"Db9-js-eT8.placeholder" = "Enter your password";
+/* Class = "UITextField"; placeholder = "Password (min. 8 characters)"; ObjectID = "Db9-js-eT8"; */
+"Db9-js-eT8.placeholder" = "Password (min. 8 characters)";
 
 /* Class = "UIViewController"; title = "Login"; ObjectID = "F5n-D2-SZU"; */
 "F5n-D2-SZU.title" = "Login";
 
-/* Class = "UILabel"; text = "Email"; ObjectID = "FPl-tj-iy9"; */
+/* Class = "UILabel"; text = "Email"; ObjectID = "FPl-tj-iy9"; Note = "email label"; */
 "FPl-tj-iy9.text" = "Email";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "G3f-fL-xRo"; */
+"G3f-fL-xRo.text" = "Label";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "HWh-kR-epS"; */
 "HWh-kR-epS.normalTitle" = "Button";
@@ -41,16 +56,13 @@
 /* Class = "UITextField"; placeholder = "Enter your email"; ObjectID = "K6N-wF-eVJ"; */
 "K6N-wF-eVJ.placeholder" = "Enter your email";
 
-/* Class = "UILabel"; text = "Label"; ObjectID = "Ko1-ZU-yQF"; */
-"Ko1-ZU-yQF.text" = "Label";
-
 /* Class = "UITextField"; placeholder = "Enter your last name"; ObjectID = "L1T-Ye-8Za"; */
 "L1T-Ye-8Za.placeholder" = "Enter your last name";
 
 /* Class = "UITextField"; placeholder = "Enter your last name"; ObjectID = "LHZ-km-Afe"; */
 "LHZ-km-Afe.placeholder" = "Enter your last name";
 
-/* Class = "UITabBarItem"; title = "My Pokemon"; ObjectID = "Mry-WU-gB2"; */
+/* Class = "UITabBarItem"; title = "My Pokemon"; ObjectID = "Mry-WU-gB2"; Note = "MyPokemon TabMneu"; */
 "Mry-WU-gB2.title" = "My Pokemon";
 
 /* Class = "UITextField"; placeholder = "Enter your email"; ObjectID = "Oe4-Bf-h2d"; */
@@ -71,7 +83,10 @@
 /* Class = "UIViewController"; title = "Forgot Password"; ObjectID = "Udu-NW-gDr"; */
 "Udu-NW-gDr.title" = "Forgot Password";
 
-/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "Vp8-U3-sxE"; */
+/* Class = "UILabel"; text = "Label"; ObjectID = "VMM-IU-bln"; */
+"VMM-IU-bln.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "Vp8-U3-sxE"; Note = "Profile TabMneu"; */
 "Vp8-U3-sxE.title" = "Profile";
 
 /* Class = "UITextField"; placeholder = "Enter your email"; ObjectID = "Vz6-DT-dS6"; */
@@ -95,20 +110,8 @@
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "brZ-kR-cRH"; */
 "brZ-kR-cRH.normalTitle" = "Button";
 
-/* Class = "UIButton"; configuration.title = "edit profile"; ObjectID = "drg-4B-xOI"; */
-"drg-4B-xOI.configuration.title" = "edit profile";
-
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "drg-4B-xOI"; */
-"drg-4B-xOI.normalTitle" = "Button";
-
-/* Class = "UIButton"; configuration.title = "setting"; ObjectID = "ear-Nd-rXe"; */
-"ear-Nd-rXe.configuration.title" = "setting";
-
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ear-Nd-rXe"; */
-"ear-Nd-rXe.normalTitle" = "Button";
-
-/* Class = "UITextField"; placeholder = "Enter your confirm password"; ObjectID = "iZU-4V-yrj"; */
-"iZU-4V-yrj.placeholder" = "Enter your confirm password";
+/* Class = "UITextField"; placeholder = "Confirm password (min. 8 characters)"; ObjectID = "iZU-4V-yrj"; */
+"iZU-4V-yrj.placeholder" = "Confirm password (min. 8 characters)";
 
 /* Class = "UINavigationItem"; title = "My Pokemon"; ObjectID = "jpQ-xa-Agm"; */
 "jpQ-xa-Agm.title" = "My Pokemon";
@@ -116,7 +119,7 @@
 /* Class = "UILabel"; text = "Firstname lastname"; ObjectID = "kkv-Jc-Alq"; */
 "kkv-Jc-Alq.text" = "Firstname lastname";
 
-/* Class = "UILabel"; text = "Email"; ObjectID = "nII-IK-wjL"; */
+/* Class = "UILabel"; text = "Email"; ObjectID = "nII-IK-wjL"; Note = "email label"; */
 "nII-IK-wjL.text" = "Email";
 
 /* Class = "UIButton"; configuration.title = "Update"; ObjectID = "nK0-hw-l9J"; */
@@ -140,19 +143,10 @@
 /* Class = "UILabel"; text = "Last name"; ObjectID = "r5S-dV-y6O"; */
 "r5S-dV-y6O.text" = "Last name";
 
-/* Class = "UIButton"; configuration.title = "policy"; ObjectID = "skQ-Wj-Id8"; */
-"skQ-Wj-Id8.configuration.title" = "policy";
+/* Class = "UILabel"; text = "Password"; ObjectID = "we9-5c-vmf"; */
+"we9-5c-vmf.text" = "Password";
 
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "skQ-Wj-Id8"; */
-"skQ-Wj-Id8.normalTitle" = "Button";
-
-/* Class = "UIViewController"; title = "Pokedex"; ObjectID = "tun-yz-NXV"; */
-"tun-yz-NXV.title" = "Pokedex";
-
-/* Class = "UILabel"; text = "password"; ObjectID = "we9-5c-vmf"; */
-"we9-5c-vmf.text" = "password";
-
-/* Class = "UILabel"; text = "Email"; ObjectID = "xr9-sy-UWr"; */
+/* Class = "UILabel"; text = "Email"; ObjectID = "xr9-sy-UWr"; Note = "email label"; */
 "xr9-sy-UWr.text" = "Email";
 
 /* Class = "UILabel"; text = "Last name"; ObjectID = "yCc-CF-ysI"; */
