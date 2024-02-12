@@ -55,8 +55,9 @@ class RegisterViewController: UIViewController{
     private func createLabelStackView(title: String, field: UITextField) -> UIStackView {
         let label = UILabel()
         label.text = title
-        label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = UIColor.gray
+        label.font = .notoSansBold(size: 16)
+        label.textColor = .systemGray
+        
         
         let dividerLine = UIView()
         dividerLine.backgroundColor = .pinkPokemon
