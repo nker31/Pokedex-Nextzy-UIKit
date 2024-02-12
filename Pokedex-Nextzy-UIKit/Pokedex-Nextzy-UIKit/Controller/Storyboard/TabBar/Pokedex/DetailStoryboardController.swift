@@ -17,7 +17,7 @@ class DetailStoryboardController: UIViewController {
     @IBOutlet weak var pokemonImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var tabMenuView: UISegmentedControl!
+    @IBOutlet weak var tabMenuView: UIView!
     
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
@@ -27,8 +27,17 @@ class DetailStoryboardController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableHeaderView = headerView
-        tableView.delegate = self
+        tableView.dataSource = self
+        
+        let aboutCell = UINib(nibName: "AboutCell", bundle: nil)
+        tableView.register(aboutCell, forCellReuseIdentifier: AboutCellStoryboard.identifier)
+        let statCell = UINib(nibName: "StatCell", bundle: nil)
+        tableView.register(statCell, forCellReuseIdentifier: StatCellStoryboard.identifier)
+        let evolutionCell = UINib(nibName: "EvolutionCell", bundle: nil)
+        tableView.register(evolutionCell, forCellReuseIdentifier: EvolutionCellStoryboard.identifier)
+        
         setupUI()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -40,7 +49,7 @@ class DetailStoryboardController: UIViewController {
         if let viewModel = self.detailViewModel {
             title = viewModel.pokemon.name
             navigationController?.navigationBar.prefersLargeTitles = true
-           navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
             let favButton = UIBarButtonItem(
                 image: UIImage(systemName: viewModel.isLiked ? "heart.fill" : "heart"),
                 style: .plain,
@@ -52,11 +61,11 @@ class DetailStoryboardController: UIViewController {
     }
     
     private func setupUI() {
-        if let pokemon = self.pokemon {
-            pokemonImageView.kf.setImage(with: pokemon.imageUrl)
-            setColorBackgroundFromType(type: pokemon.types[0])
-            headerView.setColorBackgroundFromType(type: pokemon.types[0])
-        }
+        guard let pokemonImageURL = self.pokemon?.imageUrl,
+              let pokemonType = self.pokemon?.types.first else { return }
+        pokemonImageView.kf.setImage(with: pokemonImageURL)
+        setColorBackgroundFromType(type: pokemonType)
+        headerView.setColorBackgroundFromType(type: pokemonType)
     }
     
     func setPokemon(_ pokemon: Pokemon) {
@@ -70,16 +79,47 @@ class DetailStoryboardController: UIViewController {
         guard let viewModel = detailViewModel else { return }
         viewModel.tapFavorite(pokemonID: viewModel.pokemon.id)
     }
+
+    @IBAction func didTapChangeMenu(_ sender: UISegmentedControl) {
+        guard let viewModel = detailViewModel else { return }
+        viewModel.tapChangeMenu(index: sender.selectedSegmentIndex)
+    }
+    
 }
 
-extension DetailStoryboardController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return tabMenuView
+extension DetailStoryboardController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if let detailViewModel = detailViewModel {
+            switch detailViewModel.isPresentMenu {
+                
+            case .about:
+                let cell = tableView.dequeueReusableCell(withIdentifier: AboutCellStoryboard.identifier, for: indexPath) as! AboutCellStoryboard
+                cell.configCell(pokemon: self.pokemon ?? MOCK_POKEMON[0])
+                return cell
+                
+            case .stat:
+                let cell = tableView.dequeueReusableCell(withIdentifier: StatCellStoryboard.identifier, for: indexPath) as! StatCellStoryboard
+                cell.configCell(pokemon: self.pokemon ?? MOCK_POKEMON[0])
+                return cell
+                
+            case .evolution:
+                let cell = tableView.dequeueReusableCell(withIdentifier: EvolutionCellStoryboard.identifier, for: indexPath) as! EvolutionCellStoryboard
+                cell.configCell(pokemon: self.pokemon ?? MOCK_POKEMON[0], filteredPokemon: detailViewModel.filteredPokemon)
+                return cell
 
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 45
+            }
+        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: StatCellStoryboard.identifier, for: indexPath) as! StatCellStoryboard
+        cell.configCell(pokemon: self.pokemon ?? MOCK_POKEMON[0])
+        return cell
+        
     }
+    
 }
 
 extension DetailStoryboardController: DetailViewModelDelegate {
