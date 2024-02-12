@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9ej-AG-aJb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9ej-AG-aJb">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -13,6 +13,9 @@
     <customFonts key="customFonts">
         <array key="NotoSansThai-Bold.ttf">
             <string>NotoSansThai-Bold</string>
+        </array>
+        <array key="NotoSansThai-Regular.ttf">
+            <string>NotoSansThai-Regular</string>
         </array>
         <array key="NotoSansThai-SemiBold.ttf">
             <string>NotoSansThai-SemiBold</string>
@@ -45,11 +48,11 @@
             <objects>
                 <viewController title="Login" id="F5n-D2-SZU" customClass="LoginStoryboardController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TeE-ss-mnt">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="NJR-cJ-6uu">
-                                <rect key="frame" x="46.666666666666657" y="233.33333333333334" width="300" height="375.33333333333326"/>
+                                <rect key="frame" x="46.666666666666657" y="225.66666666666666" width="300" height="400.66666666666674"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokedex-logo" translatesAutoresizingMaskIntoConstraints="NO" id="8ex-3b-JsD">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="95"/>
@@ -58,23 +61,27 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RfB-7d-Bvq">
-                                        <rect key="frame" x="0.0" y="114.99999999999997" width="300" height="61"/>
+                                        <rect key="frame" x="0.0" y="115.00000000000003" width="300" height="68.333333333333343"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FPl-tj-iy9">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="21.333333333333332"/>
                                                 <fontDescription key="fontDescription" name="NotoSansThai-Bold" family="Noto Sans Thai" pointSize="14"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
+                                                <attributedString key="userComments">
+                                                    <fragment content="email label"/>
+                                                </attributedString>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oe4-Bf-h2d">
-                                                <rect key="frame" x="0.0" y="31.333333333333371" width="300" height="18.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="31.333333333333314" width="300" height="26"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="NotoSansThai-Regular" family="Noto Sans Thai" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8fD-7h-U4z">
-                                                <rect key="frame" x="0.0" y="60" width="300" height="1"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <rect key="frame" x="0.0" y="67.333333333333314" width="300" height="1"/>
+                                                <color key="backgroundColor" red="0.9288699627" green="0.3796390295" blue="0.39842075110000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="qZR-b3-a6q"/>
                                                 </constraints>
@@ -82,23 +89,24 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gyv-U3-kQn">
-                                        <rect key="frame" x="0.0" y="195.99999999999997" width="300" height="59.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="203.33333333333334" width="300" height="67.333333333333343"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="we9-5c-vmf">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="21.333333333333332"/>
                                                 <fontDescription key="fontDescription" name="NotoSansThai-Bold" family="Noto Sans Thai" pointSize="14"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OmJ-mc-BOu">
-                                                <rect key="frame" x="0.0" y="31.333333333333371" width="300" height="17"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OmJ-mc-BOu">
+                                                <rect key="frame" x="0.0" y="31.333333333333314" width="300" height="25"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="NotoSansThai-Regular" family="Noto Sans Thai" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z1D-iF-oeF">
-                                                <rect key="frame" x="0.0" y="58.333333333333371" width="300" height="1"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <rect key="frame" x="0.0" y="66.333333333333314" width="300" height="1"/>
+                                                <color key="backgroundColor" red="0.9288699627" green="0.3796390295" blue="0.39842075110000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="Jy5-jG-5Pg"/>
                                                 </constraints>
@@ -106,7 +114,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brZ-kR-cRH">
-                                        <rect key="frame" x="0.0" y="275.33333333333337" width="300" height="15"/>
+                                        <rect key="frame" x="0.0" y="290.66666666666674" width="300" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="lzS-XQ-nr4"/>
                                         </constraints>
@@ -120,20 +128,22 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z5B-fG-O5d">
-                                        <rect key="frame" x="0.0" y="310.33333333333326" width="300" height="30"/>
+                                        <rect key="frame" x="0.0" y="325.66666666666674" width="300" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="wpU-qW-MDf"/>
+                                            <constraint firstAttribute="height" constant="40" id="wpU-qW-MDf"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Login">
                                             <fontDescription key="titleFontDescription" name="NotoSansThai-Regular" family="Noto Sans Thai" pointSize="18"/>
+                                            <color key="baseForegroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="baseBackgroundColor" red="0.94117647059999998" green="0.38823529410000002" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="didTapLoginButton:" destination="F5n-D2-SZU" eventType="touchUpInside" id="bej-Dp-Ww5"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ZO-Ck-fE2">
-                                        <rect key="frame" x="0.0" y="360.33333333333326" width="300" height="15"/>
+                                        <rect key="frame" x="0.0" y="385.66666666666674" width="300" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="7A3-dA-P19"/>
                                         </constraints>
@@ -153,7 +163,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jYU-d6-fCO"/>
-                        <color key="backgroundColor" name="PinkPokemon"/>
+                        <color key="backgroundColor" name="Water"/>
                         <constraints>
                             <constraint firstItem="NJR-cJ-6uu" firstAttribute="centerX" secondItem="TeE-ss-mnt" secondAttribute="centerX" id="aDs-r1-ysf"/>
                             <constraint firstItem="NJR-cJ-6uu" firstAttribute="centerY" secondItem="TeE-ss-mnt" secondAttribute="centerY" id="saJ-m7-AlK"/>
@@ -175,7 +185,7 @@
             <objects>
                 <viewController id="27P-zI-fbz" customClass="RegisterStoryboardController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y09-Qt-h2c">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jj6-Hz-lAL" userLabel="coverView">
@@ -195,18 +205,10 @@
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUK-cW-5o7">
                                         <rect key="frame" x="226.66666666666666" y="230" width="29.999999999999972" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="D1r-xz-6SF"/>
-                                            <constraint firstAttribute="width" constant="30" id="bdx-Gv-9e2"/>
-                                        </constraints>
-                                        <color key="tintColor" name="Normal"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" image="camera" catalog="system"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
+                                        <buttonConfiguration key="configuration" style="filled" image="camera" catalog="system">
+                                            <color key="baseBackgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="didTapImagePicker:" destination="27P-zI-fbz" eventType="touchUpInside" id="2hK-vf-ia9"/>
                                         </connections>
@@ -218,7 +220,9 @@
                                     <constraint firstAttribute="height" constant="280" id="CV8-Fj-7PB"/>
                                     <constraint firstAttribute="bottom" secondItem="bEF-VO-71D" secondAttribute="bottom" constant="20" id="GgO-JG-DC2"/>
                                     <constraint firstItem="bEF-VO-71D" firstAttribute="trailing" secondItem="RUK-cW-5o7" secondAttribute="trailing" id="MjJ-3z-5ti"/>
+                                    <constraint firstItem="RUK-cW-5o7" firstAttribute="height" secondItem="bEF-VO-71D" secondAttribute="height" multiplier="0.25" id="ORv-JI-RwA"/>
                                     <constraint firstItem="bEF-VO-71D" firstAttribute="centerX" secondItem="Jj6-Hz-lAL" secondAttribute="centerX" id="dCg-UQ-ik7"/>
+                                    <constraint firstItem="RUK-cW-5o7" firstAttribute="width" secondItem="bEF-VO-71D" secondAttribute="width" multiplier="0.25" id="eYh-re-YwZ"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="i1l-YM-iCs" userLabel="Container">
@@ -232,6 +236,9 @@
                                                 <fontDescription key="fontDescription" name="NotoSansThai-Bold" family="Noto Sans Thai" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
+                                                <attributedString key="userComments">
+                                                    <fragment content="email label"/>
+                                                </attributedString>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K6N-wF-eVJ">
                                                 <rect key="frame" x="0.0" y="26.333333333333314" width="320" height="20"/>
@@ -260,14 +267,14 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Db9-js-eT8">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password (min. 8 characters)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Db9-js-eT8">
                                                 <rect key="frame" x="0.0" y="26.333333333333371" width="320" height="20"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="lo5-dI-rNE"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YHm-U3-EKv">
                                                 <rect key="frame" x="0.0" y="51.333333333333371" width="320" height="1"/>
@@ -287,14 +294,14 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iZU-4V-yrj">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm password (min. 8 characters)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iZU-4V-yrj">
                                                 <rect key="frame" x="0.0" y="26.333333333333314" width="320" height="20"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="qo5-kF-dfE"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhG-JV-G6R">
                                                 <rect key="frame" x="0.0" y="51.333333333333314" width="320" height="1"/>
@@ -368,7 +375,6 @@
                                 <rect key="frame" x="36.666666666666657" y="651.66666666666663" width="320" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Dnx-fW-KSz"/>
-                                    <constraint firstAttribute="width" constant="320" id="ydo-bu-Skn"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Register">
@@ -390,6 +396,7 @@
                         <constraints>
                             <constraint firstItem="i1l-YM-iCs" firstAttribute="top" secondItem="Jj6-Hz-lAL" secondAttribute="bottom" constant="20" id="8Yp-eE-Tpp"/>
                             <constraint firstItem="PXk-6Z-N8j" firstAttribute="top" secondItem="i1l-YM-iCs" secondAttribute="bottom" constant="30" id="BIX-A6-euO"/>
+                            <constraint firstItem="PXk-6Z-N8j" firstAttribute="width" secondItem="i1l-YM-iCs" secondAttribute="width" id="OYl-nB-sxZ"/>
                             <constraint firstItem="i1l-YM-iCs" firstAttribute="centerX" secondItem="y09-Qt-h2c" secondAttribute="centerX" id="Q9q-JO-zhE"/>
                             <constraint firstItem="Ecl-vN-H6I" firstAttribute="trailing" secondItem="Jj6-Hz-lAL" secondAttribute="trailing" id="TXp-pR-p1T"/>
                             <constraint firstItem="Jj6-Hz-lAL" firstAttribute="leading" secondItem="Ecl-vN-H6I" secondAttribute="leading" id="dfe-WY-1Xn"/>
@@ -417,11 +424,11 @@
             <objects>
                 <viewController title="Forgot Password" id="Udu-NW-gDr" customClass="ForgotStoryboardController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y5b-ER-b9y">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7jo-Y8-Qif" userLabel="Container">
-                                <rect key="frame" x="36.666666666666657" y="365" width="320" height="112.33333333333331"/>
+                                <rect key="frame" x="36.666666666666657" y="370" width="320" height="112.33333333333331"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Nxb-dl-z7r">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="56.666666666666664"/>
@@ -431,6 +438,9 @@
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
+                                                <attributedString key="userComments">
+                                                    <fragment content="email label"/>
+                                                </attributedString>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vz6-DT-dS6">
                                                 <rect key="frame" x="0.0" y="27" width="320" height="18.666666666666671"/>
@@ -480,16 +490,16 @@
             </objects>
             <point key="canvasLocation" x="-2120" y="-764"/>
         </scene>
-        <!--Pokedex-->
+        <!--Pokedex Storyboard Controller-->
         <scene sceneID="Ig4-9a-tY4">
             <objects>
-                <viewController title="Pokedex" id="tun-yz-NXV" customClass="PokedexStoryboardController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tun-yz-NXV" customClass="PokedexStoryboardController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NPI-v1-0Ke">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eXa-sl-H8E">
-                                <rect key="frame" x="0.0" y="56" width="393" height="747"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ko2-qv-zkW">
                                     <size key="itemSize" width="150" height="150"/>
@@ -571,11 +581,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="t6q-jJ-Moj" customClass="SearchStoryboardController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X3I-In-QOq">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IJh-Sk-Z3t">
-                                <rect key="frame" x="0.0" y="56" width="393" height="786"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qVG-dC-QRO">
                                     <size key="itemSize" width="128" height="128"/>
@@ -632,13 +642,13 @@
                                 </cells>
                             </collectionView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AX8-uq-e46">
-                                <rect key="frame" x="158.66666666666666" y="411" width="76" height="20.333333333333314"/>
+                                <rect key="frame" x="158.66666666666666" y="416" width="76" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pikachu-back" translatesAutoresizingMaskIntoConstraints="NO" id="gHD-Bj-Thq">
-                                <rect key="frame" x="-92" y="191" width="577" height="200"/>
+                                <rect key="frame" x="-92" y="196" width="577" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="sEJ-K1-tU1"/>
                                 </constraints>
@@ -673,11 +683,11 @@
             <objects>
                 <viewController id="feW-yA-BpF" customClass="MyPokemonStoryboardController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2tD-zv-d6H">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ITe-RF-9pK">
-                                <rect key="frame" x="0.0" y="56" width="393" height="747"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vs5-gG-W2r">
                                     <size key="itemSize" width="128" height="128"/>
@@ -758,11 +768,11 @@
             <objects>
                 <viewController id="BBs-rC-cgo" customClass="DetailStoryboardController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xGs-rA-lVr">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="k9j-4q-I4M">
-                                <rect key="frame" x="0.0" y="56" width="393" height="786"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AFa-Th-pYB">
@@ -859,14 +869,14 @@
             <objects>
                 <viewController id="HaS-Jd-wOS" customClass="ProfileStoryboardController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cte-XT-lg4">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qmD-5k-fv6">
-                                <rect key="frame" x="0.0" y="320" width="393" height="522"/>
+                                <rect key="frame" x="0.0" y="320" width="393" height="532"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="6aJ-Va-Xeu">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="6aJ-Va-Xeu">
                                         <rect key="frame" x="0.0" y="50" width="393" height="51.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6aJ-Va-Xeu" id="cMt-3h-BXL">
@@ -908,7 +918,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6IQ-QA-S9O">
-                                <rect key="frame" x="20" y="751.66666666666663" width="353" height="40.333333333333371"/>
+                                <rect key="frame" x="20" y="678.66666666666663" width="353" height="40.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Sign Out">
                                     <color key="baseBackgroundColor" name="PinkPokemon"/>
@@ -959,7 +969,7 @@
             <objects>
                 <viewController id="UXN-qR-QNf" customClass="EditProfileStoryboardController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a2y-lh-dJB">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RaG-nI-62p">
@@ -1166,14 +1176,14 @@
             <objects>
                 <viewController id="iL3-fH-TJc" customClass="SettingStoryboardController" customModule="Pokedex_Nextzy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="epo-PB-Buf">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tKx-Z1-rZo">
-                                <rect key="frame" x="0.0" y="56" width="393" height="786"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="InK-b0-vCJ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="InK-b0-vCJ">
                                         <rect key="frame" x="0.0" y="50" width="393" height="51.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="InK-b0-vCJ" id="xnB-OZ-F6K">
@@ -1206,10 +1216,14 @@
         <scene sceneID="z0d-jo-bGh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jPS-P3-zGa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Pokedex" image="pawprint.fill" catalog="system" id="2ET-2a-B34"/>
+                    <tabBarItem key="tabBarItem" title="Pokedex" image="pawprint.fill" catalog="system" id="2ET-2a-B34">
+                        <attributedString key="userComments">
+                            <fragment content="Pokedex TabMneu"/>
+                        </attributedString>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bCg-i7-ZA5">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1225,10 +1239,14 @@
         <scene sceneID="3Qb-dx-6tX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m57-GH-qL5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Pokemon" image="heart.text.square.fill" catalog="system" id="Mry-WU-gB2"/>
+                    <tabBarItem key="tabBarItem" title="My Pokemon" image="heart.text.square.fill" catalog="system" id="Mry-WU-gB2">
+                        <attributedString key="userComments">
+                            <fragment content="MyPokemon TabMneu"/>
+                        </attributedString>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cWc-AD-7sH">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1244,11 +1262,15 @@
         <scene sceneID="N8m-Mq-RvA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XdZ-Uf-lJk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="Vp8-U3-sxE"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="Vp8-U3-sxE">
+                        <attributedString key="userComments">
+                            <fragment content="Profile TabMneu"/>
+                        </attributedString>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="g6C-sb-Hif"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kMV-o3-6z4">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1267,7 +1289,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="3Pl-8H-kB7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="d0M-6V-yKr">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1281,10 +1303,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="K93-5P-SFX"/>
+        <segue reference="5L5-kc-FZB"/>
         <segue reference="K3c-en-04w"/>
         <segue reference="A6c-46-ScO"/>
-        <segue reference="PU1-gd-kw3"/>
+        <segue reference="gKn-yx-9h1"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.left" catalog="system" width="128" height="95"/>
@@ -1300,6 +1322,9 @@
         </namedColor>
         <namedColor name="PinkPokemon">
             <color red="0.94117647058823528" green="0.38823529411764707" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Water">
+            <color red="0.30196078431372547" green="0.56470588235294117" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
