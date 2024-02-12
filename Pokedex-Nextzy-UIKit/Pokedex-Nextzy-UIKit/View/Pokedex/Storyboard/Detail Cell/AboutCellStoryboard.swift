@@ -34,7 +34,7 @@ class AboutCellStoryboard: UITableViewCell {
         descriptionLabel.text = pokemon.xDescription
         heightLabel.text = pokemon.height
         weightLabel.text = pokemon.weight
-        genderLabel.text = "Male \(pokemon.malePercentage ?? "N/A") Female \(pokemon.femalePercentage ?? "N/A")"
+        genderLabel.text = "♂ \(pokemon.malePercentage ?? "N/A") ♀ \(pokemon.femalePercentage ?? "N/A")"
         eggGroupLabel.text = pokemon.eggGroups
         eggCycleLabel.text = pokemon.cycles
         baseEXPLabel.text = pokemon.baseExp
