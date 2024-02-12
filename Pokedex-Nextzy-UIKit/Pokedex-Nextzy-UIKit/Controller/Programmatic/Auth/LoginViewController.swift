@@ -75,7 +75,7 @@ class LoginViewController: UIViewController {
     private func createLabelStackView(title: String, field: UITextField) -> UIStackView {
         let label = UILabel()
         label.text = title
-        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.font = .notoSansBold(size: 14)
         label.textColor = .white
         
         let dividerLine = UIView()
