@@ -37,7 +37,6 @@ class DetailStoryboardController: UIViewController {
         tableView.register(evolutionCell, forCellReuseIdentifier: EvolutionCellStoryboard.identifier)
         
         setupUI()
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -66,6 +65,7 @@ class DetailStoryboardController: UIViewController {
         pokemonImageView.kf.setImage(with: pokemonImageURL)
         setColorBackgroundFromType(type: pokemonType)
         headerView.setColorBackgroundFromType(type: pokemonType)
+        headerView.layoutIfNeeded()
     }
     
     func setPokemon(_ pokemon: Pokemon) {
@@ -124,6 +124,7 @@ extension DetailStoryboardController: UITableViewDataSource {
 
 extension DetailStoryboardController: DetailViewModelDelegate {
     func toggleTableViewReload() {
+        headerView.layoutIfNeeded()
         tableView.reloadData()
     }
     
