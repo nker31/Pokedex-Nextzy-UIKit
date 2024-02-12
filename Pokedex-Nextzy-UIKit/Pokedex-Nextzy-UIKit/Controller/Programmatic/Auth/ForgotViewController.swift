@@ -42,8 +42,8 @@ class ForgotViewController: UIViewController {
     private func createLabelStackView(title: String, field: UITextField) -> UIStackView {
         let label = UILabel()
         label.text = title
-        label.font = UIFont.boldSystemFont(ofSize: 14)
-        label.textColor = UIColor.gray
+        label.font = .notoSansBold(size: 14)
+        label.textColor = .systemGray
         
         let dividerLine = UIView()
         dividerLine.backgroundColor = UIColor.pinkPokemon
