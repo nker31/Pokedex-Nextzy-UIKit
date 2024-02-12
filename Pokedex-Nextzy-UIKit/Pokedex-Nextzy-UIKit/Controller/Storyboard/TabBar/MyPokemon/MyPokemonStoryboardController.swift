@@ -41,7 +41,7 @@ class MyPokemonStoryboardController: UIViewController {
         }
         title = String(localized: "my_pokemon_tabbar_title")
         nav.tintColor = .pinkPokemon
-        nav.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        nav.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
         
         var columnsImageName: String
         switch myPokemonViewModel.collectionViewDisplayType {
@@ -62,7 +62,6 @@ class MyPokemonStoryboardController: UIViewController {
     }
     // MARK: - Selectors
     @objc private func toggleColumnDisplayed() {
-        print("Debugger: tap nav button")
         myPokemonViewModel.tapChangeDisplayType()
         setupNavbar()
     }
