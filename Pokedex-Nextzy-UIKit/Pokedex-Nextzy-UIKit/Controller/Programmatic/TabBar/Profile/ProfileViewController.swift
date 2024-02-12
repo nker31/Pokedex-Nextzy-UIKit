@@ -154,7 +154,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             cell.textLabel?.text = String(localized: "terms_and_conditions_title")
             configureCell(cell, imageName: "chart.bar.doc.horizontal.fill")
         } else if indexPath.row == 2 {
-            cell.textLabel?.text = "Language Setting"
+            cell.textLabel?.text = String(localized: "language_setting_title")
             configureCell(cell, imageName: "globe.americas.fill")
         } else {
             let buttonCell = UITableViewCell(style: .default, reuseIdentifier: nil)

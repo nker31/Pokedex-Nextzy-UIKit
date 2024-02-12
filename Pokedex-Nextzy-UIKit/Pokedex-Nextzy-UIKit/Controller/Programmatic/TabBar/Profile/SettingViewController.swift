@@ -35,7 +35,7 @@ class SettingsViewController: UIViewController {
     
     // MARK: - UI Setup
     func setupNav() {
-        title = "Language Setting"
+        title = String(localized: "language_setting_title")
         guard let nav = navigationController?.navigationBar else {
             return
         }
