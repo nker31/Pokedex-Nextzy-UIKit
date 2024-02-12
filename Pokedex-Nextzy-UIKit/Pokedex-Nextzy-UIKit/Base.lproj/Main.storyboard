@@ -800,15 +800,14 @@
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AFa-Th-pYB">
                                 <rect key="frame" x="0.0" y="229" width="393" height="128"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokeball-logo" translatesAutoresizingMaskIntoConstraints="NO" id="2Zf-9a-Jrz">
+                                        <rect key="frame" x="39.333333333333343" y="2" width="314.33333333333326" height="256"/>
+                                    </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hOJ-gW-UtP">
-                                        <rect key="frame" x="116.66666666666669" y="60" width="160" height="160"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="160" id="UFB-p0-ebP"/>
-                                            <constraint firstAttribute="width" constant="160" id="Ueb-fM-3ae"/>
-                                        </constraints>
+                                        <rect key="frame" x="66.666666666666657" y="28.666666666666671" width="259.66666666666674" height="211.33333333333331"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yzS-ZX-M1X">
-                                        <rect key="frame" x="0.0" y="235" width="393" height="45"/>
+                                        <rect key="frame" x="0.0" y="275" width="393" height="45"/>
                                         <subviews>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1Zx-bW-0nP">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="46"/>
@@ -834,11 +833,17 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="hOJ-gW-UtP" secondAttribute="bottom" constant="60" id="0Qv-2F-nWp"/>
+                                    <constraint firstAttribute="bottom" secondItem="hOJ-gW-UtP" secondAttribute="bottom" constant="80" id="0Qv-2F-nWp"/>
                                     <constraint firstAttribute="trailing" secondItem="yzS-ZX-M1X" secondAttribute="trailing" id="5rx-fh-vgY"/>
+                                    <constraint firstItem="2Zf-9a-Jrz" firstAttribute="centerX" secondItem="AFa-Th-pYB" secondAttribute="centerX" id="FSQ-uW-Ri5"/>
                                     <constraint firstAttribute="bottom" secondItem="yzS-ZX-M1X" secondAttribute="bottom" id="FpQ-Dm-ISy"/>
                                     <constraint firstItem="yzS-ZX-M1X" firstAttribute="leading" secondItem="AFa-Th-pYB" secondAttribute="leading" id="IdQ-FJ-TJV"/>
-                                    <constraint firstAttribute="height" constant="280" id="pMX-z2-HeX"/>
+                                    <constraint firstItem="hOJ-gW-UtP" firstAttribute="width" secondItem="AFa-Th-pYB" secondAttribute="width" multiplier="0.66" id="OYY-y0-VF1"/>
+                                    <constraint firstItem="2Zf-9a-Jrz" firstAttribute="centerY" secondItem="AFa-Th-pYB" secondAttribute="centerY" constant="-30" id="SAd-ek-3K1"/>
+                                    <constraint firstItem="hOJ-gW-UtP" firstAttribute="height" secondItem="AFa-Th-pYB" secondAttribute="height" multiplier="0.66" id="bRa-Ja-aBR"/>
+                                    <constraint firstItem="2Zf-9a-Jrz" firstAttribute="width" secondItem="AFa-Th-pYB" secondAttribute="width" multiplier="0.8" id="o3d-Dz-AGn"/>
+                                    <constraint firstAttribute="height" constant="320" id="pMX-z2-HeX"/>
+                                    <constraint firstItem="2Zf-9a-Jrz" firstAttribute="height" secondItem="AFa-Th-pYB" secondAttribute="height" multiplier="0.8" id="wqh-Wf-D9Q"/>
                                     <constraint firstItem="hOJ-gW-UtP" firstAttribute="centerX" secondItem="AFa-Th-pYB" secondAttribute="centerX" id="wyX-eS-Dag"/>
                                 </constraints>
                             </view>
@@ -857,6 +862,7 @@
                     <navigationItem key="navigationItem" id="oaB-Fu-wVk"/>
                     <connections>
                         <outlet property="headerView" destination="AFa-Th-pYB" id="NKc-i3-75M"/>
+                        <outlet property="pokeballImageView" destination="2Zf-9a-Jrz" id="gA0-h2-9N0"/>
                         <outlet property="pokemonImageView" destination="hOJ-gW-UtP" id="Fnn-bj-6qa"/>
                         <outlet property="tabMenuView" destination="yzS-ZX-M1X" id="KHh-6U-56d"/>
                         <outlet property="tableView" destination="k9j-4q-I4M" id="L6H-tX-39l"/>
@@ -1206,7 +1212,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tKx-Z1-rZo">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <rect key="frame" x="0.0" y="56" width="393" height="786"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="InK-b0-vCJ">
@@ -1329,7 +1335,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qnC-CP-y8q"/>
         <segue reference="K93-5P-SFX"/>
         <segue reference="Lai-Oh-afh"/>
         <segue reference="A6c-46-ScO"/>
@@ -1342,6 +1347,7 @@
         <image name="pawprint.fill" catalog="system" width="128" height="112"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="pikachu-back" width="577" height="433"/>
+        <image name="pokeball-logo" width="899" height="900"/>
         <image name="pokeball-profile" width="400" height="400"/>
         <image name="pokedex-logo" width="387" height="140"/>
         <namedColor name="Normal">

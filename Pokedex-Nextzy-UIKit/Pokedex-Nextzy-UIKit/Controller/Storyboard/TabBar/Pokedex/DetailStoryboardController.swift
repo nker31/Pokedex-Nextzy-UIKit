@@ -18,6 +18,7 @@ class DetailStoryboardController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tabMenuView: UIView!
+    @IBOutlet weak var pokeballImageView: UIImageView!
     
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
@@ -65,6 +66,7 @@ class DetailStoryboardController: UIViewController {
         pokemonImageView.kf.setImage(with: pokemonImageURL)
         setColorBackgroundFromType(type: pokemonType)
         headerView.setColorBackgroundFromType(type: pokemonType)
+        animatePokeball()
         headerView.layoutIfNeeded()
     }
     
@@ -72,6 +74,12 @@ class DetailStoryboardController: UIViewController {
         self.pokemon = pokemon
         self.detailViewModel = DetailViewModel(pokemon: pokemon)
         self.detailViewModel?.delegate = self
+    }
+    
+    func animatePokeball() {
+        UIView.animate(withDuration: 2, delay: 0, options: [.repeat, .autoreverse]) {
+            self.pokeballImageView.transform = self.pokeballImageView.transform.rotated(by: .pi)
+        }
     }
     
     // MARK: - Selectors
