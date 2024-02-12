@@ -72,7 +72,7 @@
 		516C9A392B679E4F00DCE4F9 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 516C9A382B679E4F00DCE4F9 /* GoogleSignIn */; };
 		516C9A3B2B679E4F00DCE4F9 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 516C9A3A2B679E4F00DCE4F9 /* GoogleSignInSwift */; };
 		518043AA2B6348D200552B6A /* EvolutionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518043A92B6348D200552B6A /* EvolutionCell.swift */; };
-		518043B12B63985600552B6A /* StatBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518043B02B63985600552B6A /* StatBar.swift */; };
+		518043B12B63985600552B6A /* StatBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518043B02B63985600552B6A /* StatBarComponent.swift */; };
 		518043B32B6398BB00552B6A /* PokemonTypeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518043B22B6398BB00552B6A /* PokemonTypeComponent.swift */; };
 		518043B52B63990800552B6A /* EvolutionCompenent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518043B42B63990800552B6A /* EvolutionCompenent.swift */; };
 		518043B92B639BBA00552B6A /* DetailTextCompents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518043B82B639BBA00552B6A /* DetailTextCompents.swift */; };
@@ -201,7 +201,7 @@
 		516C9A2F2B678ADB00DCE4F9 /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		516C9A352B679D0000DCE4F9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		518043A92B6348D200552B6A /* EvolutionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionCell.swift; sourceTree = "<group>"; };
-		518043B02B63985600552B6A /* StatBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatBar.swift; sourceTree = "<group>"; };
+		518043B02B63985600552B6A /* StatBarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatBarComponent.swift; sourceTree = "<group>"; };
 		518043B22B6398BB00552B6A /* PokemonTypeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTypeComponent.swift; sourceTree = "<group>"; };
 		518043B42B63990800552B6A /* EvolutionCompenent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionCompenent.swift; sourceTree = "<group>"; };
 		518043B82B639BBA00552B6A /* DetailTextCompents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTextCompents.swift; sourceTree = "<group>"; };
@@ -528,7 +528,7 @@
 		518043AF2B63983800552B6A /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				518043B02B63985600552B6A /* StatBar.swift */,
+				518043B02B63985600552B6A /* StatBarComponent.swift */,
 				518043B22B6398BB00552B6A /* PokemonTypeComponent.swift */,
 				518043B42B63990800552B6A /* EvolutionCompenent.swift */,
 				518043B82B639BBA00552B6A /* DetailTextCompents.swift */,
@@ -833,7 +833,7 @@
 				51B5EF6F2B6CD79F00928ED6 /* ForgotPasswordViewModel.swift in Sources */,
 				513D900A2B6EDEB000ED9B63 /* DetailViewModel.swift in Sources */,
 				51617A882B749783007801D5 /* UIViewExtension.swift in Sources */,
-				518043B12B63985600552B6A /* StatBar.swift in Sources */,
+				518043B12B63985600552B6A /* StatBarComponent.swift in Sources */,
 				518043B92B639BBA00552B6A /* DetailTextCompents.swift in Sources */,
 				511EF5262B57830000554F78 /* AppDelegate.swift in Sources */,
 				51617A862B74972A007801D5 /* UIViewControllerExtension.swift in Sources */,
