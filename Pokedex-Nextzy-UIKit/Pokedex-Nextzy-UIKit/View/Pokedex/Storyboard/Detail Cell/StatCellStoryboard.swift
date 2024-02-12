@@ -60,6 +60,7 @@ class StatCellStoryboard: UITableViewCell {
         
         createPokemonTypeStackView(types: pokemon.weaknesses)
     }
+    
     func createPokemonTypeStackView(types: [String]) {
         weaknessStack.subviews.forEach { $0.removeFromSuperview() }
         for type in types {
@@ -67,7 +68,4 @@ class StatCellStoryboard: UITableViewCell {
             weaknessStack.addArrangedSubview(typeComponents)
         }
     }
-    
-    
-
 }
