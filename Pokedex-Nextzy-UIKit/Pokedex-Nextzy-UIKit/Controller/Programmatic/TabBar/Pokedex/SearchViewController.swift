@@ -75,7 +75,7 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavbar()
+        
         setupUI()
         self.searchViewModel.delegate = self
         self.collectionView.dataSource = self
@@ -86,7 +86,8 @@ class SearchViewController: UIViewController {
     private func setupNavbar() {
         navigationItem.titleView = searchBar
         navigationItem.rightBarButtonItem = cancelButton
-        self.navigationController?.navigationBar.tintColor = UIColor.pinkPokemon
+        navigationController?.navigationBar.tintColor = .pinkPokemon
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
 
     private func setupUI() {
