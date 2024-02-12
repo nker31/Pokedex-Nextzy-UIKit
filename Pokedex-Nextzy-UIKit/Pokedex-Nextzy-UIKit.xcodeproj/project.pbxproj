@@ -651,8 +651,8 @@
 		51F0513A2B790CD000D1742A /* Detail Cell */ = {
 			isa = PBXGroup;
 			children = (
-				51F0513B2B790CF900D1742A /* StatCellStoryboard.swift */,
 				51F051412B791D5700D1742A /* AboutCellStoryboard.swift */,
+				51F0513B2B790CF900D1742A /* StatCellStoryboard.swift */,
 				51F051432B792E8400D1742A /* EvolutionCellStoryboard.swift */,
 			);
 			path = "Detail Cell";
