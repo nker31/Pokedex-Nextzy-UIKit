@@ -34,9 +34,13 @@ class SearchStoryboardController: UIViewController {
     }()
     
     // MARK: - Life Cycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavbar()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavbar()
         searchViewModel.delegate = self
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -47,7 +51,8 @@ class SearchStoryboardController: UIViewController {
         title = "Search"
         navigationItem.titleView = searchBar
         navigationItem.rightBarButtonItem = cancelButton
-        self.navigationController?.navigationBar.tintColor = .pinkPokemon
+        navigationController?.navigationBar.tintColor = .pinkPokemon
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     // MARK: - Selectors
