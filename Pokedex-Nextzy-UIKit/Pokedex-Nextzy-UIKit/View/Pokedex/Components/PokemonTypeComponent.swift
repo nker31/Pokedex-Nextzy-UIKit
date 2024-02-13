@@ -8,8 +8,10 @@
 import UIKit
 
 class PokemonTypeComponent:UIView{
+    // MARK: - Varibles
     var type: String
     
+    // MARK: - Initializer
     init(type: String) {
         self.type = type
         super.init(frame: .zero)
@@ -20,7 +22,7 @@ class PokemonTypeComponent:UIView{
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - UI
+    // MARK: - UI Components
     var label: UILabel = {
         let label = UILabel()
         label.font = .notoSansSemiBold(size: 14)
@@ -32,8 +34,9 @@ class PokemonTypeComponent:UIView{
         let view = UIView()
         return view
     }()
-    
-    func setupUI(){
+
+    // MARK: - UI Setup
+    func setupUI() {
         label.text = self.type
         labelOverlay.setColorBackgroundFromType(type: type)
         labelOverlay.layer.cornerRadius = 10
@@ -50,16 +53,11 @@ class PokemonTypeComponent:UIView{
             label.leadingAnchor.constraint(equalTo: labelOverlay.leadingAnchor, constant: 10),
             label.trailingAnchor.constraint(equalTo: labelOverlay.trailingAnchor, constant: -10),
             
-            
             labelOverlay.topAnchor.constraint(equalTo: self.topAnchor),
             labelOverlay.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             labelOverlay.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             labelOverlay.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            
         ])
-        
-        
     }
-    
-    
+
 }
