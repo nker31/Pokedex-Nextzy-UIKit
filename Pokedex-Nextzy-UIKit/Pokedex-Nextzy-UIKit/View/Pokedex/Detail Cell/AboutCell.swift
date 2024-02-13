@@ -15,8 +15,6 @@ class AboutCell: UITableViewCell{
     var componentArray: [UIView] = []
     
     // MARK: - UI Components
-    
-    
     func configCell(pokemon: Pokemon){
         self.pokemon = pokemon
         self.setupUI()
@@ -172,13 +170,9 @@ class AboutCell: UITableViewCell{
                 baseEXPStack.trailingAnchor.constraint(equalTo: detailStack.trailingAnchor)
             ])
         }
-        
-        
-        
-    }
-    
 
-    
+    }
+
     override func prepareForReuse() {
         super.prepareForReuse()
         self.pokemon = nil
