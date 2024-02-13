@@ -79,7 +79,6 @@ class AuthenticationManager {
     }
     
     func editUserData(firstname: String, lastname: String, profileImageData: UIImage, completion: @escaping (Result<Bool, Error>) -> Void) async {
-        print("Debugger: editUserData is being called")
         // get current user uid
         guard let currentUserUID = self.currentUser?.id else {
             print("Debugger: error user session")
@@ -98,9 +97,9 @@ class AuthenticationManager {
                 batch.commit()
                 Task {
                     await self.fetchUserData()
+                    print("Debugger: Updated user data complete")
+                    completion(.success(true))
                 }
-                print("Debugger: Updated user data complete")
-                completion(.success(true))
             case .failure(let errorMessage):
                 print("Error uploading from edit profile: \(errorMessage.localizedDescription)")
                 completion(.failure(errorMessage))
