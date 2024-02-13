@@ -33,7 +33,7 @@ class PokemonTypeOverlay: UIView{
         return view
     }()
     
-    func setupUI(){
+    func setupUI() {
         label.text = self.type
         labelOverlay.backgroundColor = UIColor.white.withAlphaComponent(0.3)
         labelOverlay.layer.cornerRadius = 9

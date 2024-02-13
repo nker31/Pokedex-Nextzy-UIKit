@@ -36,7 +36,7 @@ class MapComponent: UIView{
         return mapView
     }()
     
-    func setupUI(){
+    func setupUI() {
         self.addSubview(mapView)
         mapView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

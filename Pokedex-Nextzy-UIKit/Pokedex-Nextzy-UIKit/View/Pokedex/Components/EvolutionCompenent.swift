@@ -49,7 +49,7 @@ class EvolutionComponent: UIView{
     }()
 
     // MARK: - UI Setup
-    func setupUI(){
+    func setupUI() {
         pokemonFirstFormImageView.kf.setImage(with: self.pokemonFirstForm.imageUrl)
         pokemonSecondFormImageView.kf.setImage(with: self.pokemonSecondForm.imageUrl)
         levelLabel.text = self.levelText
