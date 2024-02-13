@@ -8,13 +8,15 @@
 import UIKit
 
 class EvolutionComponent: UIView{
-    var pokemonOne: Pokemon
-    var pokemonTwo: Pokemon
+    // MARK: - Variables
+    var pokemonFirstForm: Pokemon
+    var pokemonSecondForm: Pokemon
     var levelText: String
     
+    // MARK: - Initializer
     init(pokemonOne: Pokemon, pokemonTwo: Pokemon, level: String) {
-        self.pokemonOne = pokemonOne
-        self.pokemonTwo = pokemonTwo
+        self.pokemonFirstForm = pokemonOne
+        self.pokemonSecondForm = pokemonTwo
         self.levelText = level
         super.init(frame: .zero)
         self.setupUI()
@@ -24,69 +26,61 @@ class EvolutionComponent: UIView{
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - UI
-    
-    var imageViewOne: UIImageView =  {
-        let imageView = UIImageView()
-        return imageView
-    }()
-    var imageViewTwo = UIImageView()
-    
-    var pokemonLabelOne: UILabel = {
+    // MARK: - UI Components
+    var pokemonFirstFormImageView: UIImageView = UIImageView()
+    var pokemonSecondFormImageView: UIImageView = UIImageView()
+    var pokemonFirstFormLabel: UILabel = {
         let label = UILabel()
         label.font = .notoSansSemiBold(size: 14)
         label.textColor = .gray
         return label
     }()
-    
-    var pokemonLabelTwo: UILabel = {
+    var pokemonSecondFormLabel: UILabel = {
         let label = UILabel()
         label.font = .notoSansSemiBold(size: 14)
         label.textColor = .gray
         return label
     }()
-    
     var levelLabel:UILabel = {
         let label = UILabel()
         label.font = .notoSansSemiBold(size: 16)
         label.textColor = .gray
         return label
     }()
-    
-    
+
+    // MARK: - UI Setup
     func setupUI(){
-        imageViewOne.kf.setImage(with: self.pokemonOne.imageUrl)
-        imageViewTwo.kf.setImage(with: self.pokemonTwo.imageUrl)
+        pokemonFirstFormImageView.kf.setImage(with: self.pokemonFirstForm.imageUrl)
+        pokemonSecondFormImageView.kf.setImage(with: self.pokemonSecondForm.imageUrl)
         levelLabel.text = self.levelText
         
-        
-        pokemonLabelOne.text = self.pokemonOne.name
-        
-        let vstackOne = UIStackView(arrangedSubviews: [
-            imageViewOne,
-            pokemonLabelOne
+        // first pokemon
+        pokemonFirstFormLabel.text = self.pokemonFirstForm.name
+        let firstFormStack = UIStackView(arrangedSubviews: [
+            pokemonFirstFormImageView,
+            pokemonFirstFormLabel
             
         ])
-        vstackOne.axis = .vertical
-        vstackOne.spacing = 10
-        vstackOne.alignment = .center
+        firstFormStack.axis = .vertical
+        firstFormStack.spacing = 10
+        firstFormStack.alignment = .center
         
-        pokemonLabelTwo.text = self.pokemonTwo.name
-        
-        let vstackTwo = UIStackView(arrangedSubviews: [
-            imageViewTwo,
-            pokemonLabelTwo
+        // second pokemon
+        pokemonSecondFormLabel.text = self.pokemonSecondForm.name
+        let secondFormStack = UIStackView(arrangedSubviews: [
+            pokemonSecondFormImageView,
+            pokemonSecondFormLabel
             
         ])
-        vstackTwo.axis = .vertical
-        vstackTwo.spacing = 10
-        vstackTwo.alignment = .center
+        secondFormStack.axis = .vertical
+        secondFormStack.spacing = 10
+        secondFormStack.alignment = .center
         
-        
+        // container
         let stack = UIStackView(arrangedSubviews: [
-                    vstackOne,
+                    firstFormStack,
                     levelLabel,
-                    vstackTwo
+                    secondFormStack
                 ])
                 stack.axis = .horizontal
                 stack.spacing = 10
@@ -102,21 +96,15 @@ class EvolutionComponent: UIView{
                     stack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20)
                 ])
         
-        imageViewOne.translatesAutoresizingMaskIntoConstraints = false
-        imageViewTwo.translatesAutoresizingMaskIntoConstraints = false
-        
+        pokemonFirstFormImageView.translatesAutoresizingMaskIntoConstraints = false
+        pokemonSecondFormImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            imageViewOne.widthAnchor.constraint(equalToConstant: 80),
-            imageViewOne.heightAnchor.constraint(equalToConstant: 65),
-            imageViewTwo.widthAnchor.constraint(equalToConstant: 80),
-            imageViewTwo.heightAnchor.constraint(equalToConstant: 65),
+            pokemonFirstFormImageView.widthAnchor.constraint(equalToConstant: 80),
+            pokemonFirstFormImageView.heightAnchor.constraint(equalToConstant: 65),
+            pokemonSecondFormImageView.widthAnchor.constraint(equalToConstant: 80),
+            pokemonSecondFormImageView.heightAnchor.constraint(equalToConstant: 65),
             
         ])
-        
     }
-    
-    
-    
-    
-    
+
 }
