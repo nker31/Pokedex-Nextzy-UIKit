@@ -10,7 +10,6 @@ import UIKit
 class PokeballProgressView: UIView {
     
     // MARK: - Initializer
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -38,7 +37,7 @@ class PokeballProgressView: UIView {
     }()
     
     // MARK: - UI Setup
-    func setupUI(){
+    func setupUI() {
         self.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         
         self.addSubview(progresslabel)
@@ -55,18 +54,13 @@ class PokeballProgressView: UIView {
             imageView.bottomAnchor.constraint(equalTo: progresslabel.topAnchor, constant: -10),
             imageView.widthAnchor.constraint(equalToConstant: 80),
             imageView.heightAnchor.constraint(equalToConstant: 80),
-            
-            
         ])
-        
     }
     
-    func animatePokeball(){
+    func animatePokeball() {
         UIView.animate(withDuration: 1, delay: 0, options: [.repeat, .autoreverse]) {
             self.imageView.transform = self.imageView.transform.rotated(by: .pi)
         }
     }
-    
-    
-    
+
 }
