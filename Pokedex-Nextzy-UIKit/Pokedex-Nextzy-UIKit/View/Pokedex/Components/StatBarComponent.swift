@@ -8,7 +8,7 @@
 import UIKit
 
 class StatBar: UIView {
-
+    // MARK: - Varibles
     var title: String
     var stat: Int
     var maxStat: Int
@@ -24,6 +24,7 @@ class StatBar: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     // MARK: - UI Components
     var titleLabel: UILabel = {
         let label = UILabel()
@@ -45,25 +46,25 @@ class StatBar: UIView {
         return progressView
     }()
 
-
-
-    func setupUI(){
+    // MARK: - UI Setup
+    func setupUI() {
+        titleLabel.text = title
+        statLabel.text = "\(stat)"
+        
         let stack = UIStackView(arrangedSubviews: [
             titleLabel,
             statLabel,
             progressBar
         ])
-        titleLabel.text = title
-        statLabel.text = "\(stat)"
+        
         stack.axis = .horizontal
         stack.spacing = 10
         self.addSubview(stack)
+        
         let progressValue = Float(stat) / Float(maxStat)
         progressBar.progress = progressValue
 
-        
         stack.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             stack.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             stack.trailingAnchor.constraint(equalTo: self.trailingAnchor),
@@ -84,6 +85,6 @@ class StatBar: UIView {
         NSLayoutConstraint.activate([
             progressBar.heightAnchor.constraint(equalToConstant: 10)
         ])
-
     }
+    
 }
