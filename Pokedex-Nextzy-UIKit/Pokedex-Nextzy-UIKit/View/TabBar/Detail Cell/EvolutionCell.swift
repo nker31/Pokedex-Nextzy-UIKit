@@ -20,7 +20,7 @@ class EvolutionCell: UITableViewCell {
         self.setupUI()
     }
     
-    func setupUI(){
+    func setupUI() {
         self.backgroundColor = .systemBackground
         
         if(filteredPokemonEvo.isEmpty){

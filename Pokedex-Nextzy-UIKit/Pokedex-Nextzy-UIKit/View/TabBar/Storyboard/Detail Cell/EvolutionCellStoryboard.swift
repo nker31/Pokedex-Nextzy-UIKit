@@ -20,7 +20,7 @@ class EvolutionCellStoryboard: UITableViewCell {
         setupUI()
     }
     
-    func setupUI(){
+    func setupUI() {
         evolutionStack.subviews.forEach { $0.removeFromSuperview() }
         if(filteredPokemonEvo.isEmpty){
             

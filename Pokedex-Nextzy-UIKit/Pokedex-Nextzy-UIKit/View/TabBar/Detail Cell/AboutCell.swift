@@ -20,7 +20,7 @@ class AboutCell: UITableViewCell{
         self.setupUI()
     }
     
-    func setupUI(){
+    func setupUI() {
         self.componentArray.removeAll()
         if let pokemon = self.pokemon {
             // Pokemon Description
