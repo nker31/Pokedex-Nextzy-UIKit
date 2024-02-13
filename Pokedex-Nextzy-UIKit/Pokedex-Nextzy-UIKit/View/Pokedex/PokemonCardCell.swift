@@ -25,13 +25,15 @@ class PokemonCardCell: UICollectionViewCell {
         return imageView
     }()
     
+    let typeStackView = UIStackView()
+    
     // MARK: - UI Setup
     func configPokemonCell(pokemon: Pokemon) {
         self.layer.cornerRadius = 22
         self.pokemonName.text = pokemon.name
         self.setColorBackgroundFromType(type: pokemon.types[0])
         self.setupCellUI()
-        self.pokemonImage.kf.setImage(with: pokemon.imageUrl, placeholder: UIImage(named: "pokeball-profile"))
+        self.pokemonImage.kf.setImage(with: pokemon.imageUrl, placeholder: UIImage(named: "pokeball"))
         self.createPokemonTypeStackView(types: pokemon.types)
     }
     
@@ -47,43 +49,32 @@ class PokemonCardCell: UICollectionViewCell {
             
             self.pokemonImage.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             self.pokemonImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
-            
-            
             self.pokemonImage.widthAnchor.constraint(equalToConstant: (self.frame.height / 1.2)),
             self.pokemonImage.heightAnchor.constraint(equalToConstant: (self.frame.height / 1.2)),
-        
         ])
     }
     
     func createPokemonTypeStackView(types:[String]) {
-        var items: [UIView] = []
+        typeStackView.subviews.forEach { $0.removeFromSuperview() }
+        
         for type in types {
-            let typeComponents = PokemonTypeOverlay(type: type)
-            items.append(typeComponents)
+            let typeComponent = PokemonTypeOverlay(type: type)
+            typeStackView.addArrangedSubview(typeComponent)
         }
+        typeStackView.axis = .vertical
+        typeStackView.spacing = 30
         
-        let labelStackView = UIStackView(arrangedSubviews: items)
-        labelStackView.axis = .vertical
-        labelStackView.spacing = 30
-        
-        self.addSubview(labelStackView)
-        labelStackView.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(typeStackView)
+        typeStackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            labelStackView.topAnchor.constraint(equalTo: self.pokemonName.bottomAnchor, constant: 10),
-            labelStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+            typeStackView.topAnchor.constraint(equalTo: self.pokemonName.bottomAnchor, constant: 10),
+            typeStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
         ])
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-
-        self.pokemonName.text = nil
-        self.pokemonImage.image = nil
-        
-        for subview in self.subviews {
-            subview.removeFromSuperview()
-        }
     }
     
 }
