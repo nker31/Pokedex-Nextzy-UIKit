@@ -10,7 +10,11 @@ import WebKit
 
 class WebViewController: UIViewController {
     
-    init(){
+    // MARK: - Variables
+    private let policyURL: String = "https://pokedex-nextzy.web.app/"
+    
+    // MARK: - Initializer
+    init() {
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -19,9 +23,9 @@ class WebViewController: UIViewController {
     }
     
     // MARK: - UI Components
-    let webView = WKWebView()
+    private let webView = WKWebView()
     
-    let backButton: UIButton = {
+    private let backButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "arrow.left" ), for: .normal)
         button.tintColor = UIColor.pinkPokemon
@@ -37,7 +41,7 @@ class WebViewController: UIViewController {
     }
     
     // MARK: - UI Setup
-    func setupUI(){
+    private func setupUI() {
         view.backgroundColor = .white
         view.addSubview(webView)
         webView.translatesAutoresizingMaskIntoConstraints = false
@@ -57,8 +61,8 @@ class WebViewController: UIViewController {
         ])
     }
     
-    func loadWebView() {
-        guard let url = URL(string: "https://pokedex-nextzy.web.app/") else {
+    private func loadWebView() {
+        guard let url = URL(string: policyURL) else {
             return
         }
         let request = URLRequest(url: url)
@@ -66,7 +70,7 @@ class WebViewController: UIViewController {
     }
     
     // MARK: - Selectors
-    @objc func didTapBackButton() {
+    @objc private func didTapBackButton() {
         self.dismiss(animated: true, completion: nil)
     }
 }
