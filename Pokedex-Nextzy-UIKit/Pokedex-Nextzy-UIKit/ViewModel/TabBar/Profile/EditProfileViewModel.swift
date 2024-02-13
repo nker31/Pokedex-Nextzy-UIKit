@@ -27,11 +27,15 @@ class EditProfileViewModel {
                                            lastname: lastName,
                                            profileImageData: newImage) 
             { result in
-                switch result {
-                case .success(_):
-                    self.delegate?.toggleAlert(messege: String(localized: "alert_update_success"))
-                case .failure(_):
-                    self.delegate?.toggleAlert(messege: String(localized: "alert_update_failed"))
+                Task {
+                    await MainActor.run {
+                        switch result {
+                        case .success(_):
+                            self.delegate?.toggleAlert(messege: String(localized: "alert_update_success"))
+                        case .failure(_):
+                            self.delegate?.toggleAlert(messege: String(localized: "alert_update_failed"))
+                        }
+                    }
                 }
             }
         }
