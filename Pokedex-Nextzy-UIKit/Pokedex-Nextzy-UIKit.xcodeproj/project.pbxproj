@@ -323,13 +323,6 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		51040E1B2B669C0C009BD5AA /* MyPokemon */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MyPokemon;
-			sourceTree = "<group>";
-		};
 		510D51352B75E868008130D8 /* xib */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,17 +385,16 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		512345F52B5FC97E00E84B66 /* Pokedex */ = {
+		512345F52B5FC97E00E84B66 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				51339CE72B6104B200DA49EC /* PokeballProgressView.swift */,
 				51617A8D2B74BD54007801D5 /* Storyboard */,
 				518043AF2B63983800552B6A /* Components */,
+				51BCEAE42B7B193D003DE0D3 /* Pokedex Cells */,
 				518043AC2B63977300552B6A /* Detail Cell */,
-				512345F62B5FC99900E84B66 /* PokemonCell.swift */,
-				51339CE32B60C7DE00DA49EC /* SmallPokemonCell.swift */,
-				515D222E2B6B52B700561C3C /* PokemonCardCell.swift */,
 			);
-			path = Pokedex;
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		51339CE92B611D6E00DA49EC /* Pokedex */ = {
@@ -557,9 +549,7 @@
 			isa = PBXGroup;
 			children = (
 				51040E182B665353009BD5AA /* Auth */,
-				512345F52B5FC97E00E84B66 /* Pokedex */,
-				51040E1B2B669C0C009BD5AA /* MyPokemon */,
-				51339CE72B6104B200DA49EC /* PokeballProgressView.swift */,
+				512345F52B5FC97E00E84B66 /* TabBar */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -654,6 +644,16 @@
 				51BCEAE22B7B0D55003DE0D3 /* DetailDescriptionLabel.swift */,
 			);
 			path = Label;
+			sourceTree = "<group>";
+		};
+		51BCEAE42B7B193D003DE0D3 /* Pokedex Cells */ = {
+			isa = PBXGroup;
+			children = (
+				512345F62B5FC99900E84B66 /* PokemonCell.swift */,
+				51339CE32B60C7DE00DA49EC /* SmallPokemonCell.swift */,
+				515D222E2B6B52B700561C3C /* PokemonCardCell.swift */,
+			);
+			path = "Pokedex Cells";
 			sourceTree = "<group>";
 		};
 		51CB3E3F2B64E100001877C4 /* MyPokemon */ = {
