@@ -9,10 +9,14 @@ import Foundation
 import Firebase
 import FirebaseFirestoreSwift
 
-class MyPokemonManager {
+final class MyPokemonManager {
     
     static let shared: MyPokemonManager = MyPokemonManager()
     private(set) var myPokemonsID: [String] = []
+    
+    private init() {
+        
+    }
     
     func fetchMyPokemon(userID: String) async throws {
         guard !userID.isEmpty else {
