@@ -33,7 +33,7 @@ class PokemonCell: UICollectionViewCell {
         self.pokemonName.text = pokemon.name
         self.setColorBackgroundFromType(type: pokemon.types[0])
         self.setupCellUI()
-        self.pokemonImage.kf.setImage(with: pokemon.imageUrl, placeholder: UIImage(named: "pokeball-profile"))
+        self.pokemonImage.kf.setImage(with: pokemon.imageUrl, placeholder: UIImage(named: "pokeball"))
         self.createPokemonTypeStackView(types: pokemon.types)
     }
     
