@@ -27,7 +27,7 @@ class AboutCell: UITableViewCell{
         
         if let pokemon = self.pokemon {
             // Pokemon Description
-            let pokemonDescription = DetailDescription(title: pokemon.xDescription)
+            let pokemonDescription = DetailDescriptionLabel(title: pokemon.xDescription)
             self.componentArray.append(pokemonDescription)
             
             // Pokemon Type
