@@ -21,23 +21,19 @@ class MapComponent: UIView{
     // MARK: - UI Components
     var mapView: MKMapView = {
         let mapView = MKMapView()
-        let initialLocation = CLLocationCoordinate2D(latitude: 13.752709852833902, longitude: 100.56156446958983)
+        let myOfficeLocation = CLLocationCoordinate2D(latitude: 13.752709852833902, longitude: 100.56156446958983)
         let zoomDistance: CLLocationDistance = 1400000
-        
         let coordinateRegion = MKCoordinateRegion(
-            center: initialLocation,
+            center: myOfficeLocation,
             latitudinalMeters: zoomDistance,
             longitudinalMeters: zoomDistance
         )
         mapView.setRegion(coordinateRegion, animated: true)
-        
         let annotation = MKPointAnnotation()
-        annotation.coordinate = initialLocation
+        annotation.coordinate = myOfficeLocation
         annotation.title = "Nextzy Office"
-        mapView.addAnnotation(annotation)
-        
+        mapView.addAnnotation(annotation) 
         return mapView
-        
     }()
     
     func setupUI(){
