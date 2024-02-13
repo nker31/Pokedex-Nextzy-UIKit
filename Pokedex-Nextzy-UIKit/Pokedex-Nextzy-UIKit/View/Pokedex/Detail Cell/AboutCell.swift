@@ -22,7 +22,6 @@ class AboutCell: UITableViewCell{
     
     func setupUI(){
         self.componentArray.removeAll()
-        
         if let pokemon = self.pokemon {
             // Pokemon Description
             let pokemonDescription = DetailDescriptionLabel(title: pokemon.xDescription)
@@ -113,30 +112,21 @@ class AboutCell: UITableViewCell{
             // Pokemon Location
             let locationTitle = DetailTitleLabel(title: "Location")
             self.componentArray.append(locationTitle)
-            
             let mapView = MapComponent()
             self.componentArray.append(mapView)
-            
             
             // Pokemon Training
             let trainingTitle = DetailTitleLabel(title: "Training")
             self.componentArray.append(trainingTitle)
-            
             let baseExpSubtitle = DetailSubtitleLabel(title: "Base EXP")
             let pokemonBaseEXP = DetailTextLabel(text: pokemon.baseExp)
-            
             let baseEXPStack = UIStackView(arrangedSubviews: [
                 baseExpSubtitle, pokemonBaseEXP
             ])
             baseEXPStack.axis = .horizontal
             self.componentArray.append(baseEXPStack)
             
-            
-            
-            
-            
             // biggest stack
-            
             let detailStack = UIStackView(arrangedSubviews: self.componentArray)
             detailStack.axis = .vertical
             detailStack.spacing = 30
