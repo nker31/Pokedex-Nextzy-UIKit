@@ -17,7 +17,6 @@ class PokemonCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .notoSansSemiBold(size: 18)
         label.textColor = .white
-        
         return label
     }()
     
@@ -25,6 +24,8 @@ class PokemonCell: UICollectionViewCell {
         let imageView = UIImageView()
         return imageView
     }()
+    
+    let labelStackView = UIStackView()
 
     // MARK: - UI Setup
     func configPokemonCell(pokemon: Pokemon) {
@@ -39,6 +40,7 @@ class PokemonCell: UICollectionViewCell {
     func setupCellUI() {
         self.addSubview(pokemonName)
         self.addSubview(pokemonImage)
+        
         self.pokemonName.translatesAutoresizingMaskIntoConstraints = false
         self.pokemonImage.translatesAutoresizingMaskIntoConstraints = false
         
@@ -50,18 +52,17 @@ class PokemonCell: UICollectionViewCell {
             self.pokemonImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
             self.pokemonImage.widthAnchor.constraint(equalToConstant: (self.frame.width / 2)),
             self.pokemonImage.heightAnchor.constraint(equalToConstant: (self.frame.width / 2))
-        
         ])
     }
     
     func createPokemonTypeStackView(types: [String]) {
-        var items: [UIView] = []
+        labelStackView.subviews.forEach { $0.removeFromSuperview() }
+        
         for type in types {
             let typeComponents = PokemonTypeOverlay(type: type)
-            items.append(typeComponents)
+            labelStackView.addArrangedSubview(typeComponents)
             
         }
-        let labelStackView = UIStackView(arrangedSubviews: items)
         labelStackView.axis = .vertical
         labelStackView.spacing = 30
         
@@ -76,13 +77,6 @@ class PokemonCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-
-        self.pokemonName.text = nil
-        self.pokemonImage.image = nil
-        self.backgroundColor = .white
-        for subview in self.subviews {
-            subview.removeFromSuperview()
-        }
     }
 }
 
