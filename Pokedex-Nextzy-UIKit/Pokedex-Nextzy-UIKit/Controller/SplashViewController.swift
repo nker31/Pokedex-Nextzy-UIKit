@@ -24,7 +24,7 @@ class SplashViewController: UIViewController {
     }
     
     // MARK: - UI Setup
-    func setupUI(){
+    func setupUI() {
         view.backgroundColor = UIColor.pinkPokemon
         
         view.addSubview(logoImageView)
@@ -35,12 +35,10 @@ class SplashViewController: UIViewController {
             
             self.logoImageView.widthAnchor.constraint(equalToConstant: 120),
             self.logoImageView.heightAnchor.constraint(equalToConstant: 120)
-            
         ])
     }
     
     private func animateLogo() {
-
         UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseIn, animations: {
             self.logoImageView.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
             self.logoImageView.alpha = 1.0

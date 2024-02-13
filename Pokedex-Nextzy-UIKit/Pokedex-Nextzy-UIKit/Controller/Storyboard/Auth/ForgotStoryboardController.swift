@@ -23,7 +23,7 @@ class ForgotStoryboardController: UIViewController {
     }
     
     // MARK: - UI Setup
-    func setupNavbar(){
+    func setupNavbar() {
         self.title = String(localized: "forgot_password_title")
         guard let nav = navigationController?.navigationBar else { return }
         nav.prefersLargeTitles = true

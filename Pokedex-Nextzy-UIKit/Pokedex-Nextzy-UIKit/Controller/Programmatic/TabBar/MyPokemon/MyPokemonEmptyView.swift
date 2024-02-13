@@ -37,7 +37,7 @@ class MyPokemonEmptyView: UIView {
     
     // MARK: - UI Setup
     
-    func setupUI(){
+    func setupUI() {
         self.backgroundColor = .systemBackground
         self.addSubview(pokemonImageView)
         self.addSubview(emptyTextLabel)
@@ -53,7 +53,6 @@ class MyPokemonEmptyView: UIView {
             self.emptyTextLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             self.emptyTextLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 20),
             self.emptyTextLabel.widthAnchor.constraint(equalToConstant: 250)
-            
         ])
     }
 

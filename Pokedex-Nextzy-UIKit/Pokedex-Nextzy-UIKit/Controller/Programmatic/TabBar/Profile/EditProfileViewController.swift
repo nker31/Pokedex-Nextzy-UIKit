@@ -93,7 +93,7 @@ class EditProfileViewController: UIViewController {
     }
     
     // MARK: - UI Setup
-    private func setupNavbar(){
+    private func setupNavbar() {
         self.title = String(localized: "edit_profile_title")
         guard let nav = navigationController?.navigationBar else {
             return
@@ -104,7 +104,7 @@ class EditProfileViewController: UIViewController {
         nav.prefersLargeTitles = true
     }
     
-    private func setupUI(){
+    private func setupUI() {
         self.view.backgroundColor = .systemBackground
         
         let textfieldStack = UIStackView(arrangedSubviews: [
@@ -158,11 +158,11 @@ class EditProfileViewController: UIViewController {
     }
     
     // MARK: - Selectors
-    @objc private func didTapPhotoButton(){
+    @objc private func didTapPhotoButton() {
         present(imagePicker, animated: true, completion: nil)
     }
     
-    @objc private func didTapUpdateButton(){
+    @objc private func didTapUpdateButton() {
         guard let firstName = firstnameTextfield.text,
               let lastName = lastnameTextfield.text,
               let newImage = profileImageView.image else{

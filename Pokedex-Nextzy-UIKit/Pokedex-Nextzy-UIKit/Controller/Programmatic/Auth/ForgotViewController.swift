@@ -29,7 +29,6 @@ class ForgotViewController: UIViewController {
         return button
     }()
     
-    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,14 +55,14 @@ class ForgotViewController: UIViewController {
         return labelStackView
     }
     
-    func setupNavbar(){
+    func setupNavbar() {
         self.title = String(localized: "forgot_password_title")
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.tintColor = UIColor.pinkPokemon
         self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.pinkPokemon]
     }
     
-    func setupUI(){
+    func setupUI() {
         setupNavbar()
         self.view.backgroundColor = .systemBackground
         

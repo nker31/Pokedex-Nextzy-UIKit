@@ -43,7 +43,6 @@ class MyPokemonViewController: UIViewController {
         return view
     }()
     
-    
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -62,7 +61,6 @@ class MyPokemonViewController: UIViewController {
     }
     
     // MARK: - UI Setup
-    
     func setupNavbar() {
         guard let navigationBar = self.navigationController?.navigationBar else {
             return
@@ -90,7 +88,7 @@ class MyPokemonViewController: UIViewController {
         self.navigationItem.leftBarButtonItems = [columnsButton]
     }
     
-    func setupUI(){
+    func setupUI() {
         self.view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -161,7 +159,6 @@ extension MyPokemonViewController: UICollectionViewDataSource, UICollectionViewD
 }
 
 extension MyPokemonViewController: UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         switch myPokemonViewModel.collectionViewDisplayType {
